@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HVAC Schedule — AirFlow</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3350;
+      --text: #e8eaf6;
+      --text-muted: #8892b0;
+      --accent-blue: #4fc3f7;
+      --accent-orange: #ff8a65;
+      --accent-green: #69f0ae;
+      --accent-red: #ef5350;
+      --radius: 16px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 240px;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .logo { display: flex; align-items: center; gap: 10px; padding: 8px 12px; margin-bottom: 16px; }
+    .logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent-blue), #1565c0); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .logo-text { font-size: 18px; font-weight: 700; }
+    .logo-sub { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
+    .nav-section-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted); padding: 12px 12px 6px; }
+    .nav-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; font-size: 14px; color: var(--text-muted); text-decoration: none; }
+    .nav-item:hover { background: var(--surface2); color: var(--text); }
+    .nav-item.active { background: rgba(79, 195, 247, 0.12); color: var(--accent-blue); font-weight: 600; }
+    .nav-item .icon { font-size: 18px; width: 22px; text-align: center; }
+    .nav-badge { margin-left: auto; background: var(--accent-red); color: #fff; font-size: 10px; font-weight: 700; border-radius: 20px; padding: 1px 7px; }
+    .sidebar-bottom { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); }
+    .user-card { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; }
+    .avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; }
+    .user-name { font-size: 13px; font-weight: 600; }
+    .user-role { font-size: 11px; color: var(--text-muted); }
+
+    .main { flex: 1; padding: 32px; overflow-y: auto; }
+
+    .page-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 28px; }
+    .page-title { font-size: 26px; font-weight: 700; }
+    .page-subtitle { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+    .header-actions { display: flex; gap: 12px; }
+    .btn { padding: 9px 18px; border-radius: 10px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 7px; }
+    .btn-primary { background: var(--accent-blue); color: #0d1117; }
+    .btn-ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+
+    /* Zone tabs */
+    .zone-tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+    .zone-tab {
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .zone-tab.active { background: rgba(79,195,247,0.12); border-color: var(--accent-blue); color: var(--accent-blue); }
+
+    /* Schedule grid */
+    .schedule-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; }
+    .schedule-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .schedule-title { font-size: 14px; font-weight: 700; }
+    .day-toggle { display: flex; gap: 4px; }
+    .day-btn { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface2); color: var(--text-muted); font-size: 11px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .day-btn.on { background: var(--accent-blue); border-color: var(--accent-blue); color: #0d1117; }
+
+    /* Timeline */
+    .timeline-header { display: flex; margin-bottom: 8px; padding-left: 80px; }
+    .timeline-hour { flex: 1; font-size: 10px; color: var(--text-muted); text-align: center; }
+
+    .timeline-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .timeline-zone-label { width: 80px; font-size: 12px; color: var(--text-muted); flex-shrink: 0; text-align: right; padding-right: 8px; }
+
+    .timeline-track { flex: 1; height: 32px; background: var(--surface2); border-radius: 6px; position: relative; overflow: hidden; }
+
+    .timeline-block {
+      position: absolute;
+      top: 3px;
+      height: 26px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .block-cool { background: rgba(79, 195, 247, 0.3); color: var(--accent-blue); border: 1px solid rgba(79,195,247,0.4); }
+    .block-heat { background: rgba(255, 138, 101, 0.3); color: var(--accent-orange); border: 1px solid rgba(255,138,101,0.4); }
+    .block-eco { background: rgba(105, 240, 174, 0.2); color: var(--accent-green); border: 1px solid rgba(105,240,174,0.3); }
+    .block-off { background: rgba(136, 146, 176, 0.1); color: var(--text-muted); border: 1px solid var(--border); }
+
+    /* Program list */
+    .programs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .program-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .program-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .program-name { font-size: 15px; font-weight: 700; }
+    .program-badge { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+    .badge-active { background: rgba(105,240,174,0.15); color: var(--accent-green); }
+    .badge-inactive { background: var(--surface2); color: var(--text-muted); }
+
+    .program-setpoints { display: flex; gap: 16px; margin-bottom: 16px; }
+    .sp-item { }
+    .sp-label { font-size: 11px; color: var(--text-muted); }
+    .sp-val { font-size: 20px; font-weight: 700; }
+
+    .program-days { display: flex; gap: 4px; margin-bottom: 12px; }
+    .pd-chip { width: 26px; height: 26px; border-radius: 50%; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .pd-on { background: var(--accent-blue); color: #0d1117; }
+    .pd-off { background: var(--surface2); color: var(--text-muted); }
+
+    .program-time { font-size: 13px; color: var(--text-muted); }
+    .program-time strong { color: var(--text); }
+
+    .program-actions { display: flex; gap: 8px; margin-top: 14px; }
+    .prog-btn { padding: 7px 14px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface2); color: var(--text-muted); font-size: 12px; font-weight: 600; cursor: pointer; }
+    .prog-btn-primary { border-color: var(--accent-blue); color: var(--accent-blue); background: rgba(79,195,247,0.08); }
+  </style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <div class="logo">
+    <div class="logo-icon">❄️</div>
+    <div>
+      <div class="logo-text">AirFlow</div>
+      <div class="logo-sub">HVAC Control</div>
+    </div>
+  </div>
+
+  <div class="nav-section-label">Main</div>
+  <a class="nav-item" href="dashboard.html"><span class="icon">⊞</span> Dashboard</a>
+  <a class="nav-item" href="zones.html"><span class="icon">🏠</span> Zones</a>
+  <a class="nav-item active" href="schedule.html"><span class="icon">📅</span> Schedule</a>
+  <a class="nav-item" href="status.html"><span class="icon">⚙️</span> System Status<span class="nav-badge">2</span></a>
+
+  <div class="nav-section-label">Analytics</div>
+  <a class="nav-item" href="#"><span class="icon">📊</span> Energy Usage</a>
+  <a class="nav-item" href="#"><span class="icon">📈</span> Reports</a>
+
+  <div class="nav-section-label">Settings</div>
+  <a class="nav-item" href="#"><span class="icon">🔔</span> Alerts<span class="nav-badge">3</span></a>
+  <a class="nav-item" href="#"><span class="icon">⚙</span> Settings</a>
+
+  <div class="sidebar-bottom">
+    <div class="user-card">
+      <div class="avatar">JD</div>
+      <div>
+        <div class="user-name">John Doe</div>
+        <div class="user-role">Administrator</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="main">
+  <div class="page-header">
+    <div>
+      <div class="page-title">Schedule</div>
+      <div class="page-subtitle">Automate comfort programs by time and zone</div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-ghost">📋 Templates</button>
+      <button class="btn btn-primary">+ New Program</button>
+    </div>
+  </div>
+
+  <!-- Zone filter -->
+  <div class="zone-tabs">
+    <div class="zone-tab active">All Zones</div>
+    <div class="zone-tab">Living Room</div>
+    <div class="zone-tab">Master Bedroom</div>
+    <div class="zone-tab">Kitchen</div>
+    <div class="zone-tab">Office</div>
+    <div class="zone-tab">Basement</div>
+  </div>
+
+  <!-- Weekly timeline -->
+  <div class="schedule-wrap">
+    <div class="schedule-header">
+      <div class="schedule-title">Weekly Timeline — Today (Wednesday)</div>
+      <div class="day-toggle">
+        <div class="day-btn">S</div>
+        <div class="day-btn">M</div>
+        <div class="day-btn on">T</div>
+        <div class="day-btn on">W</div>
+        <div class="day-btn on">T</div>
+        <div class="day-btn">F</div>
+        <div class="day-btn">S</div>
+      </div>
+    </div>
+
+    <!-- Hour labels -->
+    <div class="timeline-header">
+      <div class="timeline-hour">12am</div>
+      <div class="timeline-hour">3am</div>
+      <div class="timeline-hour">6am</div>
+      <div class="timeline-hour">9am</div>
+      <div class="timeline-hour">12pm</div>
+      <div class="timeline-hour">3pm</div>
+      <div class="timeline-hour">6pm</div>
+      <div class="timeline-hour">9pm</div>
+    </div>
+
+    <!-- Living Room -->
+    <div class="timeline-row">
+      <div class="timeline-zone-label">Living Room</div>
+      <div class="timeline-track">
+        <div class="timeline-block block-off" style="left:0%;width:25%">Sleep 65°</div>
+        <div class="timeline-block block-eco" style="left:25%;width:12.5%">Eco 68°</div>
+        <div class="timeline-block block-cool" style="left:37.5%;width:37.5%">Comfort 70°</div>
+        <div class="timeline-block block-eco" style="left:75%;width:16.7%">Eve 69°</div>
+        <div class="timeline-block block-off" style="left:91.7%;width:8.3%">Night</div>
+      </div>
+    </div>
+
+    <!-- Master Bedroom -->
+    <div class="timeline-row">
+      <div class="timeline-zone-label">Bedroom</div>
+      <div class="timeline-track">
+        <div class="timeline-block block-cool" style="left:0%;width:29.2%">Sleep 70°</div>
+        <div class="timeline-block block-off" style="left:29.2%;width:45.8%">Away</div>
+        <div class="timeline-block block-eco" style="left:75%;width:16.7%">Eve 71°</div>
+        <div class="timeline-block block-cool" style="left:91.7%;width:8.3%">Sleep</div>
+      </div>
+    </div>
+
+    <!-- Kitchen -->
+    <div class="timeline-row">
+      <div class="timeline-zone-label">Kitchen</div>
+      <div class="timeline-track">
+        <div class="timeline-block block-off" style="left:0%;width:25%">Off</div>
+        <div class="timeline-block block-eco" style="left:25%;width:8.3%">Morn 68°</div>
+        <div class="timeline-block block-off" style="left:33.3%;width:33.4%">Away</div>
+        <div class="timeline-block block-cool" style="left:66.7%;width:20.8%">Active 70°</div>
+        <div class="timeline-block block-off" style="left:87.5%;width:12.5%">Night</div>
+      </div>
+    </div>
+
+    <!-- Office -->
+    <div class="timeline-row">
+      <div class="timeline-zone-label">Office</div>
+      <div class="timeline-track">
+        <div class="timeline-block block-off" style="left:0%;width:37.5%">Off</div>
+        <div class="timeline-block block-heat" style="left:37.5%;width:29.2%">Work 70°</div>
+        <div class="timeline-block block-off" style="left:66.7%;width:33.3%">Off</div>
+      </div>
+    </div>
+
+    <!-- Basement -->
+    <div class="timeline-row">
+      <div class="timeline-zone-label">Basement</div>
+      <div class="timeline-track">
+        <div class="timeline-block block-eco" style="left:0%;width:100%">Maintain 65°</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Programs -->
+  <div style="font-size:14px;font-weight:700;margin-bottom:14px;">Programs</div>
+  <div class="programs-grid">
+    <div class="program-card">
+      <div class="program-header">
+        <div class="program-name">🏠 Home Comfort</div>
+        <div class="program-badge badge-active">Active</div>
+      </div>
+      <div class="program-setpoints">
+        <div class="sp-item">
+          <div class="sp-label">Cool to</div>
+          <div class="sp-val" style="color:var(--accent-blue)">70°F</div>
+        </div>
+        <div class="sp-item">
+          <div class="sp-label">Heat to</div>
+          <div class="sp-val" style="color:var(--accent-orange)">68°F</div>
+        </div>
+      </div>
+      <div class="program-days">
+        <div class="pd-chip pd-off">S</div>
+        <div class="pd-chip pd-on">M</div>
+        <div class="pd-chip pd-on">T</div>
+        <div class="pd-chip pd-on">W</div>
+        <div class="pd-chip pd-on">T</div>
+        <div class="pd-chip pd-on">F</div>
+        <div class="pd-chip pd-off">S</div>
+      </div>
+      <div class="program-time">Active <strong>7:00 AM – 10:00 PM</strong></div>
+      <div class="program-actions">
+        <button class="prog-btn prog-btn-primary">Edit</button>
+        <button class="prog-btn">Duplicate</button>
+        <button class="prog-btn">Disable</button>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <div class="program-header">
+        <div class="program-name">😴 Sleep Mode</div>
+        <div class="program-badge badge-inactive">Inactive</div>
+      </div>
+      <div class="program-setpoints">
+        <div class="sp-item">
+          <div class="sp-label">Cool to</div>
+          <div class="sp-val" style="color:var(--accent-blue)">72°F</div>
+        </div>
+        <div class="sp-item">
+          <div class="sp-label">Heat to</div>
+          <div class="sp-val" style="color:var(--accent-orange)">65°F</div>
+        </div>
+      </div>
+      <div class="program-days">
+        <div class="pd-chip pd-on">S</div>
+        <div class="pd-chip pd-on">M</div>
+        <div class="pd-chip pd-on">T</div>
+        <div class="pd-chip pd-on">W</div>
+        <div class="pd-chip pd-on">T</div>
+        <div class="pd-chip pd-on">F</div>
+        <div class="pd-chip pd-on">S</div>
+      </div>
+      <div class="program-time">Active <strong>10:00 PM – 7:00 AM</strong></div>
+      <div class="program-actions">
+        <button class="prog-btn prog-btn-primary">Edit</button>
+        <button class="prog-btn">Duplicate</button>
+        <button class="prog-btn">Enable</button>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <div class="program-header">
+        <div class="program-name">🌿 Eco Away</div>
+        <div class="program-badge badge-inactive">Inactive</div>
+      </div>
+      <div class="program-setpoints">
+        <div class="sp-item">
+          <div class="sp-label">Cool to</div>
+          <div class="sp-val" style="color:var(--accent-blue)">78°F</div>
+        </div>
+        <div class="sp-item">
+          <div class="sp-label">Heat to</div>
+          <div class="sp-val" style="color:var(--accent-orange)">62°F</div>
+        </div>
+      </div>
+      <div class="program-days">
+        <div class="pd-chip pd-off">S</div>
+        <div class="pd-chip pd-on">M</div>
+        <div class="pd-chip pd-on">T</div>
+        <div class="pd-chip pd-on">W</div>
+        <div class="pd-chip pd-on">T</div>
+        <div class="pd-chip pd-on">F</div>
+        <div class="pd-chip pd-off">S</div>
+      </div>
+      <div class="program-time">Active <strong>9:00 AM – 5:00 PM</strong></div>
+      <div class="program-actions">
+        <button class="prog-btn prog-btn-primary">Edit</button>
+        <button class="prog-btn">Duplicate</button>
+        <button class="prog-btn">Enable</button>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <div class="program-header">
+        <div class="program-name">🎉 Weekend Relax</div>
+        <div class="program-badge badge-inactive">Inactive</div>
+      </div>
+      <div class="program-setpoints">
+        <div class="sp-item">
+          <div class="sp-label">Cool to</div>
+          <div class="sp-val" style="color:var(--accent-blue)">71°F</div>
+        </div>
+        <div class="sp-item">
+          <div class="sp-label">Heat to</div>
+          <div class="sp-val" style="color:var(--accent-orange)">69°F</div>
+        </div>
+      </div>
+      <div class="program-days">
+        <div class="pd-chip pd-on">S</div>
+        <div class="pd-chip pd-off">M</div>
+        <div class="pd-chip pd-off">T</div>
+        <div class="pd-chip pd-off">W</div>
+        <div class="pd-chip pd-off">T</div>
+        <div class="pd-chip pd-off">F</div>
+        <div class="pd-chip pd-on">S</div>
+      </div>
+      <div class="program-time">Active <strong>All day</strong></div>
+      <div class="program-actions">
+        <button class="prog-btn prog-btn-primary">Edit</button>
+        <button class="prog-btn">Duplicate</button>
+        <button class="prog-btn">Enable</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

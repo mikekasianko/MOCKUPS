@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HVAC Zones — AirFlow</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3350;
+      --text: #e8eaf6;
+      --text-muted: #8892b0;
+      --accent-blue: #4fc3f7;
+      --accent-orange: #ff8a65;
+      --accent-green: #69f0ae;
+      --accent-red: #ef5350;
+      --radius: 16px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 240px;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      margin-bottom: 16px;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--accent-blue), #1565c0);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .logo-text { font-size: 18px; font-weight: 700; }
+    .logo-sub { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
+    .nav-section-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-muted);
+      padding: 12px 12px 6px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .nav-item:hover { background: var(--surface2); color: var(--text); }
+    .nav-item.active { background: rgba(79, 195, 247, 0.12); color: var(--accent-blue); font-weight: 600; }
+    .nav-item .icon { font-size: 18px; width: 22px; text-align: center; }
+    .nav-badge {
+      margin-left: auto;
+      background: var(--accent-red);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 20px;
+      padding: 1px 7px;
+    }
+
+    .sidebar-bottom { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); }
+    .user-card { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; }
+    .avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; }
+    .user-name { font-size: 13px; font-weight: 600; }
+    .user-role { font-size: 11px; color: var(--text-muted); }
+
+    .main { flex: 1; padding: 32px; overflow-y: auto; }
+
+    .page-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 28px; }
+    .page-title { font-size: 26px; font-weight: 700; }
+    .page-subtitle { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+
+    .btn { padding: 9px 18px; border-radius: 10px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 7px; }
+    .btn-primary { background: var(--accent-blue); color: #0d1117; }
+    .btn-ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+    .header-actions { display: flex; gap: 12px; }
+
+    /* Detail layout */
+    .layout { display: grid; grid-template-columns: 340px 1fr; gap: 20px; }
+
+    /* Zone list */
+    .zone-list { display: flex; flex-direction: column; gap: 10px; }
+
+    .zone-row {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      cursor: pointer;
+      transition: border-color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .zone-row:hover { border-color: var(--accent-blue); }
+    .zone-row.selected { border-color: var(--accent-blue); background: rgba(79, 195, 247, 0.06); }
+
+    .zone-row-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .icon-cool { background: rgba(79, 195, 247, 0.15); }
+    .icon-heat { background: rgba(255, 138, 101, 0.15); }
+    .icon-idle { background: var(--surface2); }
+    .icon-off { background: rgba(239, 83, 80, 0.1); }
+
+    .zone-row-info { flex: 1; }
+    .zone-row-name { font-size: 14px; font-weight: 600; }
+    .zone-row-mode { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    .zone-row-temp { font-size: 22px; font-weight: 700; }
+    .temp-cool { color: var(--accent-blue); }
+    .temp-heat { color: var(--accent-orange); }
+    .temp-off { color: var(--text-muted); }
+
+    /* Detail panel */
+    .detail-panel { display: flex; flex-direction: column; gap: 16px; }
+
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+    .card-title { font-size: 14px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; }
+    .card-title-right { font-size: 12px; color: var(--accent-blue); font-weight: 500; }
+
+    /* Thermostat dial */
+    .thermostat-card { text-align: center; }
+
+    .dial-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 20px;
+    }
+
+    .dial-svg { width: 200px; height: 200px; }
+
+    .dial-center {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .dial-current { font-size: 42px; font-weight: 700; color: var(--accent-blue); letter-spacing: -2px; }
+    .dial-unit { font-size: 16px; color: var(--text-muted); }
+    .dial-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; margin-top: 2px; }
+
+    .setpoint-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .sp-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .sp-value { font-size: 22px; font-weight: 700; }
+    .sp-label { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+    /* Mode buttons */
+    .mode-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .mode-btn {
+      padding: 10px 6px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s;
+    }
+
+    .mode-btn .mode-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+    .mode-btn.active { border-color: var(--accent-blue); color: var(--accent-blue); background: rgba(79,195,247,0.1); }
+
+    /* Readings */
+    .readings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .reading-item { background: var(--surface2); border-radius: 12px; padding: 14px; }
+    .reading-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+    .reading-value { font-size: 24px; font-weight: 700; }
+    .reading-unit { font-size: 12px; color: var(--text-muted); }
+    .reading-bar { height: 4px; background: var(--border); border-radius: 2px; margin-top: 8px; overflow: hidden; }
+    .reading-fill { height: 100%; border-radius: 2px; }
+
+    /* History sparkline rows */
+    .history-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .history-row:last-child { border-bottom: none; }
+    .history-label { font-size: 12px; color: var(--text-muted); width: 80px; flex-shrink: 0; }
+    .sparkline { flex: 1; height: 28px; display: flex; align-items: flex-end; gap: 2px; }
+    .spark-bar { flex: 1; border-radius: 2px 2px 0 0; min-height: 2px; }
+    .history-val { font-size: 13px; font-weight: 600; width: 50px; text-align: right; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <div class="logo">
+    <div class="logo-icon">❄️</div>
+    <div>
+      <div class="logo-text">AirFlow</div>
+      <div class="logo-sub">HVAC Control</div>
+    </div>
+  </div>
+
+  <div class="nav-section-label">Main</div>
+  <a class="nav-item" href="dashboard.html"><span class="icon">⊞</span> Dashboard</a>
+  <a class="nav-item active" href="zones.html"><span class="icon">🏠</span> Zones</a>
+  <a class="nav-item" href="schedule.html"><span class="icon">📅</span> Schedule</a>
+  <a class="nav-item" href="status.html"><span class="icon">⚙️</span> System Status<span class="nav-badge">2</span></a>
+
+  <div class="nav-section-label">Analytics</div>
+  <a class="nav-item" href="#"><span class="icon">📊</span> Energy Usage</a>
+  <a class="nav-item" href="#"><span class="icon">📈</span> Reports</a>
+
+  <div class="nav-section-label">Settings</div>
+  <a class="nav-item" href="#"><span class="icon">🔔</span> Alerts<span class="nav-badge">3</span></a>
+  <a class="nav-item" href="#"><span class="icon">⚙</span> Settings</a>
+
+  <div class="sidebar-bottom">
+    <div class="user-card">
+      <div class="avatar">JD</div>
+      <div>
+        <div class="user-name">John Doe</div>
+        <div class="user-role">Administrator</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="main">
+  <div class="page-header">
+    <div>
+      <div class="page-title">Zone Control</div>
+      <div class="page-subtitle">Manage individual zones and temperature setpoints</div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-ghost">⚙ Zone Settings</button>
+      <button class="btn btn-primary">+ Add Zone</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <!-- Zone list -->
+    <div class="zone-list">
+      <div class="zone-row selected">
+        <div class="zone-row-icon icon-cool">🛋️</div>
+        <div class="zone-row-info">
+          <div class="zone-row-name">Living Room</div>
+          <div class="zone-row-mode">❄️ Cooling · Set 68°F</div>
+        </div>
+        <div class="zone-row-temp temp-cool">69°</div>
+      </div>
+      <div class="zone-row">
+        <div class="zone-row-icon icon-idle">🛏️</div>
+        <div class="zone-row-info">
+          <div class="zone-row-name">Master Bedroom</div>
+          <div class="zone-row-mode">— Idle · Set 72°F</div>
+        </div>
+        <div class="zone-row-temp temp-cool">71°</div>
+      </div>
+      <div class="zone-row">
+        <div class="zone-row-icon icon-cool">🍳</div>
+        <div class="zone-row-info">
+          <div class="zone-row-name">Kitchen</div>
+          <div class="zone-row-mode">❄️ Cooling · Set 70°F</div>
+        </div>
+        <div class="zone-row-temp temp-cool">74°</div>
+      </div>
+      <div class="zone-row">
+        <div class="zone-row-icon icon-heat">💼</div>
+        <div class="zone-row-info">
+          <div class="zone-row-name">Office</div>
+          <div class="zone-row-mode">🔥 Heating · Set 70°F</div>
+        </div>
+        <div class="zone-row-temp temp-heat">66°</div>
+      </div>
+      <div class="zone-row">
+        <div class="zone-row-icon icon-off">🚗</div>
+        <div class="zone-row-info">
+          <div class="zone-row-name">Garage</div>
+          <div class="zone-row-mode">⚠️ Sensor offline</div>
+        </div>
+        <div class="zone-row-temp temp-off">--°</div>
+      </div>
+      <div class="zone-row">
+        <div class="zone-row-icon icon-idle">🏚️</div>
+        <div class="zone-row-info">
+          <div class="zone-row-name">Basement</div>
+          <div class="zone-row-mode">— Idle · Set 65°F</div>
+        </div>
+        <div class="zone-row-temp temp-cool">64°</div>
+      </div>
+    </div>
+
+    <!-- Detail panel -->
+    <div class="detail-panel">
+      <!-- Thermostat -->
+      <div class="card thermostat-card">
+        <div class="card-title">
+          Living Room
+          <span class="card-title-right">Edit zone</span>
+        </div>
+
+        <div class="dial-container">
+          <svg class="dial-svg" viewBox="0 0 200 200">
+            <!-- Track -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#2e3350" stroke-width="12" stroke-dasharray="440 60" stroke-dashoffset="165" stroke-linecap="round"/>
+            <!-- Progress (cooling) -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#4fc3f7" stroke-width="12" stroke-dasharray="200 300" stroke-dashoffset="165" stroke-linecap="round" opacity="0.9"/>
+          </svg>
+          <div class="dial-center">
+            <div class="dial-current">69<span class="dial-unit">°</span></div>
+            <div class="dial-label">Current</div>
+          </div>
+        </div>
+
+        <div class="setpoint-row">
+          <button class="sp-btn">−</button>
+          <div>
+            <div class="sp-value">68°F</div>
+            <div class="sp-label">Set point</div>
+          </div>
+          <button class="sp-btn">+</button>
+        </div>
+
+        <div class="mode-row">
+          <div class="mode-btn active">
+            <span class="mode-icon">❄️</span>
+            Cool
+          </div>
+          <div class="mode-btn">
+            <span class="mode-icon">🔥</span>
+            Heat
+          </div>
+          <div class="mode-btn">
+            <span class="mode-icon">🔄</span>
+            Auto
+          </div>
+          <div class="mode-btn">
+            <span class="mode-icon">⭕</span>
+            Off
+          </div>
+        </div>
+      </div>
+
+      <!-- Current readings -->
+      <div class="card">
+        <div class="card-title">Current Readings</div>
+        <div class="readings-grid">
+          <div class="reading-item">
+            <div class="reading-label">Temperature</div>
+            <div class="reading-value" style="color:var(--accent-blue)">69<span class="reading-unit">°F</span></div>
+            <div class="reading-bar"><div class="reading-fill" style="width:50%;background:var(--accent-blue)"></div></div>
+          </div>
+          <div class="reading-item">
+            <div class="reading-label">Humidity</div>
+            <div class="reading-value" style="color:var(--accent-purple,#ce93d8)">55<span class="reading-unit">%</span></div>
+            <div class="reading-bar"><div class="reading-fill" style="width:55%;background:#ce93d8"></div></div>
+          </div>
+          <div class="reading-item">
+            <div class="reading-label">CO₂</div>
+            <div class="reading-value" style="color:var(--accent-green)">612<span class="reading-unit">ppm</span></div>
+            <div class="reading-bar"><div class="reading-fill" style="width:30%;background:var(--accent-green)"></div></div>
+          </div>
+          <div class="reading-item">
+            <div class="reading-label">Air Quality</div>
+            <div class="reading-value" style="color:var(--accent-green)">Good</div>
+            <div class="reading-bar"><div class="reading-fill" style="width:80%;background:var(--accent-green)"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 24h history -->
+      <div class="card">
+        <div class="card-title">24-Hour History</div>
+        <div class="history-row">
+          <div class="history-label">Temperature</div>
+          <div class="sparkline">
+            <div class="spark-bar" style="height:60%;background:var(--accent-blue);opacity:0.6"></div>
+            <div class="spark-bar" style="height:55%;background:var(--accent-blue);opacity:0.6"></div>
+            <div class="spark-bar" style="height:50%;background:var(--accent-blue);opacity:0.6"></div>
+            <div class="spark-bar" style="height:52%;background:var(--accent-blue);opacity:0.6"></div>
+            <div class="spark-bar" style="height:48%;background:var(--accent-blue);opacity:0.6"></div>
+            <div class="spark-bar" style="height:45%;background:var(--accent-blue);opacity:0.6"></div>
+            <div class="spark-bar" style="height:47%;background:var(--accent-blue);opacity:0.6"></div>
+            <div class="spark-bar" style="height:55%;background:var(--accent-blue);opacity:0.6"></div>
+            <div class="spark-bar" style="height:65%;background:var(--accent-blue);opacity:0.6"></div>
+            <div class="spark-bar" style="height:70%;background:var(--accent-blue);opacity:0.6"></div>
+            <div class="spark-bar" style="height:75%;background:var(--accent-blue);opacity:0.6"></div>
+            <div class="spark-bar" style="height:72%;background:var(--accent-blue);opacity:0.6"></div>
+            <div class="spark-bar" style="height:68%;background:var(--accent-blue)"></div>
+          </div>
+          <div class="history-val" style="color:var(--accent-blue)">69°F</div>
+        </div>
+        <div class="history-row">
+          <div class="history-label">Humidity</div>
+          <div class="sparkline">
+            <div class="spark-bar" style="height:50%;background:#ce93d8;opacity:0.6"></div>
+            <div class="spark-bar" style="height:52%;background:#ce93d8;opacity:0.6"></div>
+            <div class="spark-bar" style="height:55%;background:#ce93d8;opacity:0.6"></div>
+            <div class="spark-bar" style="height:58%;background:#ce93d8;opacity:0.6"></div>
+            <div class="spark-bar" style="height:56%;background:#ce93d8;opacity:0.6"></div>
+            <div class="spark-bar" style="height:54%;background:#ce93d8;opacity:0.6"></div>
+            <div class="spark-bar" style="height:53%;background:#ce93d8;opacity:0.6"></div>
+            <div class="spark-bar" style="height:55%;background:#ce93d8;opacity:0.6"></div>
+            <div class="spark-bar" style="height:57%;background:#ce93d8;opacity:0.6"></div>
+            <div class="spark-bar" style="height:55%;background:#ce93d8;opacity:0.6"></div>
+            <div class="spark-bar" style="height:54%;background:#ce93d8;opacity:0.6"></div>
+            <div class="spark-bar" style="height:55%;background:#ce93d8;opacity:0.6"></div>
+            <div class="spark-bar" style="height:55%;background:#ce93d8"></div>
+          </div>
+          <div class="history-val" style="color:#ce93d8">55%</div>
+        </div>
+        <div class="history-row">
+          <div class="history-label">Fan speed</div>
+          <div class="sparkline">
+            <div class="spark-bar" style="height:0%;background:var(--accent-green);opacity:0.6"></div>
+            <div class="spark-bar" style="height:0%;background:var(--accent-green);opacity:0.6"></div>
+            <div class="spark-bar" style="height:0%;background:var(--accent-green);opacity:0.6"></div>
+            <div class="spark-bar" style="height:50%;background:var(--accent-green);opacity:0.6"></div>
+            <div class="spark-bar" style="height:80%;background:var(--accent-green);opacity:0.6"></div>
+            <div class="spark-bar" style="height:80%;background:var(--accent-green);opacity:0.6"></div>
+            <div class="spark-bar" style="height:50%;background:var(--accent-green);opacity:0.6"></div>
+            <div class="spark-bar" style="height:0%;background:var(--accent-green);opacity:0.6"></div>
+            <div class="spark-bar" style="height:80%;background:var(--accent-green);opacity:0.6"></div>
+            <div class="spark-bar" style="height:100%;background:var(--accent-green);opacity:0.6"></div>
+            <div class="spark-bar" style="height:100%;background:var(--accent-green);opacity:0.6"></div>
+            <div class="spark-bar" style="height:80%;background:var(--accent-green);opacity:0.6"></div>
+            <div class="spark-bar" style="height:80%;background:var(--accent-green)"></div>
+          </div>
+          <div class="history-val" style="color:var(--accent-green)">Med</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
