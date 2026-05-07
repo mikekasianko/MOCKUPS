@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast Heating &amp; Cooling LLC — Hinckley, OH</title>
+<meta name="description" content="Emergency furnace repair, AC service, and heat pump installs in Hinckley, OH. We answer the phone. We show up the same day. Call Orest.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue-dark:  #0a2540;
+    --blue-mid:   #1a4a7a;
+    --blue-light: #2d7dd2;
+    --blue-pale:  #e8f2fc;
+    --white:      #ffffff;
+    --gray-100:   #f5f7fa;
+    --gray-200:   #e4e8ef;
+    --gray-400:   #8a96a8;
+    --gray-700:   #374151;
+    --gray-900:   #111827;
+    --red:        #c0392b;
+    --font: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--gray-900);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Utility ── */
+  .container {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ── Top Bar ── */
+  .topbar {
+    background: var(--blue-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .topbar a {
+    color: #7ec8f7;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  /* ── Nav ── */
+  .nav {
+    background: var(--white);
+    border-bottom: 2px solid var(--blue-dark);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .nav-name {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--blue-dark);
+    letter-spacing: -0.3px;
+  }
+
+  .nav-sub {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-weight: 500;
+  }
+
+  .nav-cta {
+    background: var(--blue-light);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 9px 18px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+
+  .nav-cta:hover { background: var(--blue-mid); }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--blue-dark);
+    color: var(--white);
+    padding: 56px 20px 52px;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(30px, 8vw, 48px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: #7ec8f7;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: #b3cde8;
+    max-width: 480px;
+    margin: 0 auto 32px;
+    line-height: 1.5;
+  }
+
+  /* Response promise */
+  .promise-box {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-left: 4px solid #7ec8f7;
+    border-radius: 8px;
+    padding: 18px 22px;
+    max-width: 480px;
+    margin: 0 auto 36px;
+    text-align: left;
+  }
+
+  .promise-headline {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+
+  .promise-detail {
+    font-size: 14px;
+    color: #b3cde8;
+    line-height: 1.5;
+  }
+
+  /* CTA buttons */
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .btn-call {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--blue-dark);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 16px 36px;
+    border-radius: 8px;
+    letter-spacing: -0.3px;
+    width: 100%;
+    max-width: 340px;
+    transition: background 0.15s;
+  }
+
+  .btn-call:hover { background: var(--blue-pale); }
+
+  .btn-call-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gray-400);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .phone-icon {
+    display: inline-block;
+    font-size: 22px;
+    animation: ring 2.5s ease-in-out infinite;
+  }
+
+  @keyframes ring {
+    0%, 90%, 100% { transform: rotate(0deg); }
+    92%            { transform: rotate(-18deg); }
+    95%            { transform: rotate(18deg); }
+    97%            { transform: rotate(-10deg); }
+    99%            { transform: rotate(5deg); }
+  }
+
+  .hero-note {
+    font-size: 13px;
+    color: #7a9bbf;
+    margin-top: 12px;
+  }
+
+  /* ── Badges ── */
+  .badges {
+    background: var(--blue-mid);
+    padding: 18px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .badge-item {
+    color: #c8dff5;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .badge-item:last-child { border-right: none; }
+  .badge-item strong { color: var(--white); display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* ── Section base ── */
+  .section { padding: 60px 20px; }
+  .section-alt { background: var(--gray-100); }
+  .section-dark { background: var(--blue-dark); color: var(--white); }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 10px;
+  }
+
+  .section-dark .section-label { color: #7ec8f7; }
+
+  .section-title {
+    font-size: clamp(24px, 6vw, 36px);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.4px;
+    margin-bottom: 14px;
+    color: var(--blue-dark);
+  }
+
+  .section-dark .section-title { color: var(--white); }
+
+  .section-body {
+    font-size: 16px;
+    color: var(--gray-700);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  .section-dark .section-body { color: #b3cde8; }
+
+  /* ── Services ── */
+  .services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-top: 4px solid var(--blue-light);
+    border-radius: 8px;
+    padding: 28px 24px;
+  }
+
+  .service-icon {
+    font-size: 36px;
+    margin-bottom: 14px;
+    display: block;
+    line-height: 1;
+  }
+
+  .service-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--blue-dark);
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+
+  .service-desc {
+    font-size: 15px;
+    color: var(--gray-700);
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+
+  .service-tag {
+    display: inline-block;
+    background: var(--blue-pale);
+    color: var(--blue-mid);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── About ── */
+  .about-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .about-intro {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    line-height: 1.4;
+    margin-bottom: 20px;
+    letter-spacing: -0.2px;
+  }
+
+  .about-body {
+    font-size: 16px;
+    color: var(--gray-700);
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+
+  .cred-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cred-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+
+  .cred-check {
+    width: 26px;
+    height: 26px;
+    background: var(--blue-dark);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 900;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .cred-text { font-size: 15px; color: var(--gray-700); line-height: 1.5; }
+  .cred-text strong { color: var(--gray-900); display: block; font-weight: 700; font-size: 15px; }
+
+  /* ── Testimonials ── */
+  .reviews-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .review-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .review-stars {
+    color: #f5c518;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .review-text {
+    font-size: 16px;
+    color: #d4e6f7;
+    line-height: 1.65;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .review-author {
+    font-size: 13px;
+    color: #7ec8f7;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .reviews-note {
+    margin-top: 28px;
+    font-size: 14px;
+    color: #7a9bbf;
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ── Final CTA ── */
+  .final-cta {
+    background: var(--blue-light);
+    color: var(--white);
+    padding: 56px 20px;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(26px, 7vw, 40px);
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+
+  .final-cta p {
+    font-size: 17px;
+    color: #c8dff5;
+    margin-bottom: 32px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-call-big {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white);
+    color: var(--blue-dark);
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 900;
+    padding: 20px 40px;
+    border-radius: 8px;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    transition: background 0.15s;
+  }
+
+  .btn-call-big:hover { background: var(--blue-pale); }
+
+  .btn-call-big small {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-400);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  .final-note {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #9dc8ec;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--blue-dark);
+    color: #6a8aaa;
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .footer a { color: #7ec8f7; text-decoration: none; }
+  .footer strong { color: #b3cde8; }
+
+  /* ── Tablet+ ── */
+  @media (min-width: 600px) {
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .service-card:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .hero-actions {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .btn-call { width: auto; }
+  }
+
+  @media (min-width: 720px) {
+    .service-card:first-child { grid-column: auto; }
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  Serving Hinckley &amp; Medina County &nbsp;·&nbsp; Call now: <a href="tel:+13305550000">(330) 555-0000</a>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-brand">
+    <span class="nav-name">Fast Heating &amp; Cooling</span>
+    <span class="nav-sub">Hinckley, OH · Licensed &amp; Insured</span>
+  </div>
+  <a href="tel:+13305550000" class="nav-cta">📞 Call Now</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Hinckley's Local HVAC</div>
+
+    <h1>Fast Response.<br>Fair Price.<br><em>We Show Up.</em></h1>
+
+    <p class="hero-sub">
+      Emergency furnace repair, AC service, and heat pump installs —
+      from someone who actually picks up the phone.
+    </p>
+
+    <!-- Response promise — front and center -->
+    <div class="promise-box">
+      <div class="promise-headline">We answer. We show up.</div>
+      <div class="promise-detail">
+        No call centers. No "press 1 for service." Orest answers directly.
+        Same-day service for most emergency calls in Medina County.
+        If we can't make it work, we'll tell you up front — not after you've waited all day.
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <a href="tel:+13305550000" class="btn-call">
+          <span class="phone-icon">📞</span>
+          (330) 555-0000
+        </a>
+        <span class="btn-call-label">Need it fixed today? Call Orest.</span>
+      </div>
+    </div>
+
+    <p class="hero-note">Available 7 days a week &nbsp;·&nbsp; No after-hours surcharge nonsense</p>
+  </div>
+</section>
+
+<!-- Trust badges -->
+<div class="badges">
+  <div class="badge-item"><strong>Licensed</strong>Ohio HVAC</div>
+  <div class="badge-item"><strong>Insured</strong>Fully covered</div>
+  <div class="badge-item"><strong>Same Day</strong>Most repairs</div>
+  <div class="badge-item"><strong>Local</strong>Hinckley, OH</div>
+</div>
+
+<!-- Services -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Three things, done right.</h2>
+    <p class="section-body">
+      We don't try to do everything. We do furnaces, AC, and heat pumps —
+      and we do them well enough that Hinckley residents call us back.
+    </p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <span class="service-icon">🔥</span>
+        <div class="service-name">Emergency Furnace Repair</div>
+        <p class="service-desc">
+          Heat went out at midnight in January? That's not a Tuesday morning problem.
+          We take emergency calls seriously because a cold house in Ohio isn't
+          something you can wait on. We diagnose fast, carry common parts, and
+          we don't leave until you have heat.
+        </p>
+        <span class="service-tag">Same-day available</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">❄️</span>
+        <div class="service-name">AC Service &amp; Repair</div>
+        <p class="service-desc">
+          Whether your AC stopped cooling, is making a sound it shouldn't,
+          or just hasn't been serviced in a few years — we'll check it over,
+          tell you what's actually wrong, and give you a straight number before
+          we touch anything.
+        </p>
+        <span class="service-tag">Tune-ups &amp; repairs</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">♻️</span>
+        <div class="service-name">Heat Pump Installs</div>
+        <p class="service-desc">
+          Heat pumps make sense for a lot of Ohio homes — one system for heating
+          and cooling, lower operating costs over time. We'll size it correctly
+          for your house, install it clean, and walk you through how it actually
+          works before we leave.
+        </p>
+        <span class="service-tag">Full installation</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- About / credibility -->
+<section class="section">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="section-label">About Orest</div>
+      <h2 class="section-title">One technician. One phone number. No runaround.</h2>
+
+      <p class="about-intro">
+        I started Fast Heating &amp; Cooling because I got tired of watching
+        homeowners get jerked around by companies that send a different tech
+        every time, quote one price and charge another, and disappear after
+        the install.
+      </p>
+
+      <p class="about-body">
+        When you call this number, you get me — Orest. I've been working on
+        HVAC systems in Medina County for over a decade. I know the equipment
+        that's common in these houses, I know the winters here, and I know that
+        your time is worth something. I show up when I say I will. I price work
+        fairly. And if your system is beyond repair, I'll tell you that straight
+        instead of selling you parts it doesn't need.
+      </p>
+
+      <div class="cred-list">
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-text">
+            <strong>Ohio-licensed HVAC technician</strong>
+            Fully licensed and insured — ask to see it, I'll show you.
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-text">
+            <strong>Flat-rate pricing, quoted before the work starts</strong>
+            No open-ended hourly billing. You know the number before I pick up a wrench.
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-text">
+            <strong>Based in Hinckley — not dispatched from 40 miles away</strong>
+            Short drive times mean faster response and lower overhead passed on to you.
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-text">
+            <strong>Straight talk on repairs vs. replacement</strong>
+            I'll tell you when it's worth fixing and when you'd be throwing money at a dying system.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label">What Neighbors Say</div>
+    <h2 class="section-title">Hinckley homeowners, real words.</h2>
+    <p class="section-body">
+      These are placeholder reviews — real testimonials from your customers go here.
+    </p>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Furnace died on a Thursday night in February. Orest picked up,
+          was at my house by 9 AM Friday, had it running by noon.
+          Price was exactly what he quoted. Couldn't ask for more."
+        </p>
+        <div class="review-author">— M.K., Hinckley Township</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "I've had two other companies out for my AC over the years.
+          Orest found the actual problem in 20 minutes and fixed it for
+          less than the other guys charged just to show up."
+        </p>
+        <div class="review-author">— T.R., Medina County</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Had a heat pump installed last fall. Clean work, he explained
+          everything, and he answered my questions three weeks later
+          when I called back. That's the kind of service I'll recommend."
+        </p>
+        <div class="review-author">— D.S., Sharon Center</div>
+      </div>
+    </div>
+
+    <p class="reviews-note">
+      ✦ Replace placeholder reviews with real customer testimonials before publishing.
+    </p>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Need it fixed today?<br>Call Orest.</h2>
+    <p>
+      No hold music. No dispatch queue. One call, one tech, one straight answer
+      on what it'll take to get your system running.
+    </p>
+    <a href="tel:+13305550000" class="btn-call-big">
+      (330) 555-0000
+      <small>Fast Heating &amp; Cooling · Hinckley, OH</small>
+    </a>
+    <p class="final-note">Available 7 days a week &nbsp;·&nbsp; Emergency calls welcome</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <strong>Fast Heating &amp; Cooling LLC</strong><br>
+    Hinckley, OH &nbsp;·&nbsp; Serving Medina County<br>
+    <a href="tel:+13305550000">(330) 555-0000</a> &nbsp;·&nbsp; Licensed &amp; Insured<br>
+    <br>
+    <span style="font-size:12px;">
+      © 2026 Fast Heating &amp; Cooling LLC. All rights reserved.
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
