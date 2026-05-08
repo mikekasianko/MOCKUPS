@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Clark Heating &amp; Plumbing — Shaker Heights, OH</title>
+<meta name="description" content="Shaker Heights heating and plumbing by the Clark family. Boiler service, plumbing repairs, HVAC installs, and older-home specialty. Free estimates. Call us.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:      #0c2340;
+    --blue:      #144f8c;
+    --blue-mid:  #1a5fa8;
+    --blue-lt:   #2d7dd2;
+    --blue-pale: #e8f1fb;
+    --white:     #ffffff;
+    --offwhite:  #f7f9fc;
+    --gray-100:  #f0f3f8;
+    --gray-200:  #dde3ee;
+    --gray-400:  #8c99b0;
+    --gray-600:  #475569;
+    --gray-900:  #0f1e30;
+    --gold:      #b07d2e;
+    --gold-pale: #fdf3dc;
+    --green:     #166534;
+    --green-lt:  #dcfce7;
+    --font: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--gray-900);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { width: 100%; max-width: 740px; margin: 0 auto; padding: 0 20px; }
+
+  /* ── Top strip ── */
+  .topstrip {
+    background: var(--navy);
+    color: #7a9fc4;
+    font-size: 13px;
+    padding: 9px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .topstrip a { color: #93c5fd; text-decoration: none; font-weight: 700; }
+  .topstrip span { color: #3a5a7a; }
+
+  /* ── Nav ── */
+  .nav {
+    background: var(--white);
+    border-bottom: 3px solid var(--navy);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+
+  .nav-monogram {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    background: var(--navy);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    flex-shrink: 0;
+  }
+
+  .nav-name  { font-size: 15px; font-weight: 800; color: var(--navy); line-height: 1.2; letter-spacing: -0.2px; }
+  .nav-sub   { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+
+  .nav-cta {
+    background: var(--navy);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 16px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 54px 20px 50px;
+  }
+
+  .hero-inner { max-width: 620px; margin: 0 auto; }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #93c5fd;
+    border: 1px solid rgba(147,197,253,0.3);
+    border-radius: 4px;
+    padding: 6px 14px;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 7.5vw, 48px);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.6px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 em { font-style: normal; color: #93c5fd; }
+
+  .hero-sub {
+    font-size: 17px;
+    color: #93b8d8;
+    line-height: 1.65;
+    max-width: 500px;
+    margin-bottom: 34px;
+  }
+
+  /* Family trust bar */
+  .family-bar {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 4px solid #93c5fd;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .family-avatars {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .family-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    margin-left: -8px;
+    background: var(--blue-mid);
+    color: var(--white);
+  }
+
+  .family-avatar:first-child { margin-left: 0; background: #1a4a7a; }
+  .family-avatar:nth-child(2) { background: #1560a8; }
+  .family-avatar:nth-child(3) { background: #1a5fa8; }
+
+  .family-text { }
+  .family-heading { font-size: 15px; font-weight: 800; color: var(--white); margin-bottom: 3px; }
+  .family-detail  { font-size: 13px; color: #93b8d8; line-height: 1.45; }
+
+  /* CTA group */
+  .hero-cta { display: flex; flex-direction: column; gap: 12px; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 15px 26px;
+    border-radius: 8px;
+    letter-spacing: -0.2px;
+    transition: background 0.15s;
+    max-width: 380px;
+  }
+
+  .btn-primary:hover { background: var(--blue-pale); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent;
+    color: #93c5fd;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 13px 26px;
+    border-radius: 8px;
+    border: 1px solid rgba(147,197,253,0.35);
+    max-width: 380px;
+    transition: border-color 0.15s;
+  }
+
+  .btn-secondary:hover { border-color: rgba(147,197,253,0.7); }
+
+  .hero-note { font-size: 13px; color: #5a7a9a; margin-top: 10px; }
+
+  /* ── Trust badges ── */
+  .badges {
+    background: var(--blue);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .badge {
+    color: #c2d8f5;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 14px 18px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .badge:last-child { border-right: none; }
+  .badge strong { display: block; color: var(--white); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+
+  /* ── Section base ── */
+  .section     { padding: 64px 20px; }
+  .section-alt { background: var(--offwhite); }
+  .section-dark{ background: var(--navy); color: var(--white); }
+  .section-gold{ background: var(--gold-pale); }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--blue-lt); margin-bottom: 10px;
+  }
+  .section-dark .section-label { color: #93c5fd; }
+  .section-gold .section-label { color: var(--gold); }
+
+  .section-title {
+    font-size: clamp(22px, 5.5vw, 34px);
+    font-weight: 900; line-height: 1.12;
+    letter-spacing: -0.4px; margin-bottom: 14px; color: var(--navy);
+  }
+  .section-dark .section-title { color: var(--white); }
+  .section-gold .section-title { color: var(--navy); }
+
+  .section-body {
+    font-size: 16px; color: var(--gray-600);
+    max-width: 560px; line-height: 1.75; margin-bottom: 36px;
+  }
+  .section-dark .section-body { color: #93b8d8; }
+
+  /* ── Services ── */
+  .svc-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .svc-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 26px 22px;
+    border-top: 4px solid var(--blue-lt);
+  }
+
+  .svc-head {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 12px; margin-bottom: 12px;
+  }
+
+  .svc-icon { font-size: 34px; line-height: 1; flex-shrink: 0; }
+
+  .svc-flag {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; padding: 4px 10px; border-radius: 4px;
+    white-space: nowrap;
+  }
+  .flag-specialty { background: var(--gold-pale); color: var(--gold); }
+  .flag-core      { background: var(--blue-pale); color: var(--blue-mid); }
+  .flag-popular   { background: var(--green-lt);  color: var(--green); }
+
+  .svc-name { font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 10px; letter-spacing: -0.2px; }
+  .svc-desc { font-size: 15px; color: var(--gray-600); line-height: 1.65; margin-bottom: 14px; }
+
+  .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .svc-tag  { font-size: 12px; font-weight: 600; background: var(--blue-pale); color: var(--blue-mid); padding: 4px 10px; border-radius: 4px; }
+
+  /* ── Meet the Team ── */
+  .team-intro {
+    font-size: 18px; font-weight: 700; color: var(--navy);
+    line-height: 1.45; margin-bottom: 16px; letter-spacing: -0.2px;
+  }
+
+  .team-body {
+    font-size: 16px; color: var(--gray-600); line-height: 1.75; margin-bottom: 36px;
+  }
+
+  .team-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+
+  .team-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .team-portrait {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 900;
+    color: var(--white);
+    flex-shrink: 0;
+    letter-spacing: -1px;
+    font-family: Georgia, serif;
+  }
+
+  .portrait-1 { background: var(--navy); }
+  .portrait-2 { background: var(--blue-mid); }
+  .portrait-3 { background: var(--blue); }
+
+  .team-name   { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 3px; }
+  .team-role   { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--blue-lt); margin-bottom: 8px; }
+  .team-bio    { font-size: 14px; color: var(--gray-600); line-height: 1.6; }
+
+  /* Replace prompt */
+  .team-photo-note {
+    background: var(--gold-pale);
+    border: 1px dashed #c9a048;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #7a5a1a;
+    line-height: 1.5;
+  }
+
+  .team-photo-note strong { color: #5a3a0a; }
+
+  /* ── Cred list ── */
+  .cred-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .cred-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 16px 18px; background: var(--white);
+    border: 1px solid var(--gray-200); border-radius: 8px;
+  }
+
+  .cred-check {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--navy); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 900; flex-shrink: 0; margin-top: 1px;
+  }
+
+  .cred-body strong { display: block; font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 2px; }
+  .cred-body span   { font-size: 14px; color: var(--gray-600); }
+
+  /* ── Testimonials ── */
+  .review-grid {
+    display: flex; flex-direction: column; gap: 14px;
+  }
+
+  .review-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 22px;
+  }
+
+  .review-stars { color: #fbbf24; font-size: 15px; letter-spacing: 2px; margin-bottom: 10px; }
+  .review-text  { font-size: 15px; color: #c2d8ef; line-height: 1.65; font-style: italic; margin-bottom: 14px; }
+  .review-author{ font-size: 12px; color: #93c5fd; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .reviews-note { margin-top: 24px; font-size: 13px; color: #3a5a7a; text-align: center; font-style: italic; }
+
+  /* ── Final CTA ── */
+  .final-cta {
+    background: var(--blue);
+    color: var(--white);
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(24px, 6vw, 38px);
+    font-weight: 900; letter-spacing: -0.5px; line-height: 1.12; margin-bottom: 14px;
+  }
+
+  .final-cta p {
+    font-size: 17px; color: #bdd9f5; margin-bottom: 32px;
+    max-width: 440px; margin-left: auto; margin-right: auto;
+  }
+
+  .cta-buttons { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+
+  .btn-cta-call {
+    display: inline-flex; flex-direction: column; align-items: center;
+    background: var(--white); color: var(--navy); text-decoration: none;
+    font-size: 24px; font-weight: 900; padding: 18px 36px;
+    border-radius: 8px; line-height: 1.1; transition: background 0.15s;
+  }
+
+  .btn-cta-call:hover { background: var(--blue-pale); }
+  .btn-cta-call small { font-size: 12px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 5px; }
+
+  .btn-cta-estimate {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: transparent; color: #93c5fd; text-decoration: none;
+    font-size: 15px; font-weight: 700; padding: 13px 28px;
+    border-radius: 8px; border: 1px solid rgba(147,197,253,0.35);
+    transition: border-color 0.15s;
+  }
+
+  .btn-cta-estimate:hover { border-color: rgba(147,197,253,0.7); }
+
+  .final-note { margin-top: 22px; font-size: 13px; color: #5a86b4; }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--gray-900); color: #3a5a7a;
+    text-align: center; padding: 30px 20px;
+    font-size: 13px; line-height: 1.9;
+  }
+
+  .footer a      { color: #60a5fa; text-decoration: none; }
+  .footer strong { color: #7a9fc4; }
+
+  /* ── Responsive ── */
+  @media (min-width: 580px) {
+    .svc-grid   { display: grid; grid-template-columns: 1fr 1fr; }
+    .svc-card:first-child { grid-column: 1 / -1; }
+    .review-grid{ display: grid; grid-template-columns: 1fr 1fr; }
+    .review-card:last-child { grid-column: 1 / -1; }
+    .team-grid  { display: grid; grid-template-columns: 1fr 1fr; }
+    .cta-buttons{ flex-direction: row; justify-content: center; }
+  }
+
+  @media (min-width: 720px) {
+    .svc-card:first-child { grid-column: auto; }
+    .svc-grid  { grid-template-columns: repeat(3, 1fr); }
+    .review-grid{ grid-template-columns: repeat(3, 1fr); }
+    .review-card:last-child { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top strip -->
+<div class="topstrip">
+  <span>Shaker Heights, OH &nbsp;·&nbsp; Family-Operated Since 1998</span>
+  <span>|</span>
+  <span>📞 <a href="tel:+12165550100">(216) 555-0100</a></span>
+  <span>|</span>
+  <span>Free estimates on all installs</span>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-monogram">TC</div>
+    <div>
+      <div class="nav-name">Team Clark Heating &amp; Plumbing</div>
+      <div class="nav-sub">Shaker Heights, OH · Licensed &amp; Insured</div>
+    </div>
+  </div>
+  <a href="tel:+12165550100" class="nav-cta">📞 Call Us</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">📍 Shaker Heights, OH · Family-Operated</div>
+
+    <h1>The Clark Family,<br><em>In Your Corner.</em></h1>
+
+    <p class="hero-sub">
+      Boiler service, plumbing repairs, HVAC installs — and the kind of work
+      that keeps older Shaker Heights homes running right.
+      We show up clean, quote straight, and stand behind every job.
+    </p>
+
+    <!-- Family trust block -->
+    <div class="family-bar">
+      <div class="family-avatars">
+        <div class="family-avatar">RC</div>
+        <div class="family-avatar">MC</div>
+        <div class="family-avatar">DC</div>
+      </div>
+      <div class="family-text">
+        <div class="family-heading">Three Clarks. One crew. Your neighbors.</div>
+        <div class="family-detail">
+          Ray, Marcus, and Danny Clark have worked Shaker Heights and East Side
+          Cleveland for over 25 years. When you call, you get one of us — not a
+          stranger dispatched from a call center.
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="tel:+12165550100" class="btn-primary">
+        📞 Call (216) 555-0100
+      </a>
+      <a href="#estimate" class="btn-secondary">
+        ✉ Get a free estimate
+      </a>
+      <p class="hero-note">No obligation · We answer 7 days a week</p>
+    </div>
+  </div>
+</section>
+
+<!-- Badges -->
+<div class="badges">
+  <div class="badge"><strong>Family-Operated</strong>Since 1998</div>
+  <div class="badge"><strong>Licensed</strong>Ohio HVAC + Plumbing</div>
+  <div class="badge"><strong>Older Homes</strong>Specialist</div>
+  <div class="badge"><strong>Free</strong>Estimates</div>
+</div>
+
+<!-- Services -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">We know these houses.</h2>
+    <p class="section-body">
+      Shaker Heights homes are beautiful — and they come with cast-iron boilers,
+      galvanized supply lines, and knob-and-tube wiring that makes generic HVAC
+      contractors nervous. We're not nervous. We've been inside hundreds of them.
+    </p>
+
+    <div class="svc-grid">
+
+      <div class="svc-card">
+        <div class="svc-head">
+          <span class="svc-icon">🔥</span>
+          <span class="svc-flag flag-specialty">Older-Home Specialty</span>
+        </div>
+        <div class="svc-name">Boiler Service &amp; Repair</div>
+        <p class="svc-desc">
+          The boilers in Shaker Heights homes — Weil-McLain, Burnham, Peerless —
+          are built to last, but they need someone who understands them.
+          We service, repair, and replace steam and hot-water boilers without
+          pushing you toward equipment you don't need. If your boiler has more
+          life in it, we'll say so.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Steam &amp; hot water</span>
+          <span class="svc-tag">Annual tune-ups</span>
+          <span class="svc-tag">Emergency repair</span>
+          <span class="svc-tag">All brands</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-head">
+          <span class="svc-icon">🔧</span>
+          <span class="svc-flag flag-core">Core Service</span>
+        </div>
+        <div class="svc-name">Plumbing Repairs</div>
+        <p class="svc-desc">
+          Leaky fixtures, aging supply lines, slow drains, water pressure issues —
+          we handle the full range of residential plumbing in homes that often
+          have decades of deferred maintenance baked in. We don't oversell;
+          we fix what needs fixing and tell you what can wait.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Leak repair</span>
+          <span class="svc-tag">Pipe replacement</span>
+          <span class="svc-tag">Fixture installs</span>
+          <span class="svc-tag">Drain cleaning</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-head">
+          <span class="svc-icon">❄️</span>
+          <span class="svc-flag flag-popular">Full Install</span>
+        </div>
+        <div class="svc-name">HVAC Installs</div>
+        <p class="svc-desc">
+          Adding central air to an older home, upgrading to a heat pump,
+          or replacing an aging furnace — installs in pre-war houses take
+          planning, not just a template. We size equipment correctly, route
+          ductwork cleanly, and give you a straight price before any work starts.
+          Free estimates on all installs.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Central AC</span>
+          <span class="svc-tag">Heat pumps</span>
+          <span class="svc-tag">Furnace replacement</span>
+          <span class="svc-tag">Free estimate</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Meet the Team / About -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Meet the Clarks</div>
+    <h2 class="section-title">You know whose truck is in your driveway.</h2>
+
+    <p class="team-intro">
+      Most contractors send whoever's available. We send family —
+      and in Shaker Heights, that's actually a differentiator.
+    </p>
+
+    <p class="team-body">
+      Ray Clark started this business in 1998 after 10 years running service calls
+      for a large Cleveland outfit. He was tired of watching homeowners get generic
+      advice from technicians who'd never see them again. He brought in his son Marcus
+      in 2012 and his nephew Danny in 2018. Three people. One reputation to protect.
+      That keeps the work honest.
+    </p>
+
+    <!-- Team cards (portrait avatars — replace with real photos) -->
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-portrait portrait-1">RC</div>
+        <div>
+          <div class="team-name">Ray Clark</div>
+          <div class="team-role">Founder · Master Plumber</div>
+          <div class="team-bio">
+            25+ years in Cuyahoga County homes. Specializes in boiler systems
+            and older plumbing. If it was installed before 1980, Ray's seen it.
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-portrait portrait-2">MC</div>
+        <div>
+          <div class="team-name">Marcus Clark</div>
+          <div class="team-role">HVAC Lead · Ray's Son</div>
+          <div class="team-bio">
+            Licensed HVAC technician since 2011. Handles all installs and
+            system design. Knows every quirk of retrofitting modern equipment
+            into pre-war construction.
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-portrait portrait-3">DC</div>
+        <div>
+          <div class="team-name">Danny Clark</div>
+          <div class="team-role">Service Tech · Ray's Nephew</div>
+          <div class="team-bio">
+            Handles service calls, repairs, and tune-ups. Fast diagnostics,
+            clean work, and the one who'll actually explain what went wrong
+            before he leaves.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo replacement prompt -->
+    <div class="team-photo-note">
+      <strong>📸 Publisher note:</strong> Replace the monogram avatars above with real team photos.
+      A genuine family photo outperforms every stock image in this market —
+      it's the single highest-converting element on a local service page. Even a clean
+      phone photo works. Place headshots at roughly 200×200px, cropped to circle or square.
+    </div>
+
+    <!-- Credibility list -->
+    <div style="margin-top:36px;">
+      <div class="section-label" style="margin-bottom:14px;">Why Shaker Heights Calls Us Back</div>
+      <div class="cred-list">
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Ohio Master Plumber + HVAC license, both current</strong>
+            <span>Ray holds the plumbing license; Marcus holds the HVAC. Ask to see them.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Written estimate before any work starts — no exceptions</strong>
+            <span>You approve the number. If it changes mid-job, we talk before we bill.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>We show up clean and leave the same way</strong>
+            <span>Drop cloths, shoe covers, cleanup after. Non-negotiable on every job.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Older-home experience that generic contractors don't have</strong>
+            <span>Pre-war construction, steam heat, old cast iron — we work with it, not around it.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label">What Shaker Heights Says</div>
+    <h2 class="section-title">The neighborhood has opinions.</h2>
+    <p class="section-body">
+      These are placeholder reviews — replace with verified customer testimonials before publishing.
+    </p>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Our 1927 house has a steam boiler that nobody wanted to touch.
+          Ray came out, knew exactly what it needed, and had it running
+          perfectly before the first cold snap. He charged exactly what he quoted."
+        </p>
+        <div class="review-author">— A.H., Shaker Heights</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Marcus installed central air in our Tudor. Two other companies told us
+          it couldn't be done without major renovations. He figured out a clean
+          routing solution and we had AC by Memorial Day. Incredible work."
+        </p>
+        <div class="review-author">— P.K., South Moreland</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Danny fixed a leak that two other plumbers had given up on.
+          Explained the whole thing to me, showed me what to watch for,
+          and left my basement cleaner than he found it. That's the standard."
+        </p>
+        <div class="review-author">— T.W., Lomond</div>
+      </div>
+    </div>
+
+    <p class="reviews-note">✦ Replace placeholders with real reviews — Google, Angi, or direct quotes with permission.</p>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta" id="estimate">
+  <div class="container">
+    <h2>Get a free estimate<br>from a crew that shows up clean.</h2>
+    <p>
+      Call us, describe the job, and we'll give you a number before anyone sets foot
+      in your house. No pressure, no mystery pricing.
+    </p>
+
+    <div class="cta-buttons">
+      <a href="tel:+12165550100" class="btn-cta-call">
+        (216) 555-0100
+        <small>Team Clark · Shaker Heights</small>
+      </a>
+      <a href="mailto:info@teamclarkhvac.com" class="btn-cta-estimate">
+        ✉ Email for estimate
+      </a>
+    </div>
+
+    <p class="final-note">7 days a week &nbsp;·&nbsp; Free estimates on installs &nbsp;·&nbsp; Licensed &amp; Insured</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <strong>Team Clark Heating &amp; Plumbing Inc.</strong><br>
+    Shaker Heights, OH &nbsp;·&nbsp; Serving Cuyahoga County<br>
+    <a href="tel:+12165550100">(216) 555-0100</a> &nbsp;·&nbsp;
+    <a href="mailto:info@teamclarkhvac.com">info@teamclarkhvac.com</a><br>
+    Ohio Master Plumber Lic. #XXXXX &nbsp;·&nbsp; HVAC Lic. #XXXXX<br>
+    <br>
+    <span style="font-size:12px;">© 2026 Team Clark Heating &amp; Plumbing Inc. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
