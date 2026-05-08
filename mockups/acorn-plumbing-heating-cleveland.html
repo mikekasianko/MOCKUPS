@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acorn Plumbing &amp; Heating — Cleveland Emergency Service</title>
+<meta name="description" content="Cleveland's emergency plumbing and heating service. Burst pipes, furnace failure, water heater replacement — we pick up the phone and we show up fast.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #0b2035;
+    --blue:       #1560a8;
+    --blue-mid:   #1a4f8a;
+    --blue-light: #2d7dd2;
+    --blue-pale:  #e6f0fb;
+    --white:      #ffffff;
+    --gray-100:   #f4f6f9;
+    --gray-200:   #e2e7ef;
+    --gray-400:   #8c97ab;
+    --gray-600:   #4a5568;
+    --gray-900:   #0f1923;
+    --green:      #17a34a;
+    --green-pale: #dcfce7;
+    --red:        #b91c1c;
+    --yellow:     #d97706;
+    --font: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--gray-900);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ── Availability banner ── */
+  .avail-banner {
+    background: var(--green);
+    color: var(--white);
+    text-align: center;
+    padding: 11px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .avail-banner.closed {
+    background: var(--yellow);
+    color: #fff;
+  }
+
+  .pulse-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .pulse-dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.6);
+    animation: pulse 1.6s ease-out infinite;
+  }
+
+  @keyframes pulse {
+    0%   { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+
+  .avail-phone { color: #fff; text-decoration: none; font-weight: 800; }
+
+  /* ── Nav ── */
+  .nav {
+    background: var(--navy);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-brand { display: flex; flex-direction: column; line-height: 1.2; }
+  .nav-name  { font-size: 16px; font-weight: 800; color: var(--white); letter-spacing: -0.2px; }
+  .nav-sub   { font-size: 11px; color: #7a9fc4; font-weight: 500; margin-top: 2px; }
+
+  .nav-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .status-pill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: default;
+    white-space: nowrap;
+  }
+
+  .status-pill.open  { background: var(--green); color: #fff; }
+  .status-pill.after { background: #1a3a1a; color: #4ade80; border: 1px solid #166534; }
+
+  .status-pip {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  .status-pip.blink { animation: blink 1.2s step-start infinite; }
+  @keyframes blink { 50% { opacity: 0.2; } }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 52px 20px 48px;
+  }
+
+  .hero-inner { max-width: 620px; margin: 0 auto; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #93c5fd;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 7.5vw, 46px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 span { color: #60a5fa; }
+
+  .hero-sub {
+    font-size: 17px;
+    color: #93b8d8;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 500px;
+  }
+
+  /* Availability card in hero */
+  .avail-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .avail-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .avail-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    position: relative;
+  }
+
+  .avail-circle::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 2px solid rgba(34,197,94,0.4);
+    animation: pulse 2s ease-out infinite;
+  }
+
+  .avail-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #4ade80;
+  }
+
+  .avail-text { flex: 1; }
+  .avail-heading { font-size: 17px; font-weight: 800; color: var(--white); margin-bottom: 5px; }
+  .avail-detail { font-size: 14px; color: #93b8d8; line-height: 1.5; }
+
+  /* CTA block */
+  .cta-block { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+
+  .btn-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 900;
+    padding: 15px 30px;
+    border-radius: 8px;
+    letter-spacing: -0.3px;
+    transition: background 0.15s;
+    width: 100%;
+    max-width: 360px;
+    justify-content: center;
+  }
+
+  .btn-call:hover { background: var(--blue-pale); }
+
+  .btn-call-note {
+    font-size: 13px;
+    color: #7a9fc4;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ── Services ── */
+  .section { padding: 60px 20px; }
+  .section-alt { background: var(--gray-100); }
+  .section-dark { background: var(--navy); color: var(--white); }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 10px;
+  }
+
+  .section-dark .section-label { color: #60a5fa; }
+
+  .section-title {
+    font-size: clamp(22px, 5.5vw, 34px);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.4px;
+    margin-bottom: 12px;
+    color: var(--navy);
+  }
+
+  .section-dark .section-title { color: var(--white); }
+
+  .section-body {
+    font-size: 16px;
+    color: var(--gray-600);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .section-dark .section-body { color: #93b8d8; }
+
+  /* Service cards */
+  .services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .svc-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 26px 22px;
+    border-top: 4px solid var(--blue-light);
+  }
+
+  .svc-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .svc-icon { font-size: 34px; line-height: 1; flex-shrink: 0; }
+
+  .svc-urgency {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .urgency-red    { background: #fee2e2; color: var(--red); }
+  .urgency-blue   { background: var(--blue-pale); color: var(--blue); }
+  .urgency-yellow { background: #fef3c7; color: var(--yellow); }
+
+  .svc-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 10px;
+    letter-spacing: -0.2px;
+  }
+
+  .svc-desc {
+    font-size: 15px;
+    color: var(--gray-600);
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+
+  .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .svc-tag {
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--blue-pale);
+    color: var(--blue-mid);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  /* ── About ── */
+  .about-wrap { max-width: 640px; margin: 0 auto; }
+
+  .about-intro {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.45;
+    margin-bottom: 18px;
+    letter-spacing: -0.2px;
+  }
+
+  .about-body {
+    font-size: 16px;
+    color: var(--gray-600);
+    line-height: 1.75;
+    margin-bottom: 30px;
+  }
+
+  .cred-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .cred-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 16px 18px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+  }
+
+  .cred-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    font-weight: 900;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .cred-body strong { display: block; font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 2px; }
+  .cred-body span   { font-size: 14px; color: var(--gray-600); }
+
+  /* ── Testimonials ── */
+  .reviews-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 0;
+  }
+
+  .review-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 22px;
+  }
+
+  .review-stars { color: #fbbf24; font-size: 15px; letter-spacing: 2px; margin-bottom: 10px; }
+
+  .review-text {
+    font-size: 15px;
+    color: #c2d8ef;
+    line-height: 1.65;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .review-author { font-size: 12px; color: #60a5fa; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .reviews-note {
+    margin-top: 24px;
+    font-size: 13px;
+    color: #4a6a8a;
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ── Final CTA ── */
+  .final-cta {
+    background: var(--blue);
+    color: var(--white);
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(24px, 6.5vw, 40px);
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  .final-cta p {
+    font-size: 17px;
+    color: #bdd9f5;
+    margin-bottom: 32px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Live status in final CTA */
+  .cta-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+
+  .cta-status .pip {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: #4ade80;
+    animation: blink 1.2s step-start infinite;
+  }
+
+  .btn-call-final {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white);
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 26px;
+    font-weight: 900;
+    padding: 18px 40px;
+    border-radius: 8px;
+    line-height: 1.1;
+    transition: background 0.15s;
+  }
+
+  .btn-call-final:hover { background: var(--blue-pale); }
+  .btn-call-final small { font-size: 12px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 5px; }
+
+  .final-footnote { margin-top: 18px; font-size: 13px; color: #6a9ac4; }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--gray-900);
+    color: #4a6a8a;
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .footer a     { color: #60a5fa; text-decoration: none; }
+  .footer strong { color: #93b8d8; }
+
+  /* ── Tablet+ ── */
+  @media (min-width: 600px) {
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .svc-card:first-child { grid-column: 1 / -1; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .review-card:last-child { grid-column: 1 / -1; }
+
+    .cta-block { flex-direction: row; align-items: center; }
+  }
+
+  @media (min-width: 720px) {
+    .svc-card:first-child { grid-column: auto; }
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .reviews-grid  { grid-template-columns: repeat(3, 1fr); }
+    .review-card:last-child { grid-column: auto; }
+  }
+</style>
+<script>
+  // Drives the "available now" indicator based on local time
+  (function() {
+    function setAvailability() {
+      var h = new Date().getHours();
+      var isOpen = h >= 7 && h < 22; // 7am–10pm
+
+      var banner = document.getElementById('avail-banner');
+      var navPill = document.getElementById('nav-pill');
+      var ctaStatus = document.getElementById('cta-status');
+
+      if (isOpen) {
+        if (banner) {
+          banner.innerHTML = '<span class="pulse-dot"></span> Lines open now — <a class="avail-phone" href="tel:+12165550000">(216) 555-0000</a> &nbsp;·&nbsp; We pick up.';
+        }
+        if (navPill) {
+          navPill.className = 'status-pill open';
+          navPill.innerHTML = '<span class="status-pip blink"></span> Available Now';
+        }
+        if (ctaStatus) {
+          ctaStatus.innerHTML = '<span class="pip"></span> Lines are open right now';
+        }
+      } else {
+        if (banner) {
+          banner.className = 'avail-banner closed';
+          banner.innerHTML = '🌙 After-hours emergency line — <a class="avail-phone" href="tel:+12165550000">(216) 555-0000</a> &nbsp;·&nbsp; We answer emergencies 24/7.';
+        }
+        if (navPill) {
+          navPill.className = 'status-pill after';
+          navPill.innerHTML = '<span class="status-pip blink"></span> After Hours';
+        }
+        if (ctaStatus) {
+          ctaStatus.innerHTML = '<span class="pip" style="background:#fbbf24"></span> After-hours emergency line active';
+        }
+      }
+    }
+    document.addEventListener('DOMContentLoaded', setAvailability);
+  })();
+</script>
+</head>
+<body>
+
+<!-- Availability banner (JS-driven) -->
+<div class="avail-banner" id="avail-banner">
+  <span class="pulse-dot"></span>
+  Lines open now — <a class="avail-phone" href="tel:+12165550000">(216) 555-0000</a> &nbsp;·&nbsp; We pick up.
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-brand">
+    <span class="nav-name">Acorn Plumbing &amp; Heating</span>
+    <span class="nav-sub">Cleveland, OH · Licensed &amp; Insured</span>
+  </div>
+  <div class="nav-status">
+    <div class="status-pill open" id="nav-pill">
+      <span class="status-pip blink"></span> Available Now
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">📍 Cleveland's Emergency Plumbing &amp; Heating</div>
+
+    <h1>We Pick Up.<br>We Show Up.<br><span>Available When<br>You Need It.</span></h1>
+
+    <p class="hero-sub">
+      Burst pipe at midnight. Furnace out in January. Water heater gone cold.
+      This is exactly what we're here for — and yes, we answer the phone.
+    </p>
+
+    <!-- Live availability card -->
+    <div class="avail-card">
+      <div class="avail-indicator">
+        <div class="avail-circle">📞</div>
+        <div class="avail-label">Live</div>
+      </div>
+      <div class="avail-text">
+        <div class="avail-heading">Lines are open right now</div>
+        <div class="avail-detail">
+          Call now and reach a real technician — not a voicemail, not a form.
+          Emergency calls get a same-day response. We cover all of Cleveland and
+          Cuyahoga County.
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <div>
+        <a href="tel:+12165550000" class="btn-call">
+          📞 (216) 555-0000
+        </a>
+        <div class="btn-call-note" style="margin-top:10px;">
+          ✓ Real person answers &nbsp;·&nbsp; No hold music
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">What We Handle</div>
+    <h2 class="section-title">Emergency calls are our normal.</h2>
+    <p class="section-body">
+      We built this business around the calls nobody else wants — the ones that
+      come in at 11pm on a Sunday. That's Cleveland winters. That's what we do.
+    </p>
+
+    <div class="services-grid">
+
+      <div class="svc-card">
+        <div class="svc-top">
+          <span class="svc-icon">🚰</span>
+          <span class="svc-urgency urgency-red">Emergency</span>
+        </div>
+        <div class="svc-name">Emergency Plumbing</div>
+        <p class="svc-desc">
+          Burst pipes, sewage backups, flooding — these don't wait for business
+          hours and neither do we. We carry the parts that show up most on
+          Cleveland homes and we'll stop the damage first, then fix it right.
+          No temporary patches that fail in two weeks.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Burst pipes</span>
+          <span class="svc-tag">Sewage backup</span>
+          <span class="svc-tag">Leak repair</span>
+          <span class="svc-tag">Same-day</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-top">
+          <span class="svc-icon">🔥</span>
+          <span class="svc-urgency urgency-red">Emergency</span>
+        </div>
+        <div class="svc-name">Furnace Repair</div>
+        <p class="svc-desc">
+          A furnace failing in a Cleveland winter isn't a comfort issue —
+          it's a safety one. We diagnose quickly, quote before we work, and
+          carry common replacement parts so you're not waiting days for a
+          part that was on the truck the whole time.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">No-heat calls</span>
+          <span class="svc-tag">All brands</span>
+          <span class="svc-tag">Honest quotes</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-top">
+          <span class="svc-icon">💧</span>
+          <span class="svc-urgency urgency-yellow">Scheduled or urgent</span>
+        </div>
+        <div class="svc-name">Water Heater Replacement</div>
+        <p class="svc-desc">
+          Water heaters in Cleveland homes typically last 8–12 years. When yours
+          starts leaking, making noise, or stops keeping up, we'll give you a
+          straight assessment — repair or replace — and install same-day when
+          you're ready to move forward.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Tank &amp; tankless</span>
+          <span class="svc-tag">Same-day install</span>
+          <span class="svc-tag">Haul away old unit</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="section-label">About Acorn</div>
+      <h2 class="section-title">Cleveland plumbing &amp; heating, done by locals.</h2>
+
+      <p class="about-intro">
+        We've been working in Cleveland homes long enough to know the quirks —
+        the old galvanized pipe in West Side two-flats, the Carrier units that
+        overheat in Parma, the water heaters tucked behind finished basements.
+      </p>
+
+      <p class="about-body">
+        Acorn started because the emergency plumbing market in Cleveland is full
+        of companies that charge after-hours premiums, send whoever's available,
+        and disappear after the invoice. We do the opposite: one crew, consistent
+        pricing, and the same technician who answers your call shows up at your door.
+        We're based here. We live here. And we'd rather earn a repeat customer than
+        squeeze a first-time emergency caller.
+      </p>
+
+      <div class="cred-list">
+        <div class="cred-item">
+          <div class="cred-icon">✓</div>
+          <div class="cred-body">
+            <strong>Licensed plumber &amp; HVAC technician, State of Ohio</strong>
+            <span>License numbers available on request — ask before we start.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">✓</div>
+          <div class="cred-body">
+            <strong>Flat pricing, quoted before work begins</strong>
+            <span>No open-ended hourly rates. You approve the number first.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">✓</div>
+          <div class="cred-body">
+            <strong>No after-hours surcharge on emergencies</strong>
+            <span>Our emergency rate is our regular rate. Straightforward.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">✓</div>
+          <div class="cred-body">
+            <strong>Based in Cleveland — Cuyahoga County coverage</strong>
+            <span>Short drive times. No dispatch center 40 miles away.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label">What Cleveland Says</div>
+    <h2 class="section-title">From the neighborhoods we work in.</h2>
+    <p class="section-body">
+      These are placeholder reviews — replace with real testimonials before publishing.
+    </p>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Pipe burst on a Sunday night. Called three places — Acorn was the only
+          one who answered. Technician was at my house in under an hour and had it
+          fixed before midnight. That's the kind of service I'll call back for."
+        </p>
+        <div class="review-author">— K.M., Old Brooklyn</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Furnace went out during the cold snap in January. They quoted me a price
+          on the phone, showed up exactly when they said, and didn't try to upsell
+          me on anything I didn't need. Heat was back on in two hours."
+        </p>
+        <div class="review-author">— R.T., Parma</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Hot water heater started leaking on a Thursday morning. Called Acorn,
+          they diagnosed it over the phone, gave me a flat price, and installed
+          a new one same day. Hauled the old one out too. Zero hassle."
+        </p>
+        <div class="review-author">— S.W., Tremont</div>
+      </div>
+    </div>
+
+    <p class="reviews-note">✦ Replace placeholder reviews with verified customer testimonials before going live.</p>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Call now —<br>we pick up.</h2>
+    <p>
+      No voicemail. No "leave a message and we'll call you back."
+      Real person, real answer, real ETA.
+    </p>
+
+    <div>
+      <div class="cta-status" id="cta-status">
+        <span class="pip"></span> Lines are open right now
+      </div>
+    </div>
+
+    <a href="tel:+12165550000" class="btn-call-final">
+      (216) 555-0000
+      <small>Acorn Plumbing &amp; Heating · Cleveland</small>
+    </a>
+
+    <p class="final-footnote">Emergency calls 24/7 &nbsp;·&nbsp; Cuyahoga County &nbsp;·&nbsp; Licensed &amp; Insured</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <strong>Acorn Plumbing &amp; Heating</strong><br>
+    Cleveland, OH &nbsp;·&nbsp; Cuyahoga County<br>
+    <a href="tel:+12165550000">(216) 555-0000</a> &nbsp;·&nbsp; Licensed &amp; Insured<br>
+    <br>
+    <span style="font-size:12px;">© 2026 Acorn Plumbing &amp; Heating. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
