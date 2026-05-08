@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viktor — Cleveland's Furnace Man · Universal HVAC</title>
+<meta name="description" content="Cleveland's Furnace Man. Viktor installs, repairs, and tunes furnaces and boilers across Cleveland. Book directly — no dispatch, no runaround.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:      #081c2e;
+    --blue:      #0f4c81;
+    --blue-mid:  #1560a8;
+    --blue-lt:   #2d7dd2;
+    --blue-pale: #e6f0fb;
+    --white:     #ffffff;
+    --offwhite:  #f6f9fc;
+    --gray-100:  #eef1f7;
+    --gray-200:  #dae0ec;
+    --gray-400:  #8896ae;
+    --gray-600:  #445468;
+    --gray-900:  #0d1926;
+    --orange:    #d95f02;
+    --orange-lt: #fff3eb;
+    --font: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--gray-900);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { width: 100%; max-width: 740px; margin: 0 auto; padding: 0 20px; }
+
+  /* ── Top strip ── */
+  .topstrip {
+    background: var(--orange);
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .topstrip a { color: #fff; text-decoration: underline; }
+
+  /* ── Nav ── */
+  .nav {
+    background: var(--navy);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+
+  .nav-badge {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 19px; font-weight: 900;
+    letter-spacing: -1px;
+    flex-shrink: 0;
+    font-style: italic;
+  }
+
+  .nav-name { font-size: 15px; font-weight: 800; color: var(--white); line-height: 1.2; }
+  .nav-sub  { font-size: 11px; color: #6a8fae; margin-top: 2px; }
+
+  .nav-cta {
+    background: var(--orange);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 9px 16px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 56px 20px 52px;
+  }
+
+  .hero-inner { max-width: 620px; margin: 0 auto; }
+
+  /* Viktor nameplate */
+  .viktor-nameplate {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+
+  .viktor-circle {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 900;
+    letter-spacing: -2px;
+    flex-shrink: 0;
+    font-style: italic;
+    border: 3px solid rgba(255,255,255,0.15);
+    position: relative;
+  }
+
+  .viktor-circle::after {
+    content: '🔥';
+    position: absolute;
+    bottom: -4px; right: -4px;
+    font-size: 20px;
+    font-style: normal;
+  }
+
+  .viktor-id { }
+  .viktor-name { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--orange); margin-bottom: 3px; }
+  .viktor-title { font-size: 20px; font-weight: 900; color: var(--white); line-height: 1.2; letter-spacing: -0.3px; }
+  .viktor-co    { font-size: 13px; color: #6a8fae; margin-top: 3px; }
+
+  .hero h1 {
+    font-size: clamp(36px, 9vw, 62px);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -1.5px;
+    margin-bottom: 6px;
+    color: var(--white);
+  }
+
+  .hero h1 .word-furnace { color: var(--orange); }
+  .hero h1 .word-man     { color: var(--white); }
+
+  .hero-tagline {
+    font-size: 18px;
+    font-weight: 700;
+    color: #93b8d8;
+    margin-bottom: 20px;
+    letter-spacing: -0.2px;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: #7a9fbe;
+    line-height: 1.65;
+    max-width: 500px;
+    margin-bottom: 34px;
+  }
+
+  /* Promise rule */
+  .promise-rule {
+    border-left: 4px solid var(--orange);
+    padding: 16px 20px;
+    background: rgba(217, 95, 2, 0.08);
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 34px;
+    max-width: 500px;
+  }
+
+  .promise-text {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  .promise-sub {
+    font-size: 13px;
+    color: #6a8fae;
+    margin-top: 5px;
+  }
+
+  /* CTA group */
+  .hero-cta { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+
+  .btn-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--orange);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 16px 28px;
+    border-radius: 8px;
+    letter-spacing: -0.2px;
+    transition: opacity 0.15s;
+    max-width: 380px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-call:hover { opacity: 0.9; }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #93b8d8;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 13px 28px;
+    border-radius: 8px;
+    border: 1px solid rgba(147,184,216,0.3);
+    max-width: 380px;
+    width: 100%;
+    justify-content: center;
+    transition: border-color 0.15s;
+  }
+
+  .btn-ghost:hover { border-color: rgba(147,184,216,0.7); }
+  .hero-note { font-size: 13px; color: #3a5a7a; margin-top: 6px; }
+
+  /* ── Badges ── */
+  .badges {
+    background: var(--blue);
+    display: flex; justify-content: center; flex-wrap: wrap;
+  }
+  .badge {
+    color: #bdd4ed; font-size: 13px; font-weight: 600;
+    padding: 14px 16px; border-right: 1px solid rgba(255,255,255,0.1);
+    text-align: center; white-space: nowrap;
+  }
+  .badge:last-child { border-right: none; }
+  .badge strong { display: block; color: var(--white); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+
+  /* ── Section base ── */
+  .section      { padding: 64px 20px; }
+  .section-alt  { background: var(--offwhite); }
+  .section-dark { background: var(--navy); color: var(--white); }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--blue-lt); margin-bottom: 10px;
+  }
+  .section-dark .section-label { color: #93b8d8; }
+
+  .section-title {
+    font-size: clamp(22px, 5.5vw, 34px);
+    font-weight: 900; line-height: 1.12;
+    letter-spacing: -0.4px; margin-bottom: 12px; color: var(--navy);
+  }
+  .section-dark .section-title { color: var(--white); }
+
+  .section-body {
+    font-size: 16px; color: var(--gray-600);
+    max-width: 560px; line-height: 1.75; margin-bottom: 36px;
+  }
+  .section-dark .section-body { color: #7a9fbe; }
+
+  /* ── Services ── */
+  .svc-grid { display: flex; flex-direction: column; gap: 14px; }
+
+  .svc-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px; padding: 26px 22px;
+    border-top: 4px solid var(--blue-lt);
+  }
+
+  .svc-card.hot { border-top-color: var(--orange); }
+
+  .svc-head {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 12px; margin-bottom: 12px;
+  }
+
+  .svc-icon { font-size: 36px; line-height: 1; flex-shrink: 0; }
+
+  .svc-flag {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; padding: 4px 10px; border-radius: 4px;
+    white-space: nowrap;
+  }
+  .flag-hot  { background: var(--orange-lt); color: var(--orange); }
+  .flag-core { background: var(--blue-pale); color: var(--blue-mid); }
+
+  .svc-name { font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 10px; letter-spacing: -0.2px; }
+  .svc-desc { font-size: 15px; color: var(--gray-600); line-height: 1.65; margin-bottom: 14px; }
+  .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .svc-tag  { font-size: 12px; font-weight: 600; background: var(--blue-pale); color: var(--blue-mid); padding: 4px 10px; border-radius: 4px; }
+  .svc-tag.hot-tag { background: var(--orange-lt); color: var(--orange); }
+
+  /* ── About Viktor ── */
+  .about-wrap { max-width: 640px; margin: 0 auto; }
+
+  /* Big Viktor quote pull */
+  .viktor-pull {
+    font-size: clamp(20px, 5vw, 28px);
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.25;
+    letter-spacing: -0.4px;
+    border-left: 5px solid var(--orange);
+    padding-left: 20px;
+    margin-bottom: 28px;
+  }
+
+  .about-body { font-size: 16px; color: var(--gray-600); line-height: 1.8; margin-bottom: 30px; }
+
+  /* Viktor stat row */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .stat-box {
+    background: var(--offwhite);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+
+  .stat-num { font-size: 32px; font-weight: 900; color: var(--navy); letter-spacing: -1px; line-height: 1; }
+  .stat-unit { font-size: 14px; font-weight: 700; color: var(--orange); }
+  .stat-label { font-size: 12px; color: var(--gray-400); margin-top: 5px; line-height: 1.3; }
+
+  /* Cred list */
+  .cred-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .cred-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 16px 18px; background: var(--white);
+    border: 1px solid var(--gray-200); border-radius: 8px;
+  }
+
+  .cred-mark {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--navy); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 900; flex-shrink: 0; margin-top: 1px;
+  }
+
+  .cred-body strong { display: block; font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 2px; }
+  .cred-body span   { font-size: 14px; color: var(--gray-600); }
+
+  /* ── Testimonials ── */
+  .review-grid { display: flex; flex-direction: column; gap: 14px; }
+
+  .review-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 22px;
+  }
+
+  .review-stars  { color: #fbbf24; font-size: 15px; letter-spacing: 2px; margin-bottom: 10px; }
+  .review-text   { font-size: 15px; color: #c2d8ef; line-height: 1.65; font-style: italic; margin-bottom: 14px; }
+  .review-author { font-size: 12px; color: #93b8d8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+  .reviews-note  { margin-top: 24px; font-size: 13px; color: #3a5a7a; text-align: center; font-style: italic; }
+
+  /* ── Final CTA ── */
+  .final-cta {
+    background: var(--navy);
+    color: var(--white);
+    padding: 64px 20px;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(26px, 7vw, 44px);
+    font-weight: 900; letter-spacing: -0.8px; line-height: 1.1; margin-bottom: 10px;
+  }
+
+  .final-cta h2 span { color: var(--orange); }
+
+  .final-cta p {
+    font-size: 17px; color: #7a9fbe; margin-bottom: 32px;
+    max-width: 440px; margin-left: auto; margin-right: auto;
+  }
+
+  .final-btns { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+
+  .btn-final-call {
+    display: inline-flex; flex-direction: column; align-items: center;
+    background: var(--orange); color: var(--white); text-decoration: none;
+    font-size: 26px; font-weight: 900; padding: 20px 40px;
+    border-radius: 8px; line-height: 1.1; transition: opacity 0.15s;
+  }
+
+  .btn-final-call:hover { opacity: 0.9; }
+  .btn-final-call small { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 5px; }
+
+  .final-note { margin-top: 20px; font-size: 13px; color: #3a5a7a; }
+
+  /* ── Footer ── */
+  .footer {
+    background: #050f18; color: #2a4060;
+    text-align: center; padding: 28px 20px;
+    font-size: 13px; line-height: 1.9;
+  }
+  .footer a      { color: #4a7aaa; text-decoration: none; }
+  .footer strong { color: #4a6a8a; }
+
+  /* ── Responsive ── */
+  @media (min-width: 580px) {
+    .svc-grid    { display: grid; grid-template-columns: 1fr 1fr; }
+    .svc-card:first-child { grid-column: 1 / -1; }
+    .review-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .review-card:last-child { grid-column: 1 / -1; }
+    .hero-cta    { flex-direction: row; flex-wrap: wrap; align-items: center; }
+    .btn-call, .btn-ghost { width: auto; }
+    .final-btns  { flex-direction: row; justify-content: center; }
+  }
+
+  @media (min-width: 720px) {
+    .svc-card:first-child { grid-column: auto; }
+    .svc-grid    { grid-template-columns: repeat(3, 1fr); }
+    .review-grid { grid-template-columns: repeat(3, 1fr); }
+    .review-card:last-child { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Strip -->
+<div class="topstrip">
+  🔥 Cleveland's Furnace Man — <a href="tel:+12165550200">(216) 555-0200</a> — Book Viktor directly. No dispatch. No runaround.
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-badge">V</div>
+    <div>
+      <div class="nav-name">Universal HVAC, Inc.</div>
+      <div class="nav-sub">Viktor · Cleveland, OH · Licensed &amp; Insured</div>
+    </div>
+  </div>
+  <a href="tel:+12165550200" class="nav-cta">Call Viktor</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- Viktor nameplate -->
+    <div class="viktor-nameplate">
+      <div class="viktor-circle">V</div>
+      <div class="viktor-id">
+        <div class="viktor-name">Universal HVAC, Inc.</div>
+        <div class="viktor-title">Viktor — Cleveland, OH</div>
+        <div class="viktor-co">Licensed HVAC · 15+ Years</div>
+      </div>
+    </div>
+
+    <h1>Cleveland's<br><span class="word-furnace">Furnace</span><br><span class="word-man">Man.</span></h1>
+
+    <p class="hero-tagline">Viktor's got it handled.</p>
+
+    <p class="hero-sub">
+      Furnace installs, repairs, tune-ups, and boiler work — done by one guy
+      who actually knows what he's looking at. Book directly.
+      No dispatch queue. No mystery technician showing up at your door.
+    </p>
+
+    <!-- Promise -->
+    <div class="promise-rule">
+      <div class="promise-text">Book Viktor directly — no dispatch, no runaround.</div>
+      <div class="promise-sub">You call this number, Viktor picks up. He's the one who shows up.</div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="tel:+12165550200" class="btn-call">
+        🔥 (216) 555-0200
+      </a>
+      <a href="#estimate" class="btn-ghost">
+        ✉ Request an estimate
+      </a>
+    </div>
+    <p class="hero-note">Answers 7 days a week · Same-day on most repairs</p>
+  </div>
+</section>
+
+<!-- Badges -->
+<div class="badges">
+  <div class="badge"><strong>Direct Line</strong>To Viktor</div>
+  <div class="badge"><strong>Licensed</strong>Ohio HVAC</div>
+  <div class="badge"><strong>15+ Years</strong>Cleveland</div>
+  <div class="badge"><strong>Same Day</strong>Most Repairs</div>
+</div>
+
+<!-- Services -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">What Viktor Does</div>
+    <h2 class="section-title">Furnaces. Boilers. Done right.</h2>
+    <p class="section-body">
+      Viktor doesn't do everything. He does heating — and he does it well enough
+      that Cleveland homeowners keep his number saved in their phone.
+    </p>
+
+    <div class="svc-grid">
+
+      <div class="svc-card hot">
+        <div class="svc-head">
+          <span class="svc-icon">🔥</span>
+          <span class="svc-flag flag-hot">Viktor's Specialty</span>
+        </div>
+        <div class="svc-name">Furnace Install &amp; Replacement</div>
+        <p class="svc-desc">
+          New furnace, right-sized for your house, installed clean and commissioned
+          properly. Viktor doesn't upsell equipment you don't need — he'll tell you
+          what BTU your home actually requires and source a unit that fits the job.
+          If your old furnace has more life in it, he'll say that too.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag hot-tag">All brands</span>
+          <span class="svc-tag hot-tag">Right-sized installs</span>
+          <span class="svc-tag">Free estimate</span>
+          <span class="svc-tag">Same-day available</span>
+        </div>
+      </div>
+
+      <div class="svc-card hot">
+        <div class="svc-head">
+          <span class="svc-icon">🛠️</span>
+          <span class="svc-flag flag-hot">Emergency OK</span>
+        </div>
+        <div class="svc-name">Furnace Repair</div>
+        <p class="svc-desc">
+          No heat in a Cleveland winter is not a "call us Monday" situation.
+          Viktor diagnoses fast, carries the parts that fail most often on
+          Cleveland-area units, and gives you a straight price before anything's
+          touched. He fixes it or he tells you why he can't — no guesswork billing.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag hot-tag">Emergency calls</span>
+          <span class="svc-tag">Flat-rate quotes</span>
+          <span class="svc-tag">All makes</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-head">
+          <span class="svc-icon">⚙️</span>
+          <span class="svc-flag flag-core">Preventive</span>
+        </div>
+        <div class="svc-name">Tune-Ups &amp; Boiler Work</div>
+        <p class="svc-desc">
+          Annual furnace tune-ups keep your system from failing in February.
+          Viktor also handles boiler service and repair — steam and hot-water —
+          common in Cleveland's older housing stock. He knows these systems the
+          way most HVAC techs only pretend to.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Annual tune-ups</span>
+          <span class="svc-tag">Steam &amp; hot water boilers</span>
+          <span class="svc-tag">Carbon monoxide check</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="section-label">About Viktor</div>
+
+      <div class="viktor-pull">
+        "I'm not a call center.<br>I'm the guy who picks up<br>and shows up."
+      </div>
+
+      <p class="about-body">
+        Viktor built Universal HVAC because he spent years watching homeowners get
+        bounced around — dispatched techs who'd never seen the unit before, vague
+        diagnoses, open-ended hourly billing. He runs this differently. One technician,
+        one phone number, one person accountable for every job. Cleveland's winters
+        are brutal enough without your HVAC contractor adding to the stress.
+        <br><br>
+        He's been working Cleveland-area homes for over 15 years. He knows the
+        equipment in these houses, the way the cold hits in January, and what it
+        actually costs to fix things properly versus what it costs to fix them cheap
+        and call you again in spring.
+      </p>
+
+      <!-- Stats -->
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-num">15<span class="stat-unit">+</span></div>
+          <div class="stat-label">Years in<br>Cleveland HVAC</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">1</div>
+          <div class="stat-label">Tech. The one<br>you booked.</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Dispatch queues.<br>Zero.</div>
+        </div>
+      </div>
+
+      <!-- Creds -->
+      <div class="cred-list">
+        <div class="cred-item">
+          <div class="cred-mark">✓</div>
+          <div class="cred-body">
+            <strong>Ohio-licensed HVAC technician</strong>
+            <span>License on file, available on request. No shortcuts taken.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-mark">✓</div>
+          <div class="cred-body">
+            <strong>Flat-rate pricing quoted before work starts</strong>
+            <span>You know the number. You approve it. Viktor doesn't move until you do.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-mark">✓</div>
+          <div class="cred-body">
+            <strong>Same technician from first call to job completion</strong>
+            <span>Not whoever's free. Viktor — start to finish.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-mark">✓</div>
+          <div class="cred-body">
+            <strong>Honest on repair vs. replace</strong>
+            <span>If it's worth fixing, he'll fix it. If it's not, he'll tell you before you spend the money.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label">Cleveland Speaks</div>
+    <h2 class="section-title">"Viktor's Got It Handled" — they mean it.</h2>
+    <p class="section-body">
+      Placeholder reviews — replace with verified customer testimonials before publishing.
+    </p>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Furnace died at 10pm on a Tuesday in January. Viktor picked up,
+          told me exactly what it would cost, and had heat running by noon
+          the next day. I've never had a contractor just handle it like that."
+        </p>
+        <div class="review-author">— J.B., Old Brooklyn</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "I've called Viktor three times over five years. Each time he quotes
+          it, shows up on time, and charges exactly what he said. He's the
+          only HVAC guy whose number I don't have to look up anymore."
+        </p>
+        <div class="review-author">— M.P., West Park</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Viktor replaced our furnace and found that the previous installer
+          had undersized the unit. New one's been running perfectly all winter.
+          He actually explained the problem — didn't just hand me an invoice."
+        </p>
+        <div class="review-author">— D.L., Kamm's Corners</div>
+      </div>
+    </div>
+
+    <p class="reviews-note">✦ Replace these with real customer reviews before going live.</p>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta" id="estimate">
+  <div class="container">
+    <h2>Book <span>Viktor</span> directly.<br>No dispatch. No runaround.</h2>
+    <p>
+      One call. He picks up. You get an honest answer and a real time — not a
+      four-hour window and a stranger at the door.
+    </p>
+
+    <div class="final-btns">
+      <a href="tel:+12165550200" class="btn-final-call">
+        🔥 (216) 555-0200
+        <small>Viktor · Universal HVAC · Cleveland</small>
+      </a>
+    </div>
+
+    <p class="final-note">7 days a week · Same-day on most repairs · Licensed &amp; Insured</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <strong>Universal HVAC, Inc. — Viktor</strong><br>
+    Cleveland, OH &nbsp;·&nbsp; Cuyahoga County<br>
+    <a href="tel:+12165550200">(216) 555-0200</a><br>
+    Ohio HVAC License #XXXXX · Fully Insured<br>
+    <br>
+    <span style="font-size:12px;">© 2026 Universal HVAC, Inc. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
