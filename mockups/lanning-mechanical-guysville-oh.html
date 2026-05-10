@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lanning Mechanical | Heating &amp; Cooling | Guysville, OH</title>
+<style>
+:root {
+  --slate: #2b3a2d;
+  --slate-mid: #3d5240;
+  --amber: #c47a1e;
+  --amber-light: #e09030;
+  --white: #ffffff;
+  --off-white: #f5f3ef;
+  --light: #eae7e1;
+  --muted: #6b7266;
+  --text: #1e2620;
+  --border: #d3cfc8;
+  --card-bg: #ffffff;
+  font-size: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  background: var(--slate);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.nav-logo span {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.nav-call {
+  background: var(--amber);
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* HERO */
+.hero {
+  background: var(--slate);
+  color: var(--white);
+  padding: 48px 20px 52px;
+}
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber-light);
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--amber-light);
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.55;
+  margin-bottom: 32px;
+  max-width: 460px;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 340px;
+}
+
+.btn-primary {
+  display: block;
+  background: var(--amber);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 16px 24px;
+  border-radius: 6px;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.btn-secondary {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.35);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px 24px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn-secondary:hover { border-color: rgba(255,255,255,0.65); }
+
+.same-week {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.same-week::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6fcf6f;
+  flex-shrink: 0;
+}
+
+/* TRUST STRIP */
+.trust {
+  background: var(--slate-mid);
+  padding: 18px 20px;
+}
+
+.trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  list-style: none;
+}
+
+.trust-list li {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trust-list li::before {
+  content: '✓';
+  color: var(--amber-light);
+  font-weight: 800;
+}
+
+/* BACK ROADS — key differentiator */
+.back-roads {
+  background: var(--text);
+  color: var(--white);
+  padding: 52px 20px;
+}
+
+.back-roads-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber-light);
+  margin-bottom: 10px;
+}
+
+.back-roads h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.back-roads-intro {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+
+.roads-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.road-tag {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-left: 3px solid var(--amber);
+  padding: 10px 12px;
+  border-radius: 4px;
+}
+
+.road-tag .name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.road-tag .county {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 1px;
+}
+
+.route-note {
+  background: rgba(196,122,30,0.15);
+  border: 1px solid rgba(196,122,30,0.3);
+  border-radius: 6px;
+  padding: 14px 16px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
+}
+
+.route-note strong {
+  color: var(--amber-light);
+}
+
+/* SERVICES */
+.services {
+  padding: 52px 20px;
+  background: var(--off-white);
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.section-sub {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.service-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.service-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 22px 20px;
+  border-top: 3px solid var(--slate);
+}
+
+.service-card.featured {
+  border-top-color: var(--amber);
+}
+
+.service-icon {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.service-card h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.service-card p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.service-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-card ul li {
+  font-size: 0.82rem;
+  color: var(--text);
+  padding-left: 14px;
+  position: relative;
+}
+
+.service-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.winter-flag {
+  display: inline-block;
+  background: var(--slate);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+/* ABOUT */
+.about {
+  background: var(--light);
+  padding: 52px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.about-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px 22px;
+  margin-top: 24px;
+}
+
+.about-card blockquote {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 18px;
+  border-left: 3px solid var(--amber);
+  padding-left: 16px;
+}
+
+.about-sig {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--slate);
+}
+
+.about-sig span {
+  display: block;
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+
+.cred-list {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.cred-list li {
+  font-size: 0.88rem;
+  color: var(--text);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.45;
+}
+
+.cred-list li::before {
+  content: '✓';
+  color: var(--amber);
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  padding: 52px 20px;
+  background: var(--off-white);
+}
+
+.testi-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.testi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 18px;
+}
+
+.testi-stars {
+  color: var(--amber);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.testi-card p {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.testi-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.testi-name span {
+  display: block;
+  font-weight: 400;
+  margin-top: 1px;
+}
+
+/* SAME-WEEK GUARANTEE SECTION */
+.guarantee {
+  background: var(--slate);
+  color: var(--white);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.guarantee h2 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.guarantee p {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 24px;
+  line-height: 1.55;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.guarantee-badge {
+  display: inline-block;
+  border: 2px solid var(--amber);
+  border-radius: 50%;
+  width: 88px;
+  height: 88px;
+  line-height: 1.2;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--amber-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  padding: 12px;
+  text-align: center;
+}
+
+.guarantee-badge strong {
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--white);
+  display: block;
+  line-height: 1.1;
+}
+
+/* FINAL CTA */
+.final-cta {
+  padding: 52px 20px;
+  background: var(--off-white);
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.final-cta p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.5;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.btn-cta-main {
+  display: block;
+  background: var(--slate);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 16px 24px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn-cta-amber {
+  display: block;
+  background: var(--amber);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 16px 24px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn-outline {
+  display: block;
+  border: 2px solid var(--border);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 24px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.5);
+  padding: 28px 20px;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+footer strong {
+  color: rgba(255,255,255,0.85);
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+}
+
+/* DESKTOP */
+@media (min-width: 600px) {
+  .hero { padding: 64px 40px 72px; }
+  .hero h1 { font-size: 2.6rem; }
+  .hero-ctas { flex-direction: row; max-width: 480px; }
+
+  .roads-grid { grid-template-columns: 1fr 1fr 1fr; }
+
+  .service-grid { grid-template-columns: 1fr 1fr; }
+
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+
+  .services, .about, .testimonials, .final-cta, .back-roads { padding: 72px 40px; }
+
+  .guarantee { padding: 60px 40px; }
+}
+
+@media (min-width: 900px) {
+  .service-grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    Lanning Mechanical
+    <span>Guysville, OH · SE Ohio</span>
+  </div>
+  <a class="nav-call" href="tel:+17405550182">(740) 555-0182</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Serving SE Ohio since day one</p>
+  <h1>Heating &amp; cooling<br>from <em>Guysville</em><br>to Marietta.</h1>
+  <p class="hero-sub">
+    Furnace repairs, heat pumps, AC service, and propane systems for rural homes across Athens and Washington County. We'll be there when we say we will — no runaround, no call center.
+  </p>
+  <div class="hero-ctas">
+    <a class="btn-primary" href="tel:+17405550182">Call (740) 555-0182</a>
+    <a class="btn-secondary" href="#schedule">Schedule Service</a>
+  </div>
+  <p class="same-week">Same-week appointments available</p>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust">
+  <ul class="trust-list">
+    <li>Licensed &amp; Insured Ohio</li>
+    <li>Propane systems</li>
+    <li>Same-week service</li>
+    <li>No call centers</li>
+    <li>All makes &amp; models</li>
+  </ul>
+</section>
+
+<!-- BACK ROADS — Differentiator -->
+<section class="back-roads">
+  <p class="back-roads-label">Hyper-local coverage</p>
+  <h2>We service the back roads.</h2>
+  <p class="back-roads-intro">
+    A lot of companies say they serve "the Athens area" and mean they'll come out if it's convenient. We mean every hollow and gravel road between Guysville and the river. These are our neighbors — we show up.
+  </p>
+
+  <div class="roads-grid">
+    <div class="road-tag">
+      <div class="name">Guysville</div>
+      <div class="county">Athens Co. · Home base</div>
+    </div>
+    <div class="road-tag">
+      <div class="name">Amesville</div>
+      <div class="county">Athens Co.</div>
+    </div>
+    <div class="road-tag">
+      <div class="name">Stewart</div>
+      <div class="county">Athens Co.</div>
+    </div>
+    <div class="road-tag">
+      <div class="name">Coolville</div>
+      <div class="county">Athens Co.</div>
+    </div>
+    <div class="road-tag">
+      <div class="name">Shade</div>
+      <div class="county">Athens Co.</div>
+    </div>
+    <div class="road-tag">
+      <div class="name">Rutland</div>
+      <div class="county">Meigs Co.</div>
+    </div>
+    <div class="road-tag">
+      <div class="name">Beverly</div>
+      <div class="county">Washington Co.</div>
+    </div>
+    <div class="road-tag">
+      <div class="name">Belpre</div>
+      <div class="county">Washington Co.</div>
+    </div>
+    <div class="road-tag">
+      <div class="name">Marietta</div>
+      <div class="county">Washington Co.</div>
+    </div>
+  </div>
+
+  <div class="route-note">
+    <strong>US-50 corridor and beyond.</strong> If you're on a rural route or a township road without a name most GPS systems know, call us anyway. We know these roads.
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <p class="section-label">What we do</p>
+  <h2 class="section-title">Built for how people heat out here.</h2>
+  <p class="section-sub">Propane, heat pumps, forced air — we work on whatever's in your house.</p>
+
+  <div class="service-grid">
+    <div class="service-card featured">
+      <span class="winter-flag">Appalachian winter</span>
+      <div class="service-icon">🔥</div>
+      <h3>Furnace Repair &amp; Replacement</h3>
+      <p>When your heat goes out in January on a ridge road, you need someone who can get there. We stock common parts and carry them on the truck.</p>
+      <ul>
+        <li>Gas &amp; propane furnaces</li>
+        <li>All major brands</li>
+        <li>Emergency calls</li>
+        <li>Honest replacement advice</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🌡️</div>
+      <h3>Heat Pumps</h3>
+      <p>More rural homes are switching to heat pumps — we install and service them, including cold-climate models that hold up through Ohio winters.</p>
+      <ul>
+        <li>Install &amp; replacement</li>
+        <li>Mini-splits (ductless)</li>
+        <li>Seasonal tune-ups</li>
+        <li>Efficiency upgrades</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">💧</div>
+      <h3>Propane Systems</h3>
+      <p>Natural gas doesn't reach everywhere out here. We work with propane furnaces, boilers, and combo systems common in older rural homes.</p>
+      <ul>
+        <li>Propane furnace service</li>
+        <li>Leak diagnosis</li>
+        <li>Conversion work</li>
+        <li>Boiler systems</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">❄️</div>
+      <h3>Air Conditioning</h3>
+      <p>Central AC, ductless systems, and tune-ups before summer hits. We book up fast in May — schedule early.</p>
+      <ul>
+        <li>Central AC repair</li>
+        <li>New system installs</li>
+        <li>Spring tune-ups</li>
+        <li>Refrigerant recharge</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SAME-WEEK GUARANTEE -->
+<section class="guarantee" id="schedule">
+  <div class="guarantee-badge">
+    <strong>Same<br>Week</strong>
+    Guaranteed
+  </div>
+  <h2>Book this week. Get service this week.</h2>
+  <p>
+    We don't book you two weeks out and hope you forget. Schedule service and we'll get there within the week — or we'll tell you straight why we can't and find a time that works.
+  </p>
+  <a class="btn-primary" href="tel:+17405550182" style="display:inline-block; max-width:280px; width:100%;">Call to Schedule — (740) 555-0182</a>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <p class="section-label">About Lanning Mechanical</p>
+  <h2 class="section-title">Local to this stretch of the river valley.</h2>
+
+  <div class="about-card">
+    <blockquote>
+      "I grew up on a township road outside Guysville. I know what it's like when a furnace dies in February and the company you called can't make it for three days. That's not how I run things."
+    </blockquote>
+    <p class="about-sig">
+      — Lanning Mechanical
+      <span>Guysville, Ohio</span>
+    </p>
+  </div>
+
+  <ul class="cred-list">
+    <li>Licensed HVAC contractor, State of Ohio</li>
+    <li>Fully insured — no shortcuts on that</li>
+    <li>Familiar with older homes and non-standard installs common in SE Ohio</li>
+    <li>Propane system experience — not just natural gas</li>
+    <li>You call us, we answer. Not a dispatch center.</li>
+    <li>Straight estimates — we explain what's wrong before we fix it</li>
+  </ul>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="section-label">What customers say</p>
+  <h2 class="section-title">From people on these roads.</h2>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"Our propane furnace went out on a Thursday night in December. Called Lanning and they were at our place off Route 33 by Friday morning. Fixed it same visit."</p>
+      <div class="testi-name">
+        D. Hawkins
+        <span>Amesville, OH</span>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"Other companies kept telling me my heat pump was beyond repair — buy a new one. Lanning came out, found the actual problem, fixed it for $200. That was two winters ago and it's still running."</p>
+      <div class="testi-name">
+        R. Conley
+        <span>Coolville, OH</span>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"We're on a gravel road past Stewart and I always assumed we'd have to drive to Athens for anything. Lanning came right out. Friendly, explained everything, fair price."</p>
+      <div class="testi-name">
+        T. &amp; M. Bauer
+        <span>Stewart, OH</span>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"Installed a ductless mini-split in our older farmhouse. No ductwork to deal with. They knew exactly what they were doing and got it done in one day."</p>
+      <div class="testi-name">
+        J. Perkins
+        <span>Shade, OH</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Ready to schedule?</h2>
+  <p>Call or text — we'll get you booked this week. No call centers, no waiting on hold.</p>
+  <div class="cta-stack">
+    <a class="btn-cta-amber" href="tel:+17405550182">Call (740) 555-0182</a>
+    <a class="btn-outline" href="sms:+17405550182">Text Us Instead</a>
+  </div>
+  <p style="margin-top:18px; font-size:0.78rem; color:var(--muted);">Serving Guysville · Amesville · Stewart · Coolville · Shade · Rutland · Beverly · Belpre · Marietta and the roads between</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Lanning Mechanical</strong>
+  Guysville, OH &nbsp;·&nbsp; (740) 555-0182<br>
+  Serving Athens County, Washington County &amp; Meigs County<br>
+  Licensed &amp; Insured · State of Ohio
+</footer>
+
+</body>
+</html>
