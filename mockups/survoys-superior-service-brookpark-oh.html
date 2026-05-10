@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survoy's Superior Service Inc — Brookpark, OH</title>
+<meta name="description" content="Brookpark's HVAC crew since the early 2000s. Furnace repair, AC service, full HVAC replacement, commercial calls. Trusted for 20+ years — call now.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:      #09192a;
+    --blue:      #0d4a7a;
+    --blue-mid:  #1560a8;
+    --blue-lt:   #2d7dd2;
+    --blue-pale: #e5f0fb;
+    --white:     #ffffff;
+    --offwhite:  #f5f8fc;
+    --gray-100:  #edf1f7;
+    --gray-200:  #d6dfe9;
+    --gray-400:  #8895ae;
+    --gray-600:  #44536a;
+    --gray-900:  #0c1824;
+    --rust:      #b54a1a;
+    --rust-lt:   #fdf0eb;
+    --font: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--gray-900);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { width: 100%; max-width: 740px; margin: 0 auto; padding: 0 20px; }
+
+  /* ── Top strip ── */
+  .topstrip {
+    background: var(--rust);
+    color: rgba(255,255,255,0.88);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    letter-spacing: 0.01em;
+  }
+  .topstrip a   { color: #fff; font-weight: 800; text-decoration: none; }
+  .topstrip-sep { color: rgba(255,255,255,0.3); }
+
+  /* ── Nav ── */
+  .nav {
+    background: var(--white);
+    border-bottom: 3px solid var(--navy);
+    padding: 13px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+
+  .nav-emblem {
+    width: 44px; height: 44px;
+    background: var(--navy);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 10px; font-weight: 900; color: var(--white);
+    text-transform: uppercase; letter-spacing: 0.04em;
+    line-height: 1.3; text-align: center; padding: 4px;
+  }
+
+  .nav-name { font-size: 14px; font-weight: 800; color: var(--navy); line-height: 1.2; letter-spacing: -0.2px; }
+  .nav-sub  { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+
+  .nav-cta {
+    background: var(--rust);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 16px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 54px 20px 0;
+  }
+
+  .hero-inner { max-width: 640px; margin: 0 auto; }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #7aaccc;
+    border: 1px solid rgba(122,172,204,0.25);
+    border-radius: 4px; padding: 5px 13px; margin-bottom: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(27px, 7.5vw, 48px);
+    font-weight: 900; line-height: 1.06;
+    letter-spacing: -0.7px; margin-bottom: 16px;
+  }
+
+  .hero h1 em { font-style: normal; color: #60a5fa; }
+
+  .hero-sub {
+    font-size: 17px; color: #6a8fae;
+    line-height: 1.65; max-width: 500px; margin-bottom: 32px;
+  }
+
+  /* CTA block */
+  .hero-cta-block {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 4px solid var(--rust);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 20px;
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+
+  .cta-block-head { font-size: 16px; font-weight: 800; color: var(--white); margin-bottom: 5px; }
+  .cta-block-sub  { font-size: 13px; color: #6a8fae; line-height: 1.45; margin-bottom: 14px; }
+
+  .btn-call {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; background: var(--rust); color: var(--white);
+    text-decoration: none; font-size: 20px; font-weight: 900;
+    padding: 14px 28px; border-radius: 8px; letter-spacing: -0.2px;
+    transition: opacity 0.15s; width: 100%; max-width: 360px;
+  }
+  .btn-call:hover { opacity: 0.9; }
+
+  .hero-note { font-size: 13px; color: #3a5a7a; margin-top: 10px; }
+
+  /* ── STATS BAR — the differentiator ── */
+  .stats-bar {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 0 20px;
+  }
+
+  .stats-inner {
+    display: flex;
+    max-width: 740px;
+    margin: 0 auto;
+  }
+
+  .stat-block {
+    flex: 1;
+    padding: 22px 14px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .stat-block:last-child { border-right: none; }
+
+  .stat-num {
+    font-size: clamp(26px, 6vw, 38px);
+    font-weight: 900; color: var(--white);
+    letter-spacing: -1px; line-height: 1;
+    display: flex; align-items: flex-start; justify-content: center; gap: 2px;
+  }
+
+  .stat-sup { font-size: 14px; font-weight: 700; color: var(--rust); margin-top: 4px; }
+  .stat-label { font-size: 12px; color: #5a7a9a; margin-top: 6px; line-height: 1.35; font-weight: 500; }
+
+  /* ── Trust strip ── */
+  .trust-strip {
+    background: var(--blue);
+    display: flex; justify-content: center; flex-wrap: wrap;
+  }
+  .trust-item {
+    color: #bdd5ef; font-size: 13px; font-weight: 600;
+    padding: 13px 16px; border-right: 1px solid rgba(255,255,255,0.1);
+    text-align: center; white-space: nowrap;
+  }
+  .trust-item:last-child { border-right: none; }
+  .trust-item strong { display: block; color: var(--white); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+
+  /* ── Sections ── */
+  .section      { padding: 64px 20px; }
+  .section-alt  { background: var(--offwhite); }
+  .section-dark { background: var(--navy); color: var(--white); }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--blue-lt); margin-bottom: 10px;
+  }
+  .section-dark .section-label { color: #7aaccc; }
+
+  .section-title {
+    font-size: clamp(22px, 5.5vw, 34px);
+    font-weight: 900; line-height: 1.1;
+    letter-spacing: -0.5px; margin-bottom: 12px; color: var(--navy);
+  }
+  .section-dark .section-title { color: var(--white); }
+
+  .section-body {
+    font-size: 16px; color: var(--gray-600);
+    max-width: 560px; line-height: 1.75; margin-bottom: 36px;
+  }
+  .section-dark .section-body { color: #6a8fae; }
+
+  /* ── Services ── */
+  .svc-grid { display: flex; flex-direction: column; gap: 14px; }
+
+  .svc-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px; padding: 24px 22px;
+    border-top: 4px solid var(--blue-lt);
+  }
+  .svc-card.commercial { border-top-color: var(--rust); }
+
+  .svc-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+  .svc-icon { font-size: 34px; line-height: 1; flex-shrink: 0; }
+
+  .svc-pill {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; padding: 4px 10px; border-radius: 4px; white-space: nowrap;
+  }
+  .pill-blue { background: var(--blue-pale); color: var(--blue-mid); }
+  .pill-rust { background: var(--rust-lt); color: var(--rust); }
+
+  .svc-name { font-size: 19px; font-weight: 800; color: var(--navy); margin-bottom: 8px; letter-spacing: -0.2px; }
+  .svc-desc { font-size: 15px; color: var(--gray-600); line-height: 1.65; margin-bottom: 12px; }
+  .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .svc-tag  { font-size: 12px; font-weight: 600; background: var(--gray-100); color: var(--gray-600); padding: 4px 10px; border-radius: 4px; }
+
+  /* ── About ── */
+  .about-wrap { max-width: 660px; margin: 0 auto; }
+
+  .about-pull {
+    font-size: clamp(18px, 4.5vw, 26px);
+    font-weight: 900; color: var(--navy);
+    line-height: 1.25; letter-spacing: -0.4px;
+    border-left: 5px solid var(--rust);
+    padding-left: 20px; margin-bottom: 24px;
+  }
+
+  .about-body { font-size: 16px; color: var(--gray-600); line-height: 1.8; margin-bottom: 32px; }
+
+  /* Timeline */
+  .timeline { display: flex; flex-direction: column; gap: 0; margin-bottom: 36px; }
+
+  .tl-item {
+    display: flex; gap: 16px; padding: 16px 0;
+    border-bottom: 1px solid var(--gray-200); align-items: flex-start;
+  }
+  .tl-item:last-child { border-bottom: none; }
+
+  .tl-year {
+    font-size: 13px; font-weight: 800; color: var(--rust);
+    width: 52px; flex-shrink: 0; padding-top: 2px; letter-spacing: -0.3px;
+  }
+
+  .tl-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--navy); flex-shrink: 0; margin-top: 5px;
+  }
+
+  .tl-title { font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 2px; }
+  .tl-desc  { font-size: 13px; color: var(--gray-600); line-height: 1.45; }
+
+  /* Cred list */
+  .cred-list { display: flex; flex-direction: column; gap: 10px; }
+  .cred-item { display: flex; gap: 14px; align-items: flex-start; padding: 15px 18px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; }
+  .cred-check { width: 27px; height: 27px; border-radius: 50%; background: var(--navy); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; flex-shrink: 0; margin-top: 2px; }
+  .cred-body strong { display: block; font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 2px; }
+  .cred-body span   { font-size: 14px; color: var(--gray-600); }
+
+  /* ── Testimonials ── */
+  .review-grid { display: flex; flex-direction: column; gap: 14px; }
+  .review-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: 10px; padding: 22px; }
+  .review-stars  { color: #fbbf24; font-size: 14px; letter-spacing: 2px; margin-bottom: 8px; }
+  .review-text   { font-size: 15px; color: #c2d8ef; line-height: 1.65; font-style: italic; margin-bottom: 12px; }
+  .review-author { font-size: 12px; color: #6a9abc; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+  .reviews-note  { margin-top: 24px; font-size: 13px; color: #3a5a7a; text-align: center; font-style: italic; }
+
+  /* ── Final CTA ── */
+  .final-cta {
+    background: var(--navy); color: var(--white);
+    padding: 64px 20px; text-align: center;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(24px, 6.5vw, 40px);
+    font-weight: 900; letter-spacing: -0.6px; line-height: 1.1; margin-bottom: 10px;
+  }
+
+  .final-cta p {
+    font-size: 17px; color: #6a8fae; margin-bottom: 32px;
+    max-width: 440px; margin-left: auto; margin-right: auto;
+  }
+
+  .btn-final {
+    display: inline-flex; flex-direction: column; align-items: center;
+    background: var(--rust); color: var(--white); text-decoration: none;
+    font-size: 24px; font-weight: 900; padding: 18px 40px;
+    border-radius: 8px; line-height: 1.15; transition: opacity 0.15s;
+  }
+  .btn-final:hover { opacity: 0.9; }
+  .btn-final small { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 5px; }
+
+  .final-note { margin-top: 18px; font-size: 13px; color: #2a3d52; }
+
+  /* ── Footer ── */
+  .footer { background: #050f1a; color: #243040; text-align: center; padding: 28px 20px; font-size: 13px; line-height: 1.9; }
+  .footer a      { color: #3a6080; text-decoration: none; }
+  .footer strong { color: #304050; }
+
+  /* ── Responsive ── */
+  @media (min-width: 560px) {
+    .svc-grid    { display: grid; grid-template-columns: 1fr 1fr; }
+    .svc-card:first-child { grid-column: 1 / -1; }
+    .review-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .review-card:last-child { grid-column: 1 / -1; }
+    .btn-call    { width: auto; }
+    .timeline    { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+  }
+
+  @media (min-width: 720px) {
+    .svc-card:first-child { grid-column: auto; }
+    .svc-grid    { grid-template-columns: repeat(3, 1fr); }
+    .svc-card.commercial { grid-column: 1 / -1; }
+    .review-grid { grid-template-columns: repeat(3, 1fr); }
+    .review-card:last-child { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top strip -->
+<div class="topstrip">
+  <span>Survoy's Superior Service Inc · Brookpark, OH</span>
+  <span class="topstrip-sep">|</span>
+  <span>Trusted for 20+ years</span>
+  <span class="topstrip-sep">|</span>
+  <a href="tel:+12165550300">(216) 555-0300</a>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-emblem">SSS<br>Inc</div>
+    <div>
+      <div class="nav-name">Survoy's Superior Service Inc</div>
+      <div class="nav-sub">Brookpark, OH · Licensed &amp; Insured · Est. ~2000</div>
+    </div>
+  </div>
+  <a href="tel:+12165550300" class="nav-cta">📞 Call Us</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">📍 Brookpark, OH · 20+ Years Strong</div>
+
+    <h1>Brookpark's HVAC Crew —<br><em>Trusted Since Before<br>Google Existed.</em></h1>
+
+    <p class="hero-sub">
+      Furnace repair, AC service, full HVAC replacement, commercial calls.
+      The same crew. The same number. The same results — for over two decades
+      of Brookpark winters and summers.
+    </p>
+
+    <div class="hero-cta-block">
+      <div class="cta-block-head">Call the crew Brookpark has counted on for 20+ years.</div>
+      <div class="cta-block-sub">
+        Not a new name on a Google ad. Not a franchise from out of town.
+        Survoy's has been answering Brookpark HVAC calls since before most of
+        our competitors had a website.
+      </div>
+      <a href="tel:+12165550300" class="btn-call">📞 (216) 555-0300</a>
+    </div>
+
+    <p class="hero-note">7 days a week · Emergency calls welcome · Free estimates on replacements</p>
+  </div>
+</section>
+
+<!-- STATS BAR — the differentiator -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-block">
+      <div class="stat-num">20<span class="stat-sup">+</span></div>
+      <div class="stat-label">Years serving<br>Brookpark &amp; area</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">5K<span class="stat-sup">+</span></div>
+      <div class="stat-label">Jobs completed<br>(est.)</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">15<span class="stat-sup">+</span></div>
+      <div class="stat-label">Neighborhoods<br>covered</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">1<span class="stat-sup">st</span></div>
+      <div class="stat-label">Call for most<br>repeat customers</div>
+    </div>
+  </div>
+</div>
+
+<!-- Trust strip -->
+<div class="trust-strip">
+  <div class="trust-item"><strong>Licensed</strong>Ohio HVAC</div>
+  <div class="trust-item"><strong>Est. ~2000</strong>Brookpark, OH</div>
+  <div class="trust-item"><strong>Residential</strong>&amp; Commercial</div>
+  <div class="trust-item"><strong>Free</strong>Estimates</div>
+</div>
+
+<!-- Services -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Four services. Twenty years of getting them right.</h2>
+    <p class="section-body">
+      We don't try to do everything. We do HVAC — residential and commercial —
+      and we've been doing it in this part of Cuyahoga County long enough that
+      we know the equipment, the housing stock, and the winters.
+    </p>
+
+    <div class="svc-grid">
+
+      <div class="svc-card">
+        <div class="svc-head">
+          <span class="svc-icon">🔥</span>
+          <span class="svc-pill pill-blue">Repair &amp; Diagnose</span>
+        </div>
+        <div class="svc-name">Furnace Repair</div>
+        <p class="svc-desc">
+          No heat in a Brookpark January is a call we've taken thousands of times.
+          We diagnose fast, carry the parts that fail most on local units, and quote
+          the job before we start. If we've seen your model before — and we probably
+          have — we know exactly where to look first.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Emergency calls</span>
+          <span class="svc-tag">All brands</span>
+          <span class="svc-tag">Flat-rate quotes</span>
+          <span class="svc-tag">Same-day available</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-head">
+          <span class="svc-icon">❄️</span>
+          <span class="svc-pill pill-blue">Service &amp; Repair</span>
+        </div>
+        <div class="svc-name">AC Service</div>
+        <p class="svc-desc">
+          Not cooling, frozen coils, tripping breaker, just not keeping up — we've
+          seen every variation. Tune-ups in spring before the heat hits, diagnostic
+          calls when something's wrong mid-summer, and honest advice on whether to
+          repair or replace when the math tips that way.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Spring tune-ups</span>
+          <span class="svc-tag">Refrigerant service</span>
+          <span class="svc-tag">Diagnostic calls</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-head">
+          <span class="svc-icon">🏠</span>
+          <span class="svc-pill pill-blue">Full Install</span>
+        </div>
+        <div class="svc-name">Full HVAC Replacement</div>
+        <p class="svc-desc">
+          When the system is done, we handle the full replacement — remove the old
+          equipment, install new, commission and test before we leave. We'll tell
+          you what size your home actually needs and source equipment that fits
+          your house and your budget, not just what has the best margin for us.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Free estimate</span>
+          <span class="svc-tag">Right-sized installs</span>
+          <span class="svc-tag">Haul-away included</span>
+          <span class="svc-tag">All brands</span>
+        </div>
+      </div>
+
+      <div class="svc-card commercial">
+        <div class="svc-head">
+          <span class="svc-icon">🏢</span>
+          <span class="svc-pill pill-rust">Commercial</span>
+        </div>
+        <div class="svc-name">Commercial HVAC Calls</div>
+        <p class="svc-desc">
+          We handle commercial calls across the Brookpark area — light commercial,
+          retail, small industrial, and multi-unit residential. If your building's
+          HVAC is down, you need someone who can respond fast and has seen the
+          equipment before. Twenty years in this market means we've been inside
+          a lot of commercial mechanical rooms in Cuyahoga County.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Light commercial</span>
+          <span class="svc-tag">Retail &amp; office</span>
+          <span class="svc-tag">Multi-unit residential</span>
+          <span class="svc-tag">Service contracts</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="section-label">About Survoy's</div>
+      <h2 class="section-title">The same name. The same number. Two decades.</h2>
+
+      <div class="about-pull">
+        "Most of our competitors weren't in business<br>the last time your furnace was installed."
+      </div>
+
+      <p class="about-body">
+        Survoy's Superior Service has been running HVAC calls in Brookpark and
+        surrounding Cuyahoga County communities since around 2000. That's before
+        most local homeowners had a smartphone, before Google reviews existed,
+        and before a dozen franchises set up shop in the market. We built this
+        business on repeat customers and word of mouth — which means every job
+        has to hold up, because the next call depends on it.
+        <br><br>
+        We're not the cheapest option and we don't try to be. We're the option
+        that shows up, does it right, and is still here when you call back in
+        three years with the next thing. That's a track record most of our
+        competitors can't match because they haven't been around long enough to
+        build one.
+      </p>
+
+      <!-- Rough timeline — tenure made tangible -->
+      <div class="section-label" style="margin-bottom:14px;">How we got here</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">~2000</div>
+          <div class="tl-dot"></div>
+          <div>
+            <div class="tl-title">Founded in Brookpark</div>
+            <div class="tl-desc">Started with residential repair calls in the immediate Brookpark area.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">~2005</div>
+          <div class="tl-dot"></div>
+          <div>
+            <div class="tl-title">Expanded to commercial</div>
+            <div class="tl-desc">Added commercial service and light industrial calls across Cuyahoga County.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">~2012</div>
+          <div class="tl-dot"></div>
+          <div>
+            <div class="tl-title">Full replacement work</div>
+            <div class="tl-desc">Grew into full system installs as the repeat customer base expanded.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Today</div>
+          <div class="tl-dot"></div>
+          <div>
+            <div class="tl-title">Still here. Still local.</div>
+            <div class="tl-desc">Same ownership, same service area, same phone number — 20+ years in.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-list">
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Ohio-licensed HVAC contractor, fully insured</strong>
+            <span>License number on every invoice. Ask before we start.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Written quotes before work begins — no open billing</strong>
+            <span>You approve the number. It doesn't change unless the scope changes, and we tell you first.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Two decades of Cuyahoga County HVAC experience</strong>
+            <span>We know the housing stock, the common failures, and what fair pricing looks like in this market.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Residential and commercial — one call covers both</strong>
+            <span>No referral to a separate company. We handle commercial calls in-house.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label">What Brookpark Says</div>
+    <h2 class="section-title">Twenty years of neighbors calling back.</h2>
+    <p class="section-body">Placeholder reviews — replace with verified customer testimonials before publishing.</p>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "I've called Survoy's three times over the years — furnace repair,
+          AC tune-up, and eventually a full replacement. Same reliable service
+          every time. When I need HVAC work in Brookpark, there's no reason
+          to call anyone else."
+        </p>
+        <div class="review-author">— D.K., Brookpark</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "They diagnosed my furnace issue in 20 minutes — something two other
+          companies had misdiagnosed twice. Quoted me right there, fixed it
+          same day. This is what 20 years of experience looks like."
+        </p>
+        <div class="review-author">— M.R., Parma</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "We use Survoy's for our retail space on Engle Road. They know our
+          units, show up when they say, and their pricing is straight. That's
+          all a business owner needs from a commercial HVAC contractor."
+        </p>
+        <div class="review-author">— T.B., Brookpark (Commercial)</div>
+      </div>
+    </div>
+
+    <p class="reviews-note">✦ Replace with real customer reviews before going live.</p>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Call the crew Brookpark<br>has counted on for 20+ years.</h2>
+    <p>
+      Not a new face on a Google ad. Not a franchise from out of town.
+      Survoy's — same name, same number, same results.
+    </p>
+    <a href="tel:+12165550300" class="btn-final">
+      (216) 555-0300
+      <small>Survoy's Superior Service · Brookpark, OH</small>
+    </a>
+    <p class="final-note">7 days a week · Emergency calls welcome · Free estimates on replacements</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <strong>Survoy's Superior Service Inc</strong><br>
+    Brookpark, OH &nbsp;·&nbsp; Cuyahoga County<br>
+    <a href="tel:+12165550300">(216) 555-0300</a><br>
+    Ohio HVAC License #XXXXX · Licensed &amp; Insured · Est. ~2000<br>
+    <br>
+    <span style="font-size:12px;">© 2026 Survoy's Superior Service Inc. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
