@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mac's Residential | HVAC · Electrical · Plumbing | Jackson, OH</title>
+<style>
+:root {
+  --dark: #111827;
+  --navy: #1a2e45;
+  --navy-mid: #243d5c;
+  --blue: #1e5f99;
+  --blue-light: #2878be;
+  --orange: #d9690d;
+  --orange-light: #e8820f;
+  --white: #ffffff;
+  --off-white: #f4f6f8;
+  --light: #eaecf0;
+  --muted: #5b6677;
+  --text: #111827;
+  --border: #d0d6e0;
+  --red-tint: #fef2f2;
+  --red: #b91c1c;
+  --green-tint: #f0fdf4;
+  --green: #15803d;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  background: var(--dark);
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 12px;
+}
+
+.nav-left {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.nav-logo {
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-trades {
+  display: flex;
+  gap: 5px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.trade-pill {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.pill-hvac { background: rgba(30,95,153,0.4); color: #7ec8f8; border: 1px solid rgba(30,95,153,0.5); }
+.pill-elec { background: rgba(217,105,13,0.35); color: #f5b97a; border: 1px solid rgba(217,105,13,0.45); }
+.pill-plmb { background: rgba(21,128,61,0.35); color: #7fd4a0; border: 1px solid rgba(21,128,61,0.45); }
+
+.nav-call {
+  background: var(--orange);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 8px 13px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* HERO */
+.hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 44px 20px 52px;
+}
+
+.hero-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--orange-light);
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1.12;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: #7ec8f8;
+}
+
+.hero-trades-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.hero-trade-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+}
+
+.hero-trade-badge .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-hvac { background: #7ec8f8; }
+.dot-elec { background: #f5b97a; }
+.dot-plmb { background: #7fd4a0; }
+
+.hero-sub {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 480px;
+}
+
+/* TRADE SELECTOR */
+.book-box {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 10px;
+  padding: 20px 18px;
+  max-width: 420px;
+}
+
+.book-box-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+}
+
+.trade-select-wrap {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.trade-select-wrap::after {
+  content: '▾';
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.5);
+  pointer-events: none;
+  font-size: 0.85rem;
+}
+
+#trade-select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 36px 13px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+#trade-select option {
+  background: var(--navy);
+  color: var(--white);
+}
+
+#book-btn {
+  display: block;
+  width: 100%;
+  background: var(--orange);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 15px 18px;
+  border-radius: 6px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+}
+
+.book-note {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+}
+
+/* TRUST STRIP */
+.trust {
+  background: var(--dark);
+  padding: 15px 20px;
+}
+
+.trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 20px;
+  list-style: none;
+}
+
+.trust-list li {
+  color: rgba(255,255,255,0.78);
+  font-size: 0.77rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trust-list li::before {
+  content: '✓';
+  color: #7fd4a0;
+  font-weight: 800;
+}
+
+/* WHY ONE COMPANY — the differentiator */
+.why-one {
+  background: var(--white);
+  padding: 52px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.why-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+
+.why-one h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.why-one .why-intro {
+  font-size: 0.93rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+
+.compare-wrap {
+  display: grid;
+  gap: 14px;
+}
+
+.compare-col {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.compare-col.bad { border-color: #fca5a5; }
+.compare-col.good { border-color: #86efac; }
+
+.compare-head {
+  padding: 14px 18px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.compare-col.bad .compare-head {
+  background: var(--red-tint);
+  color: var(--red);
+  border-bottom: 1px solid #fca5a5;
+}
+
+.compare-col.good .compare-head {
+  background: var(--green-tint);
+  color: var(--green);
+  border-bottom: 1px solid #86efac;
+}
+
+.compare-head .sub {
+  font-weight: 400;
+  font-size: 0.75rem;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+.compare-rows {
+  list-style: none;
+  padding: 10px 0;
+}
+
+.compare-rows li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 18px;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  color: var(--text);
+  border-bottom: 1px solid var(--light);
+}
+
+.compare-rows li:last-child { border-bottom: none; }
+
+.compare-rows li .icon {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  margin-top: 1px;
+}
+
+.compare-col.bad .compare-rows li { color: #6b2c2c; }
+.compare-col.good .compare-rows li { color: #145228; }
+
+.compare-col.bad .compare-rows { background: #fff8f8; }
+.compare-col.good .compare-rows { background: #f8fff9; }
+
+.compare-total {
+  padding: 12px 18px;
+  font-size: 0.83rem;
+  font-weight: 800;
+  border-top: 2px solid;
+}
+
+.compare-col.bad .compare-total {
+  background: #fef2f2;
+  color: var(--red);
+  border-color: #fca5a5;
+}
+
+.compare-col.good .compare-total {
+  background: var(--green-tint);
+  color: var(--green);
+  border-color: #86efac;
+}
+
+.verdict {
+  margin-top: 20px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 18px 20px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.verdict strong {
+  color: #7ec8f8;
+}
+
+/* SERVICES */
+.services {
+  background: var(--off-white);
+  padding: 52px 20px;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.section-sub {
+  font-size: 0.91rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.service-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 22px 20px;
+  border-top: 4px solid var(--blue);
+}
+
+.service-card.elec { border-top-color: var(--orange); }
+.service-card.plmb { border-top-color: var(--green); }
+
+.service-trade-tag {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.tag-hvac { background: #dbeafe; color: #1e40af; }
+.tag-elec { background: #ffedd5; color: #9a3412; }
+.tag-plmb { background: #dcfce7; color: #166534; }
+
+.service-icon { font-size: 1.5rem; margin-bottom: 8px; line-height: 1; }
+
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.service-card p {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.service-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-card ul li {
+  font-size: 0.8rem;
+  color: var(--text);
+  padding-left: 14px;
+  position: relative;
+}
+
+.service-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.service-card.elec ul li::before { color: var(--orange); }
+.service-card.plmb ul li::before { color: var(--green); }
+
+/* ABOUT */
+.about {
+  background: var(--light);
+  padding: 52px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.about-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 26px 22px;
+  margin-top: 22px;
+}
+
+.about-card p {
+  font-size: 0.93rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.cred-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cred-list li {
+  font-size: 0.87rem;
+  color: var(--text);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.45;
+}
+
+.cred-list li .ck {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 800;
+  margin-top: 1px;
+}
+
+.ck-blue { background: #dbeafe; color: #1e40af; }
+.ck-ora  { background: #ffedd5; color: #9a3412; }
+.ck-grn  { background: #dcfce7; color: #166534; }
+
+/* TESTIMONIALS */
+.testimonials {
+  padding: 52px 20px;
+  background: var(--off-white);
+}
+
+.testi-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.testi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 18px;
+}
+
+.testi-trade {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-bottom: 6px;
+}
+
+.testi-stars {
+  color: #d97706;
+  font-size: 0.83rem;
+  margin-bottom: 7px;
+  letter-spacing: 1px;
+}
+
+.testi-card p {
+  font-size: 0.86rem;
+  color: var(--text);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.testi-name {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.testi-name span {
+  display: block;
+  font-weight: 400;
+  margin-top: 1px;
+}
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--navy);
+  color: var(--white);
+  padding: 52px 20px;
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.final-cta p {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.68);
+  margin-bottom: 28px;
+  line-height: 1.5;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.btn-main {
+  display: block;
+  background: var(--orange);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 16px 24px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn-ghost {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.85);
+  font-size: 0.93rem;
+  font-weight: 600;
+  padding: 13px 24px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.45);
+  padding: 26px 20px;
+  font-size: 0.77rem;
+  line-height: 1.7;
+}
+
+footer strong {
+  color: rgba(255,255,255,0.85);
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.85rem;
+}
+
+/* DESKTOP */
+@media (min-width: 580px) {
+  .compare-wrap { grid-template-columns: 1fr 1fr; }
+  .service-grid { grid-template-columns: 1fr 1fr; }
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 800px) {
+  .hero { padding: 60px 40px 68px; }
+  .hero h1 { font-size: 2.4rem; }
+  .why-one, .services, .about, .testimonials { padding: 68px 40px; }
+  .final-cta { padding: 68px 40px; }
+  .service-grid { grid-template-columns: repeat(4, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo">Mac's Residential</div>
+    <div class="nav-trades">
+      <span class="trade-pill pill-hvac">HVAC</span>
+      <span class="trade-pill pill-elec">Electrical</span>
+      <span class="trade-pill pill-plmb">Plumbing</span>
+    </div>
+  </div>
+  <a class="nav-call" href="tel:+17405550318">(740) 555-0318</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Jackson, OH — one number, every trade</p>
+  <h1>One call.<br><em>Heating, cooling,<br>electrical, plumbing.</em></h1>
+
+  <div class="hero-trades-row">
+    <div class="hero-trade-badge"><span class="dot dot-hvac"></span>HVAC</div>
+    <div class="hero-trade-badge"><span class="dot dot-elec"></span>Electrical</div>
+    <div class="hero-trade-badge"><span class="dot dot-plmb"></span>Plumbing</div>
+  </div>
+
+  <p class="hero-sub">
+    No other local shop in Jackson covers all three. Mac's does — so you're not tracking down three different contractors, three different schedules, and three different invoices for one problem.
+  </p>
+
+  <div class="book-box">
+    <div class="book-box-label">Book Any Service</div>
+    <div class="trade-select-wrap">
+      <select id="trade-select" aria-label="Select a service">
+        <option value="hvac">🌡️ Heating &amp; Cooling (HVAC)</option>
+        <option value="elec">⚡ Electrical / Panel Work</option>
+        <option value="plmb">💧 Plumbing / Water Heater</option>
+        <option value="drain">🔩 Drain &amp; Sewer Service</option>
+        <option value="unsure">Not sure — just call</option>
+      </select>
+    </div>
+    <button id="book-btn" type="button">Call to Book This Service →</button>
+    <p class="book-note">Or text (740) 555-0318 — we'll figure it out</p>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust">
+  <ul class="trust-list">
+    <li>Licensed in all three trades</li>
+    <li>One invoice, one visit</li>
+    <li>Jackson County based</li>
+    <li>Same-week scheduling</li>
+    <li>Emergency service</li>
+  </ul>
+</section>
+
+<!-- WHY ONE COMPANY — DIFFERENTIATOR -->
+<section class="why-one">
+  <p class="why-label">The Mac's advantage</p>
+  <h2>Why hire one company for all three trades?</h2>
+  <p class="why-intro">
+    When your water heater fails and takes out a circuit breaker, you're calling a plumber AND an electrician. That's two scheduling windows, two invoices, and two people who've never talked to each other. Here's what that actually costs you.
+  </p>
+
+  <div class="compare-wrap">
+    <div class="compare-col bad">
+      <div class="compare-head">
+        ✕ The old way
+        <div class="sub">3 separate contractors</div>
+      </div>
+      <ul class="compare-rows">
+        <li><span class="icon">📞</span>3 calls to find who's available</li>
+        <li><span class="icon">📅</span>3 separate appointment windows — each 4+ hours</li>
+        <li><span class="icon">🤷</span>No coordination — each trade works in a silo</li>
+        <li><span class="icon">📄</span>3 invoices, 3 sets of trip charges</li>
+        <li><span class="icon">🔁</span>Finger-pointing if something goes wrong</li>
+        <li><span class="icon">🕐</span>Days before everything's resolved</li>
+      </ul>
+      <div class="compare-total">Est. extra cost: $150–$400 in trip fees + your time</div>
+    </div>
+
+    <div class="compare-col good">
+      <div class="compare-head">
+        ✓ Mac's — one call
+        <div class="sub">All trades, one company</div>
+      </div>
+      <ul class="compare-rows">
+        <li><span class="icon">📞</span>One call handles everything</li>
+        <li><span class="icon">📅</span>One appointment — trades coordinate internally</li>
+        <li><span class="icon">🔧</span>We see how your systems interact and fix the root cause</li>
+        <li><span class="icon">📄</span>One invoice, one trip charge</li>
+        <li><span class="icon">✅</span>We own the outcome — no blame game</li>
+        <li><span class="icon">🕐</span>Often resolved same visit</li>
+      </ul>
+      <div class="compare-total">Savings: hours of your time + often $200+ on fees</div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <strong>The real edge:</strong> Most home problems cross trade lines — a furnace issue that's partly electrical, a water heater that needs a new circuit. When one company knows all three systems, problems get solved faster and cheaper.
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <p class="section-label">What we do</p>
+  <h2 class="section-title">All the services. One number.</h2>
+  <p class="section-sub">Residential only — we go deep on homes, not commercial jobs.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <span class="service-trade-tag tag-hvac">HVAC</span>
+      <div class="service-icon">🌡️</div>
+      <h3>Heating &amp; Cooling</h3>
+      <p>Repair, replace, or maintain your system. All makes and models, all fuel types.</p>
+      <ul>
+        <li>Furnace repair &amp; replacement</li>
+        <li>AC service &amp; install</li>
+        <li>Heat pumps</li>
+        <li>Seasonal tune-ups</li>
+      </ul>
+    </div>
+
+    <div class="service-card elec">
+      <span class="service-trade-tag tag-elec">Electrical</span>
+      <div class="service-icon">⚡</div>
+      <h3>Electrical &amp; Panel Work</h3>
+      <p>Panel upgrades, circuit work, outlets, and the electrical side of HVAC installs.</p>
+      <ul>
+        <li>Panel upgrades (100A→200A)</li>
+        <li>Circuit breaker replacement</li>
+        <li>HVAC disconnect wiring</li>
+        <li>Outlet &amp; switch work</li>
+      </ul>
+    </div>
+
+    <div class="service-card plmb">
+      <span class="service-trade-tag tag-plmb">Plumbing</span>
+      <div class="service-icon">💧</div>
+      <h3>Water Heaters &amp; Plumbing</h3>
+      <p>Water heater repair and replacement — gas, electric, and tankless. General plumbing too.</p>
+      <ul>
+        <li>Water heater replacement</li>
+        <li>Tankless conversions</li>
+        <li>Pipe repair &amp; leaks</li>
+        <li>Fixture installs</li>
+      </ul>
+    </div>
+
+    <div class="service-card plmb">
+      <span class="service-trade-tag tag-plmb">Plumbing</span>
+      <div class="service-icon">🔩</div>
+      <h3>Drain &amp; Sewer Service</h3>
+      <p>Slow drains, clogs, and main line issues. We clear it and tell you why it happened.</p>
+      <ul>
+        <li>Drain cleaning</li>
+        <li>Main line clearing</li>
+        <li>Camera inspection</li>
+        <li>Root intrusion</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <p class="section-label">About Mac's</p>
+  <h2 class="section-title">Built for homeowners who are tired of juggling.</h2>
+
+  <div class="about-card">
+    <p>
+      Mac's started as an HVAC company. Over time, we kept seeing the same thing: a homeowner would call us for a furnace, and while we were there, we'd spot an electrical issue or a failing water heater — and they'd have to start over with a new contractor. We got licensed in all three trades so we don't have to leave that behind.
+    </p>
+    <p>
+      We're based in Jackson, Ohio. We know the neighborhoods, the older homes, and the systems that have been cobbled together over decades. That context matters when you're diagnosing problems across three systems.
+    </p>
+
+    <ul class="cred-list">
+      <li>
+        <span class="ck ck-blue">✓</span>
+        Licensed HVAC contractor, State of Ohio
+      </li>
+      <li>
+        <span class="ck ck-ora">✓</span>
+        Licensed electrical contractor, State of Ohio
+      </li>
+      <li>
+        <span class="ck ck-grn">✓</span>
+        Licensed plumbing contractor, State of Ohio
+      </li>
+      <li>
+        <span class="ck ck-blue">✓</span>
+        Fully insured — general liability &amp; workers' comp
+      </li>
+      <li>
+        <span class="ck ck-blue">✓</span>
+        Residential only — homes are what we know
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="section-label">Customer reviews</p>
+  <h2 class="section-title">Jackson homeowners.</h2>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <span class="testi-trade tag-hvac">HVAC + Electrical</span>
+      <div class="testi-stars">★★★★★</div>
+      <p>"New furnace needed a dedicated circuit. With a regular HVAC company I'd have had to find an electrician separately. Mac's did both in one visit. Half the hassle."</p>
+      <div class="testi-name">G. Trimble <span>Jackson, OH</span></div>
+    </div>
+
+    <div class="testi-card">
+      <span class="testi-trade tag-plmb">Plumbing</span>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Water heater went out on a Friday. They had a new one in by Saturday afternoon. Quick, no upsell, and they cleaned up after themselves."</p>
+      <div class="testi-name">R. Hollis <span>Wellston, OH</span></div>
+    </div>
+
+    <div class="testi-card">
+      <span class="testi-trade tag-elec">Electrical</span>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Had them upgrade our panel from 100A to 200A. Needed it before we could install a heat pump. Mac's handled both — didn't have to coordinate anything."</p>
+      <div class="testi-name">D. &amp; S. Yates <span>Oak Hill, OH</span></div>
+    </div>
+
+    <div class="testi-card">
+      <span class="testi-trade tag-hvac">HVAC</span>
+      <div class="testi-stars">★★★★★</div>
+      <p>"AC stopped working in July. They came out the next day, diagnosed a bad capacitor, had the part on the truck, done in an hour. Fair price, no drama."</p>
+      <div class="testi-name">L. Carver <span>Jackson, OH</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>One call handles it all.</h2>
+  <p>Tell us what's going on — heating, electrical, plumbing, or not sure. We'll figure it out from there.</p>
+  <div class="cta-stack">
+    <a class="btn-main" href="tel:+17405550318">Call (740) 555-0318</a>
+    <a class="btn-ghost" href="sms:+17405550318">Text Us Your Issue</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Mac's Residential Heating &amp; Cooling</strong>
+  Jackson, OH &nbsp;·&nbsp; (740) 555-0318<br>
+  HVAC · Electrical · Plumbing<br>
+  Serving Jackson County &amp; surrounding areas<br>
+  Licensed &amp; Insured · State of Ohio
+</footer>
+
+<script>
+  document.getElementById('book-btn').addEventListener('click', function () {
+    window.location.href = 'tel:+17405550318';
+  });
+</script>
+
+</body>
+</html>
