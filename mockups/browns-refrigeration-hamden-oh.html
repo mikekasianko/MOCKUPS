@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brown's Refrigeration — Hamden, OH</title>
+<meta name="description" content="Commercial refrigeration and HVAC for Hamden, McArthur, Wellston, and Vinton County. Walk-in coolers, restaurant refrigeration, residential HVAC, farm cooling. Call or text for a free quote.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --forest:    #1a3a1a;
+    --green:     #2d6a2d;
+    --green-mid: #3a8a3a;
+    --green-lt:  #4daa4d;
+    --green-pale:#e8f5e8;
+    --white:     #ffffff;
+    --offwhite:  #f6f8f4;
+    --cream:     #f2f0eb;
+    --gray-100:  #edecea;
+    --gray-200:  #d5d2cc;
+    --gray-400:  #8a8880;
+    --gray-600:  #504e48;
+    --gray-900:  #1a1916;
+    --rust:      #8b3a1a;
+    --rust-lt:   #fdf0eb;
+    --gold:      #c8960a;
+    --gold-lt:   #fdf5dc;
+    --navy:      #0f2035;
+    --font: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--gray-900);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { width: 100%; max-width: 740px; margin: 0 auto; padding: 0 20px; }
+
+  /* ── Top strip ── */
+  .topstrip {
+    background: var(--forest);
+    color: #8aaa8a;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    letter-spacing: 0.01em;
+  }
+  .topstrip a   { color: #b8d8b8; font-weight: 800; text-decoration: none; }
+  .topstrip-sep { color: #2a4a2a; }
+
+  /* ── Nav ── */
+  .nav {
+    background: var(--white);
+    border-bottom: 3px solid var(--forest);
+    padding: 13px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+
+  .nav-emblem {
+    width: 44px; height: 44px;
+    background: var(--forest);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 22px;
+  }
+
+  .nav-name { font-size: 15px; font-weight: 800; color: var(--forest); line-height: 1.2; letter-spacing: -0.2px; }
+  .nav-sub  { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+
+  .nav-actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+  .nav-cta {
+    background: var(--green);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .nav-cta-text {
+    background: transparent;
+    color: var(--green);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--green);
+    white-space: nowrap;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--forest);
+    color: var(--white);
+    padding: 52px 20px 48px;
+  }
+
+  .hero-inner { max-width: 640px; margin: 0 auto; }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #8aaa8a;
+    border: 1px solid rgba(138,170,138,0.25);
+    border-radius: 4px; padding: 5px 13px; margin-bottom: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(26px, 7vw, 46px);
+    font-weight: 900; line-height: 1.07;
+    letter-spacing: -0.6px; margin-bottom: 16px;
+  }
+
+  .hero h1 em { font-style: normal; color: #86c886; }
+
+  .hero-sub {
+    font-size: 17px; color: #7a9a7a;
+    line-height: 1.65; max-width: 500px; margin-bottom: 32px;
+  }
+
+  /* Photo placeholder note */
+  .hero-photo-note {
+    background: rgba(255,255,255,0.06);
+    border: 1px dashed rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #7a9a7a;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .photo-icon { font-size: 22px; flex-shrink: 0; }
+  .photo-note-text strong { color: rgba(255,255,255,0.7); display: block; font-size: 13px; margin-bottom: 2px; }
+
+  /* CTA group */
+  .hero-cta { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+
+  .btn-call {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; background: var(--white); color: var(--forest);
+    text-decoration: none; font-size: 20px; font-weight: 900;
+    padding: 14px 26px; border-radius: 8px; letter-spacing: -0.2px;
+    transition: background 0.15s; width: 100%; max-width: 340px;
+  }
+  .btn-call:hover { background: var(--green-pale); }
+
+  .btn-text {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; background: rgba(255,255,255,0.08); color: var(--white);
+    text-decoration: none; font-size: 16px; font-weight: 700;
+    padding: 13px 26px; border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: background 0.15s; width: 100%; max-width: 340px;
+  }
+  .btn-text:hover { background: rgba(255,255,255,0.14); }
+
+  .hero-note { font-size: 13px; color: #4a6a4a; margin-top: 8px; }
+
+  /* ── Service area band ── */
+  .area-band {
+    background: var(--green);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .area-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: rgba(255,255,255,0.65); flex-shrink: 0; }
+
+  .area-towns { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+
+  .area-town {
+    display: flex; align-items: center; gap: 5px;
+    background: rgba(255,255,255,0.15);
+    color: var(--white);
+    font-size: 13px; font-weight: 700;
+    padding: 5px 12px; border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .area-town::before { content: '📍'; font-size: 11px; }
+
+  /* ── Trust strip ── */
+  .trust-strip {
+    background: var(--forest);
+    display: flex; justify-content: center; flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .trust-item {
+    color: #7a9a7a; font-size: 13px; font-weight: 600;
+    padding: 13px 16px; border-right: 1px solid rgba(255,255,255,0.07);
+    text-align: center; white-space: nowrap;
+  }
+  .trust-item:last-child { border-right: none; }
+  .trust-item strong { display: block; color: #b8d8b8; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+
+  /* ── Sections ── */
+  .section      { padding: 64px 20px; }
+  .section-alt  { background: var(--offwhite); }
+  .section-dark { background: var(--forest); color: var(--white); }
+  .section-cream { background: var(--cream); }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--green-mid); margin-bottom: 10px;
+  }
+  .section-dark .section-label { color: #7a9a7a; }
+
+  .section-title {
+    font-size: clamp(22px, 5.5vw, 34px);
+    font-weight: 900; line-height: 1.1;
+    letter-spacing: -0.5px; margin-bottom: 12px; color: var(--forest);
+  }
+  .section-dark .section-title { color: var(--white); }
+
+  .section-body {
+    font-size: 16px; color: var(--gray-600);
+    max-width: 560px; line-height: 1.75; margin-bottom: 36px;
+  }
+  .section-dark .section-body { color: #7a9a7a; }
+
+  /* ── Services ── */
+  .svc-grid { display: flex; flex-direction: column; gap: 14px; }
+
+  .svc-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px; padding: 24px 22px;
+    border-top: 4px solid var(--green-mid);
+  }
+  .svc-card.rust  { border-top-color: var(--rust); }
+  .svc-card.gold  { border-top-color: var(--gold); }
+
+  .svc-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+  .svc-icon { font-size: 34px; line-height: 1; flex-shrink: 0; }
+
+  .svc-pill {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; padding: 4px 10px; border-radius: 4px; white-space: nowrap;
+  }
+  .pill-green { background: var(--green-pale); color: var(--green); }
+  .pill-rust  { background: var(--rust-lt);    color: var(--rust); }
+  .pill-gold  { background: var(--gold-lt);    color: var(--gold); }
+
+  .svc-name { font-size: 19px; font-weight: 800; color: var(--forest); margin-bottom: 8px; letter-spacing: -0.2px; }
+  .svc-desc { font-size: 15px; color: var(--gray-600); line-height: 1.65; margin-bottom: 12px; }
+  .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .svc-tag  { font-size: 12px; font-weight: 600; background: var(--gray-100); color: var(--gray-600); padding: 4px 10px; border-radius: 4px; }
+
+  /* ── SERVICE AREA MAP — the differentiator ── */
+  .map-section { background: var(--cream); padding: 64px 20px; }
+
+  .map-wrap {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .map-header {
+    background: var(--forest);
+    padding: 16px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .map-header-title { font-size: 15px; font-weight: 800; color: var(--white); }
+  .map-header-sub   { font-size: 12px; color: #7a9a7a; margin-top: 2px; }
+  .map-legend-dot   { width: 10px; height: 10px; border-radius: 50%; background: var(--green-lt); flex-shrink: 0; display: inline-block; margin-right: 5px; }
+
+  /* SVG map container */
+  .map-svg-wrap { padding: 24px; background: #e8ede0; }
+
+  .map-svg { width: 100%; max-width: 640px; display: block; margin: 0 auto; }
+
+  /* Town list below map */
+  .town-list {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .town-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 12px 14px;
+    background: var(--offwhite);
+    border-radius: 8px;
+    border: 1px solid var(--gray-200);
+  }
+
+  .town-pin { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .town-name { font-size: 14px; font-weight: 700; color: var(--forest); }
+  .town-note { font-size: 12px; color: var(--gray-400); margin-top: 1px; }
+
+  .town-item.home { border-color: var(--green-mid); background: var(--green-pale); }
+  .town-item.home .town-name { color: var(--green); }
+
+  .map-note {
+    padding: 14px 20px;
+    font-size: 13px; color: var(--gray-400);
+    border-top: 1px solid var(--gray-200);
+    text-align: center;
+  }
+
+  /* ── Truck photo placeholder ── */
+  .photo-section { padding: 0 20px 64px; background: var(--cream); }
+
+  .truck-photo-placeholder {
+    background: var(--gray-100);
+    border: 2px dashed var(--gray-200);
+    border-radius: 12px;
+    padding: 40px 24px;
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .truck-photo-placeholder .ph-icon { font-size: 48px; margin-bottom: 14px; }
+  .truck-photo-placeholder h3 { font-size: 18px; font-weight: 800; color: var(--forest); margin-bottom: 8px; }
+  .truck-photo-placeholder p  { font-size: 14px; color: var(--gray-600); line-height: 1.6; max-width: 440px; margin: 0 auto; }
+
+  .ph-tip {
+    display: inline-block;
+    margin-top: 14px;
+    background: var(--gold-lt);
+    border: 1px solid #e0c060;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 13px; color: #7a6010; font-weight: 600;
+  }
+
+  /* ── About ── */
+  .about-wrap { max-width: 660px; margin: 0 auto; }
+  .about-lead { font-size: 20px; font-weight: 700; color: var(--forest); line-height: 1.4; margin-bottom: 18px; letter-spacing: -0.2px; }
+  .about-body { font-size: 16px; color: var(--gray-600); line-height: 1.8; margin-bottom: 32px; }
+
+  .cred-list { display: flex; flex-direction: column; gap: 10px; }
+  .cred-item { display: flex; gap: 14px; align-items: flex-start; padding: 15px 18px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; }
+  .cred-check { width: 27px; height: 27px; border-radius: 50%; background: var(--forest); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; flex-shrink: 0; margin-top: 2px; }
+  .cred-body strong { display: block; font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 2px; }
+  .cred-body span   { font-size: 14px; color: var(--gray-600); }
+
+  /* ── Testimonials ── */
+  .review-grid { display: flex; flex-direction: column; gap: 14px; }
+  .review-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: 10px; padding: 22px; }
+  .review-tag { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; padding: 3px 9px; border-radius: 3px; margin-bottom: 8px; }
+  .tag-comm { background: rgba(139,58,26,0.25); color: #c8907a; }
+  .tag-res  { background: rgba(45,106,45,0.25); color: #86c886; }
+  .tag-farm { background: rgba(200,150,10,0.25); color: #e8c040; }
+  .review-stars  { color: #fbbf24; font-size: 14px; letter-spacing: 2px; margin-bottom: 8px; }
+  .review-text   { font-size: 15px; color: #c2d8bf; line-height: 1.65; font-style: italic; margin-bottom: 12px; }
+  .review-author { font-size: 12px; color: #7a9a7a; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+  .reviews-note  { margin-top: 24px; font-size: 13px; color: #3a5a3a; text-align: center; font-style: italic; }
+
+  /* ── Final CTA ── */
+  .final-cta { background: var(--forest); color: var(--white); padding: 64px 20px; text-align: center; }
+
+  .final-cta h2 {
+    font-size: clamp(24px, 6.5vw, 38px);
+    font-weight: 900; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 10px;
+  }
+
+  .final-cta p { font-size: 16px; color: #7a9a7a; margin-bottom: 32px; max-width: 420px; margin-left: auto; margin-right: auto; }
+
+  .final-btns { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+
+  .btn-final-call {
+    display: inline-flex; flex-direction: column; align-items: center;
+    background: var(--white); color: var(--forest);
+    text-decoration: none; font-size: 24px; font-weight: 900;
+    padding: 17px 38px; border-radius: 8px; line-height: 1.15;
+    transition: background 0.15s;
+  }
+  .btn-final-call:hover { background: var(--green-pale); }
+  .btn-final-call small { font-size: 12px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+
+  .btn-final-text {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: #b8d8b8;
+    text-decoration: none; font-size: 17px; font-weight: 700;
+    padding: 14px 30px; border-radius: 8px;
+    border: 1px solid rgba(184,216,184,0.3); transition: border-color 0.15s;
+  }
+  .btn-final-text:hover { border-color: rgba(184,216,184,0.7); }
+
+  .final-note { margin-top: 20px; font-size: 13px; color: #3a5a3a; }
+
+  /* ── Footer ── */
+  .footer { background: #080f08; color: #2a3a2a; text-align: center; padding: 28px 20px; font-size: 13px; line-height: 1.9; }
+  .footer a      { color: #3a6a3a; text-decoration: none; }
+  .footer strong { color: #304a30; }
+
+  /* ── Responsive ── */
+  @media (min-width: 560px) {
+    .svc-grid    { display: grid; grid-template-columns: 1fr 1fr; }
+    .svc-card:first-child { grid-column: 1 / -1; }
+    .review-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .review-card:last-child { grid-column: 1 / -1; }
+    .final-btns  { flex-direction: row; justify-content: center; }
+  }
+
+  @media (min-width: 720px) {
+    .svc-card:first-child { grid-column: auto; }
+    .svc-grid    { grid-template-columns: repeat(3, 1fr); }
+    .svc-card.farm { grid-column: 1 / -1; }
+    .review-grid { grid-template-columns: repeat(3, 1fr); }
+    .review-card:last-child { grid-column: auto; }
+    .town-list   { grid-template-columns: repeat(4, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top strip -->
+<div class="topstrip">
+  <span>Brown's Refrigeration · Hamden, OH</span>
+  <span class="topstrip-sep">|</span>
+  <span>Commercial &amp; Residential</span>
+  <span class="topstrip-sep">|</span>
+  <span>📞 <a href="tel:+17405550200">(740) 555-0200</a> &nbsp;·&nbsp; 💬 <a href="sms:+17405550200">Text Us</a></span>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-emblem">❄️</div>
+    <div>
+      <div class="nav-name">Brown's Refrigeration</div>
+      <div class="nav-sub">Hamden, OH · Vinton County · Licensed &amp; Insured</div>
+    </div>
+  </div>
+  <div class="nav-actions">
+    <a href="sms:+17405550200" class="nav-cta-text">💬 Text</a>
+    <a href="tel:+17405550200" class="nav-cta">📞 Call</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">📍 Hamden, OH · Serving Vinton County &amp; Beyond</div>
+
+    <h1>Commercial Refrigeration<br>&amp; HVAC for <em>Hamden<br>and Vinton County.</em></h1>
+
+    <p class="hero-sub">
+      Walk-in coolers, restaurant refrigeration, residential HVAC, and
+      farm equipment cooling. Serving the small towns that the big companies
+      skip — because we live here too.
+    </p>
+
+    <!-- Real truck photo placeholder -->
+    <div class="hero-photo-note">
+      <div class="photo-icon">📸</div>
+      <div class="photo-note-text">
+        <strong>Replace with a real photo of your truck or crew.</strong>
+        A picture of your actual service truck or a job site beats any stock photo —
+        it builds instant trust with rural customers who've been burned by outside contractors.
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="tel:+17405550200" class="btn-call">📞 Call for a Free Quote</a>
+      <a href="sms:+17405550200" class="btn-text">💬 Prefer to text? (740) 555-0200</a>
+    </div>
+    <p class="hero-note">Call or text — whichever works for you · 7 days a week</p>
+  </div>
+</section>
+
+<!-- Service area band -->
+<div class="area-band">
+  <div class="area-label">We Cover:</div>
+  <div class="area-towns">
+    <div class="area-town">Hamden</div>
+    <div class="area-town">McArthur</div>
+    <div class="area-town">Wellston</div>
+    <div class="area-town">Jackson</div>
+    <div class="area-town">Vinton County</div>
+    <div class="area-town">Gallia County</div>
+  </div>
+</div>
+
+<!-- Trust strip -->
+<div class="trust-strip">
+  <div class="trust-item"><strong>Commercial</strong>Refrigeration</div>
+  <div class="trust-item"><strong>Licensed</strong>Ohio HVAC</div>
+  <div class="trust-item"><strong>Call or</strong>Text Us</div>
+  <div class="trust-item"><strong>Free</strong>Quotes</div>
+</div>
+
+<!-- Services -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">What We Handle</div>
+    <h2 class="section-title">Refrigeration and HVAC — the full range.</h2>
+    <p class="section-body">
+      From walk-in coolers at the general store to a home furnace in Hamden Township —
+      Brown's has been keeping things running in Vinton County when the big-city
+      contractors won't make the drive.
+    </p>
+
+    <div class="svc-grid">
+
+      <div class="svc-card">
+        <div class="svc-head">
+          <span class="svc-icon">🧊</span>
+          <span class="svc-pill pill-green">Commercial</span>
+        </div>
+        <div class="svc-name">Walk-In Coolers &amp; Freezers</div>
+        <p class="svc-desc">
+          A walk-in cooler going down means product loss by the hour. We service,
+          repair, and install walk-in refrigeration for grocers, gas stations,
+          restaurants, and distributors across Vinton and Jackson counties.
+          We carry the parts that fail most often and respond fast because we're
+          not driving from Columbus.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Emergency repair</span>
+          <span class="svc-tag">All brands</span>
+          <span class="svc-tag">Install &amp; replace</span>
+          <span class="svc-tag">Annual service contracts</span>
+        </div>
+      </div>
+
+      <div class="svc-card rust">
+        <div class="svc-head">
+          <span class="svc-icon">🍳</span>
+          <span class="svc-pill pill-rust">Restaurant</span>
+        </div>
+        <div class="svc-name">Restaurant Refrigeration</div>
+        <p class="svc-desc">
+          Reach-in coolers, prep table units, ice machines, bar refrigeration —
+          when a restaurant's refrigeration fails, it fails at the worst time.
+          We service commercial kitchen refrigeration equipment and know that a
+          down unit in a small-town diner means real money out the door fast.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Reach-in &amp; prep units</span>
+          <span class="svc-tag">Ice machines</span>
+          <span class="svc-tag">Bar refrigeration</span>
+          <span class="svc-tag">Same-day response</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-head">
+          <span class="svc-icon">🏡</span>
+          <span class="svc-pill pill-green">Residential</span>
+        </div>
+        <div class="svc-name">Residential HVAC</div>
+        <p class="svc-desc">
+          Furnace repair, AC service, and full system replacements for homes
+          in Hamden, McArthur, and the surrounding townships. We do residential
+          work because our neighbors need it done — and done by someone who'll
+          still be around when they call back next year.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Furnace repair</span>
+          <span class="svc-tag">AC service</span>
+          <span class="svc-tag">Full replacement</span>
+          <span class="svc-tag">Free estimate</span>
+        </div>
+      </div>
+
+      <div class="svc-card gold farm">
+        <div class="svc-head">
+          <span class="svc-icon">🌾</span>
+          <span class="svc-pill pill-gold">Agricultural</span>
+        </div>
+        <div class="svc-name">Farm Equipment Cooling</div>
+        <p class="svc-desc">
+          Milk cooling systems, bulk tank refrigeration, produce cold storage,
+          and poultry house climate control — agricultural refrigeration is
+          specialized work that most HVAC companies won't touch. We understand
+          the stakes: a failed milk cooler during pickup time isn't just
+          inconvenient, it's a regulatory and financial problem. We treat it
+          that way.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Milk cooling systems</span>
+          <span class="svc-tag">Bulk tank service</span>
+          <span class="svc-tag">Cold storage</span>
+          <span class="svc-tag">Poultry house climate</span>
+          <span class="svc-tag">Emergency response</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA MAP — the differentiator -->
+<section class="map-section">
+  <div class="container">
+    <div class="section-label">Service Area</div>
+    <h2 class="section-title">Every small town. One reliable crew.</h2>
+    <p class="section-body">
+      The contractors from Columbus and Chillicothe don't make the drive to
+      Vinton County for a service call. We're already here. See if your town is
+      on the map — if it's within range of Hamden, we've probably been there.
+    </p>
+
+    <div class="map-wrap">
+      <div class="map-header">
+        <div>
+          <div class="map-header-title">Brown's Refrigeration — Service Area</div>
+          <div class="map-header-sub">Vinton, Jackson &amp; surrounding counties · SE Ohio</div>
+        </div>
+        <div style="font-size:12px;color:#7a9a7a;text-align:right;">
+          <span class="map-legend-dot"></span> We cover it
+        </div>
+      </div>
+
+      <!-- SVG map of SE Ohio region -->
+      <div class="map-svg-wrap">
+        <svg class="map-svg" viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Service area map showing Hamden, McArthur, Wellston, and Jackson Ohio">
+
+          <!-- Background -->
+          <rect width="600" height="380" fill="#d8e4cc" rx="4"/>
+
+          <!-- County outlines (rough Vinton, Jackson, Gallia counties) -->
+          <!-- Vinton County (center) -->
+          <polygon points="160,80 380,80 400,180 380,280 160,280 140,180" fill="#c0d4b0" stroke="#8a9a7a" stroke-width="1.5" opacity="0.8"/>
+
+          <!-- Jackson County (right) -->
+          <polygon points="380,80 520,90 540,180 520,270 380,280 400,180" fill="#b8cc9a" stroke="#8a9a7a" stroke-width="1.5" opacity="0.8"/>
+
+          <!-- Gallia County (bottom right) -->
+          <polygon points="400,280 540,270 560,350 420,360 380,360 380,290" fill="#c8d8b0" stroke="#8a9a7a" stroke-width="1.5" opacity="0.6"/>
+
+          <!-- Meigs County (bottom) -->
+          <polygon points="160,280 380,290 380,360 200,360 150,320" fill="#c4d4a8" stroke="#8a9a7a" stroke-width="1.5" opacity="0.5"/>
+
+          <!-- Ross County (top left) -->
+          <polygon points="60,60 160,80 140,180 100,200 50,160 40,100" fill="#ccdabc" stroke="#8a9a7a" stroke-width="1.5" opacity="0.5"/>
+
+          <!-- Hocking County (top) -->
+          <polygon points="160,30 380,40 380,80 160,80 140,40" fill="#c8d8b4" stroke="#8a9a7a" stroke-width="1.5" opacity="0.5"/>
+
+          <!-- County labels -->
+          <text x="265" y="185" text-anchor="middle" font-size="13" font-weight="700" fill="#3a5a3a" opacity="0.6" font-family="sans-serif">VINTON CO.</text>
+          <text x="448" y="185" text-anchor="middle" font-size="12" font-weight="700" fill="#3a5a3a" opacity="0.6" font-family="sans-serif">JACKSON CO.</text>
+          <text x="460" y="320" text-anchor="middle" font-size="11" font-weight="600" fill="#3a5a3a" opacity="0.5" font-family="sans-serif">GALLIA</text>
+          <text x="260" y="330" text-anchor="middle" font-size="11" font-weight="600" fill="#3a5a3a" opacity="0.5" font-family="sans-serif">MEIGS</text>
+
+          <!-- Roads (rough routes 93 and 50) -->
+          <line x1="270" y1="40" x2="270" y2="350" stroke="#bbb" stroke-width="2" stroke-dasharray="6,3" opacity="0.6"/>
+          <line x1="60" y1="180" x2="540" y2="180" stroke="#bbb" stroke-width="2" stroke-dasharray="6,3" opacity="0.6"/>
+          <text x="275" y="55" font-size="10" fill="#777" font-family="sans-serif">US 93</text>
+          <text x="545" y="184" font-size="10" fill="#777" font-family="sans-serif">US 50</text>
+
+          <!-- Service radius circle -->
+          <circle cx="270" cy="152" r="170" fill="none" stroke="#4daa4d" stroke-width="2" stroke-dasharray="8,4" opacity="0.5"/>
+
+          <!-- Town markers -->
+          <!-- Hamden (home base) -->
+          <circle cx="270" cy="152" r="14" fill="#2d6a2d" stroke="white" stroke-width="2.5"/>
+          <text x="270" y="157" text-anchor="middle" font-size="11" font-weight="900" fill="white" font-family="sans-serif">H</text>
+          <rect x="188" y="108" width="80" height="26" rx="4" fill="white" opacity="0.9"/>
+          <text x="228" y="125" text-anchor="middle" font-size="12" font-weight="800" fill="#2d6a2d" font-family="sans-serif">Hamden ★</text>
+
+          <!-- McArthur -->
+          <circle cx="270" cy="220" r="10" fill="#4daa4d" stroke="white" stroke-width="2"/>
+          <rect x="284" y="211" width="76" height="22" rx="4" fill="white" opacity="0.88"/>
+          <text x="322" y="226" text-anchor="middle" font-size="11" font-weight="700" fill="#2d5a2d" font-family="sans-serif">McArthur</text>
+
+          <!-- Wellston -->
+          <circle cx="420" cy="162" r="10" fill="#4daa4d" stroke="white" stroke-width="2"/>
+          <rect x="430" y="153" width="68" height="22" rx="4" fill="white" opacity="0.88"/>
+          <text x="464" y="168" text-anchor="middle" font-size="11" font-weight="700" fill="#2d5a2d" font-family="sans-serif">Wellston</text>
+
+          <!-- Jackson -->
+          <circle cx="448" cy="218" r="10" fill="#4daa4d" stroke="white" stroke-width="2"/>
+          <rect x="458" y="210" width="60" height="22" rx="4" fill="white" opacity="0.88"/>
+          <text x="488" y="225" text-anchor="middle" font-size="11" font-weight="700" fill="#2d5a2d" font-family="sans-serif">Jackson</text>
+
+          <!-- Chillicothe (edge, lighter) -->
+          <circle cx="110" cy="100" r="7" fill="#8aaa6a" stroke="white" stroke-width="1.5" opacity="0.7"/>
+          <text x="120" y="96" font-size="10" fill="#5a7a4a" font-family="sans-serif" opacity="0.8">Chillicothe area</text>
+
+          <!-- Gallia area -->
+          <circle cx="460" cy="305" r="7" fill="#8aaa6a" stroke="white" stroke-width="1.5" opacity="0.7"/>
+          <text x="470" y="302" font-size="10" fill="#5a7a4a" font-family="sans-serif" opacity="0.8">Gallipolis area</text>
+
+          <!-- Legend -->
+          <rect x="16" y="310" width="148" height="58" rx="6" fill="white" opacity="0.85"/>
+          <circle cx="30" cy="326" r="6" fill="#2d6a2d"/>
+          <text x="42" y="330" font-size="11" font-weight="700" fill="#1a3a1a" font-family="sans-serif">Home base</text>
+          <circle cx="30" cy="346" r="6" fill="#4daa4d"/>
+          <text x="42" y="350" font-size="11" font-weight="700" fill="#1a3a1a" font-family="sans-serif">Service towns</text>
+          <circle cx="30" cy="362" r="5" fill="#8aaa6a" opacity="0.7"/>
+          <text x="42" y="366" font-size="10" fill="#5a7a4a" font-family="sans-serif">Extended range</text>
+        </svg>
+      </div>
+
+      <!-- Town list -->
+      <div class="town-list">
+        <div class="town-item home">
+          <div class="town-pin">🏠</div>
+          <div>
+            <div class="town-name">Hamden</div>
+            <div class="town-note">Home base · Vinton Co.</div>
+          </div>
+        </div>
+        <div class="town-item">
+          <div class="town-pin">📍</div>
+          <div>
+            <div class="town-name">McArthur</div>
+            <div class="town-note">Vinton County seat</div>
+          </div>
+        </div>
+        <div class="town-item">
+          <div class="town-pin">📍</div>
+          <div>
+            <div class="town-name">Wellston</div>
+            <div class="town-note">Jackson County</div>
+          </div>
+        </div>
+        <div class="town-item">
+          <div class="town-pin">📍</div>
+          <div>
+            <div class="town-name">Jackson</div>
+            <div class="town-note">Jackson County</div>
+          </div>
+        </div>
+        <div class="town-item">
+          <div class="town-pin">📍</div>
+          <div>
+            <div class="town-name">Rio Grande</div>
+            <div class="town-note">Gallia County</div>
+          </div>
+        </div>
+        <div class="town-item">
+          <div class="town-pin">📍</div>
+          <div>
+            <div class="town-name">Oak Hill</div>
+            <div class="town-note">Jackson County</div>
+          </div>
+        </div>
+        <div class="town-item">
+          <div class="town-pin">📍</div>
+          <div>
+            <div class="town-name">Zaleski</div>
+            <div class="town-note">Vinton County</div>
+          </div>
+        </div>
+        <div class="town-item">
+          <div class="town-pin">📍</div>
+          <div>
+            <div class="town-name">Raccoon Twp.</div>
+            <div class="town-note">Vinton County</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-note">
+        Not sure if we cover your area? Call or text — if it's within reason, we'll come.
+        <a href="tel:+17405550200">(740) 555-0200</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Truck photo placeholder -->
+<div class="photo-section">
+  <div class="container">
+    <div class="truck-photo-placeholder">
+      <div class="ph-icon">🚛</div>
+      <h3>Put your truck photo here.</h3>
+      <p>
+        A real picture of your service truck, your crew, or a job site
+        outperforms every stock photo on the internet — especially with
+        rural customers who want to know who's pulling into their driveway.
+        Even a clean phone photo works. Aim for the truck in front of a
+        job you're proud of.
+      </p>
+      <div class="ph-tip">💡 Tip: A crew photo with a job-site backdrop converts better than any logo or graphic.</div>
+    </div>
+  </div>
+</div>
+
+<!-- About -->
+<section class="section">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="section-label">About Brown's Refrigeration</div>
+      <h2 class="section-title">Built for Vinton County. Still here.</h2>
+
+      <p class="about-lead">
+        The refrigeration and HVAC contractors from the cities show up when
+        there's a big job. We show up for all of them.
+      </p>
+
+      <p class="about-body">
+        Brown's Refrigeration has been serving the small communities of Vinton,
+        Jackson, and Gallia counties because someone has to — and because this
+        is where we're from. Rural commercial refrigeration is specialized work.
+        A walk-in cooler in a Hamden grocery store, a milk tank on a farm outside
+        McArthur, a restaurant unit in Wellston — these are real businesses with
+        real customers depending on equipment that has to run. We take that
+        seriously because we're part of the same community.
+        <br><br>
+        We also know that rural customers often prefer to text first, especially
+        for non-emergency situations. Call or text — whichever is easier for you.
+        We'll get back to you the same way.
+      </p>
+
+      <div class="cred-list">
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Licensed Ohio HVAC contractor + commercial refrigeration</strong>
+            <span>Both residential and commercial work covered under one license.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Call or text — we work both ways</strong>
+            <span>Rural folks text. We know that. (740) 555-0200 handles both.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Local — no drive-time premium from Columbus</strong>
+            <span>We're already in the county. Faster response, no inflated service call fees.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Agricultural refrigeration experience</strong>
+            <span>We understand the stakes of a failed milk cooler or cold storage unit.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label">What the County Says</div>
+    <h2 class="section-title">From customers across Vinton County.</h2>
+    <p class="section-body">Placeholder reviews — replace with verified testimonials before publishing.</p>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-tag tag-comm">Commercial</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Walk-in went down on a Friday afternoon. Called Brown's, they were
+          there by Saturday morning. Saved a full weekend's worth of product.
+          No other outfit would have made the drive to Hamden that fast."
+        </p>
+        <div class="review-author">— Local Grocery, Hamden</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-tag tag-farm">Agricultural</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Milk cooler went out before morning pickup. Brown's answered at
+          6am and had a tech out within two hours. They knew exactly what
+          they were looking at. I don't trust anyone else with that equipment."
+        </p>
+        <div class="review-author">— Dairy Farm, Vinton County</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-tag tag-res">Residential</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Had them out for a furnace replacement. Fair price, clean work,
+          and they actually explained what they put in. Good people who know
+          what they're doing — and they're right here in the county."
+        </p>
+        <div class="review-author">— Homeowner, McArthur</div>
+      </div>
+    </div>
+
+    <p class="reviews-note">✦ Replace with real customer reviews before going live.</p>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Call or text for<br>a free quote.</h2>
+    <p>
+      Refrigeration down? HVAC out? Need a farm cooling system serviced?
+      One number handles all of it.
+    </p>
+
+    <div class="final-btns">
+      <a href="tel:+17405550200" class="btn-final-call">
+        📞 (740) 555-0200
+        <small>Brown's Refrigeration · Hamden, OH</small>
+      </a>
+      <a href="sms:+17405550200" class="btn-final-text">
+        💬 Text us instead
+      </a>
+    </div>
+
+    <p class="final-note">Call or text · 7 days a week · Serving Vinton, Jackson &amp; Gallia Counties</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <strong>Brown's Refrigeration</strong><br>
+    Hamden, OH &nbsp;·&nbsp; Vinton County<br>
+    <a href="tel:+17405550200">(740) 555-0200</a> &nbsp;·&nbsp; <a href="sms:+17405550200">Text us</a><br>
+    Ohio HVAC License #XXXXX · Licensed &amp; Insured<br>
+    <br>
+    <span style="font-size:12px;">© 2026 Brown's Refrigeration. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
