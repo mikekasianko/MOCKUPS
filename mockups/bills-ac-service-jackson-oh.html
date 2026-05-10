@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bill's A/C Service LLC — Jackson, OH</title>
+<meta name="description" content="Jackson's trusted AC repair — answered by a real local. Emergency AC repair, residential service, and tune-ups in Jackson County. Call Bill now.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:      #0a1e30;
+    --blue:      #0e4a78;
+    --blue-mid:  #1560a0;
+    --blue-lt:   #2d7dd2;
+    --blue-pale: #e5f0fb;
+    --white:     #ffffff;
+    --offwhite:  #f5f8fc;
+    --gray-100:  #edf1f7;
+    --gray-200:  #d6dfea;
+    --gray-400:  #8895ae;
+    --gray-600:  #44536a;
+    --gray-900:  #0c1824;
+    --orange:    #d4580a;
+    --orange-lt: #fff3eb;
+    --orange-dk: #b84808;
+    --font: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--gray-900);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    /* room for sticky call bar at bottom on mobile */
+    padding-bottom: 72px;
+  }
+
+  .container { width: 100%; max-width: 680px; margin: 0 auto; padding: 0 20px; }
+
+  /* ── Sticky bottom call bar (mobile-first) ── */
+  .sticky-call {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 200;
+    background: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sticky-call a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 900;
+    padding: 16px 24px;
+    width: 100%;
+    letter-spacing: -0.2px;
+  }
+
+  .sticky-call-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    margin-right: 4px;
+  }
+
+  /* ── Top strip ── */
+  .topstrip {
+    background: var(--navy);
+    color: #6a8fae;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .topstrip a   { color: #93c5fd; font-weight: 800; text-decoration: none; }
+  .topstrip-sep { color: #1e3040; }
+
+  /* ── Nav ── */
+  .nav {
+    background: var(--white);
+    border-bottom: 3px solid var(--navy);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-brand { display: flex; align-items: center; gap: 11px; }
+
+  .nav-emblem {
+    width: 42px; height: 42px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; font-weight: 900; color: var(--white);
+    flex-shrink: 0; letter-spacing: -1px; font-style: italic;
+  }
+
+  .nav-name { font-size: 15px; font-weight: 800; color: var(--navy); line-height: 1.2; letter-spacing: -0.2px; }
+  .nav-sub  { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+
+  .nav-cta {
+    background: var(--orange);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 9px 16px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 50px 20px 44px;
+    text-align: center;
+  }
+
+  .hero-inner { max-width: 560px; margin: 0 auto; }
+
+  .hero-bill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 40px;
+    padding: 8px 18px 8px 8px;
+    margin-bottom: 24px;
+  }
+
+  .bill-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--orange);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 900; color: var(--white);
+    flex-shrink: 0; letter-spacing: -1px; font-style: italic;
+  }
+
+  .bill-info { text-align: left; }
+  .bill-name { font-size: 13px; font-weight: 800; color: var(--white); line-height: 1.2; }
+  .bill-role { font-size: 11px; color: #6a9abc; }
+
+  .hero h1 {
+    font-size: clamp(26px, 7.5vw, 46px);
+    font-weight: 900; line-height: 1.08;
+    letter-spacing: -0.7px; margin-bottom: 14px;
+  }
+
+  .hero h1 em { font-style: normal; color: #60a5fa; }
+
+  .hero-sub {
+    font-size: 17px; color: #6a8fae;
+    line-height: 1.65; margin-bottom: 30px;
+  }
+
+  /* Big orange call button in hero */
+  .hero-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--orange);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 900;
+    padding: 16px 36px;
+    border-radius: 10px;
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+    transition: background 0.15s;
+    width: 100%;
+    max-width: 340px;
+  }
+  .hero-btn:hover { background: var(--orange-dk); }
+  .hero-btn-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; margin-bottom: 3px; }
+  .hero-btn-note  { font-size: 12px; opacity: 0.65; margin-top: 4px; font-weight: 600; }
+
+  /* ── SAME-DAY STAMP — the differentiator ── */
+  .sameday-bar {
+    background: var(--orange);
+    padding: 0;
+  }
+
+  .sameday-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 16px 20px;
+    flex-wrap: wrap;
+  }
+
+  .sameday-stamp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    padding: 10px 18px;
+  }
+
+  .stamp-icon { font-size: 22px; }
+  .stamp-text { }
+  .stamp-headline { font-size: 16px; font-weight: 900; color: var(--white); letter-spacing: -0.2px; }
+  .stamp-sub { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 1px; font-weight: 600; }
+
+  .sameday-note {
+    font-size: 13px; color: rgba(255,255,255,0.8);
+    font-weight: 600; text-align: center;
+  }
+
+  /* ── Trust strip ── */
+  .trust-strip {
+    background: var(--blue);
+    display: flex; justify-content: center; flex-wrap: wrap;
+  }
+  .trust-item {
+    color: #bdd5ef; font-size: 13px; font-weight: 600;
+    padding: 12px 15px; border-right: 1px solid rgba(255,255,255,0.1);
+    text-align: center; white-space: nowrap;
+  }
+  .trust-item:last-child { border-right: none; }
+  .trust-item strong { display: block; color: var(--white); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+
+  /* ── Sections ── */
+  .section      { padding: 56px 20px; }
+  .section-alt  { background: var(--offwhite); }
+  .section-dark { background: var(--navy); color: var(--white); }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--blue-lt); margin-bottom: 10px;
+  }
+  .section-dark .section-label { color: #6a9abc; }
+
+  .section-title {
+    font-size: clamp(22px, 5.5vw, 32px);
+    font-weight: 900; line-height: 1.1;
+    letter-spacing: -0.5px; margin-bottom: 12px; color: var(--navy);
+  }
+  .section-dark .section-title { color: var(--white); }
+
+  .section-body {
+    font-size: 16px; color: var(--gray-600);
+    max-width: 540px; line-height: 1.75; margin-bottom: 32px;
+  }
+  .section-dark .section-body { color: #6a8fae; }
+
+  /* ── Services ── */
+  .svc-grid { display: flex; flex-direction: column; gap: 12px; }
+
+  .svc-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px; padding: 22px 20px;
+    border-top: 4px solid var(--blue-lt);
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+
+  .svc-card.hot { border-top-color: var(--orange); }
+
+  .svc-left { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; padding-top: 2px; }
+  .svc-icon { font-size: 32px; line-height: 1; }
+
+  .svc-pill {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 3px 8px; border-radius: 4px; white-space: nowrap;
+  }
+  .pill-blue   { background: var(--blue-pale); color: var(--blue-mid); }
+  .pill-orange { background: var(--orange-lt); color: var(--orange); }
+
+  .svc-name { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 7px; letter-spacing: -0.2px; }
+  .svc-desc { font-size: 14px; color: var(--gray-600); line-height: 1.65; margin-bottom: 10px; }
+  .svc-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .svc-tag  { font-size: 11px; font-weight: 600; background: var(--gray-100); color: var(--gray-600); padding: 3px 9px; border-radius: 4px; }
+
+  /* ── About ── */
+  .about-wrap { max-width: 600px; margin: 0 auto; }
+
+  .bill-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background: var(--offwhite);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 24px;
+  }
+
+  .bill-portrait {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    background: var(--orange);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; font-weight: 900; color: var(--white);
+    flex-shrink: 0; letter-spacing: -2px; font-style: italic;
+  }
+
+  .bill-q { font-size: 16px; font-weight: 700; color: var(--navy); line-height: 1.45; margin-bottom: 6px; letter-spacing: -0.1px; }
+  .bill-attr { font-size: 12px; color: var(--gray-400); font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+
+  .about-body { font-size: 15px; color: var(--gray-600); line-height: 1.8; margin-bottom: 28px; }
+
+  .cred-list { display: flex; flex-direction: column; gap: 9px; }
+  .cred-item { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; }
+  .cred-check { width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+  .cred-body strong { display: block; font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 2px; }
+  .cred-body span   { font-size: 13px; color: var(--gray-600); }
+
+  /* ── Mid CTA ── */
+  .mid-cta {
+    background: var(--orange);
+    padding: 36px 20px;
+    text-align: center;
+  }
+
+  .mid-cta-text { font-size: 18px; font-weight: 800; color: var(--white); margin-bottom: 14px; line-height: 1.35; }
+
+  .btn-mid {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--white); color: var(--orange-dk);
+    text-decoration: none; font-size: 22px; font-weight: 900;
+    padding: 14px 30px; border-radius: 8px; letter-spacing: -0.3px;
+    transition: opacity 0.15s;
+  }
+  .btn-mid:hover { opacity: 0.9; }
+
+  /* ── Testimonials ── */
+  .review-grid { display: flex; flex-direction: column; gap: 12px; }
+  .review-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: 10px; padding: 20px; }
+  .review-stars  { color: #fbbf24; font-size: 14px; letter-spacing: 2px; margin-bottom: 8px; }
+  .review-text   { font-size: 15px; color: #c2d8ef; line-height: 1.65; font-style: italic; margin-bottom: 10px; }
+  .review-author { font-size: 12px; color: #6a9abc; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+  .reviews-note  { margin-top: 22px; font-size: 13px; color: #3a5a7a; text-align: center; font-style: italic; }
+
+  /* ── Final CTA ── */
+  .final-cta {
+    background: var(--navy); color: var(--white);
+    padding: 56px 20px; text-align: center;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(24px, 6.5vw, 38px);
+    font-weight: 900; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 10px;
+  }
+
+  .final-cta p {
+    font-size: 16px; color: #6a8fae; margin-bottom: 28px;
+    max-width: 400px; margin-left: auto; margin-right: auto;
+  }
+
+  .btn-final {
+    display: inline-flex; flex-direction: column; align-items: center;
+    background: var(--orange); color: var(--white);
+    text-decoration: none; font-size: 26px; font-weight: 900;
+    padding: 18px 40px; border-radius: 10px; line-height: 1.1;
+    transition: background 0.15s;
+  }
+  .btn-final:hover { background: var(--orange-dk); }
+  .btn-final-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.75; margin-bottom: 4px; }
+  .btn-final small { font-size: 12px; opacity: 0.6; margin-top: 5px; font-weight: 600; }
+
+  .final-note { margin-top: 16px; font-size: 13px; color: #2a3d52; }
+
+  /* ── Footer ── */
+  .footer { background: #05101a; color: #243040; text-align: center; padding: 26px 20px; font-size: 13px; line-height: 1.9; }
+  .footer a      { color: #3a6080; text-decoration: none; }
+  .footer strong { color: #304050; }
+
+  /* ── Responsive ── */
+  @media (min-width: 560px) {
+    .svc-grid    { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .svc-card    { flex-direction: column; }
+    .svc-left    { flex-direction: row; align-items: center; }
+    .review-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .review-card:last-child { grid-column: 1 / -1; }
+    body { padding-bottom: 0; }
+    .sticky-call { display: none; }
+  }
+
+  @media (min-width: 700px) {
+    .review-grid { grid-template-columns: repeat(3, 1fr); }
+    .review-card:last-child { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Sticky bottom call bar (mobile only) -->
+<div class="sticky-call">
+  <a href="tel:+17405550100">
+    <span class="sticky-call-label">Call Bill Now</span>
+    📞 (740) 555-0100
+  </a>
+</div>
+
+<!-- Top strip -->
+<div class="topstrip">
+  <span>Bill's A/C Service LLC · Jackson, OH</span>
+  <span class="topstrip-sep">|</span>
+  <span>Same-day in Jackson County</span>
+  <span class="topstrip-sep">|</span>
+  <a href="tel:+17405550100">(740) 555-0100</a>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-emblem">B</div>
+    <div>
+      <div class="nav-name">Bill's A/C Service LLC</div>
+      <div class="nav-sub">Jackson, OH · Licensed &amp; Insured</div>
+    </div>
+  </div>
+  <a href="tel:+17405550100" class="nav-cta">📞 Call Bill</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- Bill nameplate -->
+    <div class="hero-bill">
+      <div class="bill-avatar">B</div>
+      <div class="bill-info">
+        <div class="bill-name">Bill — Owner &amp; Technician</div>
+        <div class="bill-role">Jackson, OH · Picks up the phone</div>
+      </div>
+    </div>
+
+    <h1>Jackson's Trusted<br><em>AC Repair</em> —<br>Answered by a Real Local.</h1>
+
+    <p class="hero-sub">
+      When your AC goes out in July, you need someone who answers,
+      shows up the same day, and actually knows what they're doing.
+      That's Bill.
+    </p>
+
+    <a href="tel:+17405550100" class="hero-btn">
+      <span class="hero-btn-label">Call Bill Now</span>
+      📞 (740) 555-0100
+      <span class="hero-btn-note">Real person. Not a call center.</span>
+    </a>
+  </div>
+</section>
+
+<!-- SAME-DAY STAMP — the visual differentiator -->
+<div class="sameday-bar">
+  <div class="sameday-inner">
+    <div class="sameday-stamp">
+      <div class="stamp-icon">⚡</div>
+      <div class="stamp-text">
+        <div class="stamp-headline">Same-Day Service in Jackson County</div>
+        <div class="stamp-sub">Call before noon — we aim to be there today</div>
+      </div>
+    </div>
+    <div class="sameday-note">
+      No other local AC company makes<br>this promise. We do.
+    </div>
+  </div>
+</div>
+
+<!-- Trust strip -->
+<div class="trust-strip">
+  <div class="trust-item"><strong>Local</strong>Jackson, OH</div>
+  <div class="trust-item"><strong>Licensed</strong>Ohio HVAC</div>
+  <div class="trust-item"><strong>Same Day</strong>Jackson County</div>
+  <div class="trust-item"><strong>Free</strong>Estimates</div>
+</div>
+
+<!-- Services -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">What Bill Does</div>
+    <h2 class="section-title">Three things. Done right.</h2>
+    <p class="section-body">
+      Bill doesn't try to be an everything company. He does AC — and he does it
+      well enough that Jackson County homeowners keep his number in their phone.
+    </p>
+
+    <div class="svc-grid">
+
+      <div class="svc-card hot">
+        <div class="svc-left">
+          <span class="svc-icon">🚨</span>
+          <span class="svc-pill pill-orange">Emergency</span>
+        </div>
+        <div>
+          <div class="svc-name">Emergency AC Repair</div>
+          <p class="svc-desc">
+            AC out on the hottest day of the summer — that's not a "schedule for
+            next week" situation. Bill takes emergency calls, carries the parts
+            that fail most on Jackson County units, and gets out the same day
+            whenever he can. You'll know the price before he starts.
+          </p>
+          <div class="svc-tags">
+            <span class="svc-tag">Same-day response</span>
+            <span class="svc-tag">All brands</span>
+            <span class="svc-tag">Flat-rate quote</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-left">
+          <span class="svc-icon">❄️</span>
+          <span class="svc-pill pill-blue">Service</span>
+        </div>
+        <div>
+          <div class="svc-name">Residential AC Service</div>
+          <p class="svc-desc">
+            Not cooling right, making a noise it shouldn't, running constantly,
+            freezing up — Bill diagnoses the actual problem and fixes that,
+            not the easiest billable thing he can find. Honest work, straight price.
+          </p>
+          <div class="svc-tags">
+            <span class="svc-tag">Diagnostic calls</span>
+            <span class="svc-tag">Refrigerant service</span>
+            <span class="svc-tag">All makes &amp; models</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-left">
+          <span class="svc-icon">🛠️</span>
+          <span class="svc-pill pill-blue">Preventive</span>
+        </div>
+        <div>
+          <div class="svc-name">Seasonal Tune-Ups</div>
+          <p class="svc-desc">
+            A spring tune-up catches the small problems before they become a
+            July emergency. Bill checks the things that actually matter —
+            coils, refrigerant, capacitors, contactors — not a 20-point checklist
+            that's really a sales tool.
+          </p>
+          <div class="svc-tags">
+            <span class="svc-tag">Spring scheduling</span>
+            <span class="svc-tag">Full system check</span>
+            <span class="svc-tag">Written report</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Mid CTA — interrupts the scroll with the number -->
+<div class="mid-cta">
+  <div class="mid-cta-text">AC out right now? Don't wait on a form.<br>Call Bill directly.</div>
+  <a href="tel:+17405550100" class="btn-mid">📞 (740) 555-0100</a>
+</div>
+
+<!-- About -->
+<section class="section">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="section-label">About Bill</div>
+      <h2 class="section-title">One technician. One phone. Jackson County.</h2>
+
+      <!-- Bill quote card -->
+      <div class="bill-card">
+        <div class="bill-portrait">B</div>
+        <div>
+          <div class="bill-q">"When you call this number, I pick up. I'm the one who shows up. And I'm the one you can call back if something's not right."</div>
+          <div class="bill-attr">— Bill, Owner · Bill's A/C Service LLC</div>
+        </div>
+      </div>
+
+      <p class="about-body">
+        Bill started this business because he grew up here and wanted to do
+        AC work the right way in his own community. No call centers, no
+        commissioned sales pitches, no technician who's never seen your unit
+        before. You call, he answers. He comes out, he fixes it, he explains
+        what he did. If something's not right after the job, you call the same
+        number and talk to the same guy.
+        <br><br>
+        Jackson County doesn't have a lot of local HVAC options. Bill knows that,
+        and he takes the responsibility seriously. Every job he does is a neighbor
+        — someone who'll see him at the hardware store or the Friday night game.
+        That keeps the work honest.
+      </p>
+
+      <div class="cred-list">
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Ohio-licensed HVAC technician, fully insured</strong>
+            <span>License on file — ask and I'll show you before I start.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Flat-rate quote before any work begins</strong>
+            <span>You know the number. You say yes. Then I pick up a wrench.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Same-day in Jackson County when called before noon</strong>
+            <span>No "we'll get someone out in three to five days." Not how I run it.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Local — not dispatched from somewhere else</strong>
+            <span>I'm in Jackson. Short drive, fast response, no mystery tech at your door.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label">What Jackson County Says</div>
+    <h2 class="section-title">Neighbors who've called Bill.</h2>
+    <p class="section-body">Placeholder reviews — replace with real testimonials before publishing.</p>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "AC went out on a Sunday in August. Bill picked up, was at my house
+          by 2pm, had it running by 4. Charged exactly what he said on the phone.
+          I've lived in Jackson my whole life and this is the kind of service
+          you hope to find here."
+        </p>
+        <div class="review-author">— C.M., Jackson</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Called three places. Two didn't answer. One put me on a four-day
+          wait. Bill answered, asked a few questions, and came out the same
+          afternoon. Fixed it in an hour. I should've called him first."
+        </p>
+        <div class="review-author">— P.T., Wellston</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Had Bill out for a spring tune-up. He found a capacitor that was
+          about to go, replaced it on the spot, and my AC ran all summer
+          without a single problem. Worth every dollar to not deal with a
+          breakdown in July."
+        </p>
+        <div class="review-author">— R.K., Oak Hill</div>
+      </div>
+    </div>
+
+    <p class="reviews-note">✦ Replace with real customer reviews before going live.</p>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>AC out? Call Bill.<br>He'll pick up.</h2>
+    <p>
+      Same-day in Jackson County. Real person on the phone.
+      Straight price before he starts.
+    </p>
+    <a href="tel:+17405550100" class="btn-final">
+      <span class="btn-final-label">Call Bill Now</span>
+      📞 (740) 555-0100
+      <small>Bill's A/C Service LLC · Jackson, OH</small>
+    </a>
+    <p class="final-note">7 days a week · Same-day available · Licensed &amp; Insured</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <strong>Bill's A/C Service LLC</strong><br>
+    Jackson, OH &nbsp;·&nbsp; Jackson County<br>
+    <a href="tel:+17405550100">(740) 555-0100</a><br>
+    Ohio HVAC License #XXXXX · Licensed &amp; Insured<br>
+    <br>
+    <span style="font-size:12px;">© 2026 Bill's A/C Service LLC. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
