@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scotty's Heating &amp; Cooling | Jackson, OH | Text Scott Direct</title>
+<style>
+:root {
+  --navy: #1b2d4f;
+  --navy-mid: #243a63;
+  --blue: #2057a7;
+  --blue-light: #3b72c8;
+  --gold: #d4880e;
+  --gold-light: #e8a020;
+  --white: #ffffff;
+  --off-white: #f4f6f9;
+  --light: #eaecf1;
+  --muted: #5c6578;
+  --text: #1a2133;
+  --border: #d0d5e0;
+  --green: #15803d;
+  --green-bg: #dcfce7;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  background: var(--navy);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.nav-name {
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.nav-name span {
+  display: block;
+  font-size: 0.67rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.nav-text {
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 8px 13px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* HERO */
+.hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 44px 20px 52px;
+}
+
+.hero-person {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.hero-avatar {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  border: 3px solid rgba(255,255,255,0.15);
+}
+
+.hero-id {
+  flex: 1;
+}
+
+.hero-realname {
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 3px;
+}
+
+.hero-title {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.hero-license {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 3px;
+  padding: 3px 8px;
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero h1 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold-light);
+}
+
+.hero-quote {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 460px;
+  border-left: 3px solid var(--gold);
+  padding-left: 14px;
+  font-style: italic;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  max-width: 340px;
+}
+
+.btn-text-scott {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 16px 22px;
+  border-radius: 6px;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.btn-text-scott .msg-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.btn-call {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn-plan {
+  display: block;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.85);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 13px 22px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn-plan span {
+  color: var(--gold-light);
+}
+
+/* TRUST STRIP */
+.trust {
+  background: var(--navy-mid);
+  padding: 16px 20px;
+}
+
+.trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  list-style: none;
+}
+
+.trust-list li {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trust-list li::before {
+  content: '✓';
+  color: var(--gold-light);
+  font-weight: 800;
+}
+
+/* SCOTT PROMISE */
+.promise {
+  background: var(--white);
+  padding: 48px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.promise-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.promise h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.promise-body {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+
+.promise-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.promise-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  border-left: 3px solid var(--gold);
+}
+
+.promise-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.promise-item h3 {
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin-bottom: 3px;
+  color: var(--text);
+}
+
+.promise-item p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* SERVICES */
+.services {
+  background: var(--off-white);
+  padding: 52px 20px;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.section-sub {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.service-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 22px 20px;
+  border-top: 3px solid var(--navy);
+}
+
+.service-card.urgent {
+  border-top-color: #c0392b;
+}
+
+.service-icon {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.service-card p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.service-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-card ul li {
+  font-size: 0.8rem;
+  color: var(--text);
+  padding-left: 14px;
+  position: relative;
+}
+
+.service-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.emergency-tag {
+  display: inline-block;
+  background: #fef2f2;
+  color: #c0392b;
+  border: 1px solid #fecaca;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+/* MAINTENANCE PLAN */
+.plan {
+  background: var(--navy);
+  color: var(--white);
+  padding: 52px 20px;
+}
+
+.plan-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+
+.plan h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.plan-intro {
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+
+.plan-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 10px;
+  padding: 26px 22px;
+  margin-bottom: 14px;
+}
+
+.plan-card.featured {
+  background: rgba(212,136,14,0.15);
+  border-color: var(--gold);
+}
+
+.plan-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.plan-card h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: var(--white);
+}
+
+.plan-price {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--gold-light);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.plan-price span {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+}
+
+.plan-desc {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 14px;
+  line-height: 1.45;
+}
+
+.plan-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 18px;
+}
+
+.plan-items li {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.8);
+  padding-left: 18px;
+  position: relative;
+}
+
+.plan-items li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--gold-light);
+  font-weight: 800;
+}
+
+.btn-plan-enroll {
+  display: block;
+  width: 100%;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 13px 18px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btn-plan-enroll-outline {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.85);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.plan-note {
+  margin-top: 20px;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  padding: 52px 20px;
+  background: var(--light);
+}
+
+.testi-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.testi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 18px;
+}
+
+.testi-stars {
+  color: var(--gold);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.testi-card p {
+  font-size: 0.87rem;
+  color: var(--text);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.testi-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.testi-initials {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.testi-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.testi-name span {
+  display: block;
+  font-weight: 400;
+  font-size: 0.72rem;
+}
+
+/* TEXT SCOTT BANNER */
+.text-banner {
+  background: var(--gold);
+  padding: 36px 20px;
+  text-align: center;
+}
+
+.text-banner p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.text-banner h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.btn-text-big {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 15px 28px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.text-or {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  margin: 6px 0;
+}
+
+.btn-call-gold {
+  display: inline-block;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 6px;
+}
+
+/* FOOTER */
+footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.5);
+  padding: 28px 20px;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+footer strong {
+  color: rgba(255,255,255,0.85);
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+}
+
+/* DESKTOP */
+@media (min-width: 560px) {
+  .hero-ctas { flex-direction: row; flex-wrap: wrap; }
+  .btn-text-scott { flex: 1; }
+  .btn-call { flex: 1; }
+  .btn-plan { width: 100%; }
+
+  .promise-grid { grid-template-columns: 1fr 1fr; }
+
+  .service-grid { grid-template-columns: 1fr 1fr; }
+
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 800px) {
+  .hero { padding: 60px 40px 68px; }
+  .hero h1 { font-size: 2.4rem; }
+  .hero-avatar { width: 96px; height: 96px; font-size: 1.8rem; }
+
+  .promise, .services, .testimonials { padding: 68px 40px; }
+  .plan { padding: 68px 40px; }
+
+  .service-grid { grid-template-columns: repeat(4, 1fr); }
+
+  .plan-cards-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .plan-card { margin-bottom: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-avatar">SA</div>
+    <div class="nav-name">
+      Scotty's Heating &amp; Cooling
+      <span>Jackson, Ohio</span>
+    </div>
+  </div>
+  <a class="nav-text" href="sms:+17405550247">Text Scott</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-person">
+    <div class="hero-avatar">SA</div>
+    <div class="hero-id">
+      <div class="hero-realname">Scotty Allen</div>
+      <div class="hero-title">Owner &amp; Lead Tech · Jackson, OH</div>
+      <div class="hero-license">✓ Licensed · Insured · Ohio</div>
+    </div>
+  </div>
+
+  <h1>Heating &amp; cooling<br>done right in <em>Jackson.</em></h1>
+
+  <p class="hero-quote">
+    "When you call Scotty's, you get me. Not a dispatcher, not a call center — me. I'll tell you what's wrong, what it costs, and when I'll be there."
+  </p>
+
+  <div class="hero-ctas">
+    <a class="btn-text-scott" href="sms:+17405550247">
+      <span class="msg-icon">💬</span> Text Scott Direct
+    </a>
+    <a class="btn-call" href="tel:+17405550247">Call (740) 555-0247</a>
+    <a class="btn-plan" href="#plan">See Maintenance Plans → <span>Save every year</span></a>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust">
+  <ul class="trust-list">
+    <li>You always talk to Scott</li>
+    <li>Same-day &amp; emergency</li>
+    <li>All makes &amp; models</li>
+    <li>Flat-rate pricing</li>
+    <li>Jackson County based</li>
+  </ul>
+</section>
+
+<!-- SCOTT'S PROMISE -->
+<section class="promise">
+  <p class="promise-label">Why Scotty's</p>
+  <h2>You'll always talk to Scott.</h2>
+  <p class="promise-body">
+    Most HVAC companies grow big enough that the owner never answers the phone. At Scotty's, you text or call me directly. That's not a gimmick — it's the whole point. When something goes wrong with your heat in January, you want to know who you're dealing with.
+  </p>
+
+  <div class="promise-grid">
+    <div class="promise-item">
+      <div class="promise-icon">📱</div>
+      <div>
+        <h3>Text me directly</h3>
+        <p>My cell is the business number. Text works great for photos, questions, or scheduling — whatever's easier.</p>
+      </div>
+    </div>
+    <div class="promise-item">
+      <div class="promise-icon">🕐</div>
+      <div>
+        <h3>Honest time estimates</h3>
+        <p>I'll tell you when I'll arrive — and if something runs long, I'll text you ahead of time. No four-hour windows.</p>
+      </div>
+    </div>
+    <div class="promise-item">
+      <div class="promise-icon">💰</div>
+      <div>
+        <h3>Price before I touch anything</h3>
+        <p>You know the number before I start. No surprises on the invoice — what I quote is what you pay.</p>
+      </div>
+    </div>
+    <div class="promise-item">
+      <div class="promise-icon">🔧</div>
+      <div>
+        <h3>I fix it right the first time</h3>
+        <p>I carry common parts on the truck. Most repairs get done same visit — I don't like making two trips either.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <p class="section-label">Services</p>
+  <h2 class="section-title">Everything your system needs.</h2>
+  <p class="section-sub">Residential HVAC in Jackson County and the surrounding area.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="service-icon">🔥</div>
+      <h3>Heating Repair</h3>
+      <p>Furnace acting up or not running at all? Most furnace repairs get done same day.</p>
+      <ul>
+        <li>Gas &amp; electric furnaces</li>
+        <li>Heat pumps</li>
+        <li>All major brands</li>
+        <li>Ignitors, boards, motors</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">❄️</div>
+      <h3>AC Repair</h3>
+      <p>Warm air, short cycling, or not running — I'll diagnose it fast and tell you straight what it needs.</p>
+      <ul>
+        <li>Central AC systems</li>
+        <li>Refrigerant recharge</li>
+        <li>Capacitors &amp; contactors</li>
+        <li>Coil cleaning</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <h3>New Installs</h3>
+      <p>Replacing an old system or putting in something new — I'll size it right and install it clean.</p>
+      <ul>
+        <li>Full system replacements</li>
+        <li>Heat pump installs</li>
+        <li>Mini-split ductless</li>
+        <li>Multiple bids available</li>
+      </ul>
+    </div>
+
+    <div class="service-card urgent">
+      <span class="emergency-tag">Emergency</span>
+      <div class="service-icon">🚨</div>
+      <h3>Emergency Service</h3>
+      <p>Heat out in winter? I do emergency calls. Text me first — fastest response that way.</p>
+      <ul>
+        <li>No-heat calls</li>
+        <li>Jackson County priority</li>
+        <li>Text for fastest response</li>
+        <li>Honest emergency rates</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MAINTENANCE PLAN -->
+<section class="plan" id="plan">
+  <p class="plan-label">Recurring service</p>
+  <h2>Scotty's Maintenance Plan.</h2>
+  <p class="plan-intro">
+    A maintained system breaks down less, runs cheaper, and lasts longer. My plan customers jump the line — and they save money on parts and labor every time they need me.
+  </p>
+
+  <div class="plan-cards-row">
+    <div class="plan-card">
+      <h3>Annual Tune-Up</h3>
+      <div class="plan-price">$129 <span>/ year</span></div>
+      <p class="plan-desc">One visit per year — your system checked before the season that matters most to you.</p>
+      <ul class="plan-items">
+        <li>1 seasonal tune-up (heat or cool)</li>
+        <li>Filter check &amp; replace</li>
+        <li>Safety inspection</li>
+        <li>10% off parts &amp; labor</li>
+        <li>Priority scheduling</li>
+      </ul>
+      <a class="btn-plan-enroll-outline" href="sms:+17405550247?body=Hey%20Scott%2C%20I%27d%20like%20to%20sign%20up%20for%20the%20Annual%20Plan">Text Scott to Enroll</a>
+    </div>
+
+    <div class="plan-card featured">
+      <div class="plan-badge">Most Popular</div>
+      <h3>Full-Year Plan</h3>
+      <div class="plan-price">$199 <span>/ year</span></div>
+      <p class="plan-desc">Both seasons covered — one visit in fall, one in spring. Best protection for year-round comfort.</p>
+      <ul class="plan-items">
+        <li>2 tune-ups (heat + cool)</li>
+        <li>Filters included both visits</li>
+        <li>Safety &amp; carbon monoxide check</li>
+        <li>15% off parts &amp; labor all year</li>
+        <li>Priority emergency scheduling</li>
+        <li>Free diagnostic fee on repairs</li>
+      </ul>
+      <a class="btn-plan-enroll" href="sms:+17405550247?body=Hey%20Scott%2C%20I%27d%20like%20to%20sign%20up%20for%20the%20Full-Year%20Plan">Text Scott to Enroll</a>
+    </div>
+  </div>
+
+  <p class="plan-note">No contracts. Cancel anytime. Text Scott to get started — he'll get you set up.</p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="section-label">Word around Jackson</p>
+  <h2 class="section-title">What customers say.</h2>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"Texted Scott at 7am when our furnace quit. He replied in 10 minutes and was at our house by noon. Fixed it same visit. Can't ask for more than that."</p>
+      <div class="testi-meta">
+        <div class="testi-initials">BW</div>
+        <div class="testi-name">B. Walters <span>Jackson, OH</span></div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"Scott told me upfront the repair would cost $180. That's what I paid. No add-ons, no 'while I was in there.' Refreshing."</p>
+      <div class="testi-meta">
+        <div class="testi-initials">LD</div>
+        <div class="testi-name">L. Dixon <span>Oak Hill, OH</span></div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"On the maintenance plan now. Scott came out in October, found a cracked heat exchanger before winter hit. Saved us from a dangerous situation and a way bigger bill."</p>
+      <div class="testi-meta">
+        <div class="testi-initials">MR</div>
+        <div class="testi-name">M. &amp; K. Rouse <span>Wellston, OH</span></div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"Got a quote from a Chillicothe company — $4,200 for a new unit. Scott put in a comparable Trane for $3,100 and the install was cleaner. Wish I'd called him first."</p>
+      <div class="testi-meta">
+        <div class="testi-initials">TC</div>
+        <div class="testi-name">T. Calhoun <span>Jackson, OH</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEXT SCOTT BANNER -->
+<section class="text-banner">
+  <p>The fastest way to reach Scott</p>
+  <h2>Skip the hold music.<br>Just text.</h2>
+  <div>
+    <a class="btn-text-big" href="sms:+17405550247?body=Hey%20Scott%2C%20I%20need%20some%20help%20with%20my%20HVAC">
+      💬 Text Scott — (740) 555-0247
+    </a>
+  </div>
+  <div class="text-or">or</div>
+  <a class="btn-call-gold" href="tel:+17405550247">Call (740) 555-0247</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Scotty's Heating &amp; Cooling LLC</strong>
+  Scotty Allen, Owner &amp; Operator<br>
+  Jackson, OH · (740) 555-0247<br>
+  Serving Jackson County, Gallia County &amp; Vinton County<br>
+  Licensed &amp; Insured · State of Ohio
+</footer>
+
+</body>
+</html>
