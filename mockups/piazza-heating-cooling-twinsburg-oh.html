@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piazza Heating &amp; Cooling LLC — Twinsburg, OH</title>
+<meta name="description" content="Twinsburg's reliable heating and cooling. AC repair, furnace replacement, and seasonal maintenance plans. Piazza does it right — call or schedule online.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:      #0c2030;
+    --blue:      #0f5280;
+    --blue-mid:  #1668b0;
+    --blue-lt:   #2d80d8;
+    --blue-pale: #e5f0fb;
+    --white:     #ffffff;
+    --offwhite:  #f6f9fc;
+    --gray-100:  #eef2f7;
+    --gray-200:  #d8e2ed;
+    --gray-400:  #8896ae;
+    --gray-600:  #445468;
+    --gray-900:  #0d1c28;
+    --teal:      #0e7490;
+    --teal-lt:   #e0f5f9;
+    --green:     #15803d;
+    --green-lt:  #f0fdf4;
+    --amber:     #b45309;
+    --amber-lt:  #fef3c7;
+    --font: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--gray-900);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { width: 100%; max-width: 740px; margin: 0 auto; padding: 0 20px; }
+
+  /* ── Top strip ── */
+  .topstrip {
+    background: var(--teal);
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .topstrip a   { color: #fff; text-decoration: none; font-weight: 800; }
+  .topstrip-sep { color: rgba(255,255,255,0.3); }
+
+  /* ── Nav ── */
+  .nav {
+    background: var(--white);
+    border-bottom: 3px solid var(--navy);
+    padding: 13px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+
+  .nav-emblem {
+    width: 42px; height: 42px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 11px; font-weight: 900; color: var(--white);
+    letter-spacing: -0.5px; text-transform: uppercase;
+    line-height: 1.2; text-align: center;
+    padding: 2px;
+  }
+
+  .nav-name { font-size: 15px; font-weight: 800; color: var(--navy); line-height: 1.2; letter-spacing: -0.2px; }
+  .nav-sub  { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+
+  .nav-cta {
+    background: var(--blue-lt);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 16px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 52px 20px 0;
+  }
+
+  .hero-inner { max-width: 660px; margin: 0 auto; }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #7ac8e0;
+    border: 1px solid rgba(122,200,224,0.25);
+    border-radius: 4px; padding: 5px 13px; margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(26px, 7vw, 46px);
+    font-weight: 900; line-height: 1.08;
+    letter-spacing: -0.6px; margin-bottom: 14px;
+  }
+
+  .hero h1 em { font-style: normal; color: #60c8e8; }
+
+  .hero-sub {
+    font-size: 17px; color: #6a9abc;
+    line-height: 1.65; max-width: 500px; margin-bottom: 36px;
+  }
+
+  /* ── MAINTENANCE PLAN BLOCK in hero ── */
+  .plan-hero-wrap {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px 12px 0 0;
+    padding: 24px 20px;
+    border-bottom: none;
+  }
+
+  .plan-hero-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #7ac8e0; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .plan-hero-label::after {
+    content: '';
+    flex: 1; height: 1px; background: rgba(122,200,224,0.2);
+  }
+
+  .plan-hero-title {
+    font-size: 20px; font-weight: 900; color: var(--white);
+    margin-bottom: 6px; letter-spacing: -0.3px;
+  }
+
+  .plan-hero-sub {
+    font-size: 14px; color: #6a9abc; margin-bottom: 18px; line-height: 1.5;
+  }
+
+  .plan-tiers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .plan-tier {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 14px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    position: relative;
+  }
+
+  .plan-tier:hover { border-color: rgba(96,200,232,0.5); background: rgba(255,255,255,0.08); }
+
+  .plan-tier.featured {
+    border-color: #60c8e8;
+    background: rgba(96,200,232,0.1);
+  }
+
+  .plan-tier.featured::before {
+    content: 'Most Popular';
+    position: absolute;
+    top: -10px; left: 50%;
+    transform: translateX(-50%);
+    background: #60c8e8;
+    color: var(--navy);
+    font-size: 9px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 3px 9px; border-radius: 10px;
+    white-space: nowrap;
+  }
+
+  .tier-name  { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #7ac8e0; margin-bottom: 6px; }
+  .tier-price { font-size: 22px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; line-height: 1; }
+  .tier-per   { font-size: 11px; color: #6a9abc; margin-bottom: 8px; }
+  .tier-feature { font-size: 11px; color: #c2d8ef; line-height: 1.4; }
+
+  .plan-cta-row { display: flex; gap: 10px; flex-direction: column; }
+
+  .btn-plan-primary {
+    display: block; background: #60c8e8; color: var(--navy);
+    text-decoration: none; font-size: 15px; font-weight: 800;
+    padding: 13px 20px; border-radius: 8px; text-align: center;
+    transition: opacity 0.15s; letter-spacing: -0.1px;
+  }
+  .btn-plan-primary:hover { opacity: 0.9; }
+
+  .btn-plan-ghost {
+    display: block; background: transparent; color: #93c5fd;
+    text-decoration: none; font-size: 14px; font-weight: 700;
+    padding: 12px 20px; border-radius: 8px; text-align: center;
+    border: 1px solid rgba(147,197,253,0.3); transition: border-color 0.15s;
+  }
+  .btn-plan-ghost:hover { border-color: rgba(147,197,253,0.6); }
+
+  /* ── Badges ── */
+  .badges {
+    background: var(--blue);
+    display: flex; justify-content: center; flex-wrap: wrap;
+  }
+  .badge {
+    color: #bdd5ef; font-size: 13px; font-weight: 600;
+    padding: 13px 16px; border-right: 1px solid rgba(255,255,255,0.1);
+    text-align: center; white-space: nowrap;
+  }
+  .badge:last-child { border-right: none; }
+  .badge strong { display: block; color: var(--white); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+
+  /* ── Sections ── */
+  .section      { padding: 64px 20px; }
+  .section-alt  { background: var(--offwhite); }
+  .section-dark { background: var(--navy); color: var(--white); }
+  .section-teal { background: var(--teal); color: var(--white); }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--blue-lt); margin-bottom: 10px;
+  }
+  .section-dark .section-label { color: #7ac8e0; }
+  .section-teal .section-label { color: rgba(255,255,255,0.65); }
+
+  .section-title {
+    font-size: clamp(22px, 5.5vw, 34px);
+    font-weight: 900; line-height: 1.1;
+    letter-spacing: -0.5px; margin-bottom: 12px; color: var(--navy);
+  }
+  .section-dark .section-title,
+  .section-teal .section-title { color: var(--white); }
+
+  .section-body {
+    font-size: 16px; color: var(--gray-600);
+    max-width: 560px; line-height: 1.75; margin-bottom: 36px;
+  }
+  .section-dark .section-body { color: #6a9abc; }
+  .section-teal .section-body { color: rgba(255,255,255,0.75); }
+
+  /* ── Services ── */
+  .svc-grid { display: flex; flex-direction: column; gap: 14px; }
+
+  .svc-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px; padding: 24px 22px;
+    border-top: 4px solid var(--blue-lt);
+  }
+
+  .svc-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+  .svc-icon { font-size: 34px; line-height: 1; flex-shrink: 0; }
+
+  .svc-pill {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; padding: 4px 10px; border-radius: 4px; white-space: nowrap;
+  }
+  .pill-blue  { background: var(--blue-pale); color: var(--blue-mid); }
+  .pill-teal  { background: var(--teal-lt);   color: var(--teal); }
+  .pill-green { background: var(--green-lt);  color: var(--green); }
+
+  .svc-name { font-size: 19px; font-weight: 800; color: var(--navy); margin-bottom: 8px; letter-spacing: -0.2px; }
+  .svc-desc { font-size: 15px; color: var(--gray-600); line-height: 1.65; margin-bottom: 12px; }
+  .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .svc-tag  { font-size: 12px; font-weight: 600; background: var(--gray-100); color: var(--gray-600); padding: 4px 10px; border-radius: 4px; }
+
+  /* ── Plan detail section ── */
+  .plans-full { display: flex; flex-direction: column; gap: 16px; }
+
+  .plan-card {
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 26px 24px;
+    position: relative;
+    transition: border-color 0.15s;
+  }
+
+  .plan-card:hover { border-color: var(--blue-lt); }
+
+  .plan-card.best {
+    border-color: var(--blue-lt);
+    background: var(--blue-pale);
+  }
+
+  .plan-best-tag {
+    position: absolute;
+    top: -13px; left: 24px;
+    background: var(--blue-lt);
+    color: var(--white);
+    font-size: 11px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 4px 14px; border-radius: 20px;
+  }
+
+  .plan-top {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 12px; margin-bottom: 16px;
+  }
+
+  .plan-name  { font-size: 20px; font-weight: 900; color: var(--navy); letter-spacing: -0.3px; margin-bottom: 3px; }
+  .plan-tagline { font-size: 13px; color: var(--gray-600); }
+
+  .plan-price-wrap { text-align: right; flex-shrink: 0; }
+  .plan-price { font-size: 32px; font-weight: 900; color: var(--navy); letter-spacing: -1px; line-height: 1; }
+  .plan-price sup { font-size: 16px; font-weight: 700; vertical-align: top; margin-top: 5px; display: inline-block; }
+  .plan-price-period { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
+
+  .plan-includes {
+    display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px;
+  }
+
+  .plan-include {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: var(--gray-600); line-height: 1.4;
+  }
+
+  .include-check {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--navy); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 900; flex-shrink: 0; margin-top: 1px;
+  }
+
+  .plan-card.best .include-check { background: var(--blue-lt); }
+
+  .plan-include strong { color: var(--gray-900); }
+
+  .btn-plan {
+    display: block; text-align: center; text-decoration: none;
+    font-size: 14px; font-weight: 800; padding: 12px 20px;
+    border-radius: 8px; transition: opacity 0.15s; letter-spacing: 0.01em;
+  }
+
+  .btn-plan-solid { background: var(--navy); color: var(--white); }
+  .btn-plan-solid:hover { opacity: 0.88; }
+  .btn-plan-outlined { background: var(--white); color: var(--navy); border: 2px solid var(--navy); }
+  .btn-plan-outlined:hover { background: var(--gray-100); }
+  .btn-plan-featured { background: var(--blue-lt); color: var(--white); }
+  .btn-plan-featured:hover { opacity: 0.9; }
+
+  .plans-note {
+    margin-top: 16px; font-size: 13px; color: var(--gray-400);
+    text-align: center; line-height: 1.5;
+  }
+
+  /* ── About ── */
+  .about-wrap { max-width: 660px; margin: 0 auto; }
+  .about-lead { font-size: 20px; font-weight: 700; color: var(--navy); line-height: 1.4; margin-bottom: 18px; letter-spacing: -0.2px; }
+  .about-body { font-size: 16px; color: var(--gray-600); line-height: 1.8; margin-bottom: 32px; }
+
+  /* Piazza craft points */
+  .craft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 30px; }
+
+  .craft-item {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px; padding: 16px;
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+
+  .craft-emoji { font-size: 22px; flex-shrink: 0; }
+  .craft-title { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+  .craft-desc  { font-size: 12px; color: var(--gray-600); line-height: 1.4; }
+
+  /* Cred list */
+  .cred-list { display: flex; flex-direction: column; gap: 10px; }
+  .cred-item { display: flex; gap: 14px; align-items: flex-start; padding: 15px 18px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; }
+  .cred-check { width: 27px; height: 27px; border-radius: 50%; background: var(--navy); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; flex-shrink: 0; margin-top: 2px; }
+  .cred-body strong { display: block; font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 2px; }
+  .cred-body span   { font-size: 14px; color: var(--gray-600); }
+
+  /* ── Testimonials ── */
+  .review-grid { display: flex; flex-direction: column; gap: 14px; }
+  .review-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: 10px; padding: 22px; }
+  .review-tag { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; padding: 3px 9px; border-radius: 3px; margin-bottom: 8px; }
+  .tag-plan    { background: rgba(96,200,232,0.2); color: #7ac8e0; }
+  .tag-repair  { background: rgba(45,128,216,0.2); color: #93c5fd; }
+  .review-stars  { color: #fbbf24; font-size: 14px; letter-spacing: 2px; margin-bottom: 8px; }
+  .review-text   { font-size: 15px; color: #c2d8ef; line-height: 1.65; font-style: italic; margin-bottom: 12px; }
+  .review-author { font-size: 12px; color: #6a9abc; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+  .reviews-note  { margin-top: 24px; font-size: 13px; color: #3a5a7a; text-align: center; font-style: italic; }
+
+  /* ── Final CTA ── */
+  .final-cta {
+    background: var(--teal);
+    color: var(--white);
+    padding: 64px 20px;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(24px, 6.5vw, 40px);
+    font-weight: 900; letter-spacing: -0.6px; line-height: 1.1; margin-bottom: 10px;
+  }
+
+  .final-cta p {
+    font-size: 17px; color: rgba(255,255,255,0.7); margin-bottom: 32px;
+    max-width: 440px; margin-left: auto; margin-right: auto;
+  }
+
+  .final-btns { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+
+  .btn-final-primary {
+    display: inline-flex; flex-direction: column; align-items: center;
+    background: var(--white); color: var(--teal);
+    text-decoration: none; font-size: 18px; font-weight: 900;
+    padding: 17px 36px; border-radius: 8px; line-height: 1.2;
+    transition: opacity 0.15s;
+  }
+  .btn-final-primary:hover { opacity: 0.9; }
+  .btn-final-primary small { font-size: 12px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+
+  .btn-final-call {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--white);
+    text-decoration: none; font-size: 18px; font-weight: 800;
+    padding: 15px 30px; border-radius: 8px;
+    border: 2px solid rgba(255,255,255,0.4); transition: border-color 0.15s;
+  }
+  .btn-final-call:hover { border-color: rgba(255,255,255,0.8); }
+
+  .final-note { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.4); }
+
+  /* ── Footer ── */
+  .footer { background: var(--gray-900); color: #2a3d52; text-align: center; padding: 28px 20px; font-size: 13px; line-height: 1.9; }
+  .footer a      { color: #3a6a9a; text-decoration: none; }
+  .footer strong { color: #3a5a7a; }
+
+  /* ── Responsive ── */
+  @media (min-width: 560px) {
+    .svc-grid    { display: grid; grid-template-columns: 1fr 1fr; }
+    .svc-card:first-child { grid-column: 1 / -1; }
+    .review-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .review-card:last-child { grid-column: 1 / -1; }
+    .plan-cta-row { flex-direction: row; }
+    .btn-plan-primary, .btn-plan-ghost { flex: 1; }
+    .final-btns  { flex-direction: row; justify-content: center; }
+  }
+
+  @media (min-width: 680px) {
+    .plans-full  { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .svc-card:first-child { grid-column: auto; }
+    .svc-grid    { grid-template-columns: repeat(3, 1fr); }
+    .review-grid { grid-template-columns: repeat(3, 1fr); }
+    .review-card:last-child { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top strip -->
+<div class="topstrip">
+  <span>📅 Seasonal tune-ups booking now — <a href="#plans">View maintenance plans</a></span>
+  <span class="topstrip-sep">|</span>
+  <a href="tel:+13305550200">(330) 555-0200</a>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-emblem">P&nbsp;H&amp;C</div>
+    <div>
+      <div class="nav-name">Piazza Heating &amp; Cooling LLC</div>
+      <div class="nav-sub">Twinsburg, OH · Locally Owned · Licensed &amp; Insured</div>
+    </div>
+  </div>
+  <a href="tel:+13305550200" class="nav-cta">📞 Call Us</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">📍 Twinsburg, OH · Serving Summit County</div>
+
+    <h1>Twinsburg's <em>Reliable</em><br>Heating &amp; Cooling.</h1>
+
+    <p class="hero-sub">
+      AC repair, furnace replacement, and seasonal maintenance —
+      done with care and backed by a local name you can hold accountable.
+      Piazza does it right.
+    </p>
+
+    <!-- MAINTENANCE PLAN BLOCK — the differentiator, front and center -->
+    <div class="plan-hero-wrap">
+      <div class="plan-hero-label">Maintenance Plans</div>
+      <div class="plan-hero-title">Protect your system before it fails.</div>
+      <div class="plan-hero-sub">
+        Pick a plan, schedule once, and we handle the rest. Priority service,
+        no emergency-rate surprises, and a system that runs when you need it.
+      </div>
+
+      <div class="plan-tiers">
+        <div class="plan-tier">
+          <div class="tier-name">Basic</div>
+          <div class="tier-price">$99</div>
+          <div class="tier-per">/year</div>
+          <div class="tier-feature">1 seasonal tune-up + filter check</div>
+        </div>
+        <div class="plan-tier featured">
+          <div class="tier-name">Standard</div>
+          <div class="tier-price">$169</div>
+          <div class="tier-per">/year</div>
+          <div class="tier-feature">2 tune-ups + priority scheduling</div>
+        </div>
+        <div class="plan-tier">
+          <div class="tier-name">Premium</div>
+          <div class="tier-price">$249</div>
+          <div class="tier-per">/year</div>
+          <div class="tier-feature">2 tune-ups + discounts + 24hr response</div>
+        </div>
+      </div>
+
+      <div class="plan-cta-row">
+        <a href="#plans" class="btn-plan-primary">📅 Schedule your tune-up today</a>
+        <a href="tel:+13305550200" class="btn-plan-ghost">📞 Call with questions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Badges -->
+<div class="badges">
+  <div class="badge"><strong>Locally Owned</strong>Twinsburg, OH</div>
+  <div class="badge"><strong>Licensed</strong>Ohio HVAC</div>
+  <div class="badge"><strong>Priority Service</strong>Plan Members</div>
+  <div class="badge"><strong>Free</strong>Estimates</div>
+</div>
+
+<!-- Services -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">The work Twinsburg calls us for.</h2>
+    <p class="section-body">
+      Three core services, done with attention to detail. No cutting corners,
+      no vague pricing, no technician who's never seen your unit before.
+    </p>
+
+    <div class="svc-grid">
+
+      <div class="svc-card">
+        <div class="svc-head">
+          <span class="svc-icon">❄️</span>
+          <span class="svc-pill pill-blue">Repair &amp; Diagnose</span>
+        </div>
+        <div class="svc-name">AC Repair</div>
+        <p class="svc-desc">
+          Air conditioner not cooling, making noise, cycling on and off —
+          we diagnose the actual problem, explain it in plain English, and
+          quote the fix before we start. Twinsburg summers are short enough
+          without losing days to an AC that's barely limping along.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">All brands &amp; models</span>
+          <span class="svc-tag">Same-day available</span>
+          <span class="svc-tag">Flat-rate quotes</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-head">
+          <span class="svc-icon">🔥</span>
+          <span class="svc-pill pill-blue">Replace &amp; Install</span>
+        </div>
+        <div class="svc-name">Furnace Replacement</div>
+        <p class="svc-desc">
+          When it's time to replace, we'll help you choose the right unit —
+          not the most expensive one, and not the cheapest one that'll cost
+          you more in repairs. Proper installation matters more than the brand
+          name on the box; we do it right the first time.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Free estimate</span>
+          <span class="svc-tag">Right-sized installs</span>
+          <span class="svc-tag">Full commissioning</span>
+        </div>
+      </div>
+
+      <div class="svc-card" style="border-top-color: var(--teal)">
+        <div class="svc-head">
+          <span class="svc-icon">🛠️</span>
+          <span class="svc-pill pill-teal">Maintenance Plans</span>
+        </div>
+        <div class="svc-name">Seasonal Tune-Ups</div>
+        <p class="svc-desc">
+          A furnace tune-up before winter and an AC check before summer catches
+          the small problems before they become expensive ones. Plan members get
+          priority scheduling — so when the first cold snap hits and everyone
+          calls at once, you're already on the calendar.
+        </p>
+        <div class="svc-tags">
+          <span class="svc-tag">Spring AC check</span>
+          <span class="svc-tag">Fall furnace tune-up</span>
+          <span class="svc-tag">Filter service</span>
+          <span class="svc-tag">Priority scheduling</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Full Plan Detail -->
+<section class="section" id="plans">
+  <div class="container">
+    <div class="section-label">Maintenance Plans</div>
+    <h2 class="section-title">Schedule once. We handle the rest.</h2>
+    <p class="section-body">
+      Most HVAC problems we see in Twinsburg were preventable. A plan keeps
+      your system tuned, your filters changed, and your technician familiar
+      with your equipment — so when something does go wrong, we already know
+      your house.
+    </p>
+
+    <div class="plans-full">
+
+      <div class="plan-card">
+        <div class="plan-top">
+          <div>
+            <div class="plan-name">Basic</div>
+            <div class="plan-tagline">One tune-up, one system</div>
+          </div>
+          <div class="plan-price-wrap">
+            <div class="plan-price"><sup>$</sup>99</div>
+            <div class="plan-price-period">per year</div>
+          </div>
+        </div>
+        <div class="plan-includes">
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>1 seasonal tune-up</strong> — furnace or AC, your choice</div>
+          </div>
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>Filter inspection</strong> and replacement recommendation</div>
+          </div>
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>Written service report</strong> after every visit</div>
+          </div>
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>10% discount</strong> on any repair during the plan year</div>
+          </div>
+        </div>
+        <a href="tel:+13305550200" class="btn-plan btn-plan-outlined">Call to enroll</a>
+      </div>
+
+      <div class="plan-card best">
+        <div class="plan-best-tag">Most Popular</div>
+        <div class="plan-top">
+          <div>
+            <div class="plan-name">Standard</div>
+            <div class="plan-tagline">Both seasons covered</div>
+          </div>
+          <div class="plan-price-wrap">
+            <div class="plan-price"><sup>$</sup>169</div>
+            <div class="plan-price-period">per year</div>
+          </div>
+        </div>
+        <div class="plan-includes">
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>2 seasonal tune-ups</strong> — furnace in fall, AC in spring</div>
+          </div>
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>Filter replacement included</strong> at each visit</div>
+          </div>
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>Priority scheduling</strong> — no waiting behind non-members</div>
+          </div>
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>15% discount</strong> on repairs and parts</div>
+          </div>
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>Written service report</strong> after every visit</div>
+          </div>
+        </div>
+        <a href="tel:+13305550200" class="btn-plan btn-plan-featured">📅 Enroll — most popular</a>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-top">
+          <div>
+            <div class="plan-name">Premium</div>
+            <div class="plan-tagline">Maximum protection</div>
+          </div>
+          <div class="plan-price-wrap">
+            <div class="plan-price"><sup>$</sup>249</div>
+            <div class="plan-price-period">per year</div>
+          </div>
+        </div>
+        <div class="plan-includes">
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>2 seasonal tune-ups</strong> with extended diagnostic check</div>
+          </div>
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>Filter replacement included</strong> at each visit</div>
+          </div>
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>Priority + 24-hour emergency response</strong> for members</div>
+          </div>
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>20% discount</strong> on all repairs, parts, and installs</div>
+          </div>
+          <div class="plan-include">
+            <div class="include-check">✓</div>
+            <div><strong>Annual system health report</strong> with multi-year trend data</div>
+          </div>
+        </div>
+        <a href="tel:+13305550200" class="btn-plan btn-plan-solid">Call to enroll</a>
+      </div>
+
+    </div>
+
+    <p class="plans-note">
+      All plans billed annually · Call <a href="tel:+13305550200">(330) 555-0200</a> to enroll or ask questions ·
+      Cancel anytime with 30 days notice
+    </p>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="section-label">About Piazza Heating &amp; Cooling</div>
+      <h2 class="section-title">Pride of craft. Local accountability. No shortcuts.</h2>
+
+      <p class="about-lead">
+        Piazza started with a simple premise: do heating and cooling work the way
+        you'd want it done in your own house.
+      </p>
+
+      <p class="about-body">
+        We're a Twinsburg-based, locally owned operation. Every job we take gets
+        the same level of attention — whether it's a filter swap or a full furnace
+        replacement. We're not volume-chasing; we're building a reputation in a
+        neighborhood where people talk to each other. That keeps the work honest
+        and the quality consistent.
+      </p>
+
+      <div class="craft-grid">
+        <div class="craft-item">
+          <div class="craft-emoji">🔍</div>
+          <div>
+            <div class="craft-title">Diagnose first, sell second</div>
+            <div class="craft-desc">We find out what's actually wrong before we tell you what it costs to fix.</div>
+          </div>
+        </div>
+        <div class="craft-item">
+          <div class="craft-emoji">📋</div>
+          <div>
+            <div class="craft-title">Written quotes, always</div>
+            <div class="craft-desc">You see the number and approve it before we touch anything.</div>
+          </div>
+        </div>
+        <div class="craft-item">
+          <div class="craft-emoji">🧹</div>
+          <div>
+            <div class="craft-title">Clean work, clean house</div>
+            <div class="craft-desc">Drop cloths, shoe covers, cleanup before we leave — every time.</div>
+          </div>
+        </div>
+        <div class="craft-item">
+          <div class="craft-emoji">📞</div>
+          <div>
+            <div class="craft-title">We call you back</div>
+            <div class="craft-desc">Questions after the job? Same crew, same number. We pick up.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-list">
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Ohio-licensed HVAC contractor, fully insured</strong>
+            <span>License on every invoice. Ask to see it before we start.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Flat-rate quotes before any work begins</strong>
+            <span>No hourly mystery billing. You approve the number first.</span>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-check">✓</div>
+          <div class="cred-body">
+            <strong>Maintenance plan members get priority scheduling year-round</strong>
+            <span>When October hits and the phones light up, members are already on the calendar.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label">What Twinsburg Says</div>
+    <h2 class="section-title">Neighbors, in their own words.</h2>
+    <p class="section-body">Placeholder reviews — replace with verified testimonials before publishing.</p>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-tag tag-plan">Maintenance Plan</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "Been on the Standard Plan for two years. They show up in September,
+          check everything over, and my furnace has been flawless both winters.
+          Worth every dollar — and they actually call to schedule, I don't
+          have to chase anyone down."
+        </p>
+        <div class="review-author">— L.M., Twinsburg</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-tag tag-repair">AC Repair</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "AC went out on a Friday in July. Piazza came Saturday morning,
+          diagnosed it on the spot, quoted me a number, and had it fixed by
+          noon. They didn't try to sell me a new unit. Just fixed what needed
+          fixing. That's all I wanted."
+        </p>
+        <div class="review-author">— P.C., Twinsburg</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-tag tag-repair">Furnace Replacement</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "New furnace installed last fall. They explained the options without
+          being pushy, the install was clean and on time, and they walked me
+          through the new thermostat before leaving. Exactly what you want
+          from a local company."
+        </p>
+        <div class="review-author">— B.S., Macedonia</div>
+      </div>
+    </div>
+
+    <p class="reviews-note">✦ Replace with real customer reviews before going live.</p>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Schedule your<br>seasonal tune-up today.</h2>
+    <p>
+      Get on the calendar now — before the rush.
+      Plan members get priority. Everyone gets Piazza's work.
+    </p>
+
+    <div class="final-btns">
+      <a href="#plans" class="btn-final-primary">
+        📅 View Maintenance Plans
+        <small>Starting at $99/year</small>
+      </a>
+      <a href="tel:+13305550200" class="btn-final-call">
+        📞 (330) 555-0200
+      </a>
+    </div>
+
+    <p class="final-note">Free estimates on repairs &amp; installs · Twinsburg, OH · Licensed &amp; Insured</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <strong>Piazza Heating &amp; Cooling LLC</strong><br>
+    Twinsburg, OH &nbsp;·&nbsp; Summit County<br>
+    <a href="tel:+13305550200">(330) 555-0200</a><br>
+    Ohio HVAC License #XXXXX · Licensed &amp; Insured<br>
+    <br>
+    <span style="font-size:12px;">© 2026 Piazza Heating &amp; Cooling LLC. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
