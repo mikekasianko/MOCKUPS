@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A/C Rescue Inc | 24/7 Emergency AC Repair | DFW Area, TX</title>
+<style>
+:root {
+  --black: #0c1018;
+  --dark: #131920;
+  --charcoal: #1c2530;
+  --red: #cc1f1f;
+  --red-dark: #a51818;
+  --red-bright: #e52222;
+  --orange: #e05c0a;
+  --orange-light: #f07420;
+  --amber: #f5a800;
+  --white: #ffffff;
+  --off-white: #f3f4f6;
+  --light: #e8eaed;
+  --muted: #6b7585;
+  --text: #0f1520;
+  --border: #d0d5de;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* SIREN PULSE */
+@keyframes siren {
+  0%, 100% { background: var(--red-dark); }
+  50% { background: var(--red-bright); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes count-up {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* EMERGENCY BAR */
+.emergency-bar {
+  background: var(--red);
+  padding: 8px 20px;
+  text-align: center;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  animation: siren 2.4s ease-in-out infinite;
+}
+
+.emergency-bar a { color: var(--white); text-decoration: underline; }
+
+/* NAV */
+nav {
+  background: var(--black);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid var(--red);
+}
+
+.nav-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-siren {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-siren::before {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--red);
+  z-index: 1;
+}
+
+.nav-siren::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--red);
+  animation: pulse-ring 1.6s ease-out infinite;
+}
+
+.nav-name {
+  color: var(--white);
+  font-size: 0.92rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.nav-name span {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.38);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 1px;
+}
+
+.nav-emergency-call {
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 900;
+  padding: 9px 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* HERO */
+.hero {
+  background: var(--dark);
+  color: var(--white);
+  padding: 36px 20px 48px;
+}
+
+.hero-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+@media (min-width: 680px) {
+  .hero-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 36px;
+  }
+  .hero-text { flex: 1; }
+  .dispatch-widget { flex-shrink: 0; width: 300px; }
+}
+
+.hero-unit-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(204,31,31,0.2);
+  border: 1px solid rgba(204,31,31,0.4);
+  border-radius: 4px;
+  padding: 5px 11px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ff8080;
+  margin-bottom: 16px;
+}
+
+.unit-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--red-bright);
+  animation: blink 1s step-end infinite;
+}
+
+.hero h1 {
+  font-size: 2.1rem;
+  font-weight: 900;
+  line-height: 1.08;
+  margin-bottom: 14px;
+  letter-spacing: -0.03em;
+}
+
+.hero h1 .rescue-word {
+  color: var(--orange-light);
+}
+
+.hero-sub {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.66);
+  line-height: 1.65;
+  margin-bottom: 26px;
+  max-width: 440px;
+}
+
+.btn-rescue {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 16px 24px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 320px;
+  justify-content: center;
+}
+
+.btn-rescue-call {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  font-size: 0.93rem;
+  font-weight: 700;
+  padding: 13px 24px;
+  border-radius: 6px;
+  text-align: center;
+  max-width: 320px;
+}
+
+/* DISPATCH WIDGET — KEY DIFFERENTIATOR */
+.dispatch-widget {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(204,31,31,0.4);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dispatch-header {
+  background: var(--red-dark);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.dispatch-title {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+}
+
+.live-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 3px;
+  padding: 2px 6px;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ff8080;
+}
+
+.live-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ff5555;
+  animation: blink 0.9s step-end infinite;
+  flex-shrink: 0;
+}
+
+.dispatch-body {
+  padding: 20px 16px;
+}
+
+.response-main {
+  text-align: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.response-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 6px;
+}
+
+.response-time-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+}
+
+.response-number {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: var(--orange-light);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  min-width: 3ch;
+  text-align: center;
+}
+
+.response-unit {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.02em;
+}
+
+.response-qualifier {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: 4px;
+}
+
+.dispatch-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.stat-cell {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 6px;
+  padding: 10px 10px;
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.dispatch-updated {
+  font-size: 0.63rem;
+  color: rgba(255,255,255,0.28);
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.btn-widget-rescue {
+  display: block;
+  width: 100%;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.88rem;
+  font-weight: 900;
+  padding: 13px 16px;
+  border-radius: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* CALLOUT TICKER */
+.ticker-wrap {
+  background: var(--black);
+  padding: 10px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(204,31,31,0.25);
+  border-bottom: 1px solid rgba(204,31,31,0.25);
+}
+
+.ticker-label {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  margin-right: 14px;
+  flex-shrink: 0;
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ticker-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  animation: ticker-scroll 38s linear infinite;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  padding: 0 24px;
+}
+
+.ticker-item .city { color: rgba(255,255,255,0.85); }
+.ticker-item .time { color: var(--orange-light); }
+.ticker-sep { color: rgba(255,255,255,0.15); }
+
+/* STATUS BAR */
+.status-bar {
+  background: var(--charcoal);
+  padding: 14px 20px;
+}
+
+.status-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  list-style: none;
+}
+
+.status-list li {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.77rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status-list li .icon {
+  font-size: 0.75rem;
+}
+
+/* SERVICES */
+.services {
+  background: var(--off-white);
+  padding: 52px 20px;
+}
+
+.section-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 7px;
+}
+
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.section-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.service-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 22px 20px;
+  border-top: 4px solid var(--red);
+  position: relative;
+}
+
+.service-card.secondary { border-top-color: var(--charcoal); }
+
+.priority-tag {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.tag-p1 { background: #fef2f2; color: var(--red); border: 1px solid #fecaca; }
+.tag-p2 { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+.tag-p3 { background: #f0f9ff; color: #075985; border: 1px solid #bae6fd; }
+
+.service-icon { font-size: 1.5rem; margin-bottom: 8px; line-height: 1; }
+
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.service-card p {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.service-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-card ul li {
+  font-size: 0.8rem;
+  color: var(--text);
+  padding-left: 14px;
+  position: relative;
+}
+
+.service-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.service-card.secondary ul li::before { color: var(--orange); }
+
+/* HOW RESCUE WORKS */
+.how-it-works {
+  background: var(--dark);
+  color: var(--white);
+  padding: 52px 20px;
+}
+
+.how-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange-light);
+  margin-bottom: 8px;
+}
+
+.how-it-works h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
+}
+
+.steps {
+  display: grid;
+  gap: 3px;
+}
+
+.step {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 20px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px;
+  position: relative;
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.step-time {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--orange-light);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(224,92,10,0.15);
+  border: 1px solid rgba(224,92,10,0.3);
+  border-radius: 3px;
+  padding: 2px 7px;
+}
+
+.step h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 4px;
+  padding-right: 70px;
+}
+
+.step p {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+
+/* CREDIBILITY */
+.credibility {
+  background: var(--white);
+  padding: 52px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.cred-card {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 26px 22px;
+  margin-top: 22px;
+  border-left: 4px solid var(--red);
+}
+
+.cred-card p {
+  font-size: 0.93rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.cred-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.cred-list li {
+  font-size: 0.86rem;
+  color: var(--text);
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.cred-list li::before {
+  content: '✓';
+  color: var(--red);
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  background: var(--light);
+  padding: 52px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.testi-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.testi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 18px;
+}
+
+.testi-response {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 7px;
+  background: #fef2f2;
+  color: var(--red);
+  border: 1px solid #fecaca;
+}
+
+.testi-stars {
+  color: #d97706;
+  font-size: 0.82rem;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.testi-card p {
+  font-size: 0.86rem;
+  color: var(--text);
+  line-height: 1.57;
+  margin-bottom: 12px;
+}
+
+.testi-name {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.testi-name span { display: block; font-weight: 400; font-size: 0.71rem; }
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--black);
+  color: var(--white);
+  padding: 52px 20px;
+  text-align: center;
+  border-top: 3px solid var(--red);
+}
+
+.final-cta h2 {
+  font-size: 1.65rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.final-cta h2 span { color: var(--orange-light); }
+
+.final-cta p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 28px;
+  line-height: 1.5;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.btn-final-rescue {
+  display: block;
+  background: var(--red);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 18px 22px;
+  border-radius: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.btn-ghost {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.75);
+  font-size: 0.93rem;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.35);
+  padding: 28px 20px;
+  font-size: 0.76rem;
+  line-height: 1.75;
+  border-top: 1px solid rgba(204,31,31,0.2);
+}
+
+footer strong {
+  color: rgba(255,255,255,0.78);
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.85rem;
+}
+
+/* DESKTOP */
+@media (min-width: 600px) {
+  .service-grid { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .cred-list { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 860px) {
+  .hero { padding: 48px 40px 60px; }
+  .hero h1 { font-size: 2.6rem; }
+  .services, .how-it-works, .credibility, .testimonials, .final-cta { padding: 68px 40px; }
+  .service-grid { grid-template-columns: repeat(4, 1fr); }
+  .testi-grid { grid-template-columns: repeat(3, 1fr); }
+  .steps { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- EMERGENCY BAR -->
+<div class="emergency-bar">
+  🚨 24/7 Emergency AC Dispatch Active — <a href="tel:+12145550138">Call (214) 555-0138</a> for immediate response
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo-wrap">
+    <div class="nav-siren"></div>
+    <div class="nav-name">
+      A/C Rescue, Inc
+      <span>DFW Emergency HVAC · 24/7</span>
+    </div>
+  </div>
+  <a class="nav-emergency-call" href="tel:+12145550138">🚨 Call Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-layout">
+    <div class="hero-text">
+      <div class="hero-unit-tag">
+        <span class="unit-dot"></span>
+        Units Dispatching Now · DFW Area
+      </div>
+      <h1>AC down?<br><span class="rescue-word">Rescue</span> is<br>on the way.</h1>
+      <p class="hero-sub">
+        24/7 emergency AC repair across DFW. We answer every call, dispatch fast, and fix it right — no matter the time, no matter the day.
+      </p>
+      <a class="btn-rescue" href="tel:+12145550138">🚨 Request a Rescue</a>
+      <a class="btn-rescue-call" href="tel:+12145550138">(214) 555-0138 · 24 hours</a>
+    </div>
+
+    <!-- LIVE DISPATCH WIDGET -->
+    <div class="dispatch-widget">
+      <div class="dispatch-header">
+        <span class="dispatch-title">Dispatch Status</span>
+        <span class="live-badge"><span class="live-dot"></span>Live</span>
+      </div>
+      <div class="dispatch-body">
+        <div class="response-main">
+          <div class="response-label">Avg response time today</div>
+          <div class="response-time-display">
+            <div class="response-number" id="response-num">--</div>
+            <div class="response-unit">min</div>
+          </div>
+          <div class="response-qualifier" id="response-qual">Calculating...</div>
+        </div>
+
+        <div class="dispatch-stats">
+          <div class="stat-cell">
+            <div class="stat-num" id="rescues-today">--</div>
+            <div class="stat-label">Rescues today</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num" id="units-active">--</div>
+            <div class="stat-label">Units active</div>
+          </div>
+        </div>
+
+        <div class="dispatch-updated" id="dispatch-updated">Updating...</div>
+
+        <a class="btn-widget-rescue" href="tel:+12145550138">🚨 Request a Rescue</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENT CALLOUTS TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <div class="ticker-inner" id="ticker">
+      <span class="ticker-item"><span class="city">Plano, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 24 min</span></span>
+      <span class="ticker-item"><span class="city">Arlington, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 31 min</span></span>
+      <span class="ticker-item"><span class="city">Mesquite, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 28 min</span></span>
+      <span class="ticker-item"><span class="city">Irving, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 22 min</span></span>
+      <span class="ticker-item"><span class="city">Allen, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 36 min</span></span>
+      <span class="ticker-item"><span class="city">Garland, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 19 min</span></span>
+      <span class="ticker-item"><span class="city">Frisco, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 41 min</span></span>
+      <span class="ticker-item"><span class="city">Fort Worth, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 33 min</span></span>
+      <span class="ticker-item"><span class="city">McKinney, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 29 min</span></span>
+      <span class="ticker-item"><span class="city">Grand Prairie, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 25 min</span></span>
+      <!-- Duplicate for seamless loop -->
+      <span class="ticker-item"><span class="city">Plano, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 24 min</span></span>
+      <span class="ticker-item"><span class="city">Arlington, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 31 min</span></span>
+      <span class="ticker-item"><span class="city">Mesquite, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 28 min</span></span>
+      <span class="ticker-item"><span class="city">Irving, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 22 min</span></span>
+      <span class="ticker-item"><span class="city">Allen, TX</span> <span class="ticker-sep">·</span> <span class="time">Responded in 36 min</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- STATUS BAR -->
+<section class="status-bar">
+  <ul class="status-list">
+    <li><span class="icon">✓</span>24/7 dispatch active</li>
+    <li><span class="icon">✓</span>Weekend &amp; holiday service</li>
+    <li><span class="icon">✓</span>All major brands</li>
+    <li><span class="icon">✓</span>TX Licensed HVAC</li>
+    <li><span class="icon">✓</span>Parts on every truck</li>
+  </ul>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <p class="section-label">Emergency &amp; scheduled service</p>
+  <h2 class="section-title">We fix what's broken. Fast.</h2>
+  <p class="section-sub">From no-cool-air emergencies to planned replacements — dispatching across DFW.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <span class="priority-tag tag-p1">P1 · Emergency</span>
+      <div class="service-icon">🚨</div>
+      <h3>No Cool Air</h3>
+      <p>AC blowing warm? This is a priority call in Texas heat. We dispatch immediately.</p>
+      <ul>
+        <li>Same-day response</li>
+        <li>All hours — 24/7</li>
+        <li>Diagnosis on first visit</li>
+        <li>Parts on truck</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <span class="priority-tag tag-p1">P1 · Emergency</span>
+      <div class="service-icon">⚡</div>
+      <h3>Capacitor &amp; Compressor</h3>
+      <p>Capacitors fail constantly in Texas summers. We carry them on every truck — usually fixed in under an hour.</p>
+      <ul>
+        <li>Capacitor replacement</li>
+        <li>Compressor diagnosis</li>
+        <li>Contactor replacement</li>
+        <li>Motor failures</li>
+      </ul>
+    </div>
+
+    <div class="service-card secondary">
+      <span class="priority-tag tag-p2">Urgent · Same-week</span>
+      <div class="service-icon">🌡️</div>
+      <h3>System Replacement</h3>
+      <p>When the system can't be saved, we move fast on full replacements — often installed within 24–48 hours of diagnosis.</p>
+      <ul>
+        <li>Full AC replacement</li>
+        <li>Heat pump installs</li>
+        <li>All major brands</li>
+        <li>Financing available</li>
+      </ul>
+    </div>
+
+    <div class="service-card secondary">
+      <span class="priority-tag tag-p3">Scheduled</span>
+      <div class="service-icon">🔧</div>
+      <h3>Tune-Ups &amp; Prevention</h3>
+      <p>A spring tune-up is how you avoid a July rescue call. We do those too — before season, not during it.</p>
+      <ul>
+        <li>Pre-summer tune-ups</li>
+        <li>Coil &amp; filter service</li>
+        <li>Refrigerant check</li>
+        <li>Maintenance plans</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+  <p class="how-label">How rescue works</p>
+  <h2>Call. Dispatch. Fixed.</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-time">Under 2 min</div>
+        <h3>You call or text</h3>
+        <p>A real dispatcher answers. We take your address, your problem, and your phone number — no hold music, no callback queues.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-time">~20–45 min</div>
+        <h3>Tech is dispatched</h3>
+        <p>The nearest available tech heads your way. You get a call when they're en route — you'll know who's coming and when.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-time">Same visit</div>
+        <h3>Diagnosed &amp; fixed</h3>
+        <p>We diagnose on the spot, quote before we touch anything, and fix it same visit whenever possible. We carry the common parts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY -->
+<section class="credibility">
+  <p class="section-label">Why A/C Rescue</p>
+  <h2 class="section-title">We built this company for emergencies.</h2>
+
+  <div class="cred-card">
+    <p>
+      Most HVAC companies are set up for scheduled appointments. We're set up for emergencies first — the truck stock, the dispatch process, the extended hours. When your AC fails at 9pm on a Sunday, that difference matters.
+    </p>
+    <ul class="cred-list">
+      <li>TX TACL Licensed HVAC contractor</li>
+      <li>24/7 dispatch — nights, weekends, holidays</li>
+      <li>Trucks stocked with common parts</li>
+      <li>EPA 608 Universal certified techs</li>
+      <li>Fully insured — liability &amp; workers' comp</li>
+      <li>Background-checked technicians</li>
+      <li>Upfront pricing before any repair</li>
+      <li>All major brands serviced</li>
+    </ul>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="section-label">DFW homeowners rescued</p>
+  <h2 class="section-title">They showed up. Every time.</h2>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-response">Responded in 27 min</div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Saturday night, 98° outside, AC stopped working. Called A/C Rescue at 8pm. Tech was at my door by 8:30. Capacitor replaced, cold air by 9pm. I couldn't believe it."</p>
+      <div class="testi-name">C. Nguyen <span>Plano, TX</span></div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-response">Responded in 34 min</div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Three other companies told me they couldn't come out until Monday. A/C Rescue came Sunday morning, diagnosed a bad compressor, and had a whole new system scheduled for Tuesday. Fast."</p>
+      <div class="testi-name">R. &amp; D. Flowers <span>Arlington, TX</span></div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-response">Responded in 22 min</div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Called at 11pm when my system stopped cooling. Dispatcher was calm, professional, sent someone right away. Tech was polite, knew what was wrong in 10 minutes. Done. I'll never call anyone else."</p>
+      <div class="testi-name">M. Patel <span>Irving, TX</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>AC down? <span>Request a rescue.</span></h2>
+  <p>24/7 emergency dispatch across DFW. We answer. We show up. We fix it.</p>
+  <div class="cta-stack">
+    <a class="btn-final-rescue" href="tel:+12145550138">🚨 Call (214) 555-0138</a>
+    <a class="btn-ghost" href="sms:+12145550138">Text Your Address &amp; Problem</a>
+  </div>
+  <p style="margin-top:16px; font-size:0.74rem; color:rgba(255,255,255,0.25);">
+    Serving Dallas · Fort Worth · Plano · Arlington · Irving · Mesquite · Garland · Frisco · McKinney · Allen
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>A/C Rescue, Inc</strong>
+  DFW Area, TX &nbsp;·&nbsp; (214) 555-0138 &nbsp;·&nbsp; 24/7 Emergency Dispatch<br>
+  TX Licensed HVAC · Fully Insured · All Major Brands
+</footer>
+
+<script>
+(function () {
+  function getHour() {
+    return new Date().getHours();
+  }
+
+  function getBaseResponse(h) {
+    if (h >= 7 && h < 12) return { min: 18, max: 32 };
+    if (h >= 12 && h < 18) return { min: 22, max: 38 };
+    if (h >= 18 && h < 22) return { min: 28, max: 48 };
+    return { min: 35, max: 62 };
+  }
+
+  function getRescuesToday(h) {
+    if (h < 7) return Math.floor(Math.random() * 4) + 2;
+    if (h < 12) return Math.floor((h - 7) * 3.5) + Math.floor(Math.random() * 3) + 4;
+    if (h < 18) return Math.floor((h - 7) * 4.2) + Math.floor(Math.random() * 4) + 8;
+    return Math.floor((h - 7) * 4.8) + Math.floor(Math.random() * 5) + 10;
+  }
+
+  function getActiveUnits(h) {
+    if (h >= 7 && h < 20) return Math.floor(Math.random() * 3) + 4;
+    if (h >= 20 && h < 23) return Math.floor(Math.random() * 2) + 2;
+    return Math.floor(Math.random() * 2) + 1;
+  }
+
+  function rand(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  var currentResponse = null;
+
+  function updateWidget() {
+    var h = getHour();
+    var range = getBaseResponse(h);
+
+    if (currentResponse === null) {
+      currentResponse = rand(range.min, range.max);
+    } else {
+      var delta = Math.floor(Math.random() * 7) - 3;
+      currentResponse = Math.max(range.min, Math.min(range.max, currentResponse + delta));
+    }
+
+    var rescues = getRescuesToday(h);
+    var units = getActiveUnits(h);
+
+    var numEl = document.getElementById('response-num');
+    var qualEl = document.getElementById('response-qual');
+    var rescuesEl = document.getElementById('rescues-today');
+    var unitsEl = document.getElementById('units-active');
+    var updatedEl = document.getElementById('dispatch-updated');
+
+    if (numEl) numEl.textContent = currentResponse;
+    if (rescuesEl) rescuesEl.textContent = rescues;
+    if (unitsEl) unitsEl.textContent = units;
+
+    var qualifier = '';
+    if (currentResponse <= 25) qualifier = 'Fast response window';
+    else if (currentResponse <= 40) qualifier = 'Normal response window';
+    else qualifier = 'Extended hours — all hands available';
+
+    if (qualEl) qualEl.textContent = qualifier;
+
+    var now = new Date();
+    var timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+    if (updatedEl) updatedEl.textContent = 'Last updated: ' + timeStr;
+  }
+
+  updateWidget();
+  setInterval(updateWidget, 45000);
+})();
+</script>
+
+</body>
+</html>
