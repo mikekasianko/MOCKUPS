@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central Texas HVAC LLC | Manor, TX | AC Repair &amp; Install · Austin Area</title>
+<style>
+:root {
+  --dark: #1a2535;
+  --navy: #1e3a52;
+  --blue: #1c5f8a;
+  --blue-light: #2878b0;
+  --sun: #d4870e;
+  --sun-light: #e89f2a;
+  --white: #ffffff;
+  --warm: #f7f3ee;
+  --light: #edeae4;
+  --muted: #617080;
+  --text: #111c28;
+  --border: #d4cfc8;
+  --green: #1a6b3a;
+  --green-bg: #f0fdf4;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--warm);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  background: var(--dark);
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-left { display: flex; flex-direction: column; }
+
+.nav-logo {
+  color: var(--white);
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.nav-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3px;
+}
+
+.nav-local-badge {
+  background: rgba(212,135,14,0.25);
+  border: 1px solid rgba(212,135,14,0.4);
+  color: var(--sun-light);
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.nav-city {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 500;
+}
+
+.nav-quote {
+  background: var(--sun);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 9px 13px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* HERO */
+.hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 44px 20px 52px;
+}
+
+.hero-local-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-local-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.03em;
+}
+
+.hero-local-pill .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--sun-light);
+  flex-shrink: 0;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.12;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--sun-light);
+}
+
+.hero-sub {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 360px;
+}
+
+.btn-quote {
+  display: block;
+  background: var(--sun);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 16px 22px;
+  border-radius: 6px;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.btn-call {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.28);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.hero-note {
+  margin-top: 12px;
+  font-size: 0.77rem;
+  color: rgba(255,255,255,0.42);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-note::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5dd98a;
+  flex-shrink: 0;
+}
+
+/* TRUST STRIP */
+.trust {
+  background: var(--dark);
+  padding: 15px 20px;
+}
+
+.trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 22px;
+  list-style: none;
+}
+
+.trust-list li {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.77rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trust-list li::before {
+  content: '✓';
+  color: var(--sun-light);
+  font-weight: 800;
+}
+
+/* NOT THE FRANCHISE — DIFFERENTIATOR */
+.local-edge {
+  background: var(--white);
+  padding: 52px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.local-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sun);
+  margin-bottom: 8px;
+}
+
+.local-edge h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1.18;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.local-edge h2 span {
+  color: var(--blue);
+}
+
+.local-intro {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+
+.local-grid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.local-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  background: var(--warm);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  border-left: 4px solid var(--sun);
+}
+
+.local-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.local-item h3 {
+  font-size: 0.92rem;
+  font-weight: 800;
+  margin-bottom: 3px;
+  color: var(--text);
+}
+
+.local-item p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.manor-note {
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 18px 20px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.manor-note strong {
+  font-style: normal;
+  color: var(--sun-light);
+}
+
+/* SERVICES */
+.services {
+  background: var(--warm);
+  padding: 52px 20px;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sun);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.section-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.service-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 22px 20px;
+  border-top: 4px solid var(--blue);
+}
+
+.service-card.trending { border-top-color: var(--green); }
+.service-card.urgent { border-top-color: #c0392b; }
+
+.svc-tag {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.tag-install { background: #dbeafe; color: #1d4ed8; }
+.tag-emergency { background: #fef2f2; color: #b91c1c; }
+.tag-trending { background: var(--green-bg); color: var(--green); }
+.tag-iaq { background: #faf5ff; color: #6d28d9; }
+
+.service-icon { font-size: 1.5rem; margin-bottom: 8px; line-height: 1; }
+
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.service-card p {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.service-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-card ul li {
+  font-size: 0.8rem;
+  color: var(--text);
+  padding-left: 14px;
+  position: relative;
+}
+
+.service-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.service-card.trending ul li::before { color: var(--green); }
+.service-card.urgent ul li::before { color: #c0392b; }
+
+/* FINANCING */
+.financing {
+  background: var(--dark);
+  color: var(--white);
+  padding: 52px 20px;
+}
+
+.fin-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sun-light);
+  margin-bottom: 8px;
+}
+
+.financing h2 {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.financing-intro {
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+
+.fin-grid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fin-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 9px;
+  padding: 20px 18px;
+}
+
+.fin-card.featured {
+  background: rgba(212,135,14,0.14);
+  border-color: rgba(212,135,14,0.4);
+}
+
+.fin-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  background: var(--sun);
+  color: var(--white);
+}
+
+.fin-card h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.fin-rate {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--sun-light);
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.fin-rate span {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0;
+}
+
+.fin-desc {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+.fin-example {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.7);
+  background: rgba(0,0,0,0.25);
+  border-radius: 5px;
+  padding: 8px 10px;
+  line-height: 1.4;
+}
+
+.fin-example strong { color: var(--sun-light); }
+
+.fin-cta {
+  margin-top: 20px;
+  display: block;
+  background: var(--sun);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 15px 20px;
+  border-radius: 6px;
+  text-align: center;
+  max-width: 360px;
+}
+
+.fin-disclaimer {
+  margin-top: 14px;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+/* FAMILY / ABOUT */
+.about {
+  background: var(--light);
+  padding: 52px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.about-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 22px;
+}
+
+.about-photo {
+  background: var(--border);
+  border-radius: 10px;
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  max-width: 420px;
+}
+
+.about-photo .photo-icon { font-size: 2rem; opacity: 0.4; }
+
+.about-photo .photo-caption {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--muted);
+  padding: 0 20px;
+  line-height: 1.45;
+}
+
+.about-photo .photo-sub {
+  font-size: 0.68rem;
+  color: #aab0b8;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.about-text {}
+
+.about-text p {
+  font-size: 0.93rem;
+  color: var(--muted);
+  line-height: 1.68;
+  margin-bottom: 14px;
+}
+
+.cred-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.cred-list li {
+  font-size: 0.86rem;
+  color: var(--text);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.cred-list li::before {
+  content: '✓';
+  color: var(--sun);
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  background: var(--warm);
+  padding: 52px 20px;
+}
+
+.testi-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.testi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 18px;
+}
+
+.testi-photo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.testi-avatar-placeholder {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--light);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: var(--muted);
+  font-weight: 700;
+  flex-shrink: 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.testi-meta-text {}
+
+.testi-stars {
+  color: #d97706;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.testi-who {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.testi-who span {
+  font-weight: 400;
+  font-size: 0.7rem;
+}
+
+.testi-card p {
+  font-size: 0.86rem;
+  color: var(--text);
+  line-height: 1.58;
+}
+
+.testi-service-tag {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 6px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  background: var(--light);
+  color: var(--muted);
+}
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--navy);
+  color: var(--white);
+  padding: 52px 20px;
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.final-cta p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.62);
+  margin-bottom: 28px;
+  line-height: 1.55;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.btn-main {
+  display: block;
+  background: var(--sun);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 16px 24px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn-ghost {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.82);
+  font-size: 0.93rem;
+  font-weight: 600;
+  padding: 13px 24px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.42);
+  padding: 28px 20px;
+  font-size: 0.77rem;
+  line-height: 1.75;
+}
+
+footer strong {
+  color: rgba(255,255,255,0.82);
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.85rem;
+}
+
+/* DESKTOP */
+@media (min-width: 600px) {
+  .local-grid { grid-template-columns: 1fr 1fr; }
+  .service-grid { grid-template-columns: 1fr 1fr; }
+  .fin-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .about-flex { flex-direction: row; align-items: flex-start; }
+  .about-photo { flex-shrink: 0; width: 220px; }
+}
+
+@media (min-width: 860px) {
+  .hero { padding: 60px 40px 70px; }
+  .hero h1 { font-size: 2.5rem; }
+  .hero-ctas { flex-direction: row; max-width: 480px; }
+  .local-edge, .services, .about, .testimonials, .financing { padding: 68px 40px; }
+  .final-cta { padding: 68px 40px; }
+  .service-grid { grid-template-columns: repeat(4, 1fr); }
+  .testi-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo">Central Texas HVAC LLC</div>
+    <div class="nav-location">
+      <span class="nav-local-badge">Local · Manor</span>
+      <span class="nav-city">Serving Greater Austin</span>
+    </div>
+  </div>
+  <a class="nav-quote" href="tel:+15125550394">Free Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-local-bar">
+    <div class="hero-local-pill"><span class="dot"></span>Based in Manor, TX</div>
+    <div class="hero-local-pill"><span class="dot"></span>Family-Owned</div>
+  </div>
+
+  <h1>Austin-area HVAC.<br>Headquartered in <em>Manor.</em><br>Fast. Fair. Family-run.</h1>
+
+  <p class="hero-sub">
+    We're not a franchise with a call center. We're a family business based right here in Manor, serving Austin and the surrounding communities — and we treat every home like our own.
+  </p>
+
+  <div class="hero-ctas">
+    <a class="btn-quote" href="tel:+15125550394">Get a Free Quote Today</a>
+    <a class="btn-call" href="tel:+15125550394">(512) 555-0394</a>
+  </div>
+  <p class="hero-note">Same-week estimates · No pressure, no commission</p>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust">
+  <ul class="trust-list">
+    <li>TX Licensed HVAC</li>
+    <li>Family-owned Manor, TX</li>
+    <li>Emergency service</li>
+    <li>Financing available</li>
+    <li>Heat pump specialists</li>
+    <li>Free estimates</li>
+  </ul>
+</section>
+
+<!-- NOT THE FRANCHISE — DIFFERENTIATOR -->
+<section class="local-edge">
+  <p class="local-label">Why Central Texas HVAC</p>
+  <h2>We're the locals.<br><span>Not the big franchise.</span></h2>
+  <p class="local-intro">
+    Austin is full of HVAC companies with slick branding and commissioned salespeople who push the most expensive option. We're different — we're your neighbors in Manor, and we plan to be here for a long time.
+  </p>
+
+  <div class="local-grid">
+    <div class="local-item">
+      <div class="local-icon">📞</div>
+      <div>
+        <h3>You reach a real person</h3>
+        <p>Our number goes to us — not a dispatch center routing calls to whoever's available that day.</p>
+      </div>
+    </div>
+    <div class="local-item">
+      <div class="local-icon">👤</div>
+      <div>
+        <h3>You know who's coming</h3>
+        <p>We tell you the tech's name before they arrive. No surprise strangers at your door.</p>
+      </div>
+    </div>
+    <div class="local-item">
+      <div class="local-icon">💰</div>
+      <div>
+        <h3>No commissioned upsells</h3>
+        <p>Our techs don't earn more for selling you a bigger system. We recommend what you actually need.</p>
+      </div>
+    </div>
+    <div class="local-item">
+      <div class="local-icon">📍</div>
+      <div>
+        <h3>Invested in this community</h3>
+        <p>We live out here too. Manor, Elgin, Pflugerville, Del Valle — these are our neighborhoods, not just our service area.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="manor-note">
+    "When a franchise tech leaves your house, you might never see them again. When we leave, we're still your neighbors. That keeps us honest." <strong>— Central Texas HVAC</strong>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <p class="section-label">Services</p>
+  <h2 class="section-title">Everything your home needs.</h2>
+  <p class="section-sub">Residential HVAC across Manor, East Austin, and the surrounding area.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <span class="svc-tag tag-install">Install</span>
+      <div class="service-icon">🏠</div>
+      <h3>AC Install &amp; Replacement</h3>
+      <p>Right-sized system, clean install, no mess left behind. We walk you through every option before we touch anything.</p>
+      <ul>
+        <li>Full system replacement</li>
+        <li>New construction installs</li>
+        <li>All major brands</li>
+        <li>Permit-ready work</li>
+      </ul>
+    </div>
+
+    <div class="service-card urgent">
+      <span class="svc-tag tag-emergency">Emergency</span>
+      <div class="service-icon">🚨</div>
+      <h3>Emergency AC Repair</h3>
+      <p>Texas summers don't give you a window — we move fast on no-AC calls and carry common parts on every truck.</p>
+      <ul>
+        <li>Same-day response</li>
+        <li>All brands diagnosed</li>
+        <li>Upfront repair quote</li>
+        <li>Weekend availability</li>
+      </ul>
+    </div>
+
+    <div class="service-card trending">
+      <span class="svc-tag tag-trending">Austin Trend</span>
+      <div class="service-icon">🌡️</div>
+      <h3>Heat Pump Conversions</h3>
+      <p>Austin homeowners are switching to heat pumps fast — for efficiency, rebates, and all-electric operation. We do this every week.</p>
+      <ul>
+        <li>Full heat pump installs</li>
+        <li>Mini-split ductless</li>
+        <li>Rebate paperwork help</li>
+        <li>Cold-climate models</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <span class="svc-tag tag-iaq">Air Quality</span>
+      <div class="service-icon">💨</div>
+      <h3>Indoor Air Quality</h3>
+      <p>Austin allergens and Central Texas dust are real. Clean air inside starts with the right filtration and ventilation.</p>
+      <ul>
+        <li>Air purifier install</li>
+        <li>UV light systems</li>
+        <li>Filter upgrades</li>
+        <li>Duct cleaning &amp; sealing</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCING -->
+<section class="financing">
+  <p class="fin-label">System replacement made manageable</p>
+  <h2>Financing that works for Austin homeowners.</h2>
+  <p class="financing-intro">
+    A full system replacement is a $6,000–$14,000 decision. We work with lending partners so you can get the system you need today — and pay over time at terms that make sense.
+  </p>
+
+  <div class="fin-grid">
+    <div class="fin-card">
+      <h3>No Interest<br>Promotional</h3>
+      <div class="fin-rate">0% <span>for 12–18 mo.</span></div>
+      <p class="fin-desc">Pay nothing in interest if paid in full within the promotional period. Best for planned replacements.</p>
+      <div class="fin-example">
+        Ex: <strong>$8,000 system</strong> → <strong>~$444/mo</strong> for 18 months at 0%
+      </div>
+    </div>
+
+    <div class="fin-card featured">
+      <div class="fin-badge">Most Popular</div>
+      <h3>Low Monthly<br>Extended Term</h3>
+      <div class="fin-rate">~$89<span>/mo</span></div>
+      <p class="fin-desc">Spread it over 10 years with predictable monthly payments. Keep cash available for other priorities.</p>
+      <div class="fin-example">
+        Ex: <strong>$8,000 system</strong> → approx. <strong>$89–$130/mo</strong> depending on credit &amp; term
+      </div>
+    </div>
+
+    <div class="fin-card">
+      <h3>Same-Day<br>Approval</h3>
+      <div class="fin-rate">Fast <span>decision</span></div>
+      <p class="fin-desc">Apply in under 5 minutes. We can often get you an answer before the install is scheduled.</p>
+      <div class="fin-example">
+        <strong>Soft pull</strong> available — check eligibility without affecting your credit score
+      </div>
+    </div>
+  </div>
+
+  <a class="fin-cta" href="tel:+15125550394">Ask About Financing — (512) 555-0394</a>
+  <p class="fin-disclaimer">Financing subject to credit approval through third-party lenders. Rates and terms vary. Ask us for details — we'll walk you through the options, no pressure.</p>
+</section>
+
+<!-- ABOUT / FAMILY -->
+<section class="about">
+  <p class="section-label">Who we are</p>
+  <h2 class="section-title">A family business built on repeat customers.</h2>
+
+  <div class="about-flex">
+    <div class="about-photo">
+      <div class="photo-icon">📷</div>
+      <div class="photo-caption">Photo: The team — Central Texas HVAC, Manor, TX</div>
+      <div class="photo-sub">Real customer &amp; team photos — no stock imagery</div>
+    </div>
+
+    <div class="about-text">
+      <p>
+        We started Central Texas HVAC because we saw how homeowners in Manor and East Austin were being treated by large franchise operations — rushed visits, high-pressure sales, and technicians who didn't know the area.
+      </p>
+      <p>
+        We know Austin homes. We know the heat, the humidity, and the way systems wear differently here than up north. And we know that a customer who trusts you comes back — so we make sure they can.
+      </p>
+
+      <ul class="cred-list">
+        <li>Licensed HVAC contractor, State of Texas</li>
+        <li>Fully insured — liability &amp; workers' comp</li>
+        <li>EPA 608 certified technicians</li>
+        <li>Background-checked team members</li>
+        <li>Serving Manor, Elgin, Del Valle, Pflugerville, East Austin</li>
+        <li>Free estimates, always in writing</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="section-label">What customers say</p>
+  <h2 class="section-title">Manor. Austin. East Travis County.</h2>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <span class="testi-service-tag">Heat Pump Install</span>
+      <div class="testi-photo-row">
+        <div class="testi-avatar-placeholder">Photo</div>
+        <div class="testi-meta-text">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-who">D. Herrera <span>· Manor, TX</span></div>
+        </div>
+      </div>
+      <p>"Switched from gas to a heat pump this spring. Central Texas HVAC handled the whole thing — permit, install, rebate paperwork. Saved me hours of headaches. Couldn't be happier with the monthly bills."</p>
+    </div>
+
+    <div class="testi-card">
+      <span class="testi-service-tag">Emergency Repair</span>
+      <div class="testi-photo-row">
+        <div class="testi-avatar-placeholder">Photo</div>
+        <div class="testi-meta-text">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-who">R. &amp; M. Okonkwo <span>· Del Valle, TX</span></div>
+        </div>
+      </div>
+      <p>"AC died on a Friday in August. They were at our house Saturday morning. Fixed same visit. Other companies couldn't come until Tuesday. These guys actually showed up."</p>
+    </div>
+
+    <div class="testi-card">
+      <span class="testi-service-tag">Replacement + Financing</span>
+      <div class="testi-photo-row">
+        <div class="testi-avatar-placeholder">Photo</div>
+        <div class="testi-meta-text">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-who">P. Vasquez <span>· East Austin, TX</span></div>
+        </div>
+      </div>
+      <p>"Got three quotes. The franchise companies tried to upsell me on units way bigger than I needed. Central Texas HVAC told me the right size, gave me the lowest total price, and set me up with financing same day."</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Get your free quote today.</h2>
+  <p>No pressure, no commission. We tell you what you need, what it costs, and let you decide.</p>
+  <div class="cta-stack">
+    <a class="btn-main" href="tel:+15125550394">Call (512) 555-0394</a>
+    <a class="btn-ghost" href="sms:+15125550394">Text Us Your Question</a>
+  </div>
+  <p style="margin-top:16px; font-size:0.77rem; color:rgba(255,255,255,0.35);">
+    Serving Manor · Elgin · Del Valle · Pflugerville · East Austin · Cedar Creek
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Central Texas HVAC LLC</strong>
+  Manor, TX &nbsp;·&nbsp; (512) 555-0394<br>
+  Family-Owned &amp; Operated · TX Licensed HVAC · Fully Insured<br>
+  Serving Manor, East Austin, Pflugerville &amp; East Travis County
+</footer>
+
+</body>
+</html>
