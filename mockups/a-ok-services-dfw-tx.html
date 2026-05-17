@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A-Ok Services | Honest HVAC Pricing &amp; Repair | DFW Area, TX</title>
+<style>
+:root {
+  --navy: #1a2e45;
+  --navy-mid: #223d5e;
+  --blue: #1e5e8a;
+  --green: #1a6b52;
+  --green-light: #22876a;
+  --green-pale: #d1fae5;
+  --orange: #d4720e;
+  --orange-light: #e88820;
+  --white: #ffffff;
+  --warm-bg: #f7f4ef;
+  --light: #ece8e0;
+  --muted: #6b7585;
+  --text: #111c28;
+  --border: #d4cfc8;
+  --price-bg: #fafdf9;
+  --price-border: #a7d4bb;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--warm-bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  background: var(--navy);
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-left { display: flex; flex-direction: column; }
+
+.nav-logo {
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.nav-sub {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.38);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-top: 2px;
+}
+
+.nav-quote {
+  background: var(--orange);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 9px 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* HERO */
+.hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 44px 20px 52px;
+}
+
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  letter-spacing: -0.03em;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: #6dd4ae;
+}
+
+.hero-sub {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.66);
+  line-height: 1.65;
+  margin-bottom: 18px;
+  max-width: 460px;
+}
+
+.hero-price-tease {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26,107,82,0.25);
+  border: 1px solid rgba(26,107,82,0.4);
+  border-radius: 5px;
+  padding: 9px 14px;
+  font-size: 0.83rem;
+  color: #6dd4ae;
+  font-weight: 600;
+  margin-bottom: 26px;
+  line-height: 1.4;
+}
+
+.hero-price-tease strong { color: #a7f3d0; font-weight: 800; }
+
+.hero-price-tease .arrow {
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 360px;
+}
+
+.btn-quote {
+  display: block;
+  background: var(--orange);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 16px 22px;
+  border-radius: 6px;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.btn-call {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.22);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* TRUST STRIP */
+.trust {
+  background: var(--green);
+  padding: 13px 20px;
+}
+
+.trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 22px;
+  list-style: none;
+}
+
+.trust-list li {
+  color: rgba(255,255,255,0.88);
+  font-size: 0.77rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trust-list li::before {
+  content: '✓';
+  font-weight: 900;
+  color: #a7f3d0;
+}
+
+/* PUBLISHED PRICING — THE DIFFERENTIATOR */
+.pricing {
+  background: var(--white);
+  padding: 56px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pricing-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pricing-label::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--green);
+}
+
+.pricing h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.pricing-intro {
+  font-size: 0.93rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 10px;
+  max-width: 560px;
+}
+
+.pricing-why {
+  background: var(--green-pale);
+  border: 1px solid var(--price-border);
+  border-radius: 7px;
+  padding: 14px 16px;
+  font-size: 0.85rem;
+  color: #064e3b;
+  line-height: 1.55;
+  margin-bottom: 28px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  max-width: 560px;
+}
+
+.pricing-why .why-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+/* PRICE TABLE */
+.price-section-head {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+  padding: 10px 0 8px;
+  border-bottom: 2px solid var(--navy);
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-section-head .col-label {
+  font-size: 0.62rem;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.price-rows {
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+
+.price-row:last-child { border-bottom: none; }
+.price-row:nth-child(even) { background: #fafbfc; }
+
+.price-row.popular {
+  background: var(--price-bg);
+  border-left: 3px solid var(--green);
+}
+
+.price-item-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  flex: 1;
+  line-height: 1.3;
+}
+
+.price-item-note {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 1px;
+}
+
+.price-range {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--green);
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.price-range.big { color: var(--navy); }
+
+.common-tag {
+  display: inline-block;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 5px;
+  border-radius: 2px;
+  background: #dcfce7;
+  color: var(--green);
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.pricing-disclaimer {
+  background: var(--warm-bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 14px 16px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.pricing-disclaimer strong { color: var(--text); }
+
+.pricing-cta {
+  margin-top: 22px;
+  display: block;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 15px 22px;
+  border-radius: 6px;
+  text-align: center;
+  max-width: 360px;
+}
+
+/* SERVICES */
+.services {
+  background: var(--warm-bg);
+  padding: 56px 20px;
+}
+
+.section-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--orange);
+}
+
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.section-sub {
+  font-size: 0.91rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.55;
+}
+
+.service-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 22px 20px;
+  border-top: 4px solid var(--navy);
+}
+
+.service-card.green-top { border-top-color: var(--green); }
+
+.svc-icon { font-size: 1.5rem; margin-bottom: 8px; line-height: 1; }
+
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.service-card p {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.service-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-card ul li {
+  font-size: 0.8rem;
+  color: var(--text);
+  padding-left: 14px;
+  position: relative;
+}
+
+.service-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.service-card.green-top ul li::before { color: var(--orange); }
+
+/* HOW IT WORKS */
+.how {
+  background: var(--navy);
+  color: var(--white);
+  padding: 56px 20px;
+}
+
+.how-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6dd4ae;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.how-label::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--green-light);
+}
+
+.how h2 {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 26px;
+  letter-spacing: -0.02em;
+}
+
+.how-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.how-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 7px;
+}
+
+.step-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--green-light);
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.how-step h3 {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.how-step p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+
+/* MAINTENANCE PLANS */
+.plans {
+  background: var(--light);
+  padding: 56px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.plans-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.plan-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 24px 20px;
+}
+
+.plan-card.featured {
+  border-color: var(--green);
+  border-width: 2px;
+}
+
+.plan-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.badge-featured { background: var(--green); color: var(--white); }
+.badge-basic { background: var(--light); color: var(--muted); }
+
+.plan-card h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.plan-price {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--green);
+  line-height: 1.1;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.plan-price span {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.plan-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 14px;
+  line-height: 1.45;
+}
+
+.plan-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 18px;
+}
+
+.plan-items li {
+  font-size: 0.82rem;
+  color: var(--text);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.plan-items li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 800;
+  font-size: 0.78rem;
+}
+
+.btn-plan {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.btn-plan-filled { background: var(--green); color: var(--white); }
+.btn-plan-outline { border: 2px solid var(--border); color: var(--muted); }
+
+/* ABOUT */
+.about {
+  background: var(--white);
+  padding: 56px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.about-card {
+  background: var(--warm-bg);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 26px 22px;
+  margin-top: 22px;
+}
+
+.about-card p {
+  font-size: 0.93rem;
+  color: var(--muted);
+  line-height: 1.68;
+  margin-bottom: 14px;
+}
+
+.cred-list {
+  list-style: none;
+  display: grid;
+  gap: 7px;
+}
+
+.cred-list li {
+  font-size: 0.85rem;
+  color: var(--text);
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.cred-list li::before {
+  content: '✓';
+  color: var(--green);
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  background: var(--warm-bg);
+  padding: 56px 20px;
+}
+
+.testi-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.testi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 18px;
+}
+
+.testi-highlight {
+  background: var(--green-pale);
+  border: 1px solid var(--price-border);
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 0.77rem;
+  color: #064e3b;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.testi-stars { color: #b8860a; font-size: 0.82rem; margin-bottom: 8px; letter-spacing: 1px; }
+
+.testi-card p {
+  font-size: 0.86rem;
+  color: var(--text);
+  line-height: 1.57;
+  margin-bottom: 11px;
+}
+
+.testi-name { font-size: 0.76rem; font-weight: 700; color: var(--muted); line-height: 1.3; }
+.testi-name span { display: block; font-weight: 400; font-size: 0.71rem; }
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--navy);
+  color: var(--white);
+  padding: 56px 20px;
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.final-cta p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 28px;
+  line-height: 1.55;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.btn-main {
+  display: block;
+  background: var(--orange);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 16px 22px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn-ghost {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  font-size: 0.93rem;
+  font-weight: 600;
+  padding: 13px 22px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background: var(--navy-mid);
+  color: rgba(255,255,255,0.38);
+  padding: 28px 20px;
+  font-size: 0.76rem;
+  line-height: 1.75;
+}
+
+footer strong {
+  color: rgba(255,255,255,0.8);
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.85rem;
+}
+
+/* DESKTOP */
+@media (min-width: 600px) {
+  .service-grid { grid-template-columns: 1fr 1fr; }
+  .plans-grid { grid-template-columns: 1fr 1fr; }
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .cred-list { grid-template-columns: 1fr 1fr; }
+  .how-steps { display: grid; grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 860px) {
+  .hero { padding: 56px 40px 68px; }
+  .hero h1 { font-size: 2.5rem; }
+  .hero-ctas { flex-direction: row; max-width: 460px; }
+  .pricing, .services, .how, .plans, .about, .testimonials, .final-cta { padding: 72px 40px; }
+  .service-grid { grid-template-columns: repeat(4, 1fr); }
+  .testi-grid { grid-template-columns: repeat(3, 1fr); }
+  .plans-grid { grid-template-columns: repeat(3, 1fr); }
+  .how-steps { grid-template-columns: repeat(4, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo">A-Ok Services</div>
+    <div class="nav-sub">Honest HVAC · DFW Area, TX</div>
+  </div>
+  <a class="nav-quote" href="tel:+19725550274">Get a Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">DFW Area, TX · Straight-shooting HVAC</p>
+  <h1>We tell you what's wrong<br>and <em>what it'll cost.</em></h1>
+  <p class="hero-sub">
+    AC and heating repair, installs, and tune-ups for DFW homeowners — with pricing posted right here on the page. No mystery invoices, no upsell pressure, no runaround.
+  </p>
+
+  <a class="hero-price-tease" href="#pricing">
+    <span class="arrow">↓</span>
+    <span>We publish our prices. <strong>See common repair costs below</strong> — something almost no DFW HVAC company does.</span>
+  </a>
+
+  <div class="hero-ctas">
+    <a class="btn-quote" href="tel:+19725550274">Get an Honest Quote</a>
+    <a class="btn-call" href="tel:+19725550274">(972) 555-0274</a>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust">
+  <ul class="trust-list">
+    <li>Pricing published — no surprises</li>
+    <li>TX Licensed HVAC</li>
+    <li>Diagnostic fee waived with repair</li>
+    <li>No commissioned upselling</li>
+    <li>DFW metro coverage</li>
+  </ul>
+</section>
+
+<!-- PUBLISHED PRICING — THE DIFFERENTIATOR -->
+<section class="pricing" id="pricing">
+  <p class="pricing-label">Transparent pricing</p>
+  <h2>What common HVAC repairs actually cost in DFW.</h2>
+  <p class="pricing-intro">
+    Almost no HVAC company in DFW publishes their prices. We do — because we have nothing to hide. These are our typical ranges based on current labor and parts costs. You'll always get the exact number before we touch anything.
+  </p>
+
+  <div class="pricing-why">
+    <span class="why-icon">💡</span>
+    <span>These ranges reflect DFW market rates as of 2024. Final price depends on your specific system, parts availability, and any additional issues found during diagnosis. We confirm the exact number before starting. Always.</span>
+  </div>
+
+  <!-- DIAGNOSTIC -->
+  <div class="price-section-head">
+    Diagnostic &amp; Service Call
+    <span class="col-label">Typical Range</span>
+  </div>
+  <div class="price-rows">
+    <div class="price-row popular">
+      <div class="price-item-name">
+        Diagnostic / Service Call Fee <span class="common-tag">Waived w/ repair</span>
+        <span class="price-item-note">Covers travel, diagnosis, and written quote — waived when you proceed with repair</span>
+      </div>
+      <div class="price-range">$75–$95</div>
+    </div>
+    <div class="price-row">
+      <div class="price-item-name">
+        After-Hours / Emergency Diagnostic
+        <span class="price-item-note">Nights, weekends, holidays</span>
+      </div>
+      <div class="price-range">$125–$175</div>
+    </div>
+  </div>
+
+  <!-- COMMON AC REPAIRS -->
+  <div class="price-section-head">
+    Common AC Repairs
+    <span class="col-label">Parts + Labor</span>
+  </div>
+  <div class="price-rows">
+    <div class="price-row popular">
+      <div class="price-item-name">
+        Capacitor Replacement <span class="common-tag">Very common</span>
+        <span class="price-item-note">Run or start capacitor — most common AC repair in Texas summers</span>
+      </div>
+      <div class="price-range">$120–$195</div>
+    </div>
+    <div class="price-row popular">
+      <div class="price-item-name">
+        Contactor Replacement <span class="common-tag">Common</span>
+        <span class="price-item-note">Controls power flow to the compressor and condenser fan</span>
+      </div>
+      <div class="price-range">$140–$210</div>
+    </div>
+    <div class="price-row">
+      <div class="price-item-name">
+        Refrigerant Recharge (R-410A)
+        <span class="price-item-note">Per pound added — leak detection sold separately</span>
+      </div>
+      <div class="price-range">$80–$130/lb</div>
+    </div>
+    <div class="price-row">
+      <div class="price-item-name">
+        Refrigerant Leak Detection
+        <span class="price-item-note">Electronic search — required before any recharge</span>
+      </div>
+      <div class="price-range">$150–$280</div>
+    </div>
+    <div class="price-row">
+      <div class="price-item-name">
+        Drain Line Clearing
+        <span class="price-item-note">Unclogging the condensate drain — common cause of AC shutoffs</span>
+      </div>
+      <div class="price-range">$80–$145</div>
+    </div>
+    <div class="price-row">
+      <div class="price-item-name">
+        Thermostat Replacement
+        <span class="price-item-note">Labor + basic thermostat; smart thermostat cost extra</span>
+      </div>
+      <div class="price-range">$100–$200</div>
+    </div>
+    <div class="price-row">
+      <div class="price-item-name">
+        Blower Motor Replacement
+        <span class="price-item-note">Indoor air handler — parts cost varies by brand</span>
+      </div>
+      <div class="price-range">$350–$650</div>
+    </div>
+    <div class="price-row">
+      <div class="price-item-name">
+        Condenser Fan Motor
+        <span class="price-item-note">Outdoor unit fan — prevents compressor damage</span>
+      </div>
+      <div class="price-range">$280–$480</div>
+    </div>
+  </div>
+
+  <!-- MAJOR REPAIRS -->
+  <div class="price-section-head">
+    Major Repairs &amp; Replacements
+    <span class="col-label">Installed</span>
+  </div>
+  <div class="price-rows">
+    <div class="price-row">
+      <div class="price-item-name">
+        Compressor Replacement
+        <span class="price-item-note">Heart of the AC — we'll tell you honestly whether replacement makes sense vs. new system</span>
+      </div>
+      <div class="price-range big">$900–$1,900</div>
+    </div>
+    <div class="price-row">
+      <div class="price-item-name">
+        Evaporator Coil Replacement
+        <span class="price-item-note">Indoor coil — labor-intensive; price varies by tonnage</span>
+      </div>
+      <div class="price-range big">$900–$1,800</div>
+    </div>
+    <div class="price-row">
+      <div class="price-item-name">
+        Full System Replacement (AC + Furnace)
+        <span class="price-item-note">3-ton standard efficiency — price varies by size and brand. Financing available.</span>
+      </div>
+      <div class="price-range big">$4,800–$12,000</div>
+    </div>
+  </div>
+
+  <div class="pricing-disclaimer">
+    <strong>How these ranges work:</strong> The low end assumes straightforward access and standard parts. The high end covers more complex installs, premium brands, or systems that require additional work. We give you the exact number — not a range — in writing before we start. If something unexpected comes up mid-job, we stop and talk to you before continuing. No exceptions.
+  </div>
+
+  <a class="pricing-cta" href="tel:+19725550274">Get Your Exact Quote — (972) 555-0274</a>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <p class="section-label">What we do</p>
+  <h2 class="section-title">Full HVAC service,<br>no surprises.</h2>
+  <p class="section-sub">AC and heating for DFW homes — repair, replacement, and prevention.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="svc-icon">❄️</div>
+      <h3>AC Repair</h3>
+      <p>Not cooling, running constantly, making noise — we diagnose it, quote it, and fix it. Price confirmed before we start.</p>
+      <ul>
+        <li>All makes &amp; models</li>
+        <li>Same-day service</li>
+        <li>Parts on truck</li>
+        <li>Diag. fee waived w/ repair</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="svc-icon">🔥</div>
+      <h3>Heating Repair</h3>
+      <p>Furnace, heat pump, or electric — when heat fails in a DFW winter, we move fast and tell you straight what's wrong.</p>
+      <ul>
+        <li>Gas &amp; electric furnaces</li>
+        <li>Heat pump service</li>
+        <li>Igniter &amp; board repair</li>
+        <li>Carbon monoxide check</li>
+      </ul>
+    </div>
+
+    <div class="service-card green-top">
+      <div class="svc-icon">🏠</div>
+      <h3>New System Install</h3>
+      <p>Full replacement with load calculation included. We size it right and give you multiple options at different price points.</p>
+      <ul>
+        <li>Manual J load calc</li>
+        <li>Multiple brand options</li>
+        <li>Heat pump conversions</li>
+        <li>Financing available</li>
+      </ul>
+    </div>
+
+    <div class="service-card green-top">
+      <div class="svc-icon">🔧</div>
+      <h3>Tune-Ups</h3>
+      <p>Spring and fall tune-ups keep warranties valid and catch problems before they become expensive. Published price: $89.</p>
+      <ul>
+        <li>Pre-summer AC tune-up</li>
+        <li>Coil cleaning</li>
+        <li>Refrigerant check</li>
+        <li>Filter &amp; safety inspection</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <p class="how-label">Our process</p>
+  <h2>No mystery. Here's exactly what happens.</h2>
+
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="step-circle">1</div>
+      <div>
+        <h3>You call or text</h3>
+        <p>We answer. You describe what's happening. We schedule a visit — usually same day or next morning.</p>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="step-circle">2</div>
+      <div>
+        <h3>We diagnose it</h3>
+        <p>Tech arrives, inspects the system, finds the problem. Diagnostic fee applies here — waived if you proceed with repair.</p>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="step-circle">3</div>
+      <div>
+        <h3>You get a written quote</h3>
+        <p>Exact price, in writing, before we touch anything. You say yes or no — no pressure either way.</p>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="step-circle">4</div>
+      <div>
+        <h3>We fix it</h3>
+        <p>You approved the price. We do the work. Invoice matches the quote. No add-ons after the fact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAINTENANCE PLANS -->
+<section class="plans">
+  <p class="section-label">Maintenance plans</p>
+  <h2 class="section-title">Prevent the big bills.</h2>
+
+  <div class="plans-grid">
+    <div class="plan-card">
+      <span class="plan-badge badge-basic">Basic</span>
+      <h3>Annual Plan</h3>
+      <div class="plan-price">$89 <span>/ year</span></div>
+      <p class="plan-desc">One visit per year — the tune-up that keeps your warranty valid and catches small problems early.</p>
+      <ul class="plan-items">
+        <li>1 tune-up (spring or fall)</li>
+        <li>Filter check &amp; swap</li>
+        <li>Safety inspection</li>
+        <li>10% off any repairs</li>
+        <li>Priority scheduling</li>
+      </ul>
+      <a class="btn-plan btn-plan-outline" href="tel:+19725550274">Call to Enroll</a>
+    </div>
+
+    <div class="plan-card featured">
+      <span class="plan-badge badge-featured">Best Value</span>
+      <h3>Full-Year Plan</h3>
+      <div class="plan-price">$159 <span>/ year</span></div>
+      <p class="plan-desc">Two visits — spring AC tune-up and fall heating check. Both seasons covered, both problems caught early.</p>
+      <ul class="plan-items">
+        <li>2 tune-ups (spring + fall)</li>
+        <li>Filters included both visits</li>
+        <li>Coil cleaning included</li>
+        <li>15% off any repairs</li>
+        <li>Priority emergency scheduling</li>
+        <li>No diagnostic fee on covered visits</li>
+      </ul>
+      <a class="btn-plan btn-plan-filled" href="tel:+19725550274">Call to Enroll</a>
+    </div>
+
+    <div class="plan-card">
+      <span class="plan-badge badge-basic">Premium</span>
+      <h3>Worry-Free Plan</h3>
+      <div class="plan-price">$229 <span>/ year</span></div>
+      <p class="plan-desc">Everything in Full-Year, plus IAQ inspection and one drain line clearing included. Best for older systems.</p>
+      <ul class="plan-items">
+        <li>2 tune-ups + IAQ inspection</li>
+        <li>Drain line clearing included</li>
+        <li>Filters &amp; coil cleaning</li>
+        <li>20% off any repairs</li>
+        <li>Same-day priority</li>
+        <li>Annual system report</li>
+      </ul>
+      <a class="btn-plan btn-plan-outline" href="tel:+19725550274">Call to Enroll</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <p class="section-label">About A-Ok Services</p>
+  <h2 class="section-title">We publish prices because we have nothing to hide.</h2>
+
+  <div class="about-card">
+    <p>
+      We started posting our pricing ranges because homeowners kept calling us after getting mystery invoices from other companies — bills that were double what the job should cost, with no explanation. Publishing prices is a commitment. It means we have to be competitive, we have to be honest, and we have to do the work we say we're going to do.
+    </p>
+    <p>
+      A-Ok Services is built around one idea: tell homeowners exactly what's wrong and what it costs, then do the work you said you'd do. That's it. That's the whole thing.
+    </p>
+    <ul class="cred-list">
+      <li>TX TACL Licensed HVAC contractor</li>
+      <li>Diagnostic fee waived with repair — always</li>
+      <li>EPA 608 Universal certified techs</li>
+      <li>Fully insured — liability &amp; workers' comp</li>
+      <li>No commissioned upselling — ever</li>
+      <li>Written quotes before any work begins</li>
+      <li>NATE certified technicians</li>
+      <li>All permits pulled when required by code</li>
+    </ul>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="section-label">What customers say</p>
+  <h2 class="section-title">The honesty is the thing.</h2>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-highlight">✓ Got the repair price in writing before they started</div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Called three companies. Only A-Ok gave me a written quote before touching anything. Turned out to be a capacitor — $165. The other two were pushing me toward a new $8,000 system. These guys are the only ones I trust."</p>
+      <div class="testi-name">P. Andersen <span>Plano, TX</span></div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-highlight">✓ Told me not to replace what didn't need replacing</div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Tech came out, found a clogged drain causing a shutoff. $95 to clear it. He told me my 8-year-old unit had plenty of life left and I didn't need anything else. That honesty saved me from spending money I didn't need to spend."</p>
+      <div class="testi-name">M. Torres <span>Mesquite, TX</span></div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-highlight">✓ Invoice matched the quote exactly</div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Full system replacement. They quoted me $6,400, the invoice was $6,400. No add-ons, no 'while we were in there' charges. They showed up when they said they would and were done in a day. That's all I needed."</p>
+      <div class="testi-name">B. &amp; S. Washington <span>Arlington, TX</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Ready for an honest quote?</h2>
+  <p>Call or text — we'll tell you what's wrong, what it costs, and let you decide. No pressure.</p>
+  <div class="cta-stack">
+    <a class="btn-main" href="tel:+19725550274">Call (972) 555-0274</a>
+    <a class="btn-ghost" href="sms:+19725550274">Text Your Question</a>
+  </div>
+  <p style="margin-top:16px; font-size:0.76rem; color:rgba(255,255,255,0.28);">
+    Serving DFW · Dallas · Fort Worth · Plano · Mesquite · Arlington · Irving · Carrollton
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>A-Ok Services</strong>
+  DFW Area, TX &nbsp;·&nbsp; (972) 555-0274<br>
+  TX Licensed HVAC · EPA 608 Certified · Fully Insured · Written Quotes Always
+</footer>
+
+</body>
+</html>
