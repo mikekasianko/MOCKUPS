@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Titan Home Services | HVAC &amp; Home Services | DFW Area, TX</title>
+<style>
+:root {
+  --black: #080b0f;
+  --dark: #0e1318;
+  --iron: #161c24;
+  --charcoal: #1e252f;
+  --steel: #2c3540;
+  --amber: #d97706;
+  --amber-light: #f59e0b;
+  --amber-bright: #fbbf24;
+  --amber-pale: #fef3c7;
+  --white: #ffffff;
+  --off-white: #f3f4f6;
+  --light: #e5e7eb;
+  --muted: #6b7280;
+  --text: #0e1318;
+  --border: #d1d5db;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* =====================
+   NAV
+   ===================== */
+nav {
+  background: var(--black);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--amber);
+}
+
+.nav-logo {
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.1;
+}
+
+.nav-logo span {
+  display: block;
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: var(--amber-light);
+  letter-spacing: 0.14em;
+  margin-top: 2px;
+}
+
+.nav-book {
+  background: var(--amber);
+  color: var(--black);
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 10px 16px;
+  border-radius: 3px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  flex-shrink: 0;
+}
+
+/* =====================
+   HERO
+   ===================== */
+.hero {
+  background: var(--dark);
+  color: var(--white);
+  padding: 52px 20px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Diagonal stripe accent */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: -80px;
+  width: 320px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 18px,
+    rgba(217,119,6,0.04) 18px,
+    rgba(217,119,6,0.04) 36px
+  );
+  pointer-events: none;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber-light);
+  margin-bottom: 20px;
+}
+
+.hero-kicker::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 3px;
+  background: var(--amber);
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 900;
+  line-height: 0.95;
+  margin-bottom: 20px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.hero h1 .accent {
+  display: block;
+  color: var(--amber-light);
+  font-style: italic;
+}
+
+.hero-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.65;
+  margin-bottom: 34px;
+  max-width: 460px;
+  font-weight: 400;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 380px;
+}
+
+.btn-book {
+  display: block;
+  background: var(--amber);
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 18px 24px;
+  border-radius: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.btn-call {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.2);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 15px 24px;
+  border-radius: 3px;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+/* =====================
+   STATS BAR
+   ===================== */
+.stats-bar {
+  background: var(--iron);
+  border-top: 1px solid rgba(217,119,6,0.25);
+  border-bottom: 1px solid rgba(217,119,6,0.25);
+  padding: 0 20px;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.stats-bar::-webkit-scrollbar { display: none; }
+
+.stat-item {
+  flex: 1;
+  min-width: 100px;
+  padding: 20px 16px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--amber-light);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+  margin-top: 4px;
+  display: block;
+}
+
+/* =====================
+   TRUST STRIP
+   ===================== */
+.trust {
+  background: var(--black);
+  padding: 13px 20px;
+}
+
+.trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  list-style: none;
+}
+
+.trust-list li {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trust-list li::before {
+  content: '▸';
+  color: var(--amber);
+  font-size: 0.65rem;
+}
+
+/* =====================
+   SERVICES
+   ===================== */
+.services {
+  background: var(--off-white);
+  padding: 60px 20px;
+}
+
+.section-kicker {
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-kicker::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  background: var(--amber);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 10px;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.section-sub {
+  font-size: 0.93rem;
+  color: var(--muted);
+  margin-bottom: 32px;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.service-grid {
+  display: grid;
+  gap: 3px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 26px 22px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  border-left: 5px solid var(--charcoal);
+  transition: border-left-color 0.15s;
+}
+
+.service-card:hover { border-left-color: var(--amber); }
+.service-card.primary { border-left-color: var(--amber); }
+
+.svc-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--light);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  flex-shrink: 0;
+  width: 40px;
+  text-align: right;
+  margin-top: 2px;
+}
+
+.service-card.primary .svc-num { color: var(--amber-pale); }
+
+.svc-body {}
+
+.svc-label {
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 4px;
+}
+
+.service-card h3 {
+  font-size: 1.05rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.service-card p {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.service-card ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.service-card ul li {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--light);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+/* =====================
+   PROMISE SECTION
+   ===================== */
+.promise {
+  background: var(--iron);
+  color: var(--white);
+  padding: 60px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.promise::after {
+  content: 'TITAN';
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  font-size: 9rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.02);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.promise-kicker {
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber-light);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.promise-kicker::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  background: var(--amber);
+}
+
+.promise h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.promise-intro {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 500px;
+}
+
+.promise-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.promise-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 18px;
+  background: rgba(255,255,255,0.04);
+  border-left: 4px solid var(--amber);
+}
+
+.promise-marker {
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber-light);
+  background: rgba(217,119,6,0.15);
+  border: 1px solid rgba(217,119,6,0.3);
+  padding: 4px 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+.promise-item h3 {
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.promise-item p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.55;
+}
+
+/* =====================
+   DEVON / OWNER
+   ===================== */
+.owner {
+  background: var(--white);
+  padding: 60px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.owner-card {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-top: 5px solid var(--amber);
+  padding: 0;
+  overflow: hidden;
+  max-width: 600px;
+}
+
+.owner-top {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 24px 24px 20px;
+}
+
+.owner-avatar {
+  width: 74px;
+  height: 74px;
+  border-radius: 3px;
+  background: var(--charcoal);
+  color: var(--amber-light);
+  font-size: 1.6rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.owner-id {}
+
+.owner-name {
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.owner-role {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.owner-creds-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.cred-chip {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 2px;
+  background: var(--charcoal);
+  color: var(--amber-light);
+}
+
+.owner-quote-block {
+  padding: 0 24px 22px;
+  border-left: 4px solid var(--amber);
+  margin: 0 24px 22px;
+  background: var(--white);
+}
+
+.owner-quote-block blockquote {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.65;
+  padding-top: 18px;
+}
+
+.owner-cred-list {
+  padding: 0 24px 24px;
+  list-style: none;
+  display: grid;
+  gap: 7px;
+}
+
+.owner-cred-list li {
+  font-size: 0.84rem;
+  color: var(--text);
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.owner-cred-list li::before {
+  content: '▸';
+  color: var(--amber);
+  font-weight: 900;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* =====================
+   TESTIMONIALS
+   ===================== */
+.testimonials {
+  background: var(--dark);
+  padding: 60px 20px;
+}
+
+.testi-kicker {
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.testi-kicker::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  background: var(--amber);
+}
+
+.testi-heading {
+  font-size: 1.7rem;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 28px;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.testi-grid {
+  display: grid;
+  gap: 3px;
+}
+
+.testi-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-left: 4px solid var(--amber);
+  padding: 22px 20px;
+}
+
+.testi-stars {
+  color: var(--amber-light);
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.testi-card p {
+  font-size: 0.87rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.testi-name {
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber-light);
+}
+
+.testi-location {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.3);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+/* =====================
+   FINAL CTA
+   ===================== */
+.final-cta {
+  background: var(--black);
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 4px solid var(--amber);
+}
+
+.final-cta h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 0.95;
+  margin-bottom: 14px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.final-cta h2 span { color: var(--amber-light); display: block; }
+
+.final-cta p {
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 30px;
+  line-height: 1.6;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.final-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.btn-final-book {
+  display: block;
+  background: var(--amber);
+  color: var(--black);
+  font-size: 1.05rem;
+  font-weight: 900;
+  padding: 18px 24px;
+  border-radius: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.btn-final-call {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.75);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 15px 24px;
+  border-radius: 3px;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+footer {
+  background: var(--iron);
+  color: rgba(255,255,255,0.35);
+  padding: 28px 20px;
+  font-size: 0.76rem;
+  line-height: 1.8;
+  border-top: 1px solid rgba(217,119,6,0.15);
+}
+
+footer strong {
+  color: rgba(255,255,255,0.75);
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* =====================
+   DESKTOP
+   ===================== */
+@media (min-width: 600px) {
+  .service-grid { grid-template-columns: 1fr 1fr; gap: 3px; }
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .owner-cred-list { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 860px) {
+  .hero { padding: 64px 40px 72px; }
+  .hero h1 { font-size: 3.8rem; }
+  .hero-ctas { flex-direction: row; max-width: 480px; }
+  .services, .promise, .owner, .testimonials, .final-cta { padding: 76px 40px; }
+  .section-title { font-size: 2.2rem; }
+  .service-grid { grid-template-columns: 1fr 1fr; }
+  .testi-grid { grid-template-columns: repeat(3, 1fr); }
+  .promise h2 { font-size: 2.2rem; }
+  .final-cta h2 { font-size: 3rem; }
+  .final-stack { flex-direction: row; max-width: 480px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    Titan Home Services
+    <span>DFW Area · Built Strong</span>
+  </div>
+  <a class="nav-book" href="tel:+19725550316">Book a Titan</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-kicker">DFW Area, TX · Home Services</div>
+  <h1>
+    Built strong.<br>
+    <span class="accent">Done right.</span>
+  </h1>
+  <p class="hero-sub">
+    HVAC repair, installs, and home services across DFW — delivered with the kind of effort most companies stopped putting in years ago. We don't do small jobs halfway.
+  </p>
+  <div class="hero-ctas">
+    <a class="btn-book" href="tel:+19725550316">Book a Titan →</a>
+    <a class="btn-call" href="tel:+19725550316">(972) 555-0316</a>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-num">500+</span>
+    <span class="stat-label">Jobs Done</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">10+</span>
+    <span class="stat-label">Years In Field</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">24/7</span>
+    <span class="stat-label">Emergency Ready</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">100%</span>
+    <span class="stat-label">Finish What We Start</span>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<section class="trust">
+  <ul class="trust-list">
+    <li>TX Licensed HVAC</li>
+    <li>All major brands</li>
+    <li>Same-day available</li>
+    <li>Emergency service</li>
+    <li>Fully insured</li>
+    <li>Upfront pricing</li>
+  </ul>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <p class="section-kicker">What we do</p>
+  <h2 class="section-title">No weak spots<br>in the lineup.</h2>
+  <p class="section-sub">
+    HVAC is our core — repair, replacement, maintenance — plus the additional home services DFW homeowners actually need. One call handles it.
+  </p>
+
+  <div class="service-grid">
+    <div class="service-card primary">
+      <div class="svc-num">01</div>
+      <div class="svc-body">
+        <div class="svc-label">Primary · HVAC</div>
+        <h3>AC Repair</h3>
+        <p>Warm air, short cycling, no airflow — we diagnose fast and fix same visit when possible. Parts on the truck.</p>
+        <ul>
+          <li>All brands</li>
+          <li>Same-day</li>
+          <li>Emergency available</li>
+          <li>Upfront price</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-card primary">
+      <div class="svc-num">02</div>
+      <div class="svc-body">
+        <div class="svc-label">Primary · HVAC</div>
+        <h3>System Install &amp; Replace</h3>
+        <p>Right-sized, clean install, permitted and inspected. We don't sell you more unit than your house needs.</p>
+        <ul>
+          <li>Load calculation</li>
+          <li>All brands</li>
+          <li>Heat pumps</li>
+          <li>Financing avail.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="svc-num">03</div>
+      <div class="svc-body">
+        <div class="svc-label">HVAC</div>
+        <h3>Maintenance &amp; Tune-Ups</h3>
+        <p>DFW summers put serious hours on a system. Pre-season tune-up is the difference between a $150 visit and a $4,000 one.</p>
+        <ul>
+          <li>Pre-summer inspection</li>
+          <li>Coil &amp; filter</li>
+          <li>Refrigerant check</li>
+          <li>Annual plans</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="svc-num">04</div>
+      <div class="svc-body">
+        <div class="svc-label">HVAC</div>
+        <h3>Ductwork &amp; Air Quality</h3>
+        <p>Leaky ducts cost you money every day. Dirty air costs you health. We seal, repair, and upgrade both.</p>
+        <ul>
+          <li>Duct sealing</li>
+          <li>Air purifiers</li>
+          <li>UV systems</li>
+          <li>Attic insulation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="svc-num">05</div>
+      <div class="svc-body">
+        <div class="svc-label">Home Services</div>
+        <h3>Smart Home &amp; Thermostats</h3>
+        <p>Nest, Ecobee, Honeywell — full thermostat upgrades with proper wiring and setup so the thing actually works.</p>
+        <ul>
+          <li>Smart thermostat install</li>
+          <li>C-wire runs</li>
+          <li>System compatibility check</li>
+          <li>Zoning systems</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="svc-num">06</div>
+      <div class="svc-body">
+        <div class="svc-label">Home Services</div>
+        <h3>General Home Repairs</h3>
+        <p>While we're there, we handle the other stuff on your list. Ask about additional home service offerings when you call.</p>
+        <ul>
+          <li>Handyman-level repairs</li>
+          <li>Attic &amp; insulation work</li>
+          <li>Ceiling fan install</li>
+          <li>Ask for full list</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section class="promise">
+  <p class="promise-kicker">The Titan standard</p>
+  <h2>We don't do small<br>jobs halfway.</h2>
+  <p class="promise-intro">
+    There are plenty of companies in DFW that show up, do the minimum, collect a check, and leave. That's not what Titan is. Every job gets the same effort — regardless of size.
+  </p>
+
+  <ul class="promise-list">
+    <li class="promise-item">
+      <span class="promise-marker">Show up</span>
+      <div>
+        <h3>We're there when we say</h3>
+        <p>You get a real time window and a call on the way. We don't disappear or reschedule at the last minute without a conversation.</p>
+      </div>
+    </li>
+    <li class="promise-item">
+      <span class="promise-marker">Be honest</span>
+      <div>
+        <h3>Straight diagnosis, straight price</h3>
+        <p>We tell you what's wrong and what it costs before we start. No add-ons after the fact. The quote is the quote.</p>
+      </div>
+    </li>
+    <li class="promise-item">
+      <span class="promise-marker">Finish it</span>
+      <div>
+        <h3>The job is done when it's done</h3>
+        <p>We don't leave a job in a worse state than we found it. Clean up is part of the job — not a bonus. We leave until it's right.</p>
+      </div>
+    </li>
+    <li class="promise-item">
+      <span class="promise-marker">Own it</span>
+      <div>
+        <h3>We stand behind our work</h3>
+        <p>If something isn't right after we leave, call us. We come back. That's what standing behind your work actually means.</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- DEVON / OWNER -->
+<section class="owner">
+  <p class="section-kicker">Who you're calling</p>
+  <h2 class="section-title">Devon built this.</h2>
+
+  <div class="owner-card">
+    <div class="owner-top">
+      <div class="owner-avatar">DV</div>
+      <div class="owner-id">
+        <div class="owner-name">Devon</div>
+        <div class="owner-role">Owner &amp; Lead Tech · Titan Home Services</div>
+        <div class="owner-creds-inline">
+          <span class="cred-chip">TX Licensed</span>
+          <span class="cred-chip">EPA 608</span>
+          <span class="cred-chip">NATE Cert.</span>
+          <span class="cred-chip">Insured</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="owner-quote-block">
+      <blockquote>
+        "I started Titan because I got tired of watching homeowners get treated like an inconvenience. You've got a broken AC in 100° Texas heat — that's not a small deal. I built this company around actually giving a damn about the outcome."
+      </blockquote>
+    </div>
+
+    <ul class="owner-cred-list">
+      <li>TX TACL Licensed HVAC contractor</li>
+      <li>EPA 608 Universal certified</li>
+      <li>NATE certified technician</li>
+      <li>Fully insured — liability &amp; workers' comp</li>
+      <li>Background checked</li>
+      <li>All permits pulled when required</li>
+    </ul>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="testi-kicker">What DFW homeowners say</p>
+  <h2 class="testi-heading">The work<br>speaks.</h2>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"AC went out on a Sunday. Devon picked up on the first ring, was at our house in under an hour, and had it running before noon. He didn't rush, explained everything, and the price was exactly what he quoted."</p>
+      <div class="testi-name">R. Hammond</div>
+      <div class="testi-location">Carrollton, TX</div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"Three other companies told me I needed a new unit. Devon fixed the existing one for $240. Said it had at least five more good years. That kind of honesty is rare. He's the only person I'm calling from now on."</p>
+      <div class="testi-name">T. Okafor</div>
+      <div class="testi-location">Irving, TX</div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"New system install was flawless. On time, worked clean, hauled everything out, and the install passed inspection first try. Devon even called two days later to make sure everything was running right. Titan has my business for life."</p>
+      <div class="testi-name">J. &amp; P. Castillo</div>
+      <div class="testi-location">Grand Prairie, TX</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>
+    Ready to book?
+    <span>Call a Titan.</span>
+  </h2>
+  <p>Free estimates. Straight talk. Work you can count on. DFW's strongest home services team is one call away.</p>
+  <div class="final-stack">
+    <a class="btn-final-book" href="tel:+19725550316">Book a Titan →</a>
+    <a class="btn-final-call" href="tel:+19725550316">(972) 555-0316</a>
+  </div>
+  <p style="margin-top:18px; font-size:0.74rem; color:rgba(255,255,255,0.22); letter-spacing:0.05em; text-transform:uppercase;">
+    Serving DFW · Carrollton · Irving · Grand Prairie · Arlington · Mansfield
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Titan Home Services</strong>
+  Devon · Owner &amp; Lead Tech · DFW Area, TX · (972) 555-0316<br>
+  TX Licensed HVAC · EPA 608 Certified · Fully Insured
+</footer>
+
+</body>
+</html>
