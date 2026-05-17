@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duarte's HVAC Services LLC | Family HVAC — DFW Area, TX</title>
+<style>
+:root {
+  --navy: #1a2e50;
+  --navy-dark: #0f1e38;
+  --blue: #1e5fa8;
+  --blue-light: #e8f0fa;
+  --red: #b82020;
+  --warm: #e07a10;
+  --warm-light: #fdf3e0;
+  --green: #1a7a40;
+  --green-light: #e8f5ed;
+  --charcoal: #1c2b3a;
+  --mid: #4a5c70;
+  --soft: #f4f7fa;
+  --border: #d0dae6;
+  --white: #ffffff;
+  --radius: 10px;
+  --shadow: 0 3px 16px rgba(0,0,0,0.10);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--charcoal); background: var(--white); line-height: 1.55; }
+a { color: inherit; text-decoration: none; }
+
+/* ── LANG TOGGLE ── */
+html[lang="en"] .es { display: none; }
+html[lang="es"] .en { display: none; }
+html[lang="es"] .es { display: revert; }
+html[lang="en"] .en { display: revert; }
+
+.lang-bar {
+  background: var(--navy-dark);
+  display: flex; align-items: center; justify-content: flex-end;
+  gap: 6px;
+  padding: 7px 20px;
+  font-size: 12px;
+}
+.lang-label { color: rgba(255,255,255,0.55); font-size: 11px; margin-right: 4px; }
+.lang-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.7);
+  font-size: 12px; font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+}
+.lang-btn.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--navy);
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-d {
+  width: 40px; height: 40px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 900; color: var(--white);
+  border: 2px solid rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+.logo-text { color: var(--white); }
+.logo-text strong { display: block; font-size: 16px; font-weight: 800; }
+.logo-text small { font-size: 10px; opacity: 0.7; letter-spacing: 0.4px; }
+.header-cta {
+  background: var(--warm);
+  color: var(--white);
+  font-weight: 800; font-size: 14px;
+  padding: 9px 15px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, var(--navy-dark) 0%, #162040 55%, #0c1628 100%);
+  color: var(--white);
+  padding: 48px 20px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 75% 30%, rgba(30,95,168,0.25) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50px;
+  padding: 6px 14px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.4px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: clamp(28px, 7vw, 48px);
+  font-weight: 900;
+  line-height: 1.12;
+  margin-bottom: 16px;
+  max-width: 560px;
+  letter-spacing: -0.5px;
+}
+.hero h1 em { color: #7eb8ff; font-style: normal; }
+.hero-sub {
+  font-size: 16px; opacity: 0.88; margin-bottom: 28px;
+  max-width: 480px; line-height: 1.65;
+}
+.hero-ctas { display: flex; flex-direction: column; gap: 11px; max-width: 360px; }
+.btn-primary {
+  display: block; text-align: center;
+  background: var(--warm);
+  color: var(--white);
+  font-size: 17px; font-weight: 800;
+  padding: 15px 24px;
+  border-radius: 8px;
+}
+.btn-secondary {
+  display: block; text-align: center;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  font-size: 15px; font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+.hero-trust {
+  margin-top: 36px;
+  display: flex; flex-wrap: wrap; gap: 14px;
+}
+.trust-chip {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50px;
+  padding: 6px 12px;
+  font-size: 12px; font-weight: 600; opacity: 0.9;
+}
+
+/* ── SECTION BASE ── */
+.section { padding: 52px 20px; }
+.section-label {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+.section-title {
+  font-size: clamp(22px, 5vw, 34px);
+  font-weight: 800; line-height: 1.2;
+  margin-bottom: 12px;
+}
+.section-sub {
+  font-size: 16px; color: var(--mid);
+  max-width: 560px; margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+/* ── MEET VICTOR / FAMILY SECTION ── */
+.family-section { background: var(--soft); }
+.family-inner { max-width: 700px; }
+.family-hero-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+.family-photo-placeholder {
+  background: linear-gradient(135deg, var(--navy) 0%, #1e3870 100%);
+  height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.avatar-stack { display: flex; gap: -8px; }
+.avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 900; color: var(--white);
+  font-family: serif;
+  flex-shrink: 0;
+}
+.avatar-v { background: var(--red); margin-right: -14px; z-index: 2; position: relative; }
+.avatar-f { background: var(--blue); margin-right: -14px; z-index: 1; position: relative; }
+.avatar-t { background: var(--navy-dark); }
+.photo-label {
+  color: rgba(255,255,255,0.75);
+  font-size: 13px; font-weight: 600;
+  margin-top: 6px; letter-spacing: 0.3px;
+}
+.truck-strip {
+  background: var(--navy-dark);
+  color: rgba(255,255,255,0.6);
+  font-size: 11px; font-weight: 600; letter-spacing: 1px;
+  text-align: center; padding: 7px;
+}
+.family-body { padding: 22px; }
+.family-body .owner-name { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+.family-body .owner-title { font-size: 13px; color: var(--mid); margin-bottom: 14px; }
+.family-body blockquote {
+  font-size: 15px; font-style: italic; line-height: 1.7;
+  border-left: 4px solid var(--blue);
+  padding-left: 16px;
+  color: var(--charcoal);
+  margin-bottom: 16px;
+}
+.family-body .license-row {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.lic-badge {
+  background: var(--blue-light);
+  color: var(--blue);
+  font-size: 11px; font-weight: 700;
+  padding: 4px 10px; border-radius: 4px;
+}
+
+.team-cards {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.team-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.team-avatar {
+  width: 48px; height: 48px; flex-shrink: 0;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 900; color: var(--white);
+}
+.team-info strong { display: block; font-size: 14px; font-weight: 800; }
+.team-info span { font-size: 12px; color: var(--mid); display: block; }
+.team-info small { font-size: 11px; color: var(--blue); font-weight: 600; margin-top: 2px; display: block; }
+
+/* ── WHY DUARTES ── */
+.why-section { background: var(--white); }
+.why-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 14px; max-width: 660px;
+}
+.why-card {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: var(--soft);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+.why-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: var(--navy);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+}
+.why-text strong { display: block; font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+.why-text p { font-size: 13px; color: var(--mid); line-height: 1.55; }
+
+/* ── SERVICES ── */
+.services-section { background: var(--soft); }
+.services-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; max-width: 700px;
+}
+.svc-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  transition: box-shadow 0.2s;
+}
+.svc-card:hover { box-shadow: var(--shadow); }
+.svc-icon { font-size: 26px; margin-bottom: 10px; }
+.svc-name { font-size: 14px; font-weight: 800; margin-bottom: 5px; }
+.svc-desc { font-size: 13px; color: var(--mid); line-height: 1.5; }
+.bilingual-note {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; font-weight: 700; margin-top: 8px;
+  color: var(--green); background: var(--green-light);
+  padding: 3px 8px; border-radius: 4px;
+}
+
+/* ── MAINTENANCE PLANS ── */
+.plans-section { background: var(--white); }
+.plans-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 14px; max-width: 640px;
+}
+.plan-card {
+  background: var(--soft);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  position: relative;
+}
+.plan-card.featured {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+.plan-badge {
+  position: absolute; top: -10px; right: 16px;
+  background: var(--warm);
+  color: var(--white);
+  font-size: 11px; font-weight: 800;
+  padding: 4px 10px; border-radius: 4px;
+}
+.plan-name { font-size: 16px; font-weight: 800; margin-bottom: 2px; }
+.plan-name-es { font-size: 12px; font-weight: 600; opacity: 0.65; margin-bottom: 10px; }
+.plan-price { font-size: 28px; font-weight: 900; margin-bottom: 2px; color: var(--warm); }
+.plan-card.featured .plan-price { color: #ffd080; }
+.plan-period { font-size: 12px; opacity: 0.65; margin-bottom: 14px; }
+.plan-items { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.plan-items li { font-size: 13px; display: flex; align-items: baseline; gap: 7px; }
+.plan-items li::before { content: '✓'; color: var(--green); font-weight: 800; flex-shrink: 0; }
+.plan-card.featured .plan-items li::before { color: #6ce8a0; }
+.plan-cta {
+  display: block; text-align: center;
+  background: var(--warm);
+  color: var(--white);
+  font-size: 14px; font-weight: 800;
+  padding: 11px;
+  border-radius: 7px;
+  margin-top: 16px;
+}
+
+/* ── BILINGUAL CALL-OUT ── */
+.bilingual-section {
+  background: linear-gradient(135deg, var(--green) 0%, #0d5a28 100%);
+  color: var(--white);
+  padding: 40px 20px;
+}
+.bilingual-inner { max-width: 580px; }
+.bilingual-section h2 { font-size: 24px; font-weight: 800; margin-bottom: 10px; }
+.bilingual-section p { font-size: 15px; opacity: 0.9; margin-bottom: 20px; line-height: 1.6; }
+.bilingual-ctас {
+  display: flex; flex-direction: column; gap: 10px; max-width: 340px;
+}
+.btn-bilingual-call {
+  display: block; text-align: center;
+  background: var(--white);
+  color: var(--green);
+  font-size: 16px; font-weight: 800;
+  padding: 14px;
+  border-radius: 8px;
+}
+.btn-bilingual-sms {
+  display: block; text-align: center;
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.4);
+  color: var(--white);
+  font-size: 14px; font-weight: 700;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials-section { background: var(--soft); }
+.testimonials-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 16px; max-width: 660px;
+}
+.testimonial {
+  background: var(--white);
+  border-left: 4px solid var(--blue);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 18px;
+}
+.testimonial.spanish-t { border-left-color: var(--green); }
+.testimonial p { font-size: 14px; line-height: 1.65; margin-bottom: 12px; font-style: italic; }
+.t-meta { display: flex; align-items: center; justify-content: space-between; }
+.t-name { font-size: 13px; font-weight: 700; }
+.t-loc { font-size: 12px; color: var(--mid); }
+.stars { color: var(--warm); font-size: 13px; letter-spacing: 1px; }
+.lang-tag {
+  font-size: 10px; font-weight: 700;
+  padding: 2px 6px; border-radius: 3px;
+}
+.tag-en { background: var(--blue-light); color: var(--blue); }
+.tag-es { background: var(--green-light); color: var(--green); }
+
+/* ── FINAL CTA ── */
+.final-cta {
+  background: linear-gradient(150deg, var(--navy-dark) 0%, #0c1628 100%);
+  color: var(--white);
+  padding: 56px 20px 60px;
+  text-align: center;
+}
+.final-cta h2 { font-size: clamp(24px, 6vw, 40px); font-weight: 900; margin-bottom: 8px; letter-spacing: -0.5px; }
+.final-cta h2 em { color: #7eb8ff; font-style: normal; }
+.final-cta p { font-size: 16px; opacity: 0.85; margin-bottom: 28px; max-width: 460px; margin-left: auto; margin-right: auto; }
+.final-btns { display: flex; flex-direction: column; gap: 12px; max-width: 360px; margin: 0 auto; }
+.trust-row {
+  margin-top: 28px; display: flex; flex-wrap: wrap;
+  justify-content: center; gap: 16px;
+  font-size: 12px; opacity: 0.6;
+}
+.trust-row span::before { content: '· '; }
+.trust-row span:first-child::before { content: ''; }
+
+/* ── FOOTER ── */
+footer {
+  background: #080f20;
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 12px; line-height: 1.9;
+}
+footer strong { color: var(--white); }
+footer a { color: rgba(255,255,255,0.65); }
+
+/* ── RESPONSIVE ── */
+@media (min-width: 580px) {
+  .hero-ctas { flex-direction: row; }
+  .btn-primary, .btn-secondary { flex: 1; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .plans-grid { grid-template-columns: repeat(3, 1fr); }
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+  .bilingual-ctас { flex-direction: row; }
+  .final-btns { flex-direction: row; max-width: 420px; }
+  .final-btns .btn-primary, .final-btns .btn-secondary { flex: 1; }
+  .family-photo-placeholder { height: 240px; }
+}
+@media (min-width: 860px) {
+  .services-grid { grid-template-columns: repeat(4, 1fr); }
+  .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+  .why-grid { grid-template-columns: repeat(4, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <span class="lang-label">Language / Idioma:</span>
+  <button class="lang-btn active" id="btn-en" onclick="setLang('en')">English</button>
+  <button class="lang-btn" id="btn-es" onclick="setLang('es')">Español</button>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo">
+    <div class="logo-d">D</div>
+    <div class="logo-text">
+      <strong>Duarte's HVAC Services</strong>
+      <small class="en">FAMILY-OWNED · DFW AREA, TX</small>
+      <small class="es">EMPRESA FAMILIAR · ÁREA DFW, TX</small>
+    </div>
+  </div>
+  <a href="tel:9726384488" class="header-cta">📞 972-638-4488</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🏠 <span class="en">Family HVAC — DFW's Trusted Name Since 2008</span><span class="es">HVAC Familiar — Confianza en DFW desde 2008</span></div>
+  <h1 class="en">Call the <em>Duartes</em>.<br>Your neighbors already do.</h1>
+  <h1 class="es">Llame a los <em>Duartes</em>.<br>Sus vecinos ya lo hacen.</h1>
+  <p class="hero-sub en">Victor Duarte started this company out of his garage in 2008. Today his sons work alongside him. You know who's coming to your door — and that's the whole point.</p>
+  <p class="hero-sub es">Victor Duarte comenzó esta empresa desde su garaje en 2008. Hoy sus hijos trabajan junto a él. Usted sabe quién viene a su puerta — y ese es todo el punto.</p>
+  <div class="hero-ctas">
+    <a href="tel:9726384488" class="btn-primary en">📞 Call the Duartes</a>
+    <a href="tel:9726384488" class="btn-primary es">📞 Llame a los Duartes</a>
+    <a href="sms:9726384488&body=Hi, I need HVAC service." class="btn-secondary en">💬 Text Us</a>
+    <a href="sms:9726384488&body=Hola, necesito servicio de HVAC." class="btn-secondary es">💬 Escríbenos</a>
+  </div>
+  <div class="hero-trust">
+    <span class="trust-chip en">🤝 Family-Owned Since 2008</span>
+    <span class="trust-chip es">🤝 Empresa Familiar desde 2008</span>
+    <span class="trust-chip en">🌎 English &amp; Spanish</span>
+    <span class="trust-chip es">🌎 English &amp; Español</span>
+    <span class="trust-chip en">📋 TACL Licensed</span>
+    <span class="trust-chip es">📋 Licencia TACL</span>
+    <span class="trust-chip en">⚡ Same-Day Available</span>
+    <span class="trust-chip es">⚡ Servicio el mismo día</span>
+  </div>
+</section>
+
+<!-- MEET VICTOR / FAMILY SECTION -->
+<section class="section family-section">
+  <div class="section-label en">Meet the Family</div>
+  <div class="section-label es">Conozca a la Familia</div>
+  <h2 class="section-title en">You know who's coming to your house.</h2>
+  <h2 class="section-title es">Usted sabe quién viene a su casa.</h2>
+  <p class="section-sub en">Most HVAC companies hide behind a logo. We lead with our faces. Victor and his sons are on every truck — and they'll put their name on every job.</p>
+  <p class="section-sub es">La mayoría de las compañías de HVAC se esconden detrás de un logotipo. Nosotros mostramos nuestras caras. Victor y sus hijos están en cada camión — y ponen su nombre en cada trabajo.</p>
+  <div class="family-inner">
+    <div class="family-hero-card">
+      <div class="family-photo-placeholder">
+        <div class="avatar-stack">
+          <div class="avatar avatar-v">V</div>
+          <div class="avatar avatar-f">F</div>
+          <div class="avatar avatar-t">M</div>
+        </div>
+        <div class="photo-label en">Victor, Fernando &amp; Marco — the Duarte family</div>
+        <div class="photo-label es">Victor, Fernando y Marco — la familia Duarte</div>
+      </div>
+      <div class="truck-strip en">DUARTE'S HVAC · 3 TRUCKS · DFW METROPLEX</div>
+      <div class="truck-strip es">DUARTE'S HVAC · 3 CAMIONES · ÁREA METROPOLITANA DFW</div>
+      <div class="family-body">
+        <div class="owner-name">Victor Duarte</div>
+        <div class="owner-title en">Owner &amp; Master HVAC Technician · TACL-B39142E</div>
+        <div class="owner-title es">Propietario y Técnico HVAC Maestro · TACL-B39142E</div>
+        <blockquote class="en">"When you call Duarte's, you get us — not a dispatcher, not a sub-contractor you've never met. My sons and I take pride in every job because our name is on the truck. That's not something we take lightly."</blockquote>
+        <blockquote class="es">"Cuando llama a Duarte's, nos consigue a nosotros — no a un despachador ni a un subcontratista que nunca ha conocido. Mis hijos y yo nos enorgullecemos de cada trabajo porque nuestro nombre está en el camión. Eso no es algo que tomamos a la ligera."</blockquote>
+        <div class="license-row">
+          <span class="lic-badge">TACL-B39142E</span>
+          <span class="lic-badge en">Licensed &amp; Insured</span>
+          <span class="lic-badge es">Licenciado y Asegurado</span>
+          <span class="lic-badge en">NATE Certified</span>
+          <span class="lic-badge es">Certificado NATE</span>
+        </div>
+      </div>
+    </div>
+    <div class="team-cards">
+      <div class="team-card">
+        <div class="team-avatar" style="background:var(--blue);">F</div>
+        <div class="team-info">
+          <strong>Fernando Duarte</strong>
+          <span class="en">Lead Technician</span>
+          <span class="es">Técnico Principal</span>
+          <small class="en">Commercial &amp; Residential</small>
+          <small class="es">Comercial y Residencial</small>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:var(--navy-dark);">M</div>
+        <div class="team-info">
+          <strong>Marco Duarte</strong>
+          <span class="en">Install Technician</span>
+          <span class="es">Técnico de Instalación</span>
+          <small class="en">New systems &amp; replacements</small>
+          <small class="es">Sistemas nuevos y reemplazos</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY DUARTES -->
+<section class="section why-section">
+  <div class="section-label en">Why Duarte's</div>
+  <div class="section-label es">Por Qué Duarte's</div>
+  <h2 class="section-title en">What you get when you call a family, not a call center</h2>
+  <h2 class="section-title es">Lo que obtiene cuando llama a una familia, no a un centro de llamadas</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">👨‍👦</div>
+      <div class="why-text">
+        <strong class="en">Real People, Real Names</strong>
+        <strong class="es">Personas Reales, Nombres Reales</strong>
+        <p class="en">Victor or one of his sons is on every job. You'll know exactly who to call back if anything comes up.</p>
+        <p class="es">Victor o uno de sus hijos está en cada trabajo. Sabrá exactamente a quién llamar si surge algo.</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <div class="why-text">
+        <strong class="en">We Work in Your Neighborhood</strong>
+        <strong class="es">Trabajamos en Su Vecindario</strong>
+        <p class="en">DFW homeowners recommend us to each other. Our reputation lives on your street — we won't risk it.</p>
+        <p class="es">Los propietarios de DFW nos recomiendan entre sí. Nuestra reputación vive en su calle — no la arriesgaremos.</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💬</div>
+      <div class="why-text">
+        <strong class="en">English &amp; Spanish, No Problem</strong>
+        <strong class="es">Inglés y Español, Sin Problema</strong>
+        <p class="en">Victor and Fernando are fully bilingual. You'll never struggle to explain what's wrong.</p>
+        <p class="es">Victor y Fernando son completamente bilingües. Nunca tendrá dificultad para explicar qué está mal.</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📋</div>
+      <div class="why-text">
+        <strong class="en">Straight Talk, No Upsell</strong>
+        <strong class="es">Honestidad, Sin Ventas Exageradas</strong>
+        <p class="en">We tell you what it needs, what it costs, and whether it's worth fixing. Full stop.</p>
+        <p class="es">Le decimos qué necesita, qué cuesta y si vale la pena repararlo. Punto final.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-section">
+  <div class="section-label en">What We Do</div>
+  <div class="section-label es">Lo Que Hacemos</div>
+  <h2 class="section-title en">Full-service HVAC — every season</h2>
+  <h2 class="section-title es">Servicio completo de HVAC — cada temporada</h2>
+  <div class="services-grid">
+    <div class="svc-card">
+      <div class="svc-icon">❄️</div>
+      <div class="svc-name en">A/C Repair</div>
+      <div class="svc-name es">Reparación de A/C</div>
+      <div class="svc-desc en">Fast diagnosis, honest quote, same-day parts when we have them. No guesswork.</div>
+      <div class="svc-desc es">Diagnóstico rápido, presupuesto honesto, piezas el mismo día cuando las tenemos.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🆕</div>
+      <div class="svc-name en">A/C Installation</div>
+      <div class="svc-name es">Instalación de A/C</div>
+      <div class="svc-desc en">Properly sized new systems. We run load calculations — not just "same size as before."</div>
+      <div class="svc-desc es">Sistemas nuevos correctamente dimensionados. Hacemos cálculos de carga, no solo "el mismo tamaño que antes."</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🔥</div>
+      <div class="svc-name en">Heating Repair</div>
+      <div class="svc-name es">Reparación de Calefacción</div>
+      <div class="svc-desc en">Furnaces, heat pumps, and electric heat — we service all of it when North Texas gets cold.</div>
+      <div class="svc-desc es">Calefactores, bombas de calor y calor eléctrico — lo reparamos todo cuando llega el frío al norte de Texas.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🔧</div>
+      <div class="svc-name en">Heating Install</div>
+      <div class="svc-name es">Instalación de Calefacción</div>
+      <div class="svc-desc en">New furnace or full system replacement. Done right, by the Duartes.</div>
+      <div class="svc-desc es">Calefactor nuevo o reemplazo completo del sistema. Hecho correctamente, por los Duartes.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">📋</div>
+      <div class="svc-name en">Maintenance Plans</div>
+      <div class="svc-name es">Planes de Mantenimiento</div>
+      <div class="svc-desc en">Spring and fall tune-ups so your system doesn't quit on the hottest day of the year.</div>
+      <div class="svc-desc es">Ajustes de primavera y otoño para que su sistema no falle el día más caluroso del año.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">💨</div>
+      <div class="svc-name en">Indoor Air Quality</div>
+      <div class="svc-name es">Calidad del Aire Interior</div>
+      <div class="svc-desc en">Air purifiers, UV systems, whole-home filtration. Clean air for your family.</div>
+      <div class="svc-desc es">Purificadores de aire, sistemas UV, filtración para el hogar. Aire limpio para su familia.</div>
+      <div class="bilingual-note">🌎 <span class="en">We explain everything in your language</span><span class="es">Explicamos todo en su idioma</span></div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🌡️</div>
+      <div class="svc-name en">Thermostat Install</div>
+      <div class="svc-name es">Instalación de Termostato</div>
+      <div class="svc-desc en">Smart or programmable — we set it up, program it, and show you how to use it.</div>
+      <div class="svc-desc es">Inteligente o programable — lo instalamos, programamos y le mostramos cómo usarlo.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🚨</div>
+      <div class="svc-name en">Emergency Service</div>
+      <div class="svc-name es">Servicio de Emergencia</div>
+      <div class="svc-desc en">When your AC quits at 2pm on a 100° day, we answer the phone. Always.</div>
+      <div class="svc-desc es">Cuando su A/C falla a las 2pm en un día de 100°, contestamos el teléfono. Siempre.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAINTENANCE PLANS -->
+<section class="section plans-section">
+  <div class="section-label en">Maintenance Plans</div>
+  <div class="section-label es">Planes de Mantenimiento</div>
+  <h2 class="section-title en">Keep it running — season after season</h2>
+  <h2 class="section-title es">Manténgalo funcionando — temporada tras temporada</h2>
+  <p class="section-sub en">Our plan members get priority scheduling, discounted repairs, and the peace of mind that comes with a family checking in on your system twice a year.</p>
+  <p class="section-sub es">Los miembros de nuestro plan reciben programación prioritaria, reparaciones con descuento y la tranquilidad de que una familia revise su sistema dos veces al año.</p>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <div class="plan-name en">Basic Plan</div>
+      <div class="plan-name es">Plan Básico</div>
+      <div class="plan-name-es en">Plan Básico</div>
+      <div class="plan-name-es es">Basic Plan</div>
+      <div class="plan-price">$99<span style="font-size:16px;font-weight:600;">/yr</span></div>
+      <div class="plan-period en">1 system · annual</div>
+      <div class="plan-period es">1 sistema · anual</div>
+      <ul class="plan-items">
+        <li class="en">1 tune-up per year (spring or fall)</li>
+        <li class="es">1 revisión por año (primavera u otoño)</li>
+        <li class="en">Filter check and replacement</li>
+        <li class="es">Verificación y reemplazo de filtro</li>
+        <li class="en">10% off any repairs</li>
+        <li class="es">10% de descuento en reparaciones</li>
+        <li class="en">Priority scheduling</li>
+        <li class="es">Programación prioritaria</li>
+      </ul>
+      <a href="tel:9726384488" class="plan-cta en">Get Started</a>
+      <a href="tel:9726384488" class="plan-cta es">Comenzar</a>
+    </div>
+    <div class="plan-card featured">
+      <div class="plan-badge en">Most Popular</div>
+      <div class="plan-badge es">Más Popular</div>
+      <div class="plan-name en">Family Plan</div>
+      <div class="plan-name es">Plan Familiar</div>
+      <div class="plan-name-es en">Plan Familiar</div>
+      <div class="plan-name-es es">Family Plan</div>
+      <div class="plan-price">$159<span style="font-size:16px;font-weight:600;">/yr</span></div>
+      <div class="plan-period en">1 system · spring + fall</div>
+      <div class="plan-period es">1 sistema · primavera + otoño</div>
+      <ul class="plan-items">
+        <li class="en">2 tune-ups per year</li>
+        <li class="es">2 revisiones por año</li>
+        <li class="en">Full system inspection each visit</li>
+        <li class="es">Inspección completa del sistema</li>
+        <li class="en">15% off any repairs</li>
+        <li class="es">15% de descuento en reparaciones</li>
+        <li class="en">Priority scheduling, same-day</li>
+        <li class="es">Programación prioritaria, mismo día</li>
+        <li class="en">Thermostat battery check</li>
+        <li class="es">Verificación de batería del termostato</li>
+      </ul>
+      <a href="tel:9726384488" class="plan-cta en">Call the Duartes</a>
+      <a href="tel:9726384488" class="plan-cta es">Llame a los Duartes</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name en">Full-Home Plan</div>
+      <div class="plan-name es">Plan de Casa Completa</div>
+      <div class="plan-name-es en">Plan de Casa Completa</div>
+      <div class="plan-name-es es">Full-Home Plan</div>
+      <div class="plan-price">$249<span style="font-size:16px;font-weight:600;">/yr</span></div>
+      <div class="plan-period en">2+ systems · spring + fall</div>
+      <div class="plan-period es">2+ sistemas · primavera + otoño</div>
+      <ul class="plan-items">
+        <li class="en">2 tune-ups, all your systems</li>
+        <li class="es">2 revisiones, todos sus sistemas</li>
+        <li class="en">Full IAQ check</li>
+        <li class="es">Verificación completa de IAQ</li>
+        <li class="en">20% off any repairs</li>
+        <li class="es">20% de descuento en reparaciones</li>
+        <li class="en">No after-hours fee</li>
+        <li class="es">Sin cargo por servicio fuera de horario</li>
+        <li class="en">Victor's direct cell number</li>
+        <li class="es">Número celular directo de Victor</li>
+      </ul>
+      <a href="tel:9726384488" class="plan-cta en">Get Started</a>
+      <a href="tel:9726384488" class="plan-cta es">Comenzar</a>
+    </div>
+  </div>
+</section>
+
+<!-- BILINGUAL CALLOUT -->
+<section class="bilingual-section">
+  <div class="bilingual-inner">
+    <h2>🌎 <span class="en">We speak your language.</span><span class="es">Hablamos su idioma.</span></h2>
+    <p class="en">Victor and Fernando are fully bilingual. There's no language barrier when your A/C goes out at 95°. Call, text, or leave a voicemail in English or Spanish — we'll call you back the same way.</p>
+    <p class="es">Victor y Fernando son completamente bilingües. No hay barrera del idioma cuando su A/C falla a 95°. Llame, envíe un mensaje o deje un correo de voz en inglés o español — le devolveremos la llamada de la misma manera.</p>
+    <div class="bilingual-ctас">
+      <a href="tel:9726384488" class="btn-bilingual-call en">📞 Call Now — 972-638-4488</a>
+      <a href="tel:9726384488" class="btn-bilingual-call es">📞 Llame Ahora — 972-638-4488</a>
+      <a href="sms:9726384488&body=Hola, necesito servicio de HVAC en español." class="btn-bilingual-sms">💬 <span class="en">Text in Spanish</span><span class="es">Escriba en Español</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section">
+  <div class="section-label en">What Neighbors Say</div>
+  <div class="section-label es">Lo Que Dicen los Vecinos</div>
+  <h2 class="section-title en">The whole neighborhood calls the Duartes.</h2>
+  <h2 class="section-title es">Todo el vecindario llama a los Duartes.</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <p>"Victor came out within two hours on a Saturday. Fixed the problem, showed me what was wrong, and charged exactly what he quoted. I've used three other companies and none of them were this straightforward."</p>
+      <div class="t-meta">
+        <div>
+          <div class="t-name">Angela M.</div>
+          <div class="t-loc">Mesquite, TX</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="stars">★★★★★</div>
+          <span class="lang-tag tag-en">EN</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial spanish-t">
+      <p>"Llamé a Duarte's porque hablan español y no tuve que preocuparme por explicar el problema. Victor entendió todo de inmediato y lo arregló en la misma visita. Les di su número a mis vecinos."</p>
+      <div class="t-meta">
+        <div>
+          <div class="t-name">Rosa L.</div>
+          <div class="t-loc">Garland, TX</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="stars">★★★★★</div>
+          <span class="lang-tag tag-es">ES</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <p>"Fernando did our install and it was flawless. He cleaned up after himself, walked us through the new thermostat, and followed up the next day to make sure everything was running right. That's a family business — you can tell."</p>
+      <div class="t-meta">
+        <div>
+          <div class="t-name">Kevin T.</div>
+          <div class="t-loc">Rowlett, TX</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="stars">★★★★★</div>
+          <span class="lang-tag tag-en">EN</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2 class="en">Ready? <em>Call the Duartes.</em></h2>
+  <h2 class="es">¿Listo? <em>Llame a los Duartes.</em></h2>
+  <p class="en">Family-owned, fully bilingual, and on the road across DFW seven days a week. One call and you'll know exactly who's coming to your door.</p>
+  <p class="es">Empresa familiar, completamente bilingüe y en la carretera por todo DFW siete días a la semana. Una llamada y sabrá exactamente quién viene a su puerta.</p>
+  <div class="final-btns">
+    <a href="tel:9726384488" class="btn-primary en">📞 972-638-4488</a>
+    <a href="tel:9726384488" class="btn-primary es">📞 972-638-4488</a>
+    <a href="sms:9726384488&body=I need HVAC service from the Duartes." class="btn-secondary en">💬 Text Us</a>
+    <a href="sms:9726384488&body=Necesito servicio de HVAC de los Duartes." class="btn-secondary es">💬 Escríbenos</a>
+  </div>
+  <div class="trust-row">
+    <span class="en">Family-Owned Since 2008</span>
+    <span class="es">Empresa Familiar desde 2008</span>
+    <span class="en">TACL-B39142E</span>
+    <span class="es">TACL-B39142E</span>
+    <span class="en">English &amp; Spanish</span>
+    <span class="es">Inglés y Español</span>
+    <span class="en">DFW Metroplex</span>
+    <span class="es">Área Metropolitana DFW</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Duarte's HVAC Services LLC</strong><br>
+  DFW Metroplex · Dallas · Garland · Mesquite · Rowlett · Rockwall &amp; surrounding areas<br>
+  <a href="tel:9726384488">972-638-4488</a> · TACL-B39142E<br>
+  <small style="opacity:0.4;font-size:10px;">Licensed, bonded, and insured. Victor Duarte, Owner. Hablamos español.</small>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.getElementById('html-root').lang = lang;
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  try { localStorage.setItem('duartes-lang', lang); } catch(e) {}
+}
+(function() {
+  try {
+    var saved = localStorage.getItem('duartes-lang');
+    if (saved === 'es') setLang('es');
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>
