@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NTX Energy Services | High-Efficiency HVAC for North Texas Homeowners</title>
+<style>
+:root {
+  --green: #1a7a3c;
+  --green-dark: #135c2d;
+  --green-light: #e8f5ed;
+  --sky: #0a72c3;
+  --sky-light: #e8f2fb;
+  --gold: #d4870a;
+  --gold-light: #fdf3e0;
+  --charcoal: #1c2b1e;
+  --mid: #4a5c4e;
+  --soft: #f4f7f5;
+  --white: #ffffff;
+  --border: #d0dcd2;
+  --radius: 10px;
+  --shadow: 0 2px 14px rgba(0,0,0,0.10);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--charcoal); background: var(--white); line-height: 1.55; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--green-dark);
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-leaf {
+  width: 34px; height: 34px;
+  background: var(--green);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.logo-leaf span { transform: rotate(45deg); font-size: 16px; }
+.logo-text { color: var(--white); }
+.logo-text strong { display: block; font-size: 17px; font-weight: 800; letter-spacing: -0.3px; }
+.logo-text small { font-size: 11px; opacity: 0.8; letter-spacing: 0.5px; }
+.header-cta {
+  background: var(--gold);
+  color: var(--white);
+  font-weight: 700; font-size: 14px;
+  padding: 9px 16px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* ── SAVINGS BANNER ── */
+.savings-banner {
+  background: linear-gradient(135deg, var(--gold) 0%, #b86e00 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.savings-banner strong { font-size: 15px; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, var(--green-dark) 0%, #0d4d22 55%, #0b3d1c 100%);
+  color: var(--white);
+  padding: 48px 20px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(26,122,60,0.4) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50px;
+  padding: 6px 14px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+.hero-badge::before { content: '🌿'; font-size: 14px; }
+.hero h1 {
+  font-size: clamp(28px, 7vw, 46px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  max-width: 560px;
+}
+.hero h1 em { color: #6ce88a; font-style: normal; }
+.hero-sub {
+  font-size: 16px;
+  opacity: 0.88;
+  margin-bottom: 32px;
+  max-width: 480px;
+  line-height: 1.6;
+}
+.hero-ctas { display: flex; flex-direction: column; gap: 12px; max-width: 360px; }
+.btn-primary {
+  display: block; text-align: center;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 17px; font-weight: 800;
+  padding: 16px 24px;
+  border-radius: 8px;
+  letter-spacing: 0.2px;
+}
+.btn-secondary {
+  display: block; text-align: center;
+  background: rgba(255,255,255,0.12);
+  border: 2px solid rgba(255,255,255,0.4);
+  color: var(--white);
+  font-size: 15px; font-weight: 700;
+  padding: 13px 24px;
+  border-radius: 8px;
+}
+.hero-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+  max-width: 520px;
+}
+.hero-stat { text-align: center; }
+.hero-stat strong { display: block; font-size: 22px; font-weight: 800; color: #6ce88a; }
+.hero-stat span { font-size: 12px; opacity: 0.8; }
+
+/* ── SECTION BASE ── */
+.section { padding: 52px 20px; }
+.section-label {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+.section-title {
+  font-size: clamp(22px, 5vw, 34px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.section-sub {
+  font-size: 16px;
+  color: var(--mid);
+  max-width: 560px;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+/* ── TAX CREDIT CALCULATOR ── */
+.calc-section { background: var(--gold-light); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); }
+.calc-wrapper {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  max-width: 620px;
+  margin: 0 auto;
+}
+.calc-header {
+  background: linear-gradient(135deg, var(--green-dark), #0d5a24);
+  color: var(--white);
+  padding: 22px 24px 18px;
+}
+.calc-header h3 { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+.calc-header p { font-size: 13px; opacity: 0.85; }
+.calc-header .irs-note {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 11px; font-weight: 600; margin-top: 8px;
+}
+.calc-body { padding: 24px; }
+.calc-field { margin-bottom: 18px; }
+.calc-field label {
+  display: block;
+  font-size: 13px; font-weight: 700;
+  color: var(--mid);
+  margin-bottom: 6px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.calc-field select,
+.calc-field input[type="range"] {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 15px;
+  background: var(--soft);
+  color: var(--charcoal);
+  -webkit-appearance: none; appearance: none;
+}
+.calc-field select { cursor: pointer; }
+.range-row { display: flex; justify-content: space-between; font-size: 12px; color: var(--mid); margin-top: 4px; }
+.range-val {
+  font-size: 17px; font-weight: 800; color: var(--green-dark);
+  text-align: center; margin-top: -2px;
+}
+.calc-result {
+  background: var(--green-light);
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 8px;
+  display: none;
+}
+.calc-result.visible { display: block; }
+.result-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.result-row:last-of-type { border-bottom: none; }
+.result-row .lbl { color: var(--mid); }
+.result-row .val { font-weight: 700; color: var(--charcoal); }
+.result-total {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--green-dark);
+  color: var(--white);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-top: 14px;
+}
+.result-total .lbl { font-size: 13px; font-weight: 600; }
+.result-total .big { font-size: 26px; font-weight: 800; color: #6ce88a; }
+.calc-disclaimer {
+  font-size: 11px; color: var(--mid); margin-top: 12px; line-height: 1.5;
+}
+.calc-btn {
+  width: 100%;
+  background: var(--gold);
+  color: var(--white);
+  border: none; cursor: pointer;
+  font-size: 16px; font-weight: 800;
+  padding: 14px;
+  border-radius: 8px;
+  margin-top: 18px;
+}
+.calc-cta-row {
+  display: flex; flex-direction: column; gap: 10px;
+  margin-top: 16px;
+}
+.calc-cta-row a {
+  display: block; text-align: center;
+  font-size: 14px; font-weight: 700;
+  padding: 12px;
+  border-radius: 7px;
+}
+.cta-call { background: var(--green-dark); color: var(--white); }
+.cta-sms { background: var(--sky); color: var(--white); }
+
+/* ── SERVICES ── */
+.services-section { background: var(--soft); }
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  max-width: 680px;
+}
+.service-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  transition: box-shadow 0.2s;
+}
+.service-card:hover { box-shadow: var(--shadow); }
+.svc-icon { font-size: 26px; margin-bottom: 10px; }
+.svc-name { font-size: 14px; font-weight: 800; margin-bottom: 5px; color: var(--charcoal); }
+.svc-desc { font-size: 13px; color: var(--mid); line-height: 1.5; }
+.svc-credit {
+  display: inline-block;
+  background: var(--gold-light);
+  color: var(--gold);
+  border: 1px solid #f0c87a;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 7px; border-radius: 4px;
+  margin-top: 8px;
+  letter-spacing: 0.3px;
+}
+
+/* ── CREDIT EXPLAINER ── */
+.credit-section { background: var(--white); }
+.credit-cards {
+  display: grid; grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 640px;
+}
+.credit-card {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: var(--green-light);
+  border: 1.5px solid #b0d9bc;
+  border-radius: var(--radius);
+  padding: 18px;
+}
+.credit-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: var(--green);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+}
+.credit-text strong { display: block; font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+.credit-text p { font-size: 13px; color: var(--mid); line-height: 1.5; }
+.credit-text .amount { color: var(--green-dark); font-weight: 800; }
+.section-notice {
+  background: var(--sky-light);
+  border: 1.5px solid #90c4e8;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--sky);
+  margin-top: 24px;
+  max-width: 640px;
+  line-height: 1.6;
+}
+.section-notice strong { color: var(--charcoal); }
+
+/* ── AUDIT SECTION ── */
+.audit-section { background: var(--sky-light); border-top: 3px solid #90c4e8; }
+.audit-steps {
+  display: grid; grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: 600px;
+  counter-reset: step-counter;
+}
+.audit-step {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 16px;
+  counter-increment: step-counter;
+}
+.step-num {
+  width: 36px; height: 36px; flex-shrink: 0;
+  background: var(--sky);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800;
+}
+.step-text strong { display: block; font-size: 14px; font-weight: 800; margin-bottom: 3px; }
+.step-text p { font-size: 13px; color: var(--mid); }
+
+/* ── ABOUT ── */
+.about-section { background: var(--soft); }
+.about-inner { max-width: 640px; }
+.owner-card {
+  display: flex; gap: 18px; align-items: flex-start;
+  margin-bottom: 28px;
+}
+.owner-avatar {
+  width: 64px; height: 64px; flex-shrink: 0;
+  background: var(--green-dark);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 800; letter-spacing: -1px;
+}
+.owner-info strong { display: block; font-size: 17px; font-weight: 800; }
+.owner-info span { font-size: 13px; color: var(--mid); display: block; margin-bottom: 6px; }
+.owner-quote { font-size: 14px; font-style: italic; color: var(--charcoal); line-height: 1.6; }
+.creds-row {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-top: 22px;
+}
+.cred-pill {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  padding: 7px 14px;
+  font-size: 12px; font-weight: 700;
+}
+.cred-pill::before { content: '✓'; color: var(--green); font-weight: 800; }
+
+/* ── TESTIMONIALS ── */
+.testimonials-section { background: var(--white); }
+.testimonials-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 640px;
+}
+.testimonial {
+  background: var(--soft);
+  border-left: 4px solid var(--green);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 18px 18px 16px;
+}
+.testimonial p { font-size: 14px; line-height: 1.65; margin-bottom: 12px; font-style: italic; }
+.testimonial-meta { display: flex; align-items: center; justify-content: space-between; }
+.testimonial-author { font-size: 13px; font-weight: 700; }
+.testimonial-location { font-size: 12px; color: var(--mid); }
+.stars { color: var(--gold); font-size: 13px; letter-spacing: 1px; }
+.savings-tag {
+  display: inline-block;
+  background: var(--green-light);
+  color: var(--green-dark);
+  border: 1px solid #b0d9bc;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 8px; border-radius: 4px;
+}
+
+/* ── FINAL CTA ── */
+.final-cta {
+  background: linear-gradient(135deg, var(--green-dark) 0%, #0a3d18 100%);
+  color: var(--white);
+  padding: 52px 20px 56px;
+  text-align: center;
+}
+.final-cta h2 { font-size: clamp(24px, 6vw, 38px); font-weight: 800; margin-bottom: 12px; }
+.final-cta h2 em { color: #6ce88a; font-style: normal; }
+.final-cta p { font-size: 16px; opacity: 0.88; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+.final-btns { display: flex; flex-direction: column; gap: 12px; max-width: 340px; margin: 0 auto; }
+.final-btns .btn-primary { background: var(--gold); font-size: 18px; }
+.final-btns .btn-secondary { border-color: rgba(255,255,255,0.4); }
+.trust-final {
+  margin-top: 32px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
+  font-size: 12px; opacity: 0.75;
+}
+.trust-final span::before { content: '✓ '; font-weight: 800; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--charcoal);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 12px;
+  line-height: 1.8;
+}
+footer strong { color: var(--white); }
+footer a { color: rgba(255,255,255,0.7); }
+
+/* ── RESPONSIVE ── */
+@media (min-width: 580px) {
+  .hero-ctas { flex-direction: row; max-width: 480px; }
+  .btn-primary, .btn-secondary { flex: 1; }
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+  .credit-cards { grid-template-columns: 1fr 1fr; }
+  .credit-card { flex-direction: column; }
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+  .audit-steps { grid-template-columns: 1fr 1fr; }
+  .calc-cta-row { flex-direction: row; }
+  .calc-cta-row a { flex: 1; }
+  .final-btns { flex-direction: row; max-width: 480px; }
+  .final-btns .btn-primary, .final-btns .btn-secondary { flex: 1; }
+}
+@media (min-width: 860px) {
+  .services-grid { grid-template-columns: repeat(4, 1fr); }
+  .credit-cards { grid-template-columns: repeat(4, 1fr); }
+  .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+  .audit-steps { grid-template-columns: repeat(4, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo">
+    <div class="logo-leaf"><span>🍃</span></div>
+    <div class="logo-text">
+      <strong>NTX Energy</strong>
+      <small>HIGH-EFFICIENCY HVAC · DFW</small>
+    </div>
+  </div>
+  <a href="tel:9728550140" class="header-cta">📞 972-855-0140</a>
+</header>
+
+<!-- SAVINGS BANNER -->
+<div class="savings-banner">
+  <strong>Up to $2,000 federal tax credit available in 2025</strong> — Act before the season rush
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">North Texas Energy Specialists</div>
+  <h1>We cut your <em>energy bill</em>,<br>not corners.</h1>
+  <p class="hero-sub">NTX Energy Services installs high-efficiency heat pumps, smart thermostats, and attic insulation upgrades — and we help you claim every federal dollar you're owed.</p>
+  <div class="hero-ctas">
+    <a href="tel:9728550140" class="btn-primary">📞 See Your Savings</a>
+    <a href="sms:9728550140&body=Hi, I'd like to schedule an energy assessment." class="btn-secondary">💬 Text Us</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>$1,800</strong><span>avg. credit claimed</span></div>
+    <div class="hero-stat"><strong>30%</strong><span>typical bill reduction</span></div>
+    <div class="hero-stat"><strong>24/7</strong><span>service + support</span></div>
+  </div>
+</section>
+
+<!-- TAX CREDIT CALCULATOR -->
+<section class="section calc-section">
+  <div style="max-width:620px;margin:0 auto;">
+    <div class="section-label">Federal Tax Credit Calculator</div>
+    <h2 class="section-title">See what you could get back</h2>
+    <p class="section-sub">The Inflation Reduction Act (Section 25C) gives homeowners up to $2,000 back on qualifying HVAC upgrades. Estimate your credit below — it only takes 30 seconds.</p>
+    <div class="calc-wrapper">
+      <div class="calc-header">
+        <h3>🏛️ 2025 Energy Efficiency Tax Credit Estimator</h3>
+        <p>Based on IRS Section 25C — Nonbusiness Energy Property Credit</p>
+        <span class="irs-note">IRS Form 5695 · Up to 30% of cost · $2,000 max annual cap</span>
+      </div>
+      <div class="calc-body">
+        <div class="calc-field">
+          <label>What are you upgrading?</label>
+          <select id="system-type" onchange="runCalc()">
+            <option value="">— Select a system type —</option>
+            <option value="heat-pump-air" data-rate="0.30" data-cap="2000">Heat Pump (air source) · up to 30% / $2,000</option>
+            <option value="heat-pump-geo" data-rate="0.30" data-cap="2000">Geothermal Heat Pump · up to 30% / $2,000</option>
+            <option value="central-ac" data-rate="0.30" data-cap="600">High-Efficiency Central A/C · up to 30% / $600</option>
+            <option value="furnace" data-rate="0.30" data-cap="600">High-Efficiency Gas Furnace · up to 30% / $600</option>
+            <option value="thermostat" data-rate="0.30" data-cap="150">Smart Thermostat · up to 30% / $150</option>
+            <option value="insulation" data-rate="0.30" data-cap="1200">Attic Insulation / Air Sealing · up to 30% / $1,200</option>
+            <option value="audit" data-rate="1.00" data-cap="150">Home Energy Audit · up to $150</option>
+          </select>
+        </div>
+        <div class="calc-field" id="cost-field" style="display:none;">
+          <label>Estimated system cost: <span class="range-val" id="cost-display">$8,000</span></label>
+          <input type="range" id="cost-slider" min="1000" max="20000" step="500" value="8000" oninput="updateCostDisplay(); runCalc();">
+          <div class="range-row"><span>$1,000</span><span>$20,000</span></div>
+        </div>
+        <div class="calc-result" id="calc-result">
+          <div class="result-row"><span class="lbl">System / project cost</span><span class="val" id="res-cost">—</span></div>
+          <div class="result-row"><span class="lbl">Credit rate (Section 25C)</span><span class="val" id="res-rate">—</span></div>
+          <div class="result-row"><span class="lbl">Calculated credit (30% of cost)</span><span class="val" id="res-calc">—</span></div>
+          <div class="result-row"><span class="lbl">Annual cap for this equipment type</span><span class="val" id="res-cap">—</span></div>
+          <div class="result-total">
+            <span class="lbl">Your estimated tax credit</span>
+            <span class="big" id="res-total">$0</span>
+          </div>
+          <p class="calc-disclaimer">Estimate only. Credit applies to federal income tax owed — not a refund. Consult your tax advisor. System must be ENERGY STAR certified and installed in your primary U.S. residence.</p>
+        </div>
+        <button class="calc-btn" onclick="callAboutCredit()">📞 Call to Confirm Your Qualifying System</button>
+        <div class="calc-cta-row">
+          <a href="tel:9728550140" class="cta-call">📞 972-855-0140</a>
+          <a href="sms:9728550140&body=I used the tax credit calculator — can I get a qualifying system quote?" class="cta-sms">💬 Text for Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-section">
+  <div class="section-label">What We Install & Service</div>
+  <h2 class="section-title">High-efficiency upgrades that pay you back</h2>
+  <p class="section-sub">Every system we install is ENERGY STAR certified and qualifies for the maximum available federal credit.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="svc-icon">🌡️</div>
+      <div class="svc-name">Heat Pumps</div>
+      <div class="svc-desc">Air-source and mini-split heat pumps that heat and cool in one system. Up to 3x more efficient than resistance heat.</div>
+      <div class="svc-credit">Up to $2,000 credit</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">❄️</div>
+      <div class="svc-name">High-Efficiency A/C</div>
+      <div class="svc-desc">16+ SEER2 central air systems sized for Texas heat. Lower monthly bills from day one.</div>
+      <div class="svc-credit">Up to $600 credit</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">🔥</div>
+      <div class="svc-name">Gas Furnaces</div>
+      <div class="svc-desc">95%+ AFUE furnaces that squeeze every BTU from every dollar of gas you burn.</div>
+      <div class="svc-credit">Up to $600 credit</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">🏠</div>
+      <div class="svc-name">Attic Insulation</div>
+      <div class="svc-desc">Air sealing and insulation upgrades stop the leaks that drain your wallet all summer.</div>
+      <div class="svc-credit">Up to $1,200 credit</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">📱</div>
+      <div class="svc-name">Smart Thermostats</div>
+      <div class="svc-desc">Ecobee and Nest installs with full setup and scheduling. Save 10–15% on bills automatically.</div>
+      <div class="svc-credit">Up to $150 credit</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">🔍</div>
+      <div class="svc-name">Energy Audits</div>
+      <div class="svc-desc">We find where your home is bleeding energy — and show you exactly what to fix first.</div>
+      <div class="svc-credit">Up to $150 credit</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">🔧</div>
+      <div class="svc-name">HVAC Repair</div>
+      <div class="svc-desc">Fast service on all makes and models. If it's worth fixing, we'll fix it right.</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">📋</div>
+      <div class="svc-name">Maintenance Plans</div>
+      <div class="svc-desc">Spring and fall tune-ups to keep your system running at peak efficiency all year.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIT EXPLAINER -->
+<section class="section credit-section">
+  <div class="section-label">How the Tax Credit Works</div>
+  <h2 class="section-title">Real money back from the IRS — not a rebate</h2>
+  <p class="section-sub">Section 25C is a dollar-for-dollar reduction in what you owe the IRS. Here's what that means for common upgrades.</p>
+  <div class="credit-cards">
+    <div class="credit-card">
+      <div class="credit-icon">🌡️</div>
+      <div class="credit-text">
+        <strong>Heat Pump</strong>
+        <p>Install a qualifying air-source heat pump and claim <span class="amount">up to $2,000</span> directly off your federal tax bill.</p>
+      </div>
+    </div>
+    <div class="credit-card">
+      <div class="credit-icon">❄️</div>
+      <div class="credit-text">
+        <strong>Central A/C or Furnace</strong>
+        <p>High-efficiency central systems earn <span class="amount">up to $600</span> each — you can combine credits in the same tax year.</p>
+      </div>
+    </div>
+    <div class="credit-card">
+      <div class="credit-icon">🏠</div>
+      <div class="credit-text">
+        <strong>Insulation</strong>
+        <p>Attic insulation and air sealing qualifies for <span class="amount">up to $1,200</span> — often the best ROI upgrade in North Texas.</p>
+      </div>
+    </div>
+    <div class="credit-card">
+      <div class="credit-icon">📋</div>
+      <div class="credit-text">
+        <strong>Stack the Credits</strong>
+        <p>Heat pump + insulation + thermostat in one year can yield <span class="amount">$3,000+ total credits</span>. We help you plan the sequence.</p>
+      </div>
+    </div>
+  </div>
+  <div class="section-notice">
+    <strong>We handle the paperwork.</strong> When we install a qualifying system, we provide the manufacturer certificate and cost documentation you need for IRS Form 5695. Just hand it to your tax preparer — done.
+  </div>
+</section>
+
+<!-- AUDIT SECTION -->
+<section class="section audit-section">
+  <div class="section-label">The NTX Process</div>
+  <h2 class="section-title">How we get you to lower bills</h2>
+  <p class="section-sub">We don't just swap equipment — we start with where your home is losing money.</p>
+  <div class="audit-steps">
+    <div class="audit-step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <strong>Energy Assessment</strong>
+        <p>We walk your home and identify where conditioned air escapes and energy is wasted.</p>
+      </div>
+    </div>
+    <div class="audit-step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <strong>Upgrade Roadmap</strong>
+        <p>You get a prioritized list of upgrades ranked by payback period — no overselling.</p>
+      </div>
+    </div>
+    <div class="audit-step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <strong>Expert Installation</strong>
+        <p>Licensed install with proper load calculations. We size it right — not just what fits in the old hole.</p>
+      </div>
+    </div>
+    <div class="audit-step">
+      <div class="step-num">4</div>
+      <div class="step-text">
+        <strong>Credit Documentation</strong>
+        <p>We hand you everything your tax preparer needs to claim every dollar you're owed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-section">
+  <div class="section-label">Who We Are</div>
+  <div class="about-inner">
+    <h2 class="section-title">North Texas homeowners deserve better than guesswork</h2>
+    <div class="owner-card">
+      <div class="owner-avatar">RT</div>
+      <div class="owner-info">
+        <strong>Ryan Tillman — Owner, NTX Energy Services</strong>
+        <span>NATE Certified · TACL-B42371E · 14 years in DFW HVAC</span>
+        <p class="owner-quote">"Most contractors swap the box and leave. We look at your whole house — because a new system in a leaky house is still a leaky house. We get you the savings, not just the equipment."</p>
+      </div>
+    </div>
+    <div class="creds-row">
+      <span class="cred-pill">NATE Certified Technicians</span>
+      <span class="cred-pill">ENERGY STAR Partner</span>
+      <span class="cred-pill">TACL Licensed &amp; Insured</span>
+      <span class="cred-pill">Manual J Load Calculations</span>
+      <span class="cred-pill">Serving DFW Since 2011</span>
+      <span class="cred-pill">Free Energy Assessments</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section">
+  <div class="section-label">What Homeowners Say</div>
+  <h2 class="section-title">Real results from real neighbors</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <p>"Ryan's team installed a new heat pump and blew in attic insulation the same week. My electric bill went from $340 to $218 that first August. And I got $2,000 back on my taxes."</p>
+      <div class="testimonial-meta">
+        <div>
+          <div class="testimonial-author">Sandra K.</div>
+          <div class="testimonial-location">Frisco, TX</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="stars">★★★★★</div>
+          <span class="savings-tag">Saved $122/mo</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <p>"They were the only contractor who actually did a load calculation before quoting me a size. The other guys just said 'same size as what you have.' That's not how this works. NTX did it right."</p>
+      <div class="testimonial-meta">
+        <div>
+          <div class="testimonial-author">Marcus L.</div>
+          <div class="testimonial-location">McKinney, TX</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="stars">★★★★★</div>
+          <span class="savings-tag">Properly sized system</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <p>"I had no idea about the tax credit until Ryan walked me through it. I upgraded my A/C and insulation and got $1,350 back. They even gave me the paperwork ready to hand to my accountant."</p>
+      <div class="testimonial-meta">
+        <div>
+          <div class="testimonial-author">Denise W.</div>
+          <div class="testimonial-location">Plano, TX</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="stars">★★★★★</div>
+          <span class="savings-tag">$1,350 credit claimed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Ready to <em>cut your bill</em>?</h2>
+  <p>Get a free energy assessment and a clear picture of your upgrade options — including every federal credit you qualify for.</p>
+  <div class="final-btns">
+    <a href="tel:9728550140" class="btn-primary">📞 972-855-0140</a>
+    <a href="sms:9728550140&body=I want a free energy assessment and tax credit review." class="btn-secondary">💬 Text for Assessment</a>
+  </div>
+  <div class="trust-final">
+    <span>Licensed &amp; Insured</span>
+    <span>NATE Certified</span>
+    <span>ENERGY STAR Partner</span>
+    <span>Credit Paperwork Included</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>NTX Energy Services</strong><br>
+  DFW Metroplex · Serving Dallas, Frisco, Plano, McKinney, Allen &amp; surrounding areas<br>
+  <a href="tel:9728550140">972-855-0140</a> · TACL-B42371E<br>
+  <small style="opacity:0.5;font-size:10px;">Tax credit estimates are for informational purposes only and do not constitute tax advice. Consult a qualified tax professional. Credit availability subject to IRS rules and equipment certification.</small>
+</footer>
+
+<script>
+function updateCostDisplay() {
+  const v = parseInt(document.getElementById('cost-slider').value);
+  document.getElementById('cost-display').textContent = '$' + v.toLocaleString();
+}
+
+function runCalc() {
+  const sel = document.getElementById('system-type');
+  const opt = sel.options[sel.selectedIndex];
+  const costField = document.getElementById('cost-field');
+  const result = document.getElementById('calc-result');
+
+  if (!opt.value) { costField.style.display = 'none'; result.classList.remove('visible'); return; }
+
+  const rate = parseFloat(opt.dataset.rate);
+  const cap = parseInt(opt.dataset.cap);
+  const isAudit = opt.value === 'audit';
+
+  if (isAudit) {
+    costField.style.display = 'none';
+    document.getElementById('res-cost').textContent = 'Flat fee service';
+    document.getElementById('res-rate').textContent = '100% (flat cap)';
+    document.getElementById('res-calc').textContent = 'Actual cost';
+    document.getElementById('res-cap').textContent = '$150';
+    document.getElementById('res-total').textContent = 'Up to $150';
+    result.classList.add('visible');
+    return;
+  }
+
+  costField.style.display = 'block';
+  const cost = parseInt(document.getElementById('cost-slider').value);
+  const calculated = Math.round(cost * rate);
+  const credit = Math.min(calculated, cap);
+
+  document.getElementById('res-cost').textContent = '$' + cost.toLocaleString();
+  document.getElementById('res-rate').textContent = (rate * 100) + '%';
+  document.getElementById('res-calc').textContent = '$' + calculated.toLocaleString();
+  document.getElementById('res-cap').textContent = '$' + cap.toLocaleString();
+  document.getElementById('res-total').textContent = '$' + credit.toLocaleString();
+  result.classList.add('visible');
+}
+
+function callAboutCredit() {
+  const sel = document.getElementById('system-type');
+  const sysName = sel.options[sel.selectedIndex].text || 'an upgrade';
+  window.location.href = 'tel:9728550140';
+}
+</script>
+</body>
+</html>
