@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JJ HVAC LLC | Bilingual HVAC / Servicio HVAC Bilingüe | DFW Area, TX</title>
+<style>
+:root {
+  --navy: #1a2e4a;
+  --navy-mid: #213a5c;
+  --blue: #1e62a0;
+  --blue-light: #2878c0;
+  --red: #c0281e;
+  --red-light: #d83a2e;
+  --warm: #e8900e;
+  --warm-light: #f5a820;
+  --white: #ffffff;
+  --off-white: #f5f3ef;
+  --light: #eae6df;
+  --muted: #637080;
+  --text: #111c2a;
+  --border: #d0ccc4;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* LANGUAGE TOGGLE STRIP */
+.lang-strip {
+  background: var(--navy);
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.lang-strip-label {
+  font-size: 0.66rem;
+  color: rgba(255,255,255,0.38);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 4px;
+}
+
+.lang-btn {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background: none;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.lang-btn.active {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+.lang-btn:not(.active) {
+  color: rgba(255,255,255,0.5);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.lang-btn:not(.active):hover {
+  color: rgba(255,255,255,0.85);
+  border-color: rgba(255,255,255,0.35);
+}
+
+/* Hide/show language content */
+[data-lang="es"] { display: none; }
+html[lang="es"] [data-lang="en"] { display: none; }
+html[lang="es"] [data-lang="es"] { display: block; }
+html[lang="es"] span[data-lang="es"],
+html[lang="es"] a[data-lang="es"],
+html[lang="es"] div[data-lang="es"] { display: block; }
+html[lang="es"] span[data-lang="en"],
+html[lang="es"] a[data-lang="en"],
+html[lang="es"] div[data-lang="en"] { display: none; }
+html[lang="es"] .lang-btn[data-target="es"] { background: var(--blue); color: var(--white); border-color: var(--blue); }
+html[lang="es"] .lang-btn[data-target="en"] { background: none; color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.15); }
+
+/* Override for inline spans and flexible display */
+[data-lang] { display: inherit; }
+.lang-block-en, .lang-block-es { display: block; }
+html[lang="es"] .lang-block-en { display: none; }
+html[lang="en"] .lang-block-es { display: none; }
+
+/* NAV */
+nav {
+  background: var(--navy-mid);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-left { display: flex; flex-direction: column; }
+
+.nav-logo {
+  color: var(--white);
+  font-size: 0.97rem;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.nav-tagline {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+.nav-call {
+  background: var(--warm);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 9px 13px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* BILINGUAL BADGE */
+.bilingual-bar {
+  background: linear-gradient(90deg, var(--navy) 50%, var(--red) 50%);
+  background: var(--navy);
+  border-bottom: 3px solid var(--red);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.bilingual-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.bil-flag { font-size: 1rem; line-height: 1; }
+.bil-divider { width: 1px; height: 14px; background: rgba(255,255,255,0.25); }
+
+/* HERO */
+.hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 44px 20px 52px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--blue) 50%, var(--red) 50%, var(--red) 100%);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 4px;
+  padding: 5px 11px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 18px;
+}
+
+.hero-badge .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--warm-light);
+  flex-shrink: 0;
+}
+
+.hero h1 {
+  font-size: 1.95rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  letter-spacing: -0.03em;
+}
+
+.hero h1 .en-line { color: var(--white); }
+.hero h1 .es-line { color: #90c8ff; font-style: italic; }
+.hero h1 .slash { color: rgba(255,255,255,0.2); font-weight: 300; font-style: normal; }
+
+.hero-sub-en {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.65;
+  margin-bottom: 6px;
+  max-width: 460px;
+}
+
+.hero-sub-es {
+  font-size: 0.9rem;
+  color: rgba(144,200,255,0.6);
+  line-height: 1.6;
+  margin-bottom: 26px;
+  max-width: 460px;
+  font-style: italic;
+}
+
+/* ALEX BLOCK IN HERO */
+.hero-alex {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 14px 16px;
+  max-width: 420px;
+}
+
+.alex-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.alex-info {}
+.alex-name { font-size: 0.95rem; font-weight: 800; color: var(--white); line-height: 1.2; }
+.alex-title-en { font-size: 0.75rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
+.alex-title-es { font-size: 0.72rem; color: rgba(144,200,255,0.6); margin-top: 1px; font-style: italic; }
+.alex-langs {
+  display: flex;
+  gap: 5px;
+  margin-top: 6px;
+}
+.alex-lang-tag {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+.tag-en { background: rgba(30,98,160,0.4); color: #90c8ff; border: 1px solid rgba(30,98,160,0.5); }
+.tag-es { background: rgba(192,40,30,0.3); color: #ff9090; border: 1px solid rgba(192,40,30,0.45); }
+
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 380px;
+}
+
+.btn-schedule {
+  display: block;
+  background: var(--warm);
+  color: var(--white);
+  font-size: 0.92rem;
+  font-weight: 800;
+  padding: 15px 20px;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.btn-schedule .es-sub {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-top: 2px;
+  font-style: italic;
+}
+
+.btn-call {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.22);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 20px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* TRUST STRIP */
+.trust {
+  background: var(--navy-mid);
+  padding: 14px 20px;
+}
+
+.trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 22px;
+  list-style: none;
+}
+
+.trust-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.trust-en {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trust-en::before { content: '✓'; color: #90c8ff; font-weight: 900; }
+
+.trust-es {
+  color: rgba(255,255,255,0.38);
+  font-size: 0.65rem;
+  font-style: italic;
+  padding-left: 14px;
+}
+
+/* SERVICES */
+.services {
+  background: var(--off-white);
+  padding: 52px 20px;
+}
+
+.section-head {
+  margin-bottom: 28px;
+}
+
+.section-bilabel {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 6px;
+}
+
+.section-en-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--warm);
+}
+
+.section-es-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(192,40,30,0.6);
+  font-style: italic;
+}
+
+.section-title-en {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.section-title-es {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.service-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 22px 20px;
+  border-top: 4px solid var(--blue);
+}
+
+.svc-icon { font-size: 1.5rem; margin-bottom: 8px; line-height: 1; }
+
+.svc-name-en {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.svc-name-es {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 2px;
+  margin-bottom: 8px;
+}
+
+.service-card p {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.service-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-card ul li {
+  font-size: 0.79rem;
+  color: var(--text);
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.35;
+}
+
+.service-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.li-es {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.72rem;
+  padding-left: 14px;
+  position: relative;
+  margin-top: -2px;
+  margin-bottom: 2px;
+}
+
+.li-es::before {
+  content: '·';
+  position: absolute;
+  left: 2px;
+  color: var(--border);
+}
+
+/* FINANCING */
+.financing {
+  background: var(--navy);
+  color: var(--white);
+  padding: 52px 20px;
+}
+
+.fin-label-en {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--warm-light);
+  margin-bottom: 2px;
+}
+
+.fin-label-es {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245,168,32,0.5);
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.financing h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.financing h2 .es-h2 {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  font-style: italic;
+  margin-top: 3px;
+  letter-spacing: -0.01em;
+}
+
+.financing-intro {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.65;
+  margin-bottom: 6px;
+  margin-top: 12px;
+  max-width: 500px;
+}
+
+.financing-intro-es {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.38);
+  font-style: italic;
+  line-height: 1.55;
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+
+.fin-options {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.fin-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 9px;
+  padding: 20px 18px;
+}
+
+.fin-card.featured {
+  background: rgba(232,144,14,0.14);
+  border-color: rgba(232,144,14,0.35);
+}
+
+.fin-card h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.fin-card .h3-es {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.fin-rate {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--warm-light);
+  line-height: 1.1;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.fin-rate span { font-size: 0.82rem; font-weight: 400; color: rgba(255,255,255,0.45); }
+
+.fin-desc {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.45;
+}
+
+.fin-desc-es {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+  font-style: italic;
+  line-height: 1.4;
+  margin-top: 3px;
+}
+
+.fin-cta {
+  display: block;
+  background: var(--warm);
+  color: var(--white);
+  font-size: 0.92rem;
+  font-weight: 800;
+  padding: 15px 20px;
+  border-radius: 6px;
+  text-align: center;
+  max-width: 380px;
+  line-height: 1.3;
+}
+
+.fin-cta .es-sub {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.75;
+  font-style: italic;
+  margin-top: 3px;
+  font-weight: 600;
+}
+
+/* ALEX / FAMILY STORY */
+.family {
+  background: var(--white);
+  padding: 52px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.family-card {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 22px;
+  max-width: 580px;
+}
+
+.family-top {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 24px 22px 0;
+}
+
+.family-photo {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 1.4rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 3px solid var(--warm);
+}
+
+.family-photo-note {
+  font-size: 0.58rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.family-id { flex: 1; }
+.family-name { font-size: 1.1rem; font-weight: 800; color: var(--text); line-height: 1.2; }
+.family-role-en { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+.family-role-es { font-size: 0.72rem; color: rgba(192,40,30,0.55); font-style: italic; margin-top: 1px; margin-bottom: 8px; }
+
+.family-lang-chips {
+  display: flex;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.family-quote-en {
+  margin: 18px 22px 8px;
+  font-size: 0.93rem;
+  color: var(--text);
+  line-height: 1.65;
+  border-left: 3px solid var(--blue);
+  padding-left: 14px;
+  font-style: italic;
+}
+
+.family-quote-es {
+  margin: 0 22px 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  border-left: 3px solid var(--red);
+  padding-left: 14px;
+  font-style: italic;
+}
+
+.family-creds {
+  padding: 0 22px 22px;
+  list-style: none;
+  display: grid;
+  gap: 7px;
+}
+
+.family-creds li {
+  font-size: 0.83rem;
+  color: var(--text);
+  display: flex;
+  gap: 9px;
+  line-height: 1.4;
+}
+
+.family-creds li::before {
+  content: '✓';
+  color: var(--blue);
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  background: var(--light);
+  padding: 52px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.testi-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.testi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 18px;
+}
+
+.testi-lang-flag {
+  font-size: 0.75rem;
+  margin-bottom: 6px;
+}
+
+.testi-stars { color: #b8860a; font-size: 0.82rem; margin-bottom: 7px; letter-spacing: 1px; }
+
+.testi-card p {
+  font-size: 0.86rem;
+  color: var(--text);
+  line-height: 1.57;
+  margin-bottom: 11px;
+}
+
+.testi-name { font-size: 0.76rem; font-weight: 700; color: var(--muted); line-height: 1.3; }
+.testi-name span { display: block; font-weight: 400; font-size: 0.71rem; }
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--navy);
+  color: var(--white);
+  padding: 52px 20px;
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.final-cta h2 .es-h2 {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  font-style: italic;
+  margin-top: 3px;
+}
+
+.final-cta p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.55);
+  margin: 12px auto 28px;
+  line-height: 1.6;
+  max-width: 380px;
+}
+
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.btn-main {
+  display: block;
+  background: var(--warm);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 16px 20px;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.btn-ghost {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 13px 20px;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* FOOTER */
+footer {
+  background: var(--navy-mid);
+  color: rgba(255,255,255,0.35);
+  padding: 28px 20px;
+  font-size: 0.76rem;
+  line-height: 1.75;
+}
+
+footer strong {
+  color: rgba(255,255,255,0.78);
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.85rem;
+}
+
+/* DESKTOP */
+@media (min-width: 580px) {
+  .service-grid { grid-template-columns: 1fr 1fr; }
+  .fin-options { grid-template-columns: 1fr 1fr 1fr; }
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .family-creds { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 860px) {
+  .hero { padding: 56px 40px 68px; }
+  .hero h1 { font-size: 2.5rem; }
+  .hero-ctas { flex-direction: row; max-width: 480px; }
+  .services, .financing, .family, .testimonials, .final-cta { padding: 68px 40px; }
+  .service-grid { grid-template-columns: repeat(4, 1fr); }
+  .testi-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE TOGGLE STRIP -->
+<div class="lang-strip">
+  <span class="lang-strip-label">Language / Idioma:</span>
+  <button class="lang-btn active" data-target="en" onclick="setLang('en')">🇺🇸 English</button>
+  <button class="lang-btn" data-target="es" onclick="setLang('es')">🇲🇽 Español</button>
+</div>
+
+<!-- BILINGUAL BADGE BAR -->
+<div class="bilingual-bar">
+  <div class="bilingual-badge">
+    <span class="bil-flag">🇺🇸</span>
+    <span style="font-size:0.73rem;">English</span>
+    <span class="bil-divider"></span>
+    <span class="bil-flag">🇲🇽</span>
+    <span style="font-size:0.73rem;">Español</span>
+    <span class="bil-divider"></span>
+    <span style="font-size:0.72rem; color:rgba(255,255,255,0.65);">Fully bilingual / Completamente bilingüe</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo">JJ HVAC LLC</div>
+    <div class="nav-tagline">DFW Area · Bilingual / Bilingüe</div>
+  </div>
+  <a class="nav-call" href="tel:+19725550381">
+    (972) 555-0381<br>
+    <span style="font-size:0.58rem; opacity:0.65; font-style:italic;">En español también</span>
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    DFW Area · TX Licensed HVAC
+  </div>
+
+  <h1>
+    <span class="en-line">Bilingual HVAC for DFW.</span>
+    <span class="slash"> / </span>
+    <span class="es-line">HVAC bilingüe en DFW.</span>
+  </h1>
+
+  <p class="hero-sub-en">AC and heating repair and installation — in English or Spanish, whichever you prefer. No translator needed, no misunderstanding what's wrong with your system.</p>
+  <p class="hero-sub-es">Reparación e instalación de aire acondicionado y calefacción — en inglés o español, lo que prefiera. Sin malentendidos sobre su sistema.</p>
+
+  <!-- ALEX -->
+  <div class="hero-alex">
+    <div>
+      <div class="alex-avatar">AJ</div>
+    </div>
+    <div class="alex-info">
+      <div class="alex-name">Alex — JJ HVAC</div>
+      <div class="alex-title-en">Owner · Lead Technician · DFW Area</div>
+      <div class="alex-title-es">Dueño · Técnico Principal · Área de DFW</div>
+      <div class="alex-langs">
+        <span class="alex-lang-tag tag-en">English</span>
+        <span class="alex-lang-tag tag-es">Español</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-ctas">
+    <a class="btn-schedule" href="tel:+19725550381">
+      Schedule Service
+      <span class="es-sub">Solicitar Servicio</span>
+    </a>
+    <a class="btn-call" href="tel:+19725550381">(972) 555-0381</a>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust">
+  <ul class="trust-list">
+    <li>
+      <span class="trust-en">TX Licensed HVAC</span>
+      <span class="trust-es">Licencia TX HVAC</span>
+    </li>
+    <li>
+      <span class="trust-en">Same-day available</span>
+      <span class="trust-es">Servicio el mismo día</span>
+    </li>
+    <li>
+      <span class="trust-en">All major brands</span>
+      <span class="trust-es">Todas las marcas</span>
+    </li>
+    <li>
+      <span class="trust-en">Financing available</span>
+      <span class="trust-es">Financiamiento disponible</span>
+    </li>
+    <li>
+      <span class="trust-en">Fully insured</span>
+      <span class="trust-es">Completamente asegurado</span>
+    </li>
+  </ul>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="section-head">
+    <div class="section-bilabel">
+      <span class="section-en-label">Services</span>
+      <span class="section-es-label">Servicios</span>
+    </div>
+    <div class="section-title-en">Everything your system needs.</div>
+    <div class="section-title-es">Todo lo que su sistema necesita.</div>
+  </div>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="svc-icon">❄️</div>
+      <div class="svc-name-en">AC Repair</div>
+      <div class="svc-name-es">Reparación de Aire Acondicionado</div>
+      <p>Warm air, short cycling, or not running — diagnosed and fixed, same visit when possible.</p>
+      <ul>
+        <li>All brands / Todas las marcas</li>
+        <li class="li-es">Diagnóstico mismo día</li>
+        <li>Capacitors, contactors, motors</li>
+        <li class="li-es">Capacitores, contactores, motores</li>
+        <li>Upfront quote / Precio antes de empezar</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="svc-icon">🔥</div>
+      <div class="svc-name-en">Heating Repair</div>
+      <div class="svc-name-es">Reparación de Calefacción</div>
+      <p>Furnace, heat pump, or electric heat — we diagnose and fix in one visit when parts are available.</p>
+      <ul>
+        <li>Gas &amp; electric furnaces</li>
+        <li class="li-es">Calefacción a gas y eléctrica</li>
+        <li>Heat pump service</li>
+        <li class="li-es">Servicio de bomba de calor</li>
+        <li>Carbon monoxide safety check</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="svc-icon">🏠</div>
+      <div class="svc-name-en">System Install &amp; Replace</div>
+      <div class="svc-name-es">Instalación y Reemplazo</div>
+      <p>Right-sized, clean install. We walk you through every option — in English or Spanish.</p>
+      <ul>
+        <li>Load calculation included</li>
+        <li class="li-es">Cálculo de carga incluido</li>
+        <li>Heat pumps / Bombas de calor</li>
+        <li>All brands / Todas las marcas</li>
+        <li class="li-es">Financiamiento disponible</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="svc-icon">🔧</div>
+      <div class="svc-name-en">Tune-Ups &amp; Maintenance</div>
+      <div class="svc-name-es">Mantenimiento Preventivo</div>
+      <p>Pre-season tune-up before DFW summer or winter. Keeps your warranty valid and avoids breakdowns.</p>
+      <ul>
+        <li>Spring AC tune-up</li>
+        <li class="li-es">Revisión antes del verano</li>
+        <li>Filter &amp; coil service</li>
+        <li class="li-es">Filtros y serpentines</li>
+        <li>Annual plans / Planes anuales</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCING -->
+<section class="financing">
+  <div class="fin-label-en">Financing Available</div>
+  <div class="fin-label-es">Financiamiento Disponible</div>
+  <h2>
+    Replace now. Pay over time.
+    <span class="es-h2">Reemplaza ahora. Paga con el tiempo.</span>
+  </h2>
+  <p class="financing-intro">A new system is a big purchase. We work with lenders so you can get the right system today — and pay in manageable monthly amounts.</p>
+  <p class="financing-intro-es">Un sistema nuevo es una compra grande. Trabajamos con prestamistas para que pueda obtener el sistema correcto hoy y pagar en cuotas manejables.</p>
+
+  <div class="fin-options">
+    <div class="fin-card">
+      <h3>No Interest / Sin Interés</h3>
+      <div class="h3-es">Promoción 0%</div>
+      <div class="fin-rate">0% <span>/ 12–18 mo.</span></div>
+      <div class="fin-desc">Pay no interest if paid within the promotional period.</div>
+      <div class="fin-desc-es">Sin interés si se paga dentro del plazo promocional.</div>
+    </div>
+    <div class="fin-card featured">
+      <h3>Low Monthly / Mensualidad Baja</h3>
+      <div class="h3-es">Más popular</div>
+      <div class="fin-rate">~$79<span>/mo</span></div>
+      <div class="fin-desc">Extended term — predictable monthly payments for the long run.</div>
+      <div class="fin-desc-es">Pagos mensuales predecibles a largo plazo.</div>
+    </div>
+    <div class="fin-card">
+      <h3>Fast Approval / Aprobación Rápida</h3>
+      <div class="h3-es">Respuesta el mismo día</div>
+      <div class="fin-rate">Fast<span> decision</span></div>
+      <div class="fin-desc">Apply in under 5 minutes. Soft pull — no credit score impact to check.</div>
+      <div class="fin-desc-es">Aplique en menos de 5 minutos. Sin impacto al crédito para verificar.</div>
+    </div>
+  </div>
+
+  <a class="fin-cta" href="tel:+19725550381">
+    Ask About Financing — (972) 555-0381
+    <span class="es-sub">Pregunte sobre financiamiento</span>
+  </a>
+</section>
+
+<!-- ALEX / FAMILY -->
+<section class="family">
+  <div class="section-head">
+    <div class="section-bilabel">
+      <span class="section-en-label">About JJ HVAC</span>
+      <span class="section-es-label">Sobre JJ HVAC</span>
+    </div>
+    <div class="section-title-en">A family business that speaks your language.</div>
+    <div class="section-title-es">Un negocio familiar que habla su idioma.</div>
+  </div>
+
+  <div class="family-card">
+    <div class="family-top">
+      <div>
+        <div class="family-photo">AJ</div>
+        <div class="family-photo-note">Alex · Owner</div>
+      </div>
+      <div class="family-id">
+        <div class="family-name">Alex — Owner, JJ HVAC LLC</div>
+        <div class="family-role-en">Licensed HVAC Contractor · DFW Area</div>
+        <div class="family-role-es">Contratista HVAC Licenciado · Área de DFW</div>
+        <div class="family-lang-chips">
+          <span class="alex-lang-tag tag-en">🇺🇸 English</span>
+          <span class="alex-lang-tag tag-es">🇲🇽 Español</span>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="family-quote-en">
+      "I started JJ HVAC because I watched too many Spanish-speaking families get overcharged or misled because they couldn't fully communicate with a technician. You deserve to understand exactly what's wrong with your system — in the language you're most comfortable with."
+    </blockquote>
+
+    <blockquote class="family-quote-es">
+      "Fundé JJ HVAC porque vi a demasiadas familias hispanohablantes ser cobradas de más o engañadas porque no podían comunicarse bien con un técnico. Usted merece entender exactamente qué está pasando con su sistema — en el idioma con el que se sienta más cómodo."
+    </blockquote>
+
+    <ul class="family-creds">
+      <li>TX TACL Licensed HVAC / Licenciado en TX</li>
+      <li>EPA 608 Universal certified / Certificado</li>
+      <li>Fully insured / Completamente asegurado</li>
+      <li>NATE certified technicians</li>
+      <li>Background checked / Verificación de antecedentes</li>
+      <li>All permits pulled when required</li>
+    </ul>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-head">
+    <div class="section-bilabel">
+      <span class="section-en-label">Reviews</span>
+      <span class="section-es-label">Opiniones</span>
+    </div>
+    <div class="section-title-en">DFW homeowners. Both languages.</div>
+    <div class="section-title-es">Propietarios de DFW. Ambos idiomas.</div>
+  </div>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-lang-flag">🇺🇸 English</div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"My mother only speaks Spanish. Every other HVAC company we called sent someone who couldn't communicate with her. Alex came out, explained everything in Spanish, and she actually understood what was wrong. That means everything."</p>
+      <div class="testi-name">R. Salinas <span>Grand Prairie, TX</span></div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-lang-flag">🇲🇽 Español</div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Alex me explicó todo en español, sin prisa y sin hacerme sentir que no entendía. Me dijo exactamente qué estaba mal con mi sistema y cuánto iba a costar antes de empezar. Muy honesto y profesional."</p>
+      <div class="testi-name">M. Flores <span>Irving, TX</span></div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-lang-flag">🇺🇸 English</div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Replaced our whole system. Alex walked us through three different options at different price points, explained the financing in plain English, and the install was done in a day. Exactly what you want."</p>
+      <div class="testi-name">J. &amp; T. Ramos <span>Arlington, TX</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>
+    Ready to schedule?
+    <span class="es-h2">¿Listo para agendar?</span>
+  </h2>
+  <p>
+    Call or text in English or Spanish — whichever is easiest.<br>
+    <em style="font-size:0.83em; opacity:0.75;">Llame o envíe un mensaje en inglés o español — lo que sea más fácil.</em>
+  </p>
+  <div class="cta-stack">
+    <a class="btn-main" href="tel:+19725550381">
+      Call (972) 555-0381
+      <span style="display:block; font-size:0.75rem; opacity:0.75; font-style:italic; margin-top:2px;">Llamar / Habla español</span>
+    </a>
+    <a class="btn-ghost" href="sms:+19725550381">
+      Text Us / Envíenos un Mensaje
+    </a>
+  </div>
+  <p style="margin-top:18px; font-size:0.74rem; color:rgba(255,255,255,0.26);">
+    Serving / Sirviendo: DFW · Dallas · Fort Worth · Irving · Grand Prairie · Arlington · Garland · Mesquite
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>JJ HVAC LLC</strong>
+  Alex · Owner / Dueño · DFW Area, TX · (972) 555-0381<br>
+  TX Licensed HVAC · EPA 608 Certified · Fully Insured<br>
+  <span style="font-style:italic; font-size:0.72rem;">Servicio en inglés y español · Service in English and Spanish</span>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.getElementById('html-root').lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.target === lang);
+  });
+  try { localStorage.setItem('jj-hvac-lang', lang); } catch(e) {}
+}
+
+(function() {
+  try {
+    var saved = localStorage.getItem('jj-hvac-lang');
+    if (saved === 'es') setLang('es');
+  } catch(e) {}
+})();
+</script>
+
+</body>
+</html>
