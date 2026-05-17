@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CITI-AIR Service Inc | Commercial &amp; Residential HVAC | DFW Area, TX</title>
+<style>
+:root {
+  --navy: #0d2137;
+  --navy-mid: #163352;
+  --blue: #1a5f96;
+  --blue-light: #2878bc;
+  --sky: #e8f2fb;
+  --steel: #4a6275;
+  --white: #ffffff;
+  --off-white: #f4f7fb;
+  --light: #e6ecf4;
+  --muted: #5a6e80;
+  --text: #0d1f30;
+  --border: #ccd6e2;
+  --commercial: #0d2137;
+  --commercial-accent: #1a5f96;
+  --residential: #1a5242;
+  --residential-accent: #1e7a5f;
+  --gold: #b8860a;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  background: var(--navy);
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.nav-left { display: flex; flex-direction: column; }
+
+.nav-logo {
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+.nav-logo span { color: var(--blue-light); }
+
+.nav-tagline {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.38);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-audience-tags {
+  display: none;
+}
+
+@media (min-width: 520px) {
+  .nav-audience-tags {
+    display: flex;
+    gap: 5px;
+  }
+}
+
+.nav-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+}
+
+.tag-comm { background: rgba(26,95,150,0.35); color: #7ec0f8; border: 1px solid rgba(26,95,150,0.4); }
+.tag-res  { background: rgba(30,122,95,0.3); color: #6dd4ae; border: 1px solid rgba(30,122,95,0.4); }
+
+.nav-call {
+  background: var(--blue);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 9px 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* HERO */
+.hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 44px 20px 52px;
+}
+
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7ec0f8;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  letter-spacing: -0.03em;
+}
+
+.hero h1 em { font-style: normal; color: #7ec0f8; }
+
+.hero-sub {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.66);
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+
+/* SPLIT CTA — DIFFERENTIATOR SEED */
+.split-cta {
+  display: grid;
+  gap: 12px;
+  max-width: 580px;
+}
+
+.split-card {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.split-card-head {
+  padding: 14px 18px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.split-card.commercial .split-card-head { background: rgba(26,95,150,0.25); border-bottom: 1px solid rgba(26,95,150,0.25); }
+.split-card.residential .split-card-head { background: rgba(30,122,95,0.2); border-bottom: 1px solid rgba(30,122,95,0.2); }
+
+.split-icon { font-size: 1.3rem; line-height: 1; }
+
+.split-head-text {}
+.split-who { font-size: 0.95rem; font-weight: 800; color: var(--white); line-height: 1.2; }
+.split-desc { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 1px; }
+
+.split-card-body {
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.split-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.split-bullets li {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  padding-left: 12px;
+  position: relative;
+}
+
+.split-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+.split-card.commercial .split-bullets li::before { color: #7ec0f8; }
+.split-card.residential .split-bullets li::before { color: #6dd4ae; }
+
+.split-btn {
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 11px 16px;
+  border-radius: 6px;
+  text-align: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.split-card.commercial .split-btn { background: var(--blue); color: var(--white); }
+.split-card.residential .split-btn { background: var(--residential-accent); color: var(--white); }
+
+/* TRUST STRIP */
+.trust {
+  background: var(--navy-mid);
+  padding: 14px 20px;
+}
+
+.trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 22px;
+  list-style: none;
+}
+
+.trust-list li {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.76rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trust-list li::before { content: '✓'; color: #7ec0f8; font-weight: 800; }
+
+/* COMMERCIAL — THE DIFFERENTIATOR */
+.commercial-section {
+  background: var(--white);
+  padding: 56px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.eyebrow-comm { color: var(--blue); }
+.eyebrow-res  { color: var(--residential); }
+.eyebrow-gen  { color: var(--steel); }
+
+.eyebrow-bar {
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.bar-comm { background: var(--blue); }
+.bar-res  { background: var(--residential-accent); }
+.bar-gen  { background: var(--steel); }
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1.18;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.section-sub {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.55;
+  max-width: 560px;
+}
+
+/* BUSINESS TYPE CARDS */
+.biz-grid {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.biz-card {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 20px 18px;
+  border-left: 4px solid var(--blue);
+}
+
+.biz-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.biz-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.biz-card h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.biz-card p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.biz-card ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.biz-tag {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: 3px;
+  background: var(--sky);
+  color: var(--blue);
+  border: 1px solid #bcd6ef;
+}
+
+/* RTU SECTION */
+.rtu-block {
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 10px;
+  padding: 24px 22px;
+}
+
+.rtu-block h3 {
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.rtu-block p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 520px;
+}
+
+.rtu-specs {
+  display: grid;
+  gap: 8px;
+}
+
+.rtu-spec {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.4;
+}
+
+.rtu-spec::before {
+  content: '✓';
+  color: #7ec0f8;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* RESIDENTIAL SECTION */
+.residential-section {
+  background: var(--off-white);
+  padding: 56px 20px;
+}
+
+.res-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.res-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 22px 20px;
+  border-top: 4px solid var(--residential-accent);
+}
+
+.res-card.iaq { border-top-color: #7c3aed; }
+
+.res-icon { font-size: 1.5rem; margin-bottom: 8px; line-height: 1; }
+
+.res-card h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.res-card p {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.res-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.res-card ul li {
+  font-size: 0.8rem;
+  color: var(--text);
+  padding-left: 14px;
+  position: relative;
+}
+
+.res-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--residential-accent);
+  font-weight: 700;
+}
+
+.res-card.iaq ul li::before { color: #7c3aed; }
+
+/* MAINTENANCE CONTRACTS */
+.maintenance {
+  background: var(--navy);
+  color: var(--white);
+  padding: 56px 20px;
+}
+
+.maint-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7ec0f8;
+  margin-bottom: 8px;
+}
+
+.maintenance h2 {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.maintenance-intro {
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.65;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+
+.contract-grid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.contract-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 9px;
+  padding: 20px 18px;
+}
+
+.contract-card.featured {
+  background: rgba(26,95,150,0.2);
+  border-color: rgba(26,95,150,0.45);
+}
+
+.contract-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.badge-comm-contract { background: rgba(26,95,150,0.4); color: #7ec0f8; border: 1px solid rgba(26,95,150,0.5); }
+.badge-res-contract  { background: rgba(30,122,95,0.35); color: #6dd4ae; border: 1px solid rgba(30,122,95,0.5); }
+.badge-featured { background: var(--blue); color: var(--white); }
+
+.contract-card h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.contract-price {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 10px;
+}
+
+.contract-price strong {
+  color: #7ec0f8;
+  font-size: 0.95rem;
+}
+
+.contract-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contract-items li {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.72);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.contract-items li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #7ec0f8;
+  font-weight: 800;
+  font-size: 0.72rem;
+}
+
+.maintenance-cta {
+  display: block;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 15px 22px;
+  border-radius: 6px;
+  text-align: center;
+  max-width: 380px;
+}
+
+/* ABOUT */
+.about {
+  background: var(--light);
+  padding: 56px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.about-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 26px 22px;
+  margin-top: 22px;
+}
+
+.about-card p {
+  font-size: 0.93rem;
+  color: var(--muted);
+  line-height: 1.68;
+  margin-bottom: 16px;
+}
+
+.cred-list {
+  list-style: none;
+  display: grid;
+  gap: 7px;
+}
+
+.cred-list li {
+  font-size: 0.86rem;
+  color: var(--text);
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.cred-list li::before {
+  content: '✓';
+  color: var(--blue);
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  background: var(--off-white);
+  padding: 56px 20px;
+}
+
+.testi-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.testi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 18px;
+}
+
+.testi-type-tag {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 7px;
+}
+
+.tt-comm { background: var(--sky); color: var(--blue); border: 1px solid #bcd6ef; }
+.tt-res  { background: #dcfce7; color: #166534; border: 1px solid #a7f3d0; }
+
+.testi-stars { color: #b8860a; font-size: 0.82rem; margin-bottom: 7px; letter-spacing: 1px; }
+
+.testi-card p {
+  font-size: 0.86rem;
+  color: var(--text);
+  line-height: 1.57;
+  margin-bottom: 11px;
+}
+
+.testi-name { font-size: 0.76rem; font-weight: 700; color: var(--muted); line-height: 1.3; }
+.testi-name span { display: block; font-weight: 400; font-size: 0.71rem; }
+
+/* FINAL SPLIT CTA */
+.final-cta {
+  background: var(--white);
+  padding: 56px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.final-cta-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.final-cta-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 32px;
+  text-align: center;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.55;
+}
+
+.final-split {
+  display: grid;
+  gap: 14px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.final-path {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 20px;
+}
+
+.final-path.comm-path { border-left: 4px solid var(--blue); }
+.final-path.res-path  { border-left: 4px solid var(--residential-accent); }
+
+.final-path h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.final-path p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.btn-comm-final {
+  display: block;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 13px 18px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.btn-res-final {
+  display: block;
+  background: var(--residential);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 13px 18px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.path-phone {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.38);
+  padding: 28px 20px;
+  font-size: 0.76rem;
+  line-height: 1.75;
+}
+
+footer strong {
+  color: rgba(255,255,255,0.8);
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.85rem;
+}
+
+/* DESKTOP */
+@media (min-width: 580px) {
+  .split-cta { grid-template-columns: 1fr 1fr; }
+  .biz-grid { grid-template-columns: 1fr 1fr; }
+  .contract-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .res-grid { grid-template-columns: 1fr 1fr; }
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .cred-list { grid-template-columns: 1fr 1fr; }
+  .rtu-specs { grid-template-columns: 1fr 1fr; }
+  .final-split { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 860px) {
+  .hero { padding: 56px 40px 68px; }
+  .hero h1 { font-size: 2.5rem; }
+  .commercial-section, .residential-section, .maintenance, .about, .testimonials, .final-cta { padding: 72px 40px; }
+  .biz-grid { grid-template-columns: repeat(4, 1fr); }
+  .res-grid { grid-template-columns: repeat(4, 1fr); }
+  .testi-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo">CITI<span>-AIR</span> Service, Inc</div>
+    <div class="nav-tagline">Commercial &amp; Residential HVAC · DFW</div>
+  </div>
+  <div class="nav-right">
+    <div class="nav-audience-tags">
+      <span class="nav-tag tag-comm">Commercial</span>
+      <span class="nav-tag tag-res">Residential</span>
+    </div>
+    <a class="nav-call" href="tel:+19725550247">(972) 555-0247</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">DFW's commercial and residential HVAC team</p>
+  <h1>HVAC scaled for<br><em>property managers</em><br>and homeowners.</h1>
+  <p class="hero-sub">
+    From rooftop units on a strip mall to a residential AC replacement — CITI-AIR handles both. One licensed team, two specialties, all of DFW.
+  </p>
+
+  <!-- SPLIT CTA -->
+  <div class="split-cta">
+    <div class="split-card commercial">
+      <div class="split-card-head">
+        <div class="split-icon">🏢</div>
+        <div class="split-head-text">
+          <div class="split-who">Commercial Property?</div>
+          <div class="split-desc">Restaurants · Retail · Offices · Multi-family</div>
+        </div>
+      </div>
+      <div class="split-card-body">
+        <ul class="split-bullets">
+          <li>Rooftop unit service &amp; replacement</li>
+          <li>Preventive maintenance contracts</li>
+          <li>Priority response SLAs</li>
+        </ul>
+        <a class="split-btn" href="#commercial">Commercial →</a>
+      </div>
+    </div>
+
+    <div class="split-card residential">
+      <div class="split-card-head">
+        <div class="split-icon">🏠</div>
+        <div class="split-head-text">
+          <div class="split-who">Residential Home?</div>
+          <div class="split-desc">Repair · Replacement · IAQ · Tune-ups</div>
+        </div>
+      </div>
+      <div class="split-card-body">
+        <ul class="split-bullets">
+          <li>Same-day AC repair</li>
+          <li>Full system replacement</li>
+          <li>Indoor air quality installs</li>
+        </ul>
+        <a class="split-btn" href="#residential">Residential →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust">
+  <ul class="trust-list">
+    <li>TX Licensed HVAC</li>
+    <li>Commercial &amp; residential</li>
+    <li>RTU specialists</li>
+    <li>PM contracts available</li>
+    <li>EPA 608 certified</li>
+    <li>DFW metro</li>
+  </ul>
+</section>
+
+<!-- COMMERCIAL — DIFFERENTIATOR -->
+<section class="commercial-section" id="commercial">
+  <div class="section-eyebrow eyebrow-comm"><span class="eyebrow-bar bar-comm"></span>Commercial HVAC</div>
+  <h2 class="section-title">We go where most<br>residential shops can't.</h2>
+  <p class="section-sub">
+    Most DFW HVAC companies are set up for homes. CITI-AIR holds the equipment, licenses, and field experience to service commercial properties — from a 2-unit restaurant to a 12-unit retail strip. That's a lane most local shops have left wide open.
+  </p>
+
+  <div class="biz-grid">
+    <div class="biz-card">
+      <div class="biz-card-head">
+        <div class="biz-icon">🍽️</div>
+        <h3>Restaurants &amp; Food Service</h3>
+      </div>
+      <p>Health code compliance, kitchen exhaust coordination, and the understanding that a failed unit during dinner service is an emergency — not a Tuesday problem.</p>
+      <ul>
+        <li class="biz-tag">RTU service</li>
+        <li class="biz-tag">Priority response</li>
+        <li class="biz-tag">Make-up air</li>
+      </ul>
+    </div>
+
+    <div class="biz-card">
+      <div class="biz-card-head">
+        <div class="biz-icon">🏪</div>
+        <h3>Retail &amp; Storefront</h3>
+      </div>
+      <p>Customer comfort is revenue. Retail HVAC needs consistent temps, low noise, and minimal disruption to business hours during service.</p>
+      <ul>
+        <li class="biz-tag">RTU replacement</li>
+        <li class="biz-tag">After-hours service</li>
+        <li class="biz-tag">Strip mall experience</li>
+      </ul>
+    </div>
+
+    <div class="biz-card">
+      <div class="biz-card-head">
+        <div class="biz-icon">🏢</div>
+        <h3>Offices &amp; Small Commercial</h3>
+      </div>
+      <p>Office HVAC problems kill productivity and drive up complaints. We service small to mid-size office buildings and work around business schedules.</p>
+      <ul>
+        <li class="biz-tag">Split systems</li>
+        <li class="biz-tag">VAV service</li>
+        <li class="biz-tag">PM contracts</li>
+      </ul>
+    </div>
+
+    <div class="biz-card">
+      <div class="biz-card-head">
+        <div class="biz-icon">🏘️</div>
+        <h3>Property Managers</h3>
+      </div>
+      <p>Multi-property managers need a reliable partner, not a different contractor for every building. CITI-AIR handles portfolios with a single point of contact.</p>
+      <ul>
+        <li class="biz-tag">Portfolio contracts</li>
+        <li class="biz-tag">Invoicing flexibility</li>
+        <li class="biz-tag">Priority dispatch</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- RTU BLOCK -->
+  <div class="rtu-block">
+    <h3>Rooftop Unit (RTU) specialists.</h3>
+    <p>
+      Most residential techs won't touch a commercial rooftop unit. Our team services, repairs, and replaces RTUs across the DFW area — the equipment, the access, and the commercial experience to do it right.
+    </p>
+    <div class="rtu-specs">
+      <div class="rtu-spec">RTU service and repair — all major manufacturers</div>
+      <div class="rtu-spec">Full RTU replacement with crane coordination</div>
+      <div class="rtu-spec">Seasonal PM inspections for commercial units</div>
+      <div class="rtu-spec">Emergency commercial response — priority scheduling</div>
+      <div class="rtu-spec">Package unit service (gas/electric and heat pump)</div>
+      <div class="rtu-spec">Documentation and service records for property managers</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESIDENTIAL -->
+<section class="residential-section" id="residential">
+  <div class="section-eyebrow eyebrow-res"><span class="eyebrow-bar bar-res"></span>Residential HVAC</div>
+  <h2 class="section-title">Same standards. Your home.</h2>
+  <p class="section-sub">The same commercial-grade professionalism applied to residential repair and replacement across DFW.</p>
+
+  <div class="res-grid">
+    <div class="res-card">
+      <div class="res-icon">🔧</div>
+      <h3>AC Repair</h3>
+      <p>Not cooling, short cycling, or noisy? Fast diagnosis and same-day repair when parts are available.</p>
+      <ul>
+        <li>All major brands</li>
+        <li>Same-day service</li>
+        <li>Upfront pricing</li>
+        <li>Emergency available</li>
+      </ul>
+    </div>
+
+    <div class="res-card">
+      <div class="res-icon">🏠</div>
+      <h3>System Replacement</h3>
+      <p>Right-sized, properly installed, and permitted. We don't upsell tonnage you don't need.</p>
+      <ul>
+        <li>Load calculation included</li>
+        <li>Multiple brand options</li>
+        <li>Heat pump installs</li>
+        <li>Financing available</li>
+      </ul>
+    </div>
+
+    <div class="res-card iaq">
+      <div class="res-icon">💨</div>
+      <h3>Indoor Air Quality</h3>
+      <p>DFW allergens, dust, and humidity require more than a basic filter. We install and service IAQ systems that actually work.</p>
+      <ul>
+        <li>Air purifiers &amp; UV</li>
+        <li>Humidity control</li>
+        <li>Duct cleaning</li>
+        <li>HEPA filtration</li>
+      </ul>
+    </div>
+
+    <div class="res-card">
+      <div class="res-icon">📋</div>
+      <h3>Tune-Ups</h3>
+      <p>Spring and fall tune-ups before DFW's brutal seasons. Keeps warranties valid and systems lasting longer.</p>
+      <ul>
+        <li>Pre-season inspection</li>
+        <li>Coil &amp; filter service</li>
+        <li>Refrigerant check</li>
+        <li>Safety check</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MAINTENANCE CONTRACTS -->
+<section class="maintenance">
+  <p class="maint-label">Preventive maintenance</p>
+  <h2>PM contracts for commercial and residential.</h2>
+  <p class="maintenance-intro">
+    Reactive service is expensive. Preventive maintenance contracts keep systems running, catch problems before they become emergencies, and give property managers the documentation they need. We offer PM programs built for both commercial properties and residential homes.
+  </p>
+
+  <div class="contract-grid">
+    <div class="contract-card">
+      <span class="contract-badge badge-comm-contract">Commercial</span>
+      <h3>Commercial PM Contract</h3>
+      <div class="contract-price">Custom pricing · <strong>Call for quote</strong></div>
+      <ul class="contract-items">
+        <li>Quarterly RTU inspections</li>
+        <li>Filter replacement program</li>
+        <li>Priority emergency dispatch</li>
+        <li>Service records &amp; reporting</li>
+        <li>Refrigerant tracking logs</li>
+        <li>Discounted repair rates</li>
+      </ul>
+    </div>
+
+    <div class="contract-card featured">
+      <span class="contract-badge badge-featured">Most Popular</span>
+      <h3>Property Manager Package</h3>
+      <div class="contract-price">Per-unit pricing · <strong>Portfolio discounts</strong></div>
+      <ul class="contract-items">
+        <li>Single contact for all properties</li>
+        <li>Scheduled PM across portfolio</li>
+        <li>Consolidated invoicing</li>
+        <li>Priority response SLA</li>
+        <li>Annual equipment assessment</li>
+        <li>Budget planning support</li>
+      </ul>
+    </div>
+
+    <div class="contract-card">
+      <span class="contract-badge badge-res-contract">Residential</span>
+      <h3>Home PM Plan</h3>
+      <div class="contract-price">Starting at <strong>$149/year</strong></div>
+      <ul class="contract-items">
+        <li>2 tune-ups per year</li>
+        <li>Filters included</li>
+        <li>Priority scheduling</li>
+        <li>10% off repairs</li>
+        <li>No diagnostic fee</li>
+        <li>Annual system report</li>
+      </ul>
+    </div>
+  </div>
+
+  <a class="maintenance-cta" href="tel:+19725550247">Talk to Us About a PM Contract — (972) 555-0247</a>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="section-eyebrow eyebrow-gen"><span class="eyebrow-bar bar-gen"></span>About CITI-AIR</div>
+  <h2 class="section-title">Built for both sides of the market.</h2>
+
+  <div class="about-card">
+    <p>
+      Most HVAC companies pick a lane — residential or commercial — and stay in it. CITI-AIR Service was built from the start to serve both. That means commercial-grade processes, documentation, and response times applied to every job, whether it's a rooftop unit on a restaurant or a residential system in Frisco.
+    </p>
+    <p>
+      We serve property managers who need a reliable partner across a portfolio, and homeowners who want the same level of professionalism they'd get at a business.
+    </p>
+    <ul class="cred-list">
+      <li>TX TACL Licensed HVAC contractor</li>
+      <li>Commercial RTU service &amp; replacement</li>
+      <li>EPA 608 Universal certified techs</li>
+      <li>Fully insured — GL &amp; workers' comp</li>
+      <li>NATE certified technicians</li>
+      <li>All work permitted when required</li>
+      <li>Residential &amp; commercial experience</li>
+      <li>Property management partnerships</li>
+    </ul>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-eyebrow eyebrow-gen"><span class="eyebrow-bar bar-gen"></span>Reviews</div>
+  <h2 class="section-title">Commercial clients. Residential customers.</h2>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <span class="testi-type-tag tt-comm">Commercial · Restaurant</span>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Our rooftop unit failed on a Friday night during dinner service. CITI-AIR had a tech on-site within 90 minutes and got us limping through the weekend. Replacement unit installed the following Wednesday. These guys understand that our business can't stop."</p>
+      <div class="testi-name">K. Martinez, GM <span>Restaurant Group · Dallas, TX</span></div>
+    </div>
+
+    <div class="testi-card">
+      <span class="testi-type-tag tt-comm">Commercial · Property Mgmt</span>
+      <div class="testi-stars">★★★★★</div>
+      <p>"We manage 14 commercial properties across DFW. CITI-AIR handles all of them — quarterly PM, emergency calls, and the documentation our owners expect. One invoice, one contact, no chasing contractors."</p>
+      <div class="testi-name">B. Thornton <span>Property Management · DFW Area</span></div>
+    </div>
+
+    <div class="testi-card">
+      <span class="testi-type-tag tt-res">Residential</span>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Got three residential quotes. CITI-AIR was the only one who did an actual load calculation and explained why I was about to buy a unit that was too large for my house. Saved money and I actually trust the install."</p>
+      <div class="testi-name">S. Kim <span>Frisco, TX</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL SPLIT CTA -->
+<section class="final-cta">
+  <p class="final-cta-label">Request service</p>
+  <h2 class="section-title" style="text-align:center;">Commercial or residential —<br>let's get started.</h2>
+  <p class="final-cta-sub">Tell us what you have and we'll take it from there. Free estimates on both sides of the market.</p>
+
+  <div class="final-split">
+    <div class="final-path comm-path">
+      <h3>🏢 Commercial Service</h3>
+      <p>RTU service, PM contracts, property management partnerships, and emergency commercial response.</p>
+      <a class="btn-comm-final" href="tel:+19725550247">Call for Commercial Quote</a>
+      <div class="path-phone">(972) 555-0247 · Ask for commercial</div>
+    </div>
+
+    <div class="final-path res-path">
+      <h3>🏠 Residential Service</h3>
+      <p>AC repair, system replacement, indoor air quality, and residential PM plans for DFW homeowners.</p>
+      <a class="btn-res-final" href="tel:+19725550247">Call for Residential Quote</a>
+      <div class="path-phone">(972) 555-0247 · Same number</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>CITI-AIR Service, Inc</strong>
+  DFW Area, TX &nbsp;·&nbsp; (972) 555-0247<br>
+  Commercial &amp; Residential HVAC · TX Licensed · Fully Insured<br>
+  Serving Dallas · Fort Worth · Plano · Frisco · Garland · Irving · Arlington and DFW metro
+</footer>
+
+</body>
+</html>
