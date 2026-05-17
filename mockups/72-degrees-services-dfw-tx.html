@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>72 Degrees Services | Perfect Temperature, Every Season — DFW</title>
+<style>
+:root {
+  --blue: #1a4fa0;
+  --blue-dark: #0f2f6b;
+  --blue-mid: #2563c7;
+  --red: #c93030;
+  --red-light: #fdeaea;
+  --teal: #0d7a7a;
+  --teal-light: #e6f4f4;
+  --warm: #e8900e;
+  --charcoal: #1a1f2e;
+  --mid: #4a5568;
+  --soft: #f5f7fa;
+  --border: #d0d8e4;
+  --white: #ffffff;
+  --radius: 10px;
+  --shadow: 0 3px 16px rgba(0,0,0,0.10);
+  --dial-size: 220px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--charcoal); background: var(--white); line-height: 1.55; }
+a { color: inherit; text-decoration: none; }
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--blue-dark);
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-deg {
+  width: 38px; height: 38px;
+  background: var(--blue-mid);
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 17px; font-weight: 900; color: var(--white);
+  letter-spacing: -1px;
+  font-feature-settings: 'tnum';
+}
+.logo-text { color: var(--white); }
+.logo-text strong { display: block; font-size: 17px; font-weight: 800; letter-spacing: -0.3px; }
+.logo-text small { font-size: 11px; opacity: 0.75; letter-spacing: 0.5px; }
+.header-cta {
+  background: var(--warm);
+  color: var(--white);
+  font-weight: 800; font-size: 14px;
+  padding: 9px 16px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(170deg, var(--blue-dark) 0%, #0a1d4f 60%, #061438 100%);
+  color: var(--white);
+  padding: 44px 20px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '72°';
+  position: absolute;
+  right: -20px; top: 20px;
+  font-size: 200px; font-weight: 900;
+  opacity: 0.04;
+  letter-spacing: -8px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  max-width: 700px;
+}
+.hero-copy { max-width: 460px; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50px;
+  padding: 5px 14px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.6px;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-size: clamp(28px, 7vw, 48px);
+  font-weight: 900;
+  line-height: 1.12;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+.hero h1 .deg-accent {
+  color: #7eb8ff;
+  font-variant-numeric: tabular-nums;
+}
+.hero-sub {
+  font-size: 16px; opacity: 0.88; margin-bottom: 28px; line-height: 1.65;
+}
+.hero-ctas { display: flex; flex-direction: column; gap: 11px; max-width: 360px; }
+.btn-primary {
+  display: block; text-align: center;
+  background: var(--warm);
+  color: var(--white);
+  font-size: 17px; font-weight: 800;
+  padding: 15px 24px;
+  border-radius: 8px;
+}
+.btn-secondary {
+  display: block; text-align: center;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  font-size: 15px; font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+
+/* ── THERMOSTAT DIAL ── */
+.dial-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dial {
+  position: relative;
+  width: var(--dial-size);
+  height: var(--dial-size);
+  flex-shrink: 0;
+}
+.dial svg { width: 100%; height: 100%; }
+
+/* ── TEMP STRIP ── */
+.temp-strip {
+  display: flex;
+  background: var(--charcoal);
+  border-bottom: 2px solid rgba(255,255,255,0.06);
+}
+.temp-col {
+  flex: 1;
+  text-align: center;
+  padding: 16px 8px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.temp-col:last-child { border-right: none; }
+.temp-label { font-size: 11px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+.temp-value { font-size: 26px; font-weight: 900; color: var(--white); font-variant-numeric: tabular-nums; line-height: 1; }
+.temp-value.cool { color: #7eb8ff; }
+.temp-value.heat { color: #ff8c60; }
+.temp-value.target { color: #6ce8a0; }
+.temp-sub { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 3px; }
+
+/* ── SECTION BASE ── */
+.section { padding: 52px 20px; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--blue-mid);
+  margin-bottom: 8px;
+}
+.section-label .deg-dot {
+  width: 18px; height: 18px;
+  background: var(--blue-mid);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; color: var(--white); font-weight: 900;
+}
+.section-title {
+  font-size: clamp(22px, 5vw, 34px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.section-sub {
+  font-size: 16px;
+  color: var(--mid);
+  max-width: 560px;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+/* ── SERVICES ── */
+.services-section { background: var(--soft); }
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  max-width: 700px;
+}
+.svc-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.svc-card:hover { box-shadow: var(--shadow); border-color: var(--blue-mid); }
+.svc-card::before {
+  content: attr(data-temp);
+  position: absolute;
+  right: 10px; top: 8px;
+  font-size: 36px; font-weight: 900;
+  opacity: 0.06;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+.svc-icon { font-size: 28px; margin-bottom: 10px; }
+.svc-name { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+.svc-desc { font-size: 13px; color: var(--mid); line-height: 1.5; }
+.svc-tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 8px; border-radius: 4px;
+}
+.tag-cool { background: #e8f0ff; color: var(--blue-mid); }
+.tag-heat { background: #fff0e8; color: #c94a10; }
+.tag-air { background: var(--teal-light); color: var(--teal); }
+.tag-smart { background: #f0e8ff; color: #6030a0; }
+
+/* ── THERMOSTAT FEATURE ── */
+.comfort-section { background: var(--white); }
+.comfort-inner { max-width: 680px; }
+.comfort-range {
+  display: flex; flex-direction: column; gap: 14px;
+  margin-bottom: 28px;
+}
+.range-card {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--soft);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  position: relative;
+}
+.range-temp-badge {
+  width: 56px; height: 56px; flex-shrink: 0;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  font-weight: 900; line-height: 1;
+}
+.badge-cool { background: #ddeeff; color: #1040a0; }
+.badge-target { background: #daf5e6; color: #0f5a30; border: 2px solid #22c060; }
+.badge-heat { background: #ffe8d8; color: #8a2010; }
+.range-temp-badge .big { font-size: 20px; }
+.range-temp-badge .unit { font-size: 12px; font-weight: 700; }
+.range-body { flex: 1; }
+.range-body strong { display: block; font-size: 14px; font-weight: 800; margin-bottom: 3px; }
+.range-body p { font-size: 13px; color: var(--mid); line-height: 1.5; }
+.target-ring {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  font-size: 11px; font-weight: 700; color: #22c060;
+}
+.comfort-promise {
+  background: linear-gradient(135deg, var(--blue-dark) 0%, #1040a0 100%);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+}
+.comfort-promise h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+.comfort-promise h3 span { color: #7eb8ff; }
+.comfort-promise p { font-size: 14px; opacity: 0.88; line-height: 1.6; margin-bottom: 16px; }
+.promise-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.promise-list li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px;
+}
+.promise-list li::before {
+  content: '72°';
+  width: 34px; height: 34px; flex-shrink: 0;
+  background: rgba(255,255,255,0.12);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 800; letter-spacing: -0.5px;
+  color: #7eb8ff;
+}
+
+/* ── SMART THERMOSTAT ── */
+.smart-section { background: #f0e8ff; border-top: 3px solid #9060d0; border-bottom: 3px solid #9060d0; }
+.smart-inner { max-width: 680px; }
+.smart-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 14px;
+}
+.smart-card {
+  background: var(--white);
+  border: 1.5px solid #d0b8f0;
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.smart-icon {
+  width: 42px; height: 42px; flex-shrink: 0;
+  background: #9060d0;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+}
+.smart-text strong { display: block; font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+.smart-text p { font-size: 13px; color: var(--mid); line-height: 1.5; }
+
+/* ── IAQ ── */
+.iaq-section { background: var(--teal-light); border-top: 3px solid #90d0d0; }
+.iaq-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 640px;
+}
+.iaq-card {
+  background: var(--white);
+  border: 1.5px solid #b0dede;
+  border-radius: var(--radius);
+  padding: 16px 14px;
+}
+.iaq-icon { font-size: 24px; margin-bottom: 8px; }
+.iaq-name { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+.iaq-desc { font-size: 12px; color: var(--mid); line-height: 1.5; }
+
+/* ── ABOUT ── */
+.about-section { background: var(--soft); }
+.about-inner { max-width: 640px; }
+.owner-block {
+  display: flex; gap: 18px; align-items: flex-start;
+  margin-bottom: 28px;
+}
+.owner-avatar {
+  width: 64px; height: 64px; flex-shrink: 0;
+  background: var(--blue-dark);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; text-align: center; line-height: 1.3;
+  border: 3px solid var(--blue-mid);
+}
+.owner-info strong { display: block; font-size: 17px; font-weight: 800; }
+.owner-info em { display: block; font-style: normal; font-size: 13px; color: var(--mid); margin-bottom: 8px; }
+.owner-quote { font-size: 14px; font-style: italic; line-height: 1.65; color: var(--charcoal); }
+.creds-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.cred-pill {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  padding: 7px 14px;
+  font-size: 12px; font-weight: 700;
+}
+.cred-pill::before { content: '✓'; color: var(--blue-mid); font-weight: 900; }
+
+/* ── TESTIMONIALS ── */
+.testimonials-section { background: var(--white); }
+.testimonials-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 640px;
+}
+.testimonial {
+  background: var(--soft);
+  border-left: 4px solid var(--blue-mid);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 18px;
+}
+.testimonial p { font-size: 14px; line-height: 1.65; margin-bottom: 12px; font-style: italic; }
+.t-meta { display: flex; justify-content: space-between; align-items: center; }
+.t-name { font-size: 13px; font-weight: 700; }
+.t-loc { font-size: 12px; color: var(--mid); }
+.stars { color: var(--warm); font-size: 13px; letter-spacing: 1px; }
+.t-temp {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: #ddeeff;
+  color: var(--blue-mid);
+  font-size: 11px; font-weight: 700;
+  padding: 3px 8px; border-radius: 4px;
+}
+
+/* ── FINAL CTA ── */
+.final-cta {
+  background: linear-gradient(150deg, var(--blue-dark) 0%, #061030 100%);
+  color: var(--white);
+  padding: 56px 20px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before {
+  content: '72°';
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 320px; font-weight: 900;
+  opacity: 0.03;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.final-dial {
+  width: 100px; height: 100px;
+  margin: 0 auto 24px;
+}
+.final-cta h2 {
+  font-size: clamp(26px, 6vw, 42px);
+  font-weight: 900; margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+.final-cta h2 span { color: #7eb8ff; }
+.final-cta p { font-size: 16px; opacity: 0.85; margin-bottom: 32px; max-width: 460px; margin-left: auto; margin-right: auto; }
+.final-btns { display: flex; flex-direction: column; gap: 12px; max-width: 340px; margin: 0 auto; }
+.trust-row {
+  margin-top: 32px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 18px;
+  font-size: 12px; opacity: 0.65;
+}
+.trust-row span::before { content: '· '; }
+.trust-row span:first-child::before { content: ''; }
+
+/* ── FOOTER ── */
+footer {
+  background: #0a0f1e;
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 12px;
+  line-height: 1.9;
+}
+footer strong { color: var(--white); }
+footer a { color: rgba(255,255,255,0.65); }
+
+/* ── RESPONSIVE ── */
+@media (min-width: 580px) {
+  .hero-inner { flex-direction: row; align-items: center; max-width: 760px; }
+  .hero-copy { flex: 1; }
+  .dial-wrap { flex-shrink: 0; }
+  .hero-ctas { flex-direction: row; }
+  .btn-primary, .btn-secondary { flex: 1; }
+  .comfort-range { flex-direction: column; }
+  .smart-grid { grid-template-columns: 1fr 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+  .final-btns { flex-direction: row; max-width: 420px; }
+  .final-btns .btn-primary, .final-btns .btn-secondary { flex: 1; }
+}
+@media (min-width: 860px) {
+  .services-grid { grid-template-columns: repeat(4, 1fr); }
+  .smart-grid { grid-template-columns: repeat(4, 1fr); }
+  .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+  .iaq-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ── DIAL ANIMATION ── */
+@keyframes sweep-needle {
+  0%   { transform: rotate(-130deg); }
+  60%  { transform: rotate(18deg); }
+  80%  { transform: rotate(10deg); }
+  100% { transform: rotate(14deg); }
+}
+.dial-needle { transform-origin: 120px 120px; animation: sweep-needle 2s cubic-bezier(.25,.46,.45,.94) 0.3s both; }
+
+@keyframes blink-72 {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.dial-reading { animation: blink-72 3s ease-in-out 2.5s infinite; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo">
+    <div class="logo-deg">72°</div>
+    <div class="logo-text">
+      <strong>72 Degrees</strong>
+      <small>HVAC SERVICES · DFW</small>
+    </div>
+  </div>
+  <a href="tel:9726720072" class="header-cta">📞 972-672-0072</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-eyebrow">🌡️ The Perfect Temperature</div>
+      <h1>Not too hot.<br>Not too cold.<br>Just <span class="deg-accent">72°</span>.</h1>
+      <p class="hero-sub">72 Degrees Services obsesses over one thing: getting your home to exactly the right temperature and keeping it there — every season, every day.</p>
+      <div class="hero-ctas">
+        <a href="tel:9726720072" class="btn-primary">📞 Set Your 72°</a>
+        <a href="sms:9726720072&body=Hi, I'd like to schedule HVAC service." class="btn-secondary">💬 Text Us</a>
+      </div>
+    </div>
+    <div class="dial-wrap">
+      <!-- Animated thermostat dial SVG -->
+      <div class="dial">
+        <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer ring gradient -->
+          <defs>
+            <radialGradient id="dialBg" cx="50%" cy="50%">
+              <stop offset="0%" stop-color="#1a2a5a"/>
+              <stop offset="100%" stop-color="#0a1530"/>
+            </radialGradient>
+            <linearGradient id="needleGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7eb8ff"/>
+              <stop offset="100%" stop-color="#3080e0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Background circle -->
+          <circle cx="120" cy="120" r="116" fill="#0d1a3a" stroke="#1e3870" stroke-width="1.5"/>
+
+          <!-- Temperature arc track — cool (blue) side -->
+          <path d="M 28 150 A 97 97 0 0 1 120 23" fill="none" stroke="#1a3a80" stroke-width="8" stroke-linecap="round"/>
+          <!-- Temperature arc track — heat (red) side -->
+          <path d="M 120 23 A 97 97 0 0 1 212 150" fill="none" stroke="#6a1a10" stroke-width="8" stroke-linecap="round"/>
+
+          <!-- Tick marks every 10° around dial (from ~150° to 390°) -->
+          <g stroke="rgba(255,255,255,0.25)" stroke-width="1.2">
+            <!-- 24 ticks spanning the arc -->
+            <line x1="120" y1="30" x2="120" y2="40" transform="rotate(-110 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="40" transform="rotate(-95 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="36" transform="rotate(-80 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="40" transform="rotate(-65 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="36" transform="rotate(-50 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="40" transform="rotate(-35 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="36" transform="rotate(-20 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="40" transform="rotate(-5 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="36" transform="rotate(10 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="40" transform="rotate(25 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="36" transform="rotate(40 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="40" transform="rotate(55 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="36" transform="rotate(70 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="40" transform="rotate(85 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="36" transform="rotate(100 120 120)"/>
+            <line x1="120" y1="30" x2="120" y2="40" transform="rotate(115 120 120)"/>
+          </g>
+
+          <!-- Filled arc up to 72° (the "set point" position) — bright blue -->
+          <path d="M 28 150 A 97 97 0 0 1 120 23" fill="none" stroke="#2060c0" stroke-width="6" stroke-linecap="round"/>
+
+          <!-- 72° set point position arc highlight -->
+          <path d="M 120 23 A 97 97 0 0 1 132 24" fill="none" stroke="#6ce8a0" stroke-width="8" stroke-linecap="round"/>
+
+          <!-- Inner face -->
+          <circle cx="120" cy="120" r="82" fill="url(#dialBg)"/>
+          <circle cx="120" cy="120" r="82" fill="none" stroke="#243870" stroke-width="1"/>
+
+          <!-- Cool label -->
+          <text x="44" y="155" fill="#6090e0" font-size="9" font-weight="700" font-family="sans-serif" text-anchor="middle">COOL</text>
+          <!-- Heat label -->
+          <text x="196" y="155" fill="#e08060" font-size="9" font-weight="700" font-family="sans-serif" text-anchor="middle">HEAT</text>
+
+          <!-- Set point indicator at 72° (top-center arc position) -->
+          <circle cx="120" cy="25" r="5" fill="#6ce8a0"/>
+
+          <!-- Needle -->
+          <g class="dial-needle">
+            <line x1="120" y1="120" x2="120" y2="42" stroke="url(#needleGrad)" stroke-width="2.5" stroke-linecap="round"/>
+            <polygon points="120,38 116,50 124,50" fill="#7eb8ff"/>
+          </g>
+
+          <!-- Center hub -->
+          <circle cx="120" cy="120" r="10" fill="#1e3870" stroke="#3060c0" stroke-width="2"/>
+          <circle cx="120" cy="120" r="4" fill="#7eb8ff"/>
+
+          <!-- Digital readout -->
+          <rect x="88" y="136" width="64" height="32" rx="5" fill="#050e20" stroke="#1e3870" stroke-width="1"/>
+          <text x="120" y="158" fill="#6ce8a0" font-size="20" font-weight="900" font-family="monospace" text-anchor="middle" class="dial-reading">72°F</text>
+
+          <!-- Mode label -->
+          <text x="120" y="185" fill="rgba(255,255,255,0.4)" font-size="9" font-family="sans-serif" text-anchor="middle" letter-spacing="1.5">SET POINT</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMP CONTEXT STRIP -->
+<div class="temp-strip">
+  <div class="temp-col">
+    <div class="temp-label">DFW Summer</div>
+    <div class="temp-value heat" id="outdoor-temp">98°</div>
+    <div class="temp-sub">outside right now</div>
+  </div>
+  <div class="temp-col">
+    <div class="temp-label">Your Goal</div>
+    <div class="temp-value target">72°</div>
+    <div class="temp-sub">we'll get you there</div>
+  </div>
+  <div class="temp-col">
+    <div class="temp-label">DFW Winter</div>
+    <div class="temp-value cool">28°</div>
+    <div class="temp-sub">we've got that too</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services-section">
+  <div class="section-label"><span class="deg-dot">°</span> What We Do</div>
+  <h2 class="section-title">Every service, one goal: 72°</h2>
+  <p class="section-sub">Whether it's 105° outside or a freak ice storm, we have one job — making sure your home holds the right temperature.</p>
+  <div class="services-grid">
+    <div class="svc-card" data-temp="72">
+      <div class="svc-icon">❄️</div>
+      <div class="svc-name">A/C Repair</div>
+      <div class="svc-desc">Fast diagnosis, same-day parts when possible. We fix it right so you're not calling twice.</div>
+      <div class="svc-tag tag-cool">Cooling</div>
+    </div>
+    <div class="svc-card" data-temp="72">
+      <div class="svc-icon">🆕</div>
+      <div class="svc-name">A/C Installation</div>
+      <div class="svc-desc">Properly sized new systems — we run the load calc before we ever quote a unit.</div>
+      <div class="svc-tag tag-cool">Cooling</div>
+    </div>
+    <div class="svc-card" data-temp="72">
+      <div class="svc-icon">🔥</div>
+      <div class="svc-name">Heating Repair</div>
+      <div class="svc-desc">Gas furnaces, heat pumps, electric heat — we service all of it when North Texas gets cold.</div>
+      <div class="svc-tag tag-heat">Heating</div>
+    </div>
+    <div class="svc-card" data-temp="72">
+      <div class="svc-icon">🏠</div>
+      <div class="svc-name">Heating Install</div>
+      <div class="svc-desc">New furnace or full HVAC system replacement. We'll keep you warm no matter what the forecast says.</div>
+      <div class="svc-tag tag-heat">Heating</div>
+    </div>
+    <div class="svc-card" data-temp="72">
+      <div class="svc-icon">📱</div>
+      <div class="svc-name">Smart Thermostats</div>
+      <div class="svc-desc">Ecobee, Nest, and Honeywell installs with complete programming. Your home learns your schedule.</div>
+      <div class="svc-tag tag-smart">Smart Home</div>
+    </div>
+    <div class="svc-card" data-temp="72">
+      <div class="svc-icon">💨</div>
+      <div class="svc-name">Indoor Air Quality</div>
+      <div class="svc-desc">Air purifiers, UV systems, whole-home dehumidifiers. Clean air at the right temperature.</div>
+      <div class="svc-tag tag-air">Air Quality</div>
+    </div>
+    <div class="svc-card" data-temp="72">
+      <div class="svc-icon">🔍</div>
+      <div class="svc-name">Maintenance Plans</div>
+      <div class="svc-desc">Spring and fall tune-ups so your system never quits on the hottest day of the year.</div>
+      <div class="svc-tag tag-cool">Year-Round</div>
+    </div>
+    <div class="svc-card" data-temp="72">
+      <div class="svc-icon">🌡️</div>
+      <div class="svc-name">Duct Cleaning</div>
+      <div class="svc-desc">Clean ducts deliver conditioned air where it's supposed to go — not into your walls.</div>
+      <div class="svc-tag tag-air">Air Quality</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMFORT RANGE FEATURE -->
+<section class="section comfort-section">
+  <div class="section-label"><span class="deg-dot">°</span> The 72° Obsession</div>
+  <div class="comfort-inner">
+    <h2 class="section-title">Most HVAC companies fix equipment.<br>We fix temperature.</h2>
+    <p class="section-sub">There's a difference. A replaced unit can still leave you at 80° inside. We don't close a job until your home reads what it should.</p>
+    <div class="comfort-range">
+      <div class="range-card">
+        <div class="range-temp-badge badge-heat">
+          <span class="big">95°</span>
+          <span class="unit">outside</span>
+        </div>
+        <div class="range-body">
+          <strong>Summer in DFW is brutal</strong>
+          <p>Your system runs nonstop. If it's oversized, undersized, or losing refrigerant — you feel it. We find the real problem, not just the symptom.</p>
+        </div>
+      </div>
+      <div class="range-card">
+        <div class="range-temp-badge badge-target">
+          <span class="big">72°</span>
+          <span class="unit">inside</span>
+        </div>
+        <div class="range-body">
+          <strong>This is the goal — every time</strong>
+          <p>Not 76° because "that's close enough." Not 68° because you cranked it. Exactly 72° — consistent, efficient, and right.</p>
+        </div>
+        <span class="target-ring">TARGET ✓</span>
+      </div>
+      <div class="range-card">
+        <div class="range-temp-badge badge-cool">
+          <span class="big">30°</span>
+          <span class="unit">outside</span>
+        </div>
+        <div class="range-body">
+          <strong>North Texas winters surprise people</strong>
+          <p>We're ready when the temperature drops. Heating tune-ups, emergency repairs, and heat pump service — same obsession, cold season.</p>
+        </div>
+      </div>
+    </div>
+    <div class="comfort-promise">
+      <h3>The <span>72° Promise</span></h3>
+      <p>We don't leave until your thermostat reads where it should. Every visit, every season.</p>
+      <ul class="promise-list">
+        <li>We verify your temperature before we leave the driveway</li>
+        <li>We explain what we found and what we fixed — in plain English</li>
+        <li>We won't recommend a new unit if a repair makes more sense</li>
+        <li>We answer the phone — same tech you talked to before, when possible</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SMART THERMOSTAT -->
+<section class="section smart-section">
+  <div class="section-label" style="color:#7030c0;"><span class="deg-dot" style="background:#9060d0;">°</span> Smart Thermostat Installs</div>
+  <h2 class="section-title">Put your 72° on autopilot</h2>
+  <p class="section-sub">A smart thermostat doesn't just set the temperature — it learns when you're home, adjusts before you arrive, and trims your bill every month.</p>
+  <div class="smart-grid smart-inner">
+    <div class="smart-card">
+      <div class="smart-icon">📱</div>
+      <div class="smart-text">
+        <strong>Ecobee SmartThermostat</strong>
+        <p>Room sensors detect where you are and balance temperature across the whole house. Our top recommendation for DFW homes.</p>
+      </div>
+    </div>
+    <div class="smart-card">
+      <div class="smart-icon">🏠</div>
+      <div class="smart-text">
+        <strong>Google Nest</strong>
+        <p>Learns your schedule in about a week. Remote control from anywhere — perfect for when you're traveling and summer hits.</p>
+      </div>
+    </div>
+    <div class="smart-card">
+      <div class="smart-icon">⚙️</div>
+      <div class="smart-text">
+        <strong>Honeywell T-Series</strong>
+        <p>Built for multi-stage systems and heat pumps. Precise staging keeps your system running at peak efficiency.</p>
+      </div>
+    </div>
+    <div class="smart-card">
+      <div class="smart-icon">🔧</div>
+      <div class="smart-text">
+        <strong>Full Setup Included</strong>
+        <p>We install, program your schedule, connect your Wi-Fi, and walk you through the app. You don't touch a wire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDOOR AIR QUALITY -->
+<section class="section iaq-section">
+  <div class="section-label" style="color:var(--teal);"><span class="deg-dot" style="background:var(--teal);">°</span> Indoor Air Quality</div>
+  <h2 class="section-title">72° should feel as good as it reads</h2>
+  <p class="section-sub">Temperature is half the equation. Air quality is the other half. We install and service the systems that keep the air clean, not just comfortable.</p>
+  <div class="iaq-grid">
+    <div class="iaq-card">
+      <div class="iaq-icon">🌬️</div>
+      <div class="iaq-name">Air Purifiers</div>
+      <div class="iaq-desc">Whole-home media filtration that removes allergens, dust, and pollutants at the air handler.</div>
+    </div>
+    <div class="iaq-card">
+      <div class="iaq-icon">☀️</div>
+      <div class="iaq-name">UV Systems</div>
+      <div class="iaq-desc">UV light inside the air handler kills mold, bacteria, and viruses before they circulate.</div>
+    </div>
+    <div class="iaq-card">
+      <div class="iaq-icon">💧</div>
+      <div class="iaq-name">Dehumidifiers</div>
+      <div class="iaq-desc">North Texas humidity makes 72° feel like 80°. A whole-home dehumidifier fixes that.</div>
+    </div>
+    <div class="iaq-card">
+      <div class="iaq-icon">🔄</div>
+      <div class="iaq-name">Ventilation</div>
+      <div class="iaq-desc">Fresh air exchange systems that bring outside air in — filtered — without tanking your efficiency.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-section">
+  <div class="section-label"><span class="deg-dot">°</span> Who We Are</div>
+  <div class="about-inner">
+    <h2 class="section-title">One standard. One number.</h2>
+    <div class="owner-block">
+      <div class="owner-avatar">72°</div>
+      <div class="owner-info">
+        <strong>Chris Navarro — Owner, 72 Degrees Services</strong>
+        <em>TACL-B47290E · NATE Certified · 16 years in DFW HVAC</em>
+        <p class="owner-quote">"I started this company because I was tired of seeing homeowners settle for 'good enough.' If your thermostat says 72 and your house feels like 78, something's wrong and we need to find it. That's the standard I hold every tech to."</p>
+      </div>
+    </div>
+    <div class="creds-row">
+      <span class="cred-pill">TACL Licensed &amp; Insured</span>
+      <span class="cred-pill">NATE Certified Techs</span>
+      <span class="cred-pill">All Makes &amp; Models</span>
+      <span class="cred-pill">Same-Day Service Available</span>
+      <span class="cred-pill">Upfront Pricing</span>
+      <span class="cred-pill">Serving DFW Since 2009</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section">
+  <div class="section-label"><span class="deg-dot">°</span> Real Results</div>
+  <h2 class="section-title">They called. They got 72°.</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <p>"My house was reading 72 on the thermostat but felt like 80 — I'd been told that was just 'how it was.' Chris found a refrigerant leak two other companies missed. Now my house actually feels like 72."</p>
+      <div class="t-meta">
+        <div>
+          <div class="t-name">Brittany H.</div>
+          <div class="t-loc">Garland, TX</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="stars">★★★★★</div>
+          <span class="t-temp">72° achieved</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <p>"They installed a new Ecobee and a whole-home air purifier in one visit. The difference in air quality is immediate — my allergies have been so much better. And yes, the house sits at 72 now."</p>
+      <div class="t-meta">
+        <div>
+          <div class="t-name">James M.</div>
+          <div class="t-loc">Rowlett, TX</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="stars">★★★★★</div>
+          <span class="t-temp">72° + clean air</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <p>"Fast. Honest. Explained everything. I've had three HVAC companies out this summer. 72 Degrees is the first one who actually fixed the problem instead of just collecting a service fee."</p>
+      <div class="t-meta">
+        <div>
+          <div class="t-name">Theresa L.</div>
+          <div class="t-loc">Mesquite, TX</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="stars">★★★★★</div>
+          <span class="t-temp">Problem solved</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-dial">
+    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="120" cy="120" r="116" fill="#0d1a3a" stroke="#1e3870" stroke-width="2"/>
+      <path d="M 28 150 A 97 97 0 0 1 120 23" fill="none" stroke="#2060c0" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="120" cy="25" r="7" fill="#6ce8a0"/>
+      <circle cx="120" cy="120" r="80" fill="#050e20"/>
+      <text x="120" y="132" fill="#6ce8a0" font-size="36" font-weight="900" font-family="monospace" text-anchor="middle">72°</text>
+      <text x="120" y="155" fill="rgba(255,255,255,0.4)" font-size="10" font-family="sans-serif" text-anchor="middle" letter-spacing="2">PERFECT</text>
+    </svg>
+  </div>
+  <h2>Ready for your <span>72°</span>?</h2>
+  <p>Call or text today. We'll get your home to exactly where it should be — and keep it there.</p>
+  <div class="final-btns">
+    <a href="tel:9726720072" class="btn-primary">📞 972-672-0072</a>
+    <a href="sms:9726720072&body=I want to schedule service with 72 Degrees." class="btn-secondary">💬 Text Us</a>
+  </div>
+  <div class="trust-row">
+    <span>TACL Licensed</span>
+    <span>NATE Certified</span>
+    <span>Same-Day Available</span>
+    <span>DFW Metroplex</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>72 Degrees Services</strong><br>
+  DFW Metroplex · Dallas · Garland · Mesquite · Rowlett · Rockwall &amp; surrounding areas<br>
+  <a href="tel:9726720072">972-672-0072</a> · TACL-B47290E<br>
+  <small style="opacity:0.45;font-size:10px;">Licensed, bonded, and insured. All work performed by NATE-certified technicians.</small>
+</footer>
+
+<script>
+// Update outdoor temp based on month
+(function() {
+  const m = new Date().getMonth();
+  const temps = [52,58,68,78,88,96,98,99,92,80,66,54];
+  const labels = ['winter','winter','spring','spring','summer','summer','summer','summer','summer','fall','fall','winter'];
+  const el = document.getElementById('outdoor-temp');
+  if (el) {
+    el.textContent = temps[m] + '°';
+    el.className = 'temp-value ' + (temps[m] > 75 ? 'heat' : 'cool');
+    const sub = el.nextElementSibling;
+    if (sub) sub.textContent = labels[m] + ' outside';
+  }
+})();
+</script>
+</body>
+</html>
