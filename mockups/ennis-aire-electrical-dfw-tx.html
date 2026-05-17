@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ennis Aire &amp; Electrical Inc | HVAC + Electrical | DFW Area, TX</title>
+<style>
+:root {
+  --dark: #0f1c2e;
+  --navy: #19304f;
+  --navy-mid: #223d62;
+  --electric: #1a6fd4;
+  --electric-light: #3388f0;
+  --orange: #e07010;
+  --orange-light: #f08824;
+  --white: #ffffff;
+  --off-white: #f2f5f9;
+  --light: #e8ecf3;
+  --muted: #5a6b80;
+  --text: #0f1c2e;
+  --border: #cdd4df;
+  --split-blue: #1a6fd4;
+  --split-orange: #e07010;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  background: var(--dark);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-brand { display: flex; flex-direction: column; }
+
+.nav-logo {
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.nav-trade-pills {
+  display: flex;
+  gap: 5px;
+  margin-top: 4px;
+}
+
+.nav-pill {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.pill-hvac {
+  background: rgba(224,112,16,0.25);
+  border: 1px solid rgba(224,112,16,0.4);
+  color: var(--orange-light);
+}
+
+.pill-elec {
+  background: rgba(26,111,212,0.25);
+  border: 1px solid rgba(26,111,212,0.4);
+  color: #6ab0ff;
+}
+
+.nav-cta {
+  background: var(--electric);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 9px 13px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* HERO */
+.hero {
+  background: var(--dark);
+  color: var(--white);
+  padding: 40px 20px 52px;
+}
+
+/* ONE TRUCK TWO TRADES BADGE */
+.badge-wrap {
+  margin-bottom: 28px;
+}
+
+.one-truck-badge {
+  display: inline-flex;
+  align-items: stretch;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.15);
+  max-width: 320px;
+}
+
+.badge-half {
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.badge-half.hvac {
+  background: rgba(224,112,16,0.18);
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.badge-half.elec {
+  background: rgba(26,111,212,0.18);
+}
+
+.badge-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.badge-trade {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.badge-half.hvac .badge-trade { color: var(--orange-light); }
+.badge-half.elec .badge-trade { color: #6ab0ff; }
+
+.badge-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
+  background: rgba(255,255,255,0.06);
+}
+
+.badge-plus {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: rgba(255,255,255,0.6);
+  line-height: 1;
+}
+
+.badge-footer {
+  display: block;
+  background: rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 8px 16px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+}
+
+.badge-outer {
+  display: inline-block;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.12);
+  max-width: 340px;
+}
+
+/* Rework badge as a single contained block */
+.one-truck-block {
+  display: inline-block;
+  max-width: 360px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.12);
+}
+
+.badge-body {
+  display: flex;
+  align-items: stretch;
+}
+
+.hero h1 {
+  font-size: 1.95rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  letter-spacing: -0.03em;
+}
+
+.hero h1 .hvac-word { color: var(--orange-light); }
+.hero h1 .elec-word { color: #6ab0ff; }
+
+.hero-sub {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.68);
+  line-height: 1.65;
+  margin-bottom: 30px;
+  max-width: 480px;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 380px;
+}
+
+.btn-both {
+  display: block;
+  background: var(--electric);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 16px 20px;
+  border-radius: 6px;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.btn-call {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.25);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 14px 20px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* LICENSE STRIP */
+.license-strip {
+  background: var(--navy-mid);
+  padding: 14px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  align-items: center;
+}
+
+.license-item {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lic-badge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.lic-hvac { background: rgba(224,112,16,0.3); color: var(--orange-light); border: 1px solid rgba(224,112,16,0.4); }
+.lic-elec { background: rgba(26,111,212,0.3); color: #6ab0ff; border: 1px solid rgba(26,111,212,0.4); }
+.lic-ins  { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.12); }
+
+/* TRUST STRIP */
+.trust {
+  background: var(--dark);
+  padding: 14px 20px;
+}
+
+.trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 22px;
+  list-style: none;
+}
+
+.trust-list li {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.77rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trust-list li::before {
+  content: '✓';
+  color: #6ab0ff;
+  font-weight: 800;
+}
+
+/* ONE TRUCK EXPLAINER */
+.one-truck {
+  background: var(--white);
+  padding: 52px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--electric);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.section-sub {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.55;
+  max-width: 520px;
+}
+
+.explainer-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.explainer-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--off-white);
+}
+
+.explainer-card.hvac-card { border-left: 4px solid var(--orange); }
+.explainer-card.elec-card { border-left: 4px solid var(--electric); }
+
+.exp-icon { font-size: 1.3rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+
+.explainer-card h3 {
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin-bottom: 3px;
+  color: var(--text);
+}
+
+.explainer-card p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* CROSSOVER JOBS — THE REAL EDGE */
+.crossover {
+  background: var(--navy);
+  color: var(--white);
+  padding: 52px 20px;
+}
+
+.cross-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6ab0ff;
+  margin-bottom: 8px;
+}
+
+.crossover h2 {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.crossover-intro {
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+
+.cross-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.cross-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 9px;
+  padding: 20px 18px;
+  border-top: 3px solid transparent;
+}
+
+.cross-card.both { border-top-color: #fff; }
+
+.cross-trades {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.cross-tag {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+}
+
+.ct-hvac { background: rgba(224,112,16,0.25); color: var(--orange-light); border: 1px solid rgba(224,112,16,0.3); }
+.ct-elec { background: rgba(26,111,212,0.25); color: #6ab0ff; border: 1px solid rgba(26,111,212,0.3); }
+
+.cross-card h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.cross-card p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.58);
+  line-height: 1.5;
+}
+
+.cross-save {
+  margin-top: 10px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #5dd98a;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cross-save::before { content: '↓'; }
+
+.cross-cta {
+  margin-top: 24px;
+  display: block;
+  background: var(--electric);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 15px 22px;
+  border-radius: 6px;
+  text-align: center;
+  max-width: 380px;
+}
+
+/* SERVICES */
+.services {
+  background: var(--off-white);
+  padding: 52px 20px;
+}
+
+.service-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 22px 20px;
+  border-top: 4px solid var(--electric);
+}
+
+.service-card.hvac-svc { border-top-color: var(--orange); }
+
+.svc-tag {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.tag-hvac { background: #fff3e0; color: #b45309; }
+.tag-elec { background: #eff6ff; color: #1d4ed8; }
+
+.service-icon { font-size: 1.5rem; margin-bottom: 8px; line-height: 1; }
+
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.service-card p {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.service-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-card ul li {
+  font-size: 0.8rem;
+  color: var(--text);
+  padding-left: 14px;
+  position: relative;
+}
+
+.service-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+.service-card.hvac-svc ul li::before { color: var(--orange); }
+.service-card ul li::before { color: var(--electric); }
+
+/* DENNIS / OWNER */
+.owner {
+  background: var(--light);
+  padding: 52px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.owner-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 22px;
+}
+
+.owner-top {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 24px 22px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.owner-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 3px solid var(--electric);
+}
+
+.owner-id {}
+
+.owner-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.owner-title {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.owner-lic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.owner-lic {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.owner-lic .lic-num {
+  font-family: 'SF Mono', 'Courier New', monospace;
+  font-size: 0.7rem;
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 6px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.owner-quote {
+  padding: 20px 22px;
+  font-size: 0.93rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.65;
+  border-left: 3px solid var(--electric);
+  margin: 0 22px 20px;
+  background: var(--off-white);
+  border-radius: 0 5px 5px 0;
+}
+
+.owner-creds {
+  padding: 0 22px 22px;
+}
+
+.owner-cred-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.owner-cred-item {
+  font-size: 0.83rem;
+  color: var(--text);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.cred-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.dot-elec { background: var(--electric); }
+.dot-hvac { background: var(--orange); }
+
+/* TESTIMONIALS */
+.testimonials {
+  background: var(--white);
+  padding: 52px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.testi-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.testi-card {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 18px;
+}
+
+.testi-job-tag {
+  display: inline-flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.testi-stars {
+  color: #d97706;
+  font-size: 0.82rem;
+  margin-bottom: 7px;
+  letter-spacing: 1px;
+}
+
+.testi-card p {
+  font-size: 0.86rem;
+  color: var(--text);
+  line-height: 1.57;
+  margin-bottom: 11px;
+}
+
+.testi-name {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.testi-name span {
+  display: block;
+  font-weight: 400;
+  font-size: 0.71rem;
+}
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--dark);
+  color: var(--white);
+  padding: 52px 20px;
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.final-cta p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 28px;
+  line-height: 1.5;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.btn-main-elec {
+  display: block;
+  background: var(--electric);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 16px 22px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn-ghost {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.82);
+  font-size: 0.93rem;
+  font-weight: 600;
+  padding: 13px 22px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background: var(--navy-mid);
+  color: rgba(255,255,255,0.42);
+  padding: 28px 20px;
+  font-size: 0.77rem;
+  line-height: 1.75;
+}
+
+footer strong {
+  color: rgba(255,255,255,0.82);
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.85rem;
+}
+
+footer .foot-lic {
+  margin-top: 6px;
+  font-size: 0.7rem;
+  font-family: 'SF Mono', 'Courier New', monospace;
+  color: rgba(255,255,255,0.3);
+}
+
+/* DESKTOP */
+@media (min-width: 580px) {
+  .explainer-grid { grid-template-columns: 1fr 1fr; }
+  .cross-grid { grid-template-columns: 1fr 1fr; }
+  .service-grid { grid-template-columns: 1fr 1fr; }
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .owner-cred-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 820px) {
+  .hero { padding: 56px 40px 68px; }
+  .hero h1 { font-size: 2.5rem; }
+  .hero-ctas { flex-direction: row; max-width: 480px; }
+  .one-truck, .crossover, .services, .owner, .testimonials, .final-cta { padding: 68px 40px; }
+  .service-grid { grid-template-columns: repeat(4, 1fr); }
+  .testi-grid { grid-template-columns: repeat(3, 1fr); }
+  .cross-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">Ennis Aire &amp; Electrical Inc</div>
+    <div class="nav-trade-pills">
+      <span class="nav-pill pill-hvac">❄️ HVAC</span>
+      <span class="nav-pill pill-elec">⚡ Electrical</span>
+    </div>
+  </div>
+  <a class="nav-cta" href="tel:+19725550284">Call Now<br>(972) 555-0284</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- ONE TRUCK TWO TRADES BADGE -->
+  <div class="badge-wrap">
+    <div class="one-truck-block">
+      <div class="badge-body">
+        <div class="badge-half hvac">
+          <div class="badge-icon">❄️</div>
+          <div class="badge-trade">HVAC</div>
+        </div>
+        <div class="badge-divider">
+          <div class="badge-plus">+</div>
+        </div>
+        <div class="badge-half elec">
+          <div class="badge-icon">⚡</div>
+          <div class="badge-trade">Electrical</div>
+        </div>
+      </div>
+      <div class="badge-footer">One Truck · Two Trades · One Visit</div>
+    </div>
+  </div>
+
+  <h1>HVAC and electrical —<br>one licensed team<br>across <span class="elec-word">DFW.</span></h1>
+
+  <p class="hero-sub">
+    We handle the wiring and the cooling. From AC installs to panel upgrades — one call gets you both trades on the same truck, the same day.
+  </p>
+
+  <div class="hero-ctas">
+    <a class="btn-both" href="tel:+19725550284">Schedule Both Services in One Visit</a>
+    <a class="btn-call" href="tel:+19725550284">(972) 555-0284</a>
+  </div>
+</section>
+
+<!-- LICENSE STRIP -->
+<div class="license-strip">
+  <div class="license-item"><span class="lic-badge lic-hvac">HVAC</span> TACL-B29841E</div>
+  <div class="license-item"><span class="lic-badge lic-elec">Electrical</span> TECL-34729</div>
+  <div class="license-item"><span class="lic-badge lic-ins">Insured</span> General Liability &amp; W/C</div>
+</div>
+
+<!-- TRUST STRIP -->
+<section class="trust">
+  <ul class="trust-list">
+    <li>TX Licensed HVAC &amp; Electrical</li>
+    <li>DFW metro coverage</li>
+    <li>Same-day available</li>
+    <li>One visit for both trades</li>
+    <li>Residential &amp; light commercial</li>
+    <li>EV charger installs</li>
+  </ul>
+</section>
+
+<!-- ONE TRUCK EXPLAINER -->
+<section class="one-truck">
+  <p class="section-label">The One Truck advantage</p>
+  <h2 class="section-title">Your AC and your wiring — same team, same day.</h2>
+  <p class="section-sub">
+    Most HVAC companies can't touch your electrical panel. Most electricians don't touch refrigerant. We hold both licenses — so you don't have to coordinate two separate contractors and two separate schedules.
+  </p>
+
+  <div class="explainer-grid">
+    <div class="explainer-card hvac-card">
+      <div class="exp-icon">❄️</div>
+      <div>
+        <h3>Full HVAC scope</h3>
+        <p>AC repair, replacement, mini-splits, heat pumps, tune-ups, ductwork — we handle all of it.</p>
+      </div>
+    </div>
+    <div class="explainer-card elec-card">
+      <div class="exp-icon">⚡</div>
+      <div>
+        <h3>Full electrical scope</h3>
+        <p>Panel upgrades, circuits, fans, lighting, outlets, and the electrical side of every HVAC job.</p>
+      </div>
+    </div>
+    <div class="explainer-card hvac-card">
+      <div class="exp-icon">🕐</div>
+      <div>
+        <h3>Half the scheduling</h3>
+        <p>One call, one appointment window. No waiting for a second company to come back next week.</p>
+      </div>
+    </div>
+    <div class="explainer-card elec-card">
+      <div class="exp-icon">💰</div>
+      <div>
+        <h3>One trip charge</h3>
+        <p>Instead of two separate trip fees, you pay one. Saves money, especially on crossover jobs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CROSSOVER JOBS -->
+<section class="crossover">
+  <p class="cross-label">Where both trades meet</p>
+  <h2>Jobs that need both licenses. We do those in one visit.</h2>
+  <p class="crossover-intro">
+    A lot of the best home upgrades sit at the intersection of HVAC and electrical. Other companies send you back and forth. We send one truck.
+  </p>
+
+  <div class="cross-grid">
+    <div class="cross-card both">
+      <div class="cross-trades">
+        <span class="cross-tag ct-hvac">HVAC</span>
+        <span class="cross-tag ct-elec">Electrical</span>
+      </div>
+      <h3>Mini-Split Installation</h3>
+      <p>Mini-splits need a dedicated circuit and a refrigerant line set. We run both — no second electrician needed.</p>
+      <div class="cross-save">One crew handles refrigerant + new circuit</div>
+    </div>
+
+    <div class="cross-card both">
+      <div class="cross-trades">
+        <span class="cross-tag ct-elec">Electrical</span>
+        <span class="cross-tag ct-hvac">HVAC</span>
+      </div>
+      <h3>Panel Upgrade Before New AC</h3>
+      <p>Older DFW homes often need a 200A panel before a modern high-efficiency system can be installed. We do both in the same visit.</p>
+      <div class="cross-save">Upgrade panel and install system same day</div>
+    </div>
+
+    <div class="cross-card both">
+      <div class="cross-trades">
+        <span class="cross-tag ct-elec">Electrical</span>
+      </div>
+      <h3>EV Charger + AC Disconnect</h3>
+      <p>Adding a Level 2 EV charger near your garage often means coordinating with your AC disconnect and panel. We know exactly how those interact.</p>
+      <div class="cross-save">Clean install that doesn't fight your HVAC load</div>
+    </div>
+
+    <div class="cross-card both">
+      <div class="cross-trades">
+        <span class="cross-tag ct-hvac">HVAC</span>
+        <span class="cross-tag ct-elec">Electrical</span>
+      </div>
+      <h3>Thermostat + Wiring Upgrade</h3>
+      <p>Smart thermostats sometimes need a C-wire added or a control board swap. We handle both the HVAC and low-voltage wiring side.</p>
+      <div class="cross-save">No back-and-forth with two different techs</div>
+    </div>
+
+    <div class="cross-card both">
+      <div class="cross-trades">
+        <span class="cross-tag ct-elec">Electrical</span>
+      </div>
+      <h3>Ceiling Fans After AC Install</h3>
+      <p>New AC and want ceiling fans to move the air? We can wire and install fans in the same appointment — no return trip needed.</p>
+      <div class="cross-save">AC + fans, done in one visit</div>
+    </div>
+
+    <div class="cross-card both">
+      <div class="cross-trades">
+        <span class="cross-tag ct-hvac">HVAC</span>
+        <span class="cross-tag ct-elec">Electrical</span>
+      </div>
+      <h3>Heat Pump Conversion</h3>
+      <p>Switching from gas to a heat pump means new refrigerant lines, new electrical service, and sometimes a panel upgrade. All of it — one call.</p>
+      <div class="cross-save">Full conversion, no contractor juggling</div>
+    </div>
+  </div>
+
+  <a class="cross-cta" href="tel:+19725550284">Schedule Both Services — (972) 555-0284</a>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <p class="section-label">Full service list</p>
+  <h2 class="section-title">Everything we do.</h2>
+  <p class="section-sub">Licensed for both trades across the DFW metro.</p>
+
+  <div class="service-grid">
+    <div class="service-card hvac-svc">
+      <span class="svc-tag tag-hvac">HVAC</span>
+      <div class="service-icon">❄️</div>
+      <h3>AC Repair &amp; Install</h3>
+      <p>Emergency repairs, full system replacements, all major brands. We carry common parts on every truck.</p>
+      <ul>
+        <li>Same-day AC repair</li>
+        <li>System replacement</li>
+        <li>Heat pump install</li>
+        <li>Seasonal tune-ups</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <span class="svc-tag tag-elec">Electrical</span>
+      <div class="service-icon">🔌</div>
+      <h3>Panel Upgrades</h3>
+      <p>100A to 200A upgrades, sub-panel additions, breaker replacements — permitted and inspected.</p>
+      <ul>
+        <li>200A service upgrade</li>
+        <li>Sub-panel installs</li>
+        <li>Breaker replacement</li>
+        <li>Load analysis</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <span class="svc-tag tag-elec">Electrical</span>
+      <div class="service-icon">💡</div>
+      <h3>Fans &amp; Lighting</h3>
+      <p>Ceiling fan installs, recessed lighting, switched outlets — clean work, patched drywall, no mess left behind.</p>
+      <ul>
+        <li>Ceiling fan install</li>
+        <li>Recessed lighting</li>
+        <li>Dimmer &amp; switch upgrades</li>
+        <li>Outdoor lighting</li>
+      </ul>
+    </div>
+
+    <div class="service-card hvac-svc">
+      <span class="svc-tag tag-hvac">HVAC</span>
+      <div class="service-icon">🌬️</div>
+      <h3>Mini-Splits &amp; Ductless</h3>
+      <p>Install, refrigerant, and the dedicated circuit — all handled by the same licensed team in one visit.</p>
+      <ul>
+        <li>Single &amp; multi-zone</li>
+        <li>Refrigerant line sets</li>
+        <li>Dedicated circuit wiring</li>
+        <li>All major brands</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- OWNER / DENNIS -->
+<section class="owner">
+  <p class="section-label">Who you're working with</p>
+  <h2 class="section-title">Licensed in both trades. Accountable to you.</h2>
+
+  <div class="owner-card">
+    <div class="owner-top">
+      <div class="owner-photo">DE</div>
+      <div class="owner-id">
+        <div class="owner-name">Dennis Ennis</div>
+        <div class="owner-title">Owner &amp; Master Technician · Ennis Aire &amp; Electrical Inc</div>
+        <div class="owner-lic-list">
+          <div class="owner-lic">
+            <span class="lic-badge lic-hvac">HVAC</span>
+            TX TACL License <span class="lic-num">TACL-B29841E</span>
+          </div>
+          <div class="owner-lic">
+            <span class="lic-badge lic-elec">Electrical</span>
+            TX Electrical License <span class="lic-num">TECL-34729</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="owner-quote">
+      "I got both licenses because homeowners kept getting stuck between two companies that wouldn't coordinate. Most HVAC techs don't know electrical and vice versa. I learned both — so my customers make one call and it's handled."
+    </blockquote>
+
+    <div class="owner-creds">
+      <div class="owner-cred-grid">
+        <div class="owner-cred-item">
+          <span class="cred-dot dot-hvac"></span>
+          EPA 608 Universal certified
+        </div>
+        <div class="owner-cred-item">
+          <span class="cred-dot dot-elec"></span>
+          Texas Master Electrician
+        </div>
+        <div class="owner-cred-item">
+          <span class="cred-dot dot-hvac"></span>
+          NATE certified technician
+        </div>
+        <div class="owner-cred-item">
+          <span class="cred-dot dot-elec"></span>
+          Fully insured — GL &amp; workers' comp
+        </div>
+        <div class="owner-cred-item">
+          <span class="cred-dot dot-hvac"></span>
+          All work permitted when required
+        </div>
+        <div class="owner-cred-item">
+          <span class="cred-dot dot-elec"></span>
+          15+ years DFW field experience
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="section-label">DFW customers</p>
+  <h2 class="section-title">One truck. Problems solved.</h2>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-job-tag">
+        <span class="svc-tag tag-hvac">HVAC</span>
+        <span class="svc-tag tag-elec">Electrical</span>
+      </div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Needed a new AC and my panel was too small for the new unit. Ennis did the panel upgrade and the AC install in one day. Every other company told me I had to schedule the electrician separately first."</p>
+      <div class="testi-name">M. Garza <span>Mesquite, TX</span></div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-job-tag">
+        <span class="svc-tag tag-elec">Electrical</span>
+      </div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Had three ceiling fans installed and a new circuit run for my garage at the same time. Dennis was on time, worked clean, and the fans are level. No issues at all."</p>
+      <div class="testi-name">T. Whitfield <span>Ennis, TX</span></div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-job-tag">
+        <span class="svc-tag tag-hvac">HVAC</span>
+        <span class="svc-tag tag-elec">Electrical</span>
+      </div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Mini-split in my home office — they pulled the refrigerant line and wired a new 240V circuit same visit. Took about four hours total. Other quotes I got required two separate contractors."</p>
+      <div class="testi-name">J. Park <span>Irving, TX</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>HVAC. Electrical. One call.</h2>
+  <p>Schedule both services in one visit — or call to talk through what you need. We'll tell you straight.</p>
+  <div class="cta-stack">
+    <a class="btn-main-elec" href="tel:+19725550284">Call (972) 555-0284</a>
+    <a class="btn-ghost" href="sms:+19725550284">Text Us Your Job</a>
+  </div>
+  <p style="margin-top:16px; font-size:0.76rem; color:rgba(255,255,255,0.3);">
+    Serving DFW · Ennis · Waxahachie · Midlothian · Mansfield · Arlington · Grand Prairie
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Ennis Aire &amp; Electrical Inc</strong>
+  Dennis Ennis, Owner · DFW Area, TX · (972) 555-0284<br>
+  HVAC + Electrical · Licensed · Insured · Background Checked
+  <div class="foot-lic">HVAC: TACL-B29841E · Electrical: TECL-34729 · State of Texas</div>
+</footer>
+
+</body>
+</html>
