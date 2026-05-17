@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compass Air Service | AC Repair &amp; HVAC | DFW Area, TX</title>
+<style>
+:root {
+  --midnight: #0b1524;
+  --navy: #132240;
+  --navy-mid: #1c3358;
+  --gold: #c9920a;
+  --gold-light: #e0aa20;
+  --gold-pale: #f5e6b8;
+  --white: #ffffff;
+  --parchment: #f6f2ea;
+  --light: #ece8df;
+  --muted: #6b7585;
+  --text: #0e1c2e;
+  --border: #d4cec4;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--parchment);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  background: var(--midnight);
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(201,146,10,0.2);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-compass-mark {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.nav-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-logo {
+  color: var(--white);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.nav-sub {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.38);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-top: 1px;
+}
+
+.nav-call {
+  background: var(--gold);
+  color: var(--midnight);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 9px 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* HERO */
+.hero {
+  background: var(--midnight);
+  color: var(--white);
+  padding: 40px 20px 52px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ghost compass in hero background */
+.hero-bg-rose {
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.04;
+  pointer-events: none;
+  width: 360px;
+  height: 360px;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+@media (min-width: 700px) {
+  .hero-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
+  .hero-text { flex: 1; }
+  .hero-rose-wrap { flex-shrink: 0; }
+}
+
+.hero-bearing {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-bearing::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold-light);
+}
+
+.hero-sub {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.68);
+  line-height: 1.65;
+  margin-bottom: 28px;
+  max-width: 440px;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 360px;
+}
+
+.btn-estimate {
+  display: block;
+  background: var(--gold);
+  color: var(--midnight);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 16px 22px;
+  border-radius: 6px;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.btn-call-ghost {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.22);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.hero-note {
+  margin-top: 10px;
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.38);
+}
+
+/* COMPASS ROSE SVG */
+.hero-rose-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compass-rose-svg {
+  width: 200px;
+  height: 200px;
+}
+
+@media (min-width: 700px) {
+  .compass-rose-svg { width: 240px; height: 240px; }
+}
+
+/* TRUST STRIP */
+.trust {
+  background: var(--navy);
+  padding: 15px 20px;
+  border-top: 1px solid rgba(201,146,10,0.2);
+}
+
+.trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 22px;
+  list-style: none;
+}
+
+.trust-list li {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.77rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trust-list li::before {
+  content: '◈';
+  color: var(--gold-light);
+  font-size: 0.65rem;
+}
+
+/* SERVICES */
+.services {
+  background: var(--parchment);
+  padding: 52px 20px;
+}
+
+.bearing-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bearing-label::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.section-sub {
+  font-size: 0.91rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.55;
+}
+
+.service-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 22px 20px;
+  border-top: 4px solid var(--navy);
+  position: relative;
+}
+
+.cardinal-mark {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--midnight);
+  color: var(--gold-light);
+  font-size: 0.65rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
+}
+
+.service-icon { font-size: 1.5rem; margin-bottom: 8px; line-height: 1; }
+
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text);
+  padding-right: 30px;
+}
+
+.service-card p {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.service-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-card ul li {
+  font-size: 0.8rem;
+  color: var(--text);
+  padding-left: 14px;
+  position: relative;
+}
+
+.service-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* DIRECTION SECTION */
+.direction {
+  background: var(--midnight);
+  color: var(--white);
+  padding: 52px 20px;
+}
+
+.dir-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dir-label::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.direction h2 {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.direction-intro {
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.65;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+
+.dir-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.dir-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 8px;
+  border-left: 3px solid var(--gold);
+}
+
+.dir-compass {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(201,146,10,0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: var(--gold-light);
+  background: rgba(201,146,10,0.08);
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+
+.dir-item h3 {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.dir-item p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+
+/* MIKE / OWNER */
+.owner {
+  background: var(--light);
+  padding: 52px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.owner-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 22px;
+  max-width: 560px;
+}
+
+.owner-top {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 24px 22px 0;
+}
+
+.owner-photo {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 1.4rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 3px solid var(--gold);
+  position: relative;
+}
+
+.owner-photo-note {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--midnight);
+  font-size: 0.5rem;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 2px;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.owner-id {}
+
+.owner-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.owner-title {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.owner-lic {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  color: var(--muted);
+  background: var(--parchment);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 3px 8px;
+  font-weight: 600;
+}
+
+.owner-lic .num {
+  font-family: 'SF Mono', 'Courier New', monospace;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.owner-quote {
+  margin: 20px 22px;
+  font-size: 0.93rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.65;
+  border-left: 3px solid var(--gold);
+  padding-left: 16px;
+}
+
+.owner-creds {
+  padding: 0 22px 22px;
+  display: grid;
+  gap: 7px;
+}
+
+.owner-cred {
+  font-size: 0.83rem;
+  color: var(--text);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.owner-cred::before {
+  content: '◈';
+  color: var(--gold);
+  font-size: 0.7rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  background: var(--parchment);
+  padding: 52px 20px;
+}
+
+.testi-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.testi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 18px;
+}
+
+.testi-bearing {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.testi-bearing::before {
+  content: '◈';
+  font-size: 0.6rem;
+}
+
+.testi-stars {
+  color: #c9920a;
+  font-size: 0.83rem;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.testi-card p {
+  font-size: 0.86rem;
+  color: var(--text);
+  line-height: 1.58;
+  margin-bottom: 12px;
+}
+
+.testi-name {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.testi-name span { display: block; font-weight: 400; font-size: 0.71rem; }
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--navy);
+  color: var(--white);
+  padding: 52px 20px;
+  text-align: center;
+  border-top: 2px solid rgba(201,146,10,0.3);
+}
+
+.final-rose {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.final-cta h2 {
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.final-cta p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 28px;
+  line-height: 1.5;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.btn-main {
+  display: block;
+  background: var(--gold);
+  color: var(--midnight);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 16px 22px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn-ghost {
+  display: block;
+  border: 2px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  font-size: 0.93rem;
+  font-weight: 600;
+  padding: 13px 22px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background: var(--midnight);
+  color: rgba(255,255,255,0.38);
+  padding: 28px 20px;
+  font-size: 0.77rem;
+  line-height: 1.75;
+  border-top: 1px solid rgba(201,146,10,0.15);
+}
+
+footer strong {
+  color: rgba(255,255,255,0.8);
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.85rem;
+}
+
+/* DESKTOP */
+@media (min-width: 600px) {
+  .service-grid { grid-template-columns: 1fr 1fr; }
+  .dir-grid { grid-template-columns: 1fr 1fr; }
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .owner-creds { grid-template-columns: 1fr 1fr; }
+  .hero-ctas { flex-direction: row; }
+}
+
+@media (min-width: 860px) {
+  .hero { padding: 56px 40px 68px; }
+  .hero h1 { font-size: 2.5rem; }
+  .services, .direction, .owner, .testimonials, .final-cta { padding: 68px 40px; }
+  .service-grid { grid-template-columns: repeat(4, 1fr); }
+  .testi-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <!-- Small compass mark in nav -->
+    <svg class="nav-compass-mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="15" fill="none" stroke="rgba(201,146,10,0.35)" stroke-width="1"/>
+      <g transform="translate(16,16)">
+        <polygon points="0,-13 2.5,-3 0,-1 -2.5,-3" fill="#c9920a"/>
+        <polygon points="0,13 2.5,3 0,1 -2.5,3" fill="rgba(201,146,10,0.4)"/>
+        <polygon points="13,0 3,2.5 1,0 3,-2.5" fill="rgba(201,146,10,0.4)"/>
+        <polygon points="-13,0 -3,2.5 -1,0 -3,-2.5" fill="rgba(201,146,10,0.4)"/>
+        <circle r="2.5" fill="#c9920a"/>
+        <text x="0" y="-16" text-anchor="middle" fill="#c9920a" font-size="5" font-weight="800" font-family="sans-serif">N</text>
+      </g>
+    </svg>
+    <div class="nav-name">
+      <div class="nav-logo">Compass Air Service</div>
+      <div class="nav-sub">DFW Area · TX Licensed HVAC</div>
+    </div>
+  </div>
+  <a class="nav-call" href="tel:+18175550162">(817) 555-0162</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- Ghost compass background -->
+  <svg class="hero-bg-rose" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g transform="translate(180,180)">
+      <circle r="170" fill="none" stroke="white" stroke-width="1"/>
+      <polygon points="0,-168 14,-40 0,-14 -14,-40" fill="white"/>
+      <polygon points="0,168 14,40 0,14 -14,40" fill="white"/>
+      <polygon points="168,0 40,14 14,0 40,-14" fill="white"/>
+      <polygon points="-168,0 -40,14 -14,0 -40,-14" fill="white"/>
+      <polygon points="0,-112 9,-28 0,-10 -9,-28" fill="white" transform="rotate(45)"/>
+      <polygon points="0,-112 9,-28 0,-10 -9,-28" fill="white" transform="rotate(135)"/>
+      <polygon points="0,-112 9,-28 0,-10 -9,-28" fill="white" transform="rotate(225)"/>
+      <polygon points="0,-112 9,-28 0,-10 -9,-28" fill="white" transform="rotate(315)"/>
+      <circle r="22" fill="none" stroke="white" stroke-width="1"/>
+      <circle r="10" fill="white"/>
+    </g>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-bearing">True North — DFW HVAC</div>
+      <h1>We point DFW homeowners<br>toward <em>better HVAC.</em></h1>
+      <p class="hero-sub">
+        AC repair, system replacement, ductwork, and tune-ups — done right, priced fairly, and explained clearly. Compass Air points you the right direction every time.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-estimate" href="tel:+18175550162">Get Your Free Estimate</a>
+        <a class="btn-call-ghost" href="tel:+18175550162">(817) 555-0162</a>
+      </div>
+      <p class="hero-note">Free estimates · Same-week scheduling · DFW metro</p>
+    </div>
+
+    <!-- COMPASS ROSE -->
+    <div class="hero-rose-wrap">
+      <svg class="compass-rose-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Compass rose — Compass Air Service">
+        <!-- Outer rings -->
+        <circle cx="120" cy="120" r="114" fill="none" stroke="rgba(201,146,10,0.15)" stroke-width="1"/>
+        <circle cx="120" cy="120" r="106" fill="none" stroke="rgba(201,146,10,0.1)" stroke-width="0.5"/>
+
+        <!-- Degree tick marks every 10° -->
+        <g transform="translate(120,120)" stroke="rgba(201,146,10,0.3)" stroke-width="1">
+          <line x1="0" y1="-114" x2="0" y2="-107"/> <!-- 0° N -->
+          <line x1="19.8" y1="-112.3" x2="18.5" y2="-105.6" transform="rotate(10)"/>
+          <line x1="19.8" y1="-112.3" x2="18.5" y2="-105.6" transform="rotate(20)"/>
+          <line x1="19.8" y1="-112.3" x2="18.5" y2="-105.6" transform="rotate(30)"/>
+          <line x1="19.8" y1="-112.3" x2="18.5" y2="-105.6" transform="rotate(40)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(50)"/>
+          <line x1="19.8" y1="-112.3" x2="18.5" y2="-105.6" transform="rotate(60)"/>
+          <line x1="19.8" y1="-112.3" x2="18.5" y2="-105.6" transform="rotate(70)"/>
+          <line x1="19.8" y1="-112.3" x2="18.5" y2="-105.6" transform="rotate(80)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(90)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(100)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(110)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(120)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(130)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(140)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(150)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(160)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(170)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(180)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(190)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(200)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(210)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(220)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(230)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(240)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(250)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(260)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(270)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(280)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(290)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(300)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(310)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(320)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(330)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(340)"/>
+          <line x1="0" y1="-114" x2="0" y2="-107" transform="rotate(350)"/>
+        </g>
+
+        <!-- Main 4 cardinal points -->
+        <g transform="translate(120,120)">
+          <!-- N (gold, prominent) -->
+          <polygon points="0,-100 11,-28 0,-10 -11,-28" fill="#c9920a"/>
+          <!-- S (muted gold) -->
+          <polygon points="0,100 11,28 0,10 -11,28" fill="rgba(201,146,10,0.45)"/>
+          <!-- E (muted gold) -->
+          <polygon points="100,0 28,11 10,0 28,-11" fill="rgba(201,146,10,0.45)"/>
+          <!-- W (muted gold) -->
+          <polygon points="-100,0 -28,11 -10,0 -28,-11" fill="rgba(201,146,10,0.45)"/>
+        </g>
+
+        <!-- Intercardinal points (45° rotated, shorter) -->
+        <g transform="translate(120,120)">
+          <polygon points="0,-68 7,-20 0,-8 -7,-20" fill="rgba(201,146,10,0.3)" transform="rotate(45)"/>
+          <polygon points="0,-68 7,-20 0,-8 -7,-20" fill="rgba(201,146,10,0.3)" transform="rotate(135)"/>
+          <polygon points="0,-68 7,-20 0,-8 -7,-20" fill="rgba(201,146,10,0.3)" transform="rotate(225)"/>
+          <polygon points="0,-68 7,-20 0,-8 -7,-20" fill="rgba(201,146,10,0.3)" transform="rotate(315)"/>
+        </g>
+
+        <!-- Inner decorative ring -->
+        <circle cx="120" cy="120" r="22" fill="#0b1524" stroke="rgba(201,146,10,0.6)" stroke-width="1.5"/>
+        <circle cx="120" cy="120" r="14" fill="none" stroke="rgba(201,146,10,0.25)" stroke-width="1"/>
+
+        <!-- Center dot -->
+        <circle cx="120" cy="120" r="6" fill="#c9920a"/>
+
+        <!-- Cardinal labels -->
+        <text x="120" y="12" text-anchor="middle" fill="#c9920a" font-size="13" font-weight="900" font-family="-apple-system,sans-serif">N</text>
+        <text x="120" y="234" text-anchor="middle" fill="rgba(201,146,10,0.55)" font-size="11" font-weight="700" font-family="-apple-system,sans-serif">S</text>
+        <text x="232" y="124" text-anchor="middle" fill="rgba(201,146,10,0.55)" font-size="11" font-weight="700" font-family="-apple-system,sans-serif">E</text>
+        <text x="8" y="124" text-anchor="middle" fill="rgba(201,146,10,0.55)" font-size="11" font-weight="700" font-family="-apple-system,sans-serif">W</text>
+
+        <!-- "Compass Air" around the ring -->
+        <path id="ring-text-path" d="M 120,120 m -88,0 a 88,88 0 1,1 176,0 a 88,88 0 1,1 -176,0" fill="none"/>
+        <text font-size="7.5" font-weight="600" font-family="-apple-system,sans-serif" letter-spacing="3.5" fill="rgba(201,146,10,0.45)">
+          <textPath href="#ring-text-path" startOffset="8%">COMPASS AIR SERVICE · DFW TEXAS · HVAC ·</textPath>
+        </text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust">
+  <ul class="trust-list">
+    <li>TX Licensed HVAC</li>
+    <li>Free estimates</li>
+    <li>Same-week available</li>
+    <li>All major brands</li>
+    <li>Emergency service</li>
+    <li>DFW metro coverage</li>
+  </ul>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <p class="bearing-label">Services · Four points covered</p>
+  <h2 class="section-title">Everything your system needs.</h2>
+  <p class="section-sub">AC repair, new installs, ductwork, and maintenance — across the DFW metro.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="cardinal-mark">N</div>
+      <div class="service-icon">🚨</div>
+      <h3>AC Repair</h3>
+      <p>Not cooling? Noisy? Tripping breakers? We diagnose fast and carry common parts on every truck.</p>
+      <ul>
+        <li>Same-day response</li>
+        <li>All brands serviced</li>
+        <li>Upfront quote, always</li>
+        <li>Emergency available</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="cardinal-mark">E</div>
+      <div class="service-icon">🏠</div>
+      <h3>System Replacement</h3>
+      <p>When repair doesn't make sense anymore, we'll size the right system and install it properly — no overselling.</p>
+      <ul>
+        <li>Full system replacement</li>
+        <li>Heat pump installs</li>
+        <li>Multiple brand options</li>
+        <li>Permit-ready installs</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="cardinal-mark">S</div>
+      <div class="service-icon">🌬️</div>
+      <h3>Ductwork</h3>
+      <p>Leaky or undersized ducts lose 20–30% of your cooling before it reaches the room. We fix that.</p>
+      <ul>
+        <li>Duct sealing &amp; repair</li>
+        <li>New duct installation</li>
+        <li>Airflow balancing</li>
+        <li>Attic duct insulation</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="cardinal-mark">W</div>
+      <div class="service-icon">🔧</div>
+      <h3>Seasonal Tune-Ups</h3>
+      <p>A DFW summer puts more hours on an AC unit than almost anywhere else. Keep it running with a pre-season check.</p>
+      <ul>
+        <li>Spring AC tune-up</li>
+        <li>Filter &amp; coil service</li>
+        <li>Refrigerant check</li>
+        <li>Maintenance plans</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECTION / WHY COMPASS -->
+<section class="direction">
+  <p class="dir-label">Why Compass Air</p>
+  <h2>We point you the right direction. Every time.</h2>
+  <p class="direction-intro">
+    Most homeowners don't know if they need a repair, a replacement, or just a cleaning. We'll tell you the honest answer — even if that means telling you to wait.
+  </p>
+
+  <div class="dir-grid">
+    <div class="dir-item">
+      <div class="dir-compass">N</div>
+      <div>
+        <h3>Straight diagnosis</h3>
+        <p>We tell you what's wrong and what it'll cost before we touch anything. No surprises on the invoice.</p>
+      </div>
+    </div>
+    <div class="dir-item">
+      <div class="dir-compass">E</div>
+      <div>
+        <h3>Right-sized systems</h3>
+        <p>We calculate the load before recommending a system. An oversized unit is worse than the one you replaced.</p>
+      </div>
+    </div>
+    <div class="dir-item">
+      <div class="dir-compass">S</div>
+      <div>
+        <h3>No commission pressure</h3>
+        <p>Our techs don't earn more for selling you a new unit. If a repair makes sense, we'll say so.</p>
+      </div>
+    </div>
+    <div class="dir-item">
+      <div class="dir-compass">W</div>
+      <div>
+        <h3>We show up when we say</h3>
+        <p>You'll get a real arrival window and a call when we're on the way. Not a four-hour guessing game.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MIKE / OWNER -->
+<section class="owner">
+  <p class="bearing-label">Who you're working with</p>
+  <h2 class="section-title">Mike sets the compass.</h2>
+
+  <div class="owner-card">
+    <div class="owner-top">
+      <div class="owner-photo">
+        M
+        <span class="owner-photo-note">Photo</span>
+      </div>
+      <div class="owner-id">
+        <div class="owner-name">Mike — Owner, Compass Air Service</div>
+        <div class="owner-title">Licensed HVAC contractor · DFW Area, TX<br>15+ years in the field</div>
+        <div class="owner-lic">
+          TX HVAC License <span class="num">TACL-B38157C</span>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="owner-quote">
+      "I named it Compass because that's what I try to be for homeowners — someone who points you in the right direction, not toward the most expensive option. You can call me directly if you have a question. That's how I want to run this."
+    </blockquote>
+
+    <div class="owner-creds">
+      <div class="owner-cred">TX TACL Licensed · HVAC contractor</div>
+      <div class="owner-cred">EPA 608 Universal certified</div>
+      <div class="owner-cred">NATE certified technician</div>
+      <div class="owner-cred">Fully insured — liability &amp; workers' comp</div>
+      <div class="owner-cred">Background-checked team</div>
+      <div class="owner-cred">All work permitted when required</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="bearing-label">Customer reviews · DFW area</p>
+  <h2 class="section-title">Homeowners pointed in the right direction.</h2>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-bearing">AC Repair</div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Mike was the third company I called and the first one who actually explained what was wrong. Capacitor replaced, AC working in 45 minutes. The other quotes were for a whole new system I apparently didn't need."</p>
+      <div class="testi-name">S. Morales <span>Arlington, TX</span></div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-bearing">System Replacement</div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Got four quotes. Compass Air was the only one who did a load calculation before recommending a unit size. Everyone else just matched what I had. That alone told me these guys knew what they were doing."</p>
+      <div class="testi-name">B. &amp; L. Thorne <span>Mansfield, TX</span></div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-bearing">Ductwork + Tune-Up</div>
+      <div class="testi-stars">★★★★★</div>
+      <p>"Back bedroom was always 5 degrees hotter than the rest of the house. Compass found a disconnected duct in the attic and sealed two big leaks. Fixed completely. Wish I'd called years ago."</p>
+      <div class="testi-name">K. Osei <span>Grand Prairie, TX</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <!-- Small compass in CTA -->
+  <div class="final-rose">
+    <svg width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="26" cy="26" r="24" fill="none" stroke="rgba(201,146,10,0.3)" stroke-width="1"/>
+      <g transform="translate(26,26)">
+        <polygon points="0,-22 3.5,-6 0,-2.5 -3.5,-6" fill="#c9920a"/>
+        <polygon points="0,22 3.5,6 0,2.5 -3.5,6" fill="rgba(201,146,10,0.4)"/>
+        <polygon points="22,0 6,3.5 2.5,0 6,-3.5" fill="rgba(201,146,10,0.4)"/>
+        <polygon points="-22,0 -6,3.5 -2.5,0 -6,-3.5" fill="rgba(201,146,10,0.4)"/>
+        <circle r="5" fill="none" stroke="rgba(201,146,10,0.5)" stroke-width="1"/>
+        <circle r="2.5" fill="#c9920a"/>
+        <text x="0" y="-27" text-anchor="middle" fill="#c9920a" font-size="6" font-weight="800" font-family="sans-serif">N</text>
+      </g>
+    </svg>
+  </div>
+
+  <h2>Let's point you in the right direction.</h2>
+  <p>Free estimate, no pressure, honest advice on repair vs. replace. Call or text — we'll get back to you fast.</p>
+  <div class="cta-stack">
+    <a class="btn-main" href="tel:+18175550162">Call (817) 555-0162</a>
+    <a class="btn-ghost" href="sms:+18175550162">Text Us Your Question</a>
+  </div>
+  <p style="margin-top:16px; font-size:0.76rem; color:rgba(255,255,255,0.28);">
+    Serving DFW · Fort Worth · Arlington · Mansfield · Grand Prairie · Midlothian · Burleson
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Compass Air Service</strong>
+  DFW Area, TX &nbsp;·&nbsp; (817) 555-0162<br>
+  TX Licensed HVAC · TACL-B38157C · Fully Insured<br>
+  Serving the DFW Metroplex
+</footer>
+
+</body>
+</html>
